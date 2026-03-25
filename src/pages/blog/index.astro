@@ -2,24 +2,84 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const MANUAL_ORDER = [
+  'cosmetics-retail-the-shift-to-value-driven-incentives',
+  'what-beauty-personal-care-brands-miss-in-sales-incentives',
+  'channel-loyalty-in-crop-care',
+  'loyalty-seeds-industry-distributors-retailer',
+  'why-data-is-the-secret-ingredient-to-effective-sales-incentive-programs',
+  'female-leadership-shobhita-narain',
+  'female-leadership-meenakshi-iyengar',
+  'drive-excellence-in-the-hospitality-sector-with-incentives',
+  'product-visibility-apparel-brands-retailer-incentives',
+  'diwali-sales-how-to-incentivize-retailers-and-channel-partners',
+  'how-to-create-winning-incentive-strategies-this-diwali-season',
+  'how-to-make-your-mechanic-loyalty-program-work',
+  'polls-revolutionize-your-sales-incentive',
+  'why-excel-falls-short-for-managing-sales-incentives',
+  'engaging-channel-partner',
+  'boosting-sales-performance-with-personalized-nudges',
+  'streamlining-incentive-claim-management',
+  'multiple-kpi-tracking-for-sales-teams',
+  'designing-effective-incentive-programs-for-auto-dealerships',
+  'designing-effective-incentive-programs-for-mechanics',
+  'incentive-programs-for-auto-retailers',
+  'auto-sector-incentives-a-guide-for-dealerships-retailers-and-mechanics',
+  '7-types-of-channel-incentive-programs',
+  'personalized-and-data-driven-nudges-for-sales-reps',
+  'features-to-look-for-before-finalizing-a-sales-incentive-solution',
+  'how-to-create-a-sales-incentive-plan',
+  'sales-incentive-software-solution',
+  'understanding-the-claims-process-in-channel-incentive-programs',
+  'personalized-certificates-for-sales-incentive-gamification',
+  'boosting-sales-success-with-target-meters',
+  'the-impact-of-leaderboards-on-sales-teams',
+  'elevating-sales-success-with-fastest-finger-first-quizzes',
+  'gamification-strategies-for-your-sales-incentives',
+  'how-to-track-sales-commission-effectively',
+  'watch-video-to-get-started-with-sales-incentives',
+  'how-to-launch-a-sales-incentives-program',
+  'automated-incentive-calculation-benefits',
+  '5-best-channel-loyalty-software-program',
+  'the-evolution-of-loyalty-programs-and-why-they-work',
+  'eight-innovative-incentives-for-new-retail-4-0',
+  'what-can-motivate-retail-staff-in-retail-4-0',
+  'tips-for-measuring-the-effectiveness-of-a-sales-incentives-program',
+  'make-sales-incentives-more-exciting-with-gamification',
+  'how-to-use-technology-to-manage-and-administer-a-sales-incentives-program',
+  'ceo-employee-engagement-5-mistakes-to-avoid',
+  'hr-leaders-and-their-changing-priorities-in-2023',
+  'are-you-an-effective-leader',
+  '5-practical-ways-to-promote-work-life-balance-and-avoid-burnout',
+];
 
+const allPosts = await getCollection('blog');
+const manualSet = new Set(MANUAL_ORDER);
+
+// Build ordered list from manual array
+const postMap = new Map(allPosts.map(p => [p.id, p]));
+const orderedPosts = MANUAL_ORDER
+  .map(slug => postMap.get(slug))
+  .filter((p): p is NonNullable<typeof p> => p !== undefined);
+
+// Remainder: posts not in manual list, sorted by date descending
+const remainderPosts = allPosts
+  .filter(p => !manualSet.has(p.id))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const posts = [...orderedPosts, ...remainderPosts];
 const categories = ['All', 'Channel Partner Loyalty', 'Rewards & Recognition', 'Sales Incentives'];
 ---
 
 <Layout title="Blog" description="Insights on channel incentives, loyalty programs, and employee engagement from GRG India.">
-  <section class="py-16 md:py-20 bg-white">
+  <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Heading -->
-      <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900">Latest Blogs</h1>
 
       <!-- Category Tabs -->
-      <div class="mt-10 flex flex-wrap justify-center gap-6 border-b border-gray-200 pb-px">
+      <div class="flex flex-wrap justify-center gap-8 border-b border-gray-200 mb-10">
         {categories.map((cat) => (
           <button
-            class="category-tab pb-3 text-sm font-medium transition-colors"
+            class="category-tab pb-2 text-sm font-medium transition-colors"
             data-filter={cat}
           >
             {cat}
@@ -28,30 +88,31 @@ const categories = ['All', 'Channel Partner Loyalty', 'Rewards & Recognition', '
       </div>
 
       <!-- Posts Grid -->
-      <div id="posts-grid" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
           <a
             href={`/blog/${post.id}`}
-            class="blog-card block border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+            class="blog-card block border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
             data-category={post.data.category || ''}
           >
             {post.data.image ? (
               <img
                 src={post.data.image}
                 alt={post.data.title}
-                class="w-full h-[220px] object-cover rounded-t-lg"
+                class="w-full h-[220px] object-cover"
               />
             ) : (
-              <div class="w-full h-[220px] bg-gray-200 rounded-t-lg" />
+              <div class="w-full h-[220px] bg-gray-100" />
             )}
             <div class="px-3 py-4">
-              <h2 class="text-sm font-semibold text-gray-900 text-center line-clamp-2">
+              <h2 class="text-sm font-medium text-gray-900 text-center leading-snug line-clamp-2">
                 {post.data.title}
               </h2>
             </div>
           </a>
         ))}
       </div>
+
     </div>
   </section>
 </Layout>

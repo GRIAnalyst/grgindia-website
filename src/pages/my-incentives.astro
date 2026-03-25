@@ -2,42 +2,351 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="My Incentives" description="My Incentives - End-to-end incentive automation platform by GRG India.">
-  <section class="bg-gradient-to-br from-green-600 to-green-800 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-bold">My Incentives</h1>
-        <p class="mt-6 text-lg md:text-xl text-green-100">
-          End-to-end incentive automation platform for managing complex channel incentive programs at scale.
-        </p>
-        <a
-          href="/book-a-demo"
-          class="mt-8 inline-block px-6 py-3 bg-white text-green-700 font-semibold rounded-lg hover:bg-green-50"
-        >
-          Request a Demo
-        </a>
+<Layout title="My Incentives – Sales Incentive & Commission Management" description="My Incentives by GRG India — an end-to-end platform to automate incentive calculations, commissions, and payouts for sales teams, channel partners, and retailers.">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="bg-[#f5f5f8] relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,100 C360,180 1080,20 1440,100 L1440,200 L0,200 Z" fill="#ebebf0" opacity="0.6"/>
+        <path d="M0,140 C400,80 1000,160 1440,120 L1440,200 L0,200 Z" fill="#e2e2ea" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d]">
+            Drive Sales Motivation with the Right Incentives
+          </h1>
+          <p class="mt-6 text-lg text-[#4a5568]">
+            Boost the performance of your sales and other revenue-generating teams with My Incentives. And pay incentives and commissions with zero hassle or complexity.
+          </p>
+          <a
+            href="/book-a-demo"
+            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+          >
+            Book A Demo
+          </a>
+        </div>
+        <div>
+          <img src="/images/my-incentives/hero-banner.png" alt="My Incentives platform overview" class="w-full h-auto" />
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 md:py-24">
+  <!-- ==================== CLIENT LOGOS ==================== -->
+  <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center">Key Features</h2>
-      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <p class="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8">Our Clients</p>
+      <div class="flex flex-wrap justify-center items-center gap-8">
         {[
-          { title: 'Incentive Engine', desc: 'Configure complex incentive rules with a no-code rule builder.' },
-          { title: 'Automated Payouts', desc: 'Calculate and disburse incentives automatically with full audit trails.' },
-          { title: 'Program Analytics', desc: 'Deep insights into program performance and partner behavior.' },
-          { title: 'Scheme Management', desc: 'Design and manage multiple incentive schemes simultaneously.' },
-          { title: 'Partner Portal', desc: 'Self-service portal for partners to track earnings and performance.' },
-          { title: 'Integration Ready', desc: 'Seamless integration with ERP, CRM, and other enterprise systems.' },
-        ].map((feature) => (
-          <div class="p-6 border border-gray-200 rounded-xl">
-            <h3 class="text-lg font-semibold">{feature.title}</h3>
-            <p class="mt-2 text-gray-600">{feature.desc}</p>
+          'Mahindra', 'PRESTIGE', 'titan', 'Caratlane', 'sbi-card',
+          'Adani-Wilmar', 'tanishq', 'Dell', 'gulf', 'Latentview',
+        ].map((name) => (
+          <img
+            src={`/images/logos/${name}.png`}
+            alt={name}
+            class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <img src="/images/my-incentives/how-it-works.png" alt="My Incentives – Hermione Jackson profile with earned and redeemed points" class="w-full max-w-lg mx-auto" />
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-[#E41E3A] mb-2">How it works</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d]">
+            Simplify Your Incentive Management Process
+          </h2>
+          <p class="mt-6 text-lg text-gray-600">
+            Bid goodbye to the stress of creating incentive campaigns, collating sales data and doing complex calculations to pay compensation and incentives to your sales teams and channel partners.
+          </p>
+          <p class="mt-4 text-lg text-gray-600">
+            With My Incentives, you can create and manage multiple commission or incentive plans, gamify the campaigns, set the rules for calculation as you wish and track every aspect of these programs from a single platform.
+          </p>
+          <p class="mt-6 text-lg font-semibold text-[#0f1f3d]">What's more?</p>
+          <p class="mt-2 text-lg text-gray-600">
+            You have complete control and visibility of your incentive payouts, letting you eliminate leakages, delays and tedious processes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SHAPING THE FUTURE — ICON GRID ==================== -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+        Shaping the Future of Commissions & Incentive Payouts
+      </h2>
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Row 1 -->
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dbeafe;">
+            <img src="/images/my-incentives/icons/webhooks-api.png" alt="Webhooks and API Integrations" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Webhooks and<br/>API Integrations</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #fef9c3;">
+            <img src="/images/my-incentives/icons/point-budget.png" alt="Point & Budget Management System" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Point & Budget<br/>Management System</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #ffe4e6;">
+            <img src="/images/my-incentives/icons/approval-workflow.png" alt="Hierarchy-based Approval Workflow" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Hierarchy-based<br/>Approval Workflow</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dcfce7;">
+            <img src="/images/my-incentives/icons/realtime-dashboards.png" alt="Real-time User & Admin Dashboards" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Real-time User<br/>& Admin Dashboards</h3>
+        </div>
+        <!-- Row 2 -->
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dcfce7;">
+            <img src="/images/my-incentives/icons/multi-country-catalog.png" alt="Multi-country Reward Catalog" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Multi-country<br/>Reward Catalog</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #ffe4e6;">
+            <img src="/images/my-incentives/icons/cash-products.png" alt="Cash Products" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Cash<br/>Products</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dbeafe;">
+            <img src="/images/my-incentives/icons/digital-rewards.png" alt="500+ Digital Reward Options" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">500+ Digital<br/>Reward Options</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dbeafe;">
+            <img src="/images/my-incentives/icons/kyc-tds.png" alt="KYC & TDS Management" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">KYC &<br/>TDS Management</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STAKEHOLDERS ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+        Automate Incentives for a Variety of Stakeholders
+      </h2>
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            img: '/images/my-incentives/stakeholders/sales-team.png',
+            title: 'Sales Teams',
+            desc: 'Boost the performance of your sales team with timely incentive and commission payouts.',
+          },
+          {
+            img: '/images/my-incentives/stakeholders/channel-partners.png',
+            title: 'Channel Partners',
+            desc: 'From retailers, stockists, distributors to more, incentivize your channel partners to boost sales.',
+          },
+          {
+            img: '/images/my-incentives/stakeholders/retail-stores.png',
+            title: 'Retail Stores',
+            desc: 'Keep the frontline employees at your stores and outlets motivated with regular incentives.',
+          },
+          {
+            img: '/images/my-incentives/stakeholders/influencers.png',
+            title: 'Influencers',
+            desc: 'Sales-based commission for your influencers doesn\'t have to be chaotic and ill-managed.',
+          },
+        ].map((card) => (
+          <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden text-center">
+            <div class="p-6 pb-0">
+              <img src={card.img} alt={card.title} class="w-full max-w-[160px] h-auto mx-auto object-contain" />
+            </div>
+            <div class="p-6 pt-4">
+              <h3 class="text-lg font-semibold text-[#0f1f3d]">{card.title}</h3>
+              <p class="mt-2 text-sm text-gray-600">{card.desc}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
+
+  <!-- ==================== 4 PRODUCT FEATURES (alternating) ==================== -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-20">
+
+        <!-- Feature 1: Integrate — image left, text right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <img src="/images/my-incentives/integrate-platform-diagram.png" alt="Integration hub with SAP, Salesforce, invoice upload, scan and earn" class="w-full max-w-lg mx-auto order-2 md:order-1" />
+          <div class="order-1 md:order-2 px-2 md:px-6">
+            <h3 class="text-2xl font-bold text-[#0f1f3d]">Integrate with Any Platform</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Integrate My Incentives with your database, CRM, and other tools through easy and time-saving API integrations. Whether it's SAP, Salesforce, or custom ERPs — connect seamlessly with invoice uploads, scan-and-earn modules, and referral tracking.
+            </p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">ERP & CRM integration (SAP, Salesforce)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Invoice upload & scan-and-earn</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Referral lead tracking</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 2: Automate Calculations — text left, image right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="px-2 md:px-6">
+            <h3 class="text-2xl font-bold text-[#0f1f3d]">Automate Calculations & Approvals</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Access a flexible rule engine for complex incentive calculations. Configure approval workflows for instant payouts, and track every aspect of these programs from a single platform.
+            </p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">No-code rule builder (IF / THEN / ELSE)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Configurable approval workflows</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Instant payout calculation with full audit trail</span>
+              </li>
+            </ul>
+          </div>
+          <img src="/images/my-incentives/automate-calculations.png" alt="Rule engine with IF/THEN/ELSE logic and payout calculation" class="w-full max-w-lg mx-auto" />
+        </div>
+
+        <!-- Feature 3: Drive Performance — image left, text right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <img src="/images/my-incentives/drive-transparency.png" alt="Mobile app with target meter, nudges, and earnings tracker" class="w-full max-w-lg mx-auto order-2 md:order-1" />
+          <div class="order-1 md:order-2 px-2 md:px-6">
+            <h3 class="text-2xl font-bold text-[#0f1f3d]">Drive Performance with Transparency</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Create multiple incentive programs for as many target groups as you wish. Give your sales teams and channel partners real-time visibility into their targets, achievement, and earnings — driving motivation through transparency.
+            </p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Real-time target meters & progress tracking</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Automated WhatsApp/SMS nudges</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Live earnings dashboard for participants</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 4: Payout & Compliance — text left, image right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="px-2 md:px-6">
+            <h3 class="text-2xl font-bold text-[#0f1f3d]">Payout and Compliance Automation</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Drive compliant, low-error rate payouts for users, at scale. Support UPI, NEFT, Amazon Gift Cards, PhonePe and more — with built-in KYC verification including PAN card, GST, and bank details.
+            </p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Multiple payout methods (UPI, NEFT, gift cards)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">Built-in document verification & KYC</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-2 h-2 rounded-full bg-[#E41E3A] shrink-0"></span>
+                <span class="text-gray-600">GST-compliant with full audit trails</span>
+              </li>
+            </ul>
+          </div>
+          <img src="/images/my-incentives/payout-compliance.png" alt="Payment methods screen with UPI, NEFT, Amazon Gift Card, PhonePe and document verification" class="w-full max-w-lg mx-auto" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MORE ON MY INCENTIVES ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+        More on My Incentives
+      </h2>
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            img: '/images/my-incentives/more/collaborate-distributed.png',
+            title: 'Collaborate Across Distributed Teams',
+            desc: 'Drive community across distributed or remote workforces through updates on company policies, leaderboards and interaction capabilities.',
+          },
+          {
+            img: '/images/my-incentives/more/low-code-platform.png',
+            title: 'Low-code Platform',
+            desc: 'Launch and manage incentive programs without heavy IT involvement. Our intuitive interface lets business teams configure schemes in minutes.',
+          },
+          {
+            img: '/images/my-incentives/more/access-any-device.png',
+            title: 'Access on Any Device',
+            desc: 'Give your sales teams and channel partners on-the-go access via mobile apps (iOS & Android) with full feature parity across devices.',
+          },
+          {
+            img: '/images/my-incentives/more/access-analytics.png',
+            title: 'Access Analytics',
+            desc: 'Track program ROI, payout trends, and participant performance with real-time dashboards. Export reports and make data-driven decisions.',
+          },
+        ].map((card) => (
+          <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden text-center p-6">
+            <img src={card.img} alt={card.title} class="w-20 h-20 mx-auto object-contain" />
+            <h3 class="mt-5 text-base font-semibold text-[#0f1f3d]">{card.title}</h3>
+            <p class="mt-2 text-sm text-gray-600">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d]">Ready to Transform Your Incentive Programs?</h2>
+      <p class="mt-4 text-gray-600 max-w-xl mx-auto">
+        See how My Incentives can help you automate and scale commissions, payouts, and channel programs.
+      </p>
+      <a
+        href="/book-a-demo"
+        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+      >
+        Book a Demo
+      </a>
+    </div>
+  </section>
+
 </Layout>
