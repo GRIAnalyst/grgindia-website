@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* ── GRG India Brand Theme ── */
+:root {
+  --brand-red: #E41E3A;
+  --brand-red-dark: #b8162e;
+  --brand-navy: #0f1f3d;
+}

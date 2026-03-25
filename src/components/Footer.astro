@@ -1,0 +1,71 @@
+---
+const columns = [
+  {
+    title: 'Products',
+    links: [
+      { label: 'Buzzz', href: '/buzzz' },
+      { label: 'My Incentives', href: '/my-incentives' },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { label: 'Retail', href: '/retail' },
+      { label: 'Auto', href: '/auto' },
+      { label: 'Manufacturing', href: '/manufacturing' },
+      { label: 'IT Services', href: '/it-services' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Blog', href: '/blog' },
+      { label: 'Customer Stories', href: '/customer-stories' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Newsroom', href: '/newsroom' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <!-- Logo / Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="text-xl font-bold text-white">GRG India</a>
+        <p class="mt-3 text-sm text-gray-400">
+          Empowering businesses with intelligent channel incentive and loyalty solutions.
+        </p>
+      </div>
+
+      {columns.map((col) => (
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider">{col.title}</h3>
+          <ul class="mt-3 space-y-2">
+            {col.links.map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-gray-400 hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+      &copy; {year} GRG India. All rights reserved.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Auto Solutions" description="Channel incentive solutions for the automotive industry.">
+  <section class="bg-gradient-to-br from-slate-700 to-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold">Auto Solutions</h1>
+        <p class="mt-6 text-lg md:text-xl text-slate-300">
+          Drive dealer and distributor engagement in the automotive sector with purpose-built incentive programs.
+        </p>
+        <a
+          href="/book-a-demo"
+          class="mt-8 inline-block px-6 py-3 bg-white text-slate-800 font-semibold rounded-lg hover:bg-slate-50"
+        >
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center">Why Automotive Companies Choose Us</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { title: 'Dealer Performance', desc: 'Track and reward dealer performance across sales and service metrics.' },
+          { title: 'Spare Parts Incentives', desc: 'Incentivize spare parts purchases and after-sales service excellence.' },
+          { title: 'Training Rewards', desc: 'Reward dealers for completing certifications and training programs.' },
+        ].map((item) => (
+          <div class="p-6 border border-gray-200 rounded-xl">
+            <h3 class="text-lg font-semibold">{item.title}</h3>
+            <p class="mt-2 text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

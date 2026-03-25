@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home" description="GRG India - Intelligent channel incentive and loyalty solutions for enterprises.">
+  <!-- Hero -->
+  <section class="bg-[#f5f5f8] relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,100 C360,180 1080,20 1440,100 L1440,200 L0,200 Z" fill="#ebebf0" opacity="0.6"/>
+        <path d="M0,140 C400,80 1000,160 1440,120 L1440,200 L0,200 Z" fill="#e2e2ea" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d]">
+            The Smartest Way to Manage, Deliver Rewards & Incentives
+          </h1>
+          <p class="mt-6 text-lg text-[#4a5568]">
+            Motivate and boost the performance of your employees and revenue generating teams with our plug-and-play, zero-code tools.
+          </p>
+          <a
+            href="/book-a-demo"
+            class="mt-8 inline-block px-8 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600"
+          >
+            Book a Demo
+          </a>
+        </div>
+        <div>
+          <img src="/images/home-banner.png" alt="GRG India platform" class="w-full h-auto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos Strip -->
+  <section class="py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-8">
+        {[
+          'Adani-Wilmar', 'Caratlane', 'Dell', 'Latentview', 'Mahindra',
+          'PRESTIGE', 'gulf', 'sbi-card', 'tanishq', 'titan',
+        ].map((name) => (
+          <img
+            src={`/images/logos/${name}.png`}
+            alt={name}
+            class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Loyalty Segments -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center">Build loyalty among those who matter!</h2>
+      <p class="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
+        With full-stack solutions for rewards, recognition, incentives and commission management, you can seamlessly drive trust and loyalty among all your stakeholders.
+      </p>
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { title: 'Channel Partners', img: '/images/segments/channel-partners.png', desc: "Incentivize your channel partners, franchise stores, dealers, and distributors through a structured loyalty program - that's automated & managed digitally." },
+          { title: 'Sales Teams', img: '/images/segments/sales-teams.png', desc: 'Motivate your sales teams to drive higher revenues by automating sales commission and incentive management for timely and hassle-free payouts.' },
+          { title: 'Employees', img: '/images/segments/employees.png', desc: "Build a culture of appreciation by rewarding and recognizing employees' best performances, alignment with company values and service milestones." },
+          { title: 'Other Teams', img: '/images/segments/other-teams.png', desc: 'Motivate other revenue-focused teams using digital loyalty programs that manage and disburse timely commission & incentives.' },
+        ].map((card) => (
+          <div class="border border-gray-200 rounded-xl shadow-sm">
+            <img src={card.img} alt={card.title} class="w-full h-auto object-contain" />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold">{card.title}</h3>
+              <p class="mt-2 text-sm text-gray-600">{card.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center">Automate and manage rewards & incentives programs from scratch</h2>
+
+      <div class="mt-16 space-y-8">
+        <!-- Row 1: text left, image right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="px-2 md:px-6">
+            <h3 class="text-2xl font-bold">Create multiple campaigns</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Publish multiple rewards or incentive campaigns with ease. From complex calculations to paperwork and disbursement – everything can be automated on the platform.
+            </p>
+          </div>
+          <img src="/images/features/create-campaigns.png" alt="Create multiple campaigns" class="w-full max-w-md mx-auto" />
+        </div>
+
+        <!-- Row 2: image left, text right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <img src="/images/features/gamify-loyalty.png" alt="Gamify loyalty programs" class="w-full max-w-md mx-auto order-2 md:order-1" />
+          <div class="order-1 md:order-2 px-2 md:px-6">
+            <h3 class="text-2xl font-bold">Gamify loyalty programs</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Make reaching targets fun and competitive with leaderboards, points, badges, polls and votes, and so much more.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 3: text left, image right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="px-2 md:px-6">
+            <h3 class="text-2xl font-bold">Global reward catalog</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Give your teams the freedom to choose from thousands of rewards — vouchers, experiences, and more — across multiple countries.
+            </p>
+          </div>
+          <img src="/images/features/global-rewards.png" alt="Global reward catalog" class="w-full max-w-md mx-auto" />
+        </div>
+
+        <!-- Row 4: image left, text right -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <img src="/images/features/social-recognition.png" alt="Drive social recognition" class="w-full max-w-md mx-auto order-2 md:order-1" />
+          <div class="order-1 md:order-2 px-2 md:px-6">
+            <h3 class="text-2xl font-bold">Drive social recognition</h3>
+            <p class="mt-4 text-lg text-gray-600">
+              Appreciate and celebrate the great work and behaviors of your employees and teams on a social feed. Add points and give out e-certificates too!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-16 bg-white">
+    <div
+      class="max-w-5xl mx-auto rounded-3xl py-12 px-8 md:px-16"
+      style="background: radial-gradient(ellipse at center, #e8192c 0%, #b01020 100%); box-shadow: 0 8px 40px rgba(180,10,30,0.25);"
+    >
+      <div class="grid grid-cols-2 gap-8 text-center text-white md:grid-cols-4 md:gap-0 md:divide-x md:divide-white/30">
+        {[
+          { number: '20+', label: 'Years of Experience' },
+          { number: '100+', label: 'Clients' },
+          { number: '500K+', label: 'Users' },
+          { number: '1.5M+', label: 'Annual Awards' },
+        ].map((stat) => (
+          <div class="px-4">
+            <div class="text-5xl font-extrabold">{stat.number}</div>
+            <div class="mt-3 text-sm uppercase tracking-widest font-medium opacity-90">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GRG Advantage -->
+  <section class="bg-[#0f1f3d] py-20 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center">The GRG India Advantage</h2>
+      <p class="mt-4 text-center text-gray-300 max-w-2xl mx-auto">
+        We give more power to you by simplifying everyday operations and delivering exemplary results.
+      </p>
+      <div class="mt-14 grid md:grid-cols-2 gap-10 items-start">
+        <div class="min-h-[500px]">
+          <img src="/images/grg-advantage.png" alt="GRG India Advantage" class="w-full h-full object-cover object-top rounded-lg" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {[
+            { icon: '/images/icons/reliability.png', title: 'Reliability & Trust', desc: "With 20+ years of experience in incentive and rewards management, we've the expertise to help organizations transform their rewards and incentive programs to improve revenue and productivity." },
+            { icon: '/images/icons/pricing.png', title: 'Competitive Pricing', desc: 'We follow a subscription-based pricing model and have come up with the best prices in the incentive and rewards space. No hidden fees!' },
+            { icon: '/images/icons/security.png', title: 'Security & Safety', desc: 'We have ISO/IEC 27001 certification and use the best security and encryption technology and have robust data access policies.' },
+            { icon: '/images/icons/service.png', title: 'Service-first Approach', desc: 'Customer support is the top priority. Our best and most lasting relationships with clients are a result of our dependable customer service.' },
+          ].map((item) => (
+            <div class="p-4">
+              <img src={item.icon} alt={item.title} class="w-12 h-12" />
+              <h3 class="mt-3 text-xl font-semibold">{item.title}</h3>
+              <p class="mt-2 text-base text-gray-300">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold">Ready to Transform Your Channel Incentives?</h2>
+      <p class="mt-4 text-gray-600 max-w-xl mx-auto">
+        See how GRG India can help you automate and scale your channel programs.
+      </p>
+      <a
+        href="/book-a-demo"
+        class="mt-8 inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+      >
+        Book a Demo
+      </a>
+    </div>
+  </section>
+</Layout>

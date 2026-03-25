@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const categories = ['All', 'Channel Partner Loyalty', 'Rewards & Recognition', 'Sales Incentives'];
+---
+
+<Layout title="Blog" description="Insights on channel incentives, loyalty programs, and employee engagement from GRG India.">
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Heading -->
+      <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900">Latest Blogs</h1>
+
+      <!-- Category Tabs -->
+      <div class="mt-10 flex flex-wrap justify-center gap-6 border-b border-gray-200 pb-px">
+        {categories.map((cat) => (
+          <button
+            class="category-tab pb-3 text-sm font-medium transition-colors"
+            data-filter={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Posts Grid -->
+      <div id="posts-grid" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <a
+            href={`/blog/${post.id}`}
+            class="blog-card block border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+            data-category={post.data.category || ''}
+          >
+            {post.data.image ? (
+              <img
+                src={post.data.image}
+                alt={post.data.title}
+                class="w-full h-[220px] object-cover rounded-t-lg"
+              />
+            ) : (
+              <div class="w-full h-[220px] bg-gray-200 rounded-t-lg" />
+            )}
+            <div class="px-3 py-4">
+              <h2 class="text-sm font-semibold text-gray-900 text-center line-clamp-2">
+                {post.data.title}
+              </h2>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const tabs = document.querySelectorAll('.category-tab');
+  const cards = document.querySelectorAll('.blog-card');
+
+  function setActiveTab(activeBtn: Element) {
+    tabs.forEach((tab) => {
+      tab.classList.remove('text-gray-900', 'border-b-2', 'border-gray-900');
+      tab.classList.add('text-gray-400');
+    });
+    activeBtn.classList.remove('text-gray-400');
+    activeBtn.classList.add('text-gray-900', 'border-b-2', 'border-gray-900');
+  }
+
+  function filterCards(category: string) {
+    cards.forEach((card) => {
+      if (category === 'All' || card.getAttribute('data-category') === category) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const filter = tab.getAttribute('data-filter') || 'All';
+      setActiveTab(tab);
+      filterCards(filter);
+    });
+  });
+
+  // Set "All" as active on load
+  const allTab = document.querySelector('.category-tab[data-filter="All"]');
+  if (allTab) setActiveTab(allTab);
+</script>

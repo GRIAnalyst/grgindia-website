@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Retail Solutions" description="Channel incentive solutions for the retail industry.">
+  <section class="bg-gradient-to-br from-orange-500 to-orange-700 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold">Retail Solutions</h1>
+        <p class="mt-6 text-lg md:text-xl text-orange-100">
+          Boost retail channel performance with targeted incentive programs that drive sales and partner loyalty.
+        </p>
+        <a
+          href="/book-a-demo"
+          class="mt-8 inline-block px-6 py-3 bg-white text-orange-700 font-semibold rounded-lg hover:bg-orange-50"
+        >
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center">Why Retail Brands Choose Us</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { title: 'Dealer Incentives', desc: 'Design and automate incentive programs for your retail dealer network.' },
+          { title: 'Sales Contests', desc: 'Run targeted sales contests to drive product-level performance.' },
+          { title: 'Loyalty Programs', desc: 'Build long-term loyalty with points, rewards, and tiered programs.' },
+        ].map((item) => (
+          <div class="p-6 border border-gray-200 rounded-xl">
+            <h3 class="text-lg font-semibold">{item.title}</h3>
+            <p class="mt-2 text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

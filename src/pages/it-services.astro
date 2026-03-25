@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="IT Services Solutions" description="Channel incentive solutions for IT services companies.">
+  <section class="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold">IT Services Solutions</h1>
+        <p class="mt-6 text-lg md:text-xl text-indigo-100">
+          Accelerate partner-led growth for IT services companies with intelligent incentive programs.
+        </p>
+        <a
+          href="/book-a-demo"
+          class="mt-8 inline-block px-6 py-3 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-indigo-50"
+        >
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center">Why IT Services Companies Choose Us</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { title: 'Reseller Programs', desc: 'Motivate resellers with performance-based incentive structures.' },
+          { title: 'Deal Registration', desc: 'Streamline deal registration with automated approval workflows.' },
+          { title: 'MDF Management', desc: 'Manage market development funds with complete visibility and control.' },
+        ].map((item) => (
+          <div class="p-6 border border-gray-200 rounded-xl">
+            <h3 class="text-lg font-semibold">{item.title}</h3>
+            <p class="mt-2 text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
