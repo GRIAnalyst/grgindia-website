@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title: string;
@@ -19,6 +20,7 @@ const { title, description = 'GRG India - Channel Incentive & Loyalty Solutions'
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | GRG India</title>
+    <SpeedInsights />
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900">
     <Navbar />
