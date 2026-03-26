@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.2",
-    "@rollup/rollup-linux-arm64-gnu": "^4.60.0",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
     "tailwindcss": "^4.2.2",
