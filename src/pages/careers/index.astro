@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 const openings = [
   {
@@ -10,6 +10,50 @@ const openings = [
     type: 'Full-time',
     experience: '1–2 years',
     summary: 'Drive new business opportunities in B2B SaaS sales for our incentive management platform, working with enterprise clients across India.',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Pooja Chikula',
+    title: 'Tech Lead',
+    photo: '/images/careers/pooja.png',
+    quote: 'I have been with this organization for over five years, and it has been a deeply great journey. The company has provided incredible opportunities for professional growth and continuous learning, ensuring I feel valued and motivated. The work-life balance is well supported.',
+  },
+  {
+    name: 'Satya Prakash',
+    title: 'Business Development Manager',
+    photo: '/images/careers/satya.png',
+    quote: 'Working at GRG India has been an incredible experience. The culture here truly encourages growth, collaboration, and innovation. Every day brings new opportunities to learn and contribute meaningfully. If you\'re looking for a workplace where your ideas matter and your efforts are valued, GRG India is the place to be.',
+  },
+  {
+    name: 'Chetana Shelar',
+    title: 'Senior UI/UX Designer',
+    photo: '/images/careers/chetana.png',
+    quote: 'Being part of GRG India has been a truly enriching experience. The environment here motivates you to think creatively, take ownership, and keep growing. I feel valued, supported, and inspired every single day. GRG India is a place where your passion turns into progress.',
+  },
+];
+
+const values = [
+  {
+    icon: '/images/careers/We-re-passionate.png',
+    title: "We're passionate",
+    desc: 'Not one dull moment, we take a lot of pride and enthusiasm in everything we do.',
+  },
+  {
+    icon: '/images/careers/We-go-the-extra-mile.png',
+    title: 'We go the extra mile',
+    desc: 'We do whatever it takes to deliver exceptional results that delight our customers.',
+  },
+  {
+    icon: '/images/careers/We-are-professional.png',
+    title: "We're professional",
+    desc: 'We take ownership of the quality of work we deliver and how others perceive us.',
+  },
+  {
+    icon: '/images/careers/We-respect-others.png',
+    title: 'We respect others',
+    desc: 'We consider, care for and acknowledge our colleagues, customers, vendors and every other stakeholder.',
   },
 ];
 
@@ -40,61 +84,105 @@ const perks = [
 <Layout title="Careers at GRG India" description="Join our team and help build the future of incentive and reward management for India's top enterprises.">
 
   <!-- Hero -->
-  <section style="background-color: #0f1f3d;" class="relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold tracking-widest uppercase" style="color: #E41E3A;">Careers</p>
-        <h1 class="mt-3 text-4xl md:text-5xl font-extrabold text-white leading-tight">
-          Build the Future of<br />Incentive Technology
-        </h1>
-        <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl">
-          Join a team that's helping India's top brands — from Tanishq to Dell — automate, gamify, and transform how they reward performance.
-        </p>
-        <a
-          href="#openings"
-          class="mt-8 inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg transition-colors"
-          style="background-color: #E41E3A;"
-          onmouseover="this.style.backgroundColor='#b8162e'"
-          onmouseout="this.style.backgroundColor='#E41E3A'"
-        >
-          View Open Positions
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </a>
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase" style="color: #E41E3A;">Careers at GRG India</p>
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            Join us in making work enjoyable and fulfilling for all
+          </h1>
+          <a
+            href="#openings"
+            class="mt-8 inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg transition-colors"
+            style="background-color: #E41E3A;"
+            onmouseover="this.style.backgroundColor='#b8162e'"
+            onmouseout="this.style.backgroundColor='#E41E3A'"
+          >
+            See Open Roles
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </a>
+        </div>
+        <div>
+          <img
+            src="/images/careers/Careers-Top-banner.png"
+            alt="GRG India team"
+            class="w-full rounded-2xl shadow-lg"
+          />
+        </div>
       </div>
-    </div>
-    <!-- Decorative wave -->
-    <div class="absolute bottom-0 left-0 right-0">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-        <path d="M0 60L1440 60L1440 30C1200 0 960 10 720 30C480 50 240 60 0 30L0 60Z" fill="#f9fafb" />
-      </svg>
     </div>
   </section>
 
-  <!-- Why GRG India -->
+  <!-- Employee Testimonials -->
   <section class="bg-gray-50 py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why GRG India?</h2>
-        <p class="mt-4 text-lg text-gray-600">
-          We're a bootstrapped SaaS company that's grown to $800K+ ARR by solving real problems for real enterprises. Here's what makes working here different.
-        </p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {perks.map((perk) => (
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background-color: #fef2f2; color: #E41E3A;">
-              <Fragment set:html={perk.icon} />
+      <div class="grid md:grid-cols-3 gap-8">
+        {testimonials.map((t) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
+            <p class="text-gray-600 italic leading-relaxed mb-6">"{t.quote}"</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <img src={t.photo} alt={t.name} class="w-12 h-12 rounded-full object-cover" />
+              <div>
+                <p class="font-semibold text-gray-900 text-sm">{t.name}</p>
+                <p class="text-gray-500 text-xs">{t.title}</p>
+              </div>
             </div>
-            <h3 class="text-lg font-semibold text-gray-900">{perk.title}</h3>
-            <p class="mt-2 text-sm text-gray-600 leading-relaxed">{perk.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- We've got each other's backs -->
+  <section class="bg-gray-100 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-14">We've got each other's backs</h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10">
+        <div class="w-64 md:w-72 rounded-lg overflow-hidden shadow-lg bg-white p-2" style="transform: rotate(-4deg);">
+          <img src="/images/careers/Collage-pic.png" alt="Team collage" class="w-full rounded" />
+        </div>
+        <div class="w-64 md:w-72 rounded-lg overflow-hidden shadow-lg bg-white p-2 relative z-10" style="transform: rotate(2deg);">
+          <img src="/images/careers/Charoo.png" alt="Team photo" class="w-full rounded" />
+        </div>
+        <div class="w-64 md:w-72 rounded-lg overflow-hidden shadow-lg bg-white p-2" style="transform: rotate(-3deg);">
+          <img src="/images/careers/Careers-Top-banner.png" alt="Team banner" class="w-full rounded" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Guiding Values -->
+  <section class="py-16 md:py-24" style="background-color: #f9fafb;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-14">Our guiding values</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/careers/We-re-passionate.png" alt="We're passionate" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We're passionate</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">Not one dull moment, we take a lot of pride and enthusiasm in everything we do.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/careers/We-go-the-extra-mile.png" alt="We go the extra mile" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We go the extra mile</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">We do whatever it takes to deliver exceptional results that delight our customers.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/careers/We-are-professional.png" alt="We're professional" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We're professional</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">We take ownership of the quality of work we deliver and how others perceive us.</p>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/careers/We-respect-others.png" alt="We respect others" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We respect others</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">We consider, care for and acknowledge our colleagues, customers, vendors and every other stakeholder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Open Positions -->
-  <section id="openings" class="py-16 md:py-24">
+  <section id="openings" class="bg-gray-50 py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Open Positions</h2>
@@ -145,10 +233,33 @@ const perks = [
 
       <!-- No more openings note -->
       <div class="max-w-3xl mx-auto mt-10 text-center">
-        <div class="bg-gray-50 rounded-xl p-8 border border-gray-100">
+        <div class="bg-white rounded-xl p-8 border border-gray-100">
           <p class="text-gray-700 font-medium">Don't see the right role?</p>
-          <p class="mt-2 text-sm text-gray-500">We're always interested in hearing from talented people. Send us your resume at <a href="mailto:hello@grgindia.in" class="font-medium" style="color: #E41E3A;">hello@grgindia.in</a></p>
+          <p class="mt-2 text-sm text-gray-500">We're always interested in hearing from talented people. Send us your resume at <a href="mailto:contactus@grgindia.in" class="font-medium" style="color: #E41E3A;">contactus@grgindia.in</a></p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GRG India -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why GRG India?</h2>
+        <p class="mt-4 text-lg text-gray-600">
+          We're a bootstrapped SaaS company that's grown to $800K+ ARR by solving real problems for real enterprises. Here's what makes working here different.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {perks.map((perk) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background-color: #fef2f2; color: #E41E3A;">
+              <Fragment set:html={perk.icon} />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900">{perk.title}</h3>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">{perk.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

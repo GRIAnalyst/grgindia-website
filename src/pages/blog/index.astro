@@ -2,51 +2,69 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+// Ordered by: buyer-intent + high engagement first, then proven traffic, then topical relevance
 const MANUAL_ORDER = [
-  'cosmetics-retail-the-shift-to-value-driven-incentives',
-  'what-beauty-personal-care-brands-miss-in-sales-incentives',
-  'channel-loyalty-in-crop-care',
-  'loyalty-seeds-industry-distributors-retailer',
-  'why-data-is-the-secret-ingredient-to-effective-sales-incentive-programs',
-  'female-leadership-shobhita-narain',
-  'female-leadership-meenakshi-iyengar',
-  'drive-excellence-in-the-hospitality-sector-with-incentives',
-  'product-visibility-apparel-brands-retailer-incentives',
-  'diwali-sales-how-to-incentivize-retailers-and-channel-partners',
-  'how-to-create-winning-incentive-strategies-this-diwali-season',
-  'how-to-make-your-mechanic-loyalty-program-work',
-  'polls-revolutionize-your-sales-incentive',
-  'why-excel-falls-short-for-managing-sales-incentives',
-  'engaging-channel-partner',
-  'boosting-sales-performance-with-personalized-nudges',
-  'streamlining-incentive-claim-management',
-  'multiple-kpi-tracking-for-sales-teams',
+  // Tier 1: High engagement (40-130s) — readers who stay are your buyers
+  '5-ideas-to-improve-the-sales-motivation-of-your-retail-employees',       // 92s engagement
+  '5-motivational-emails-for-the-sales-team',                                // 49s engagement, 188 views
+  'new-age-sales-incentive-programs-for-retail-4-0',                         // 49s engagement  (slug: eight-innovative-incentives-for-new-retail-4-0 if different)
+  '10-ways-to-improve-your-rewards-recognition-program',                     // 42s engagement
+  'how-to-create-a-sales-incentive-plan',                                    // 39s engagement
+  'understanding-the-claims-process-in-channel-incentive-programs',          // 46s engagement
+  'multiple-kpi-tracking-for-sales-teams',                                   // 52s engagement
+  'sales-motivational-quotes-you-can-use',                                   // 83s engagement
+  'personalized-and-data-driven-nudges-for-sales-reps',                      // 47s engagement
+  '7-types-of-channel-incentive-programs',                                   // 48s engagement
+  'features-to-look-for-before-finalizing-a-sales-incentive-solution',       // 40.5s engagement
+  'why-excel-falls-short-for-managing-sales-incentives',                     // 28s engagement
+
+  // Tier 2: Proven organic traffic drivers (on-brand)
+  '5-best-channel-loyalty-software-program',                                 // 74 views
+  'sales-incentives-everything-you-need-to-get-started',                     // 23 views
+  'cosmetics-retail-the-shift-to-value-driven-incentives',                   // 19 views
+  'what-beauty-personal-care-brands-miss-in-sales-incentives',               // 21 views
+
+  // Tier 3: Industry-specific (supports solution pages)
   'designing-effective-incentive-programs-for-auto-dealerships',
   'designing-effective-incentive-programs-for-mechanics',
   'incentive-programs-for-auto-retailers',
   'auto-sector-incentives-a-guide-for-dealerships-retailers-and-mechanics',
-  '7-types-of-channel-incentive-programs',
-  'personalized-and-data-driven-nudges-for-sales-reps',
-  'features-to-look-for-before-finalizing-a-sales-incentive-solution',
-  'how-to-create-a-sales-incentive-plan',
-  'sales-incentive-software-solution',
-  'understanding-the-claims-process-in-channel-incentive-programs',
+  'how-to-make-your-mechanic-loyalty-program-work',
+  'channel-loyalty-in-crop-care',
+  'loyalty-seeds-industry-distributors-retailer',
+  'drive-excellence-in-the-hospitality-sector-with-incentives',
+  'product-visibility-apparel-brands-retailer-incentives',
+
+  // Tier 4: Gamification & sales tools content
+  'polls-revolutionize-your-sales-incentive',
+  'boosting-sales-performance-with-personalized-nudges',
+  'streamlining-incentive-claim-management',
   'personalized-certificates-for-sales-incentive-gamification',
   'boosting-sales-success-with-target-meters',
   'the-impact-of-leaderboards-on-sales-teams',
   'elevating-sales-success-with-fastest-finger-first-quizzes',
   'gamification-strategies-for-your-sales-incentives',
+  'make-sales-incentives-more-exciting-with-gamification',
+
+  // Tier 5: How-to guides and educational
   'how-to-track-sales-commission-effectively',
-  'watch-video-to-get-started-with-sales-incentives',
+  'how-to-use-technology-to-manage-and-administer-a-sales-incentives-program',
   'how-to-launch-a-sales-incentives-program',
   'automated-incentive-calculation-benefits',
-  '5-best-channel-loyalty-software-program',
-  'the-evolution-of-loyalty-programs-and-why-they-work',
-  'eight-innovative-incentives-for-new-retail-4-0',
-  'what-can-motivate-retail-staff-in-retail-4-0',
+  'sales-incentive-software-solution',
+  'watch-video-to-get-started-with-sales-incentives',
   'tips-for-measuring-the-effectiveness-of-a-sales-incentives-program',
-  'make-sales-incentives-more-exciting-with-gamification',
-  'how-to-use-technology-to-manage-and-administer-a-sales-incentives-program',
+  'why-data-is-the-secret-ingredient-to-effective-sales-incentive-programs',
+  'engaging-channel-partner',
+  'the-evolution-of-loyalty-programs-and-why-they-work',
+  'what-can-motivate-retail-staff-in-retail-4-0',
+  'eight-innovative-incentives-for-new-retail-4-0',
+
+  // Tier 6: Seasonal & leadership
+  'diwali-sales-how-to-incentivize-retailers-and-channel-partners',
+  'how-to-create-winning-incentive-strategies-this-diwali-season',
+  'female-leadership-shobhita-narain',
+  'female-leadership-meenakshi-iyengar',
   'ceo-employee-engagement-5-mistakes-to-avoid',
   'hr-leaders-and-their-changing-priorities-in-2023',
   'are-you-an-effective-leader',

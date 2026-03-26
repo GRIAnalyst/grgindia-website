@@ -199,7 +199,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ==================== WAYS TO USE BUZZZ (Icon Grid) ==================== -->
-  <section class="py-16 md:py-24 bg-white">
+  <section class="py-16 md:py-24" style="background-color: #f9fafb;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
         There's More Than One Way to Motivate Employees
@@ -207,22 +207,41 @@ import Layout from '../layouts/Layout.astro';
       <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
         Buzzz gives you multiple tools to drive recognition and engagement across your organization.
       </p>
-      <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-8">
-        {[
-          { img: '/images/buzzz/ways/peer-recognition.png', title: 'Peer Recognition' },
-          { img: '/images/buzzz/ways/celebrate-milestones.png', title: 'Celebrate Milestones' },
-          { img: '/images/buzzz/ways/contests-programs.png', title: 'Contests & Programs' },
-          { img: '/images/buzzz/ways/award-nominations.png', title: 'Award Nominations' },
-          { img: '/images/buzzz/ways/reinforce-core-values.png', title: 'Reinforce Core Values' },
-          { img: '/images/buzzz/ways/send-audio-video.png', title: 'Send Audio/Video' },
-          { img: '/images/buzzz/ways/send-e-certificate.png', title: 'Send e-Certificates' },
-          { img: '/images/buzzz/ways/spot-award.png', title: 'Spot Awards' },
-        ].map((item) => (
-          <div class="flex flex-col items-center text-center p-4 rounded-xl hover:shadow-md transition-shadow">
-            <img src={item.img} alt={item.title} class="w-20 h-20 object-contain" />
-            <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">{item.title}</h3>
-          </div>
-        ))}
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Row 1 -->
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/peer-recognition.png" alt="Peer Recognition" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Peer Recognition</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/celebrate-milestones.png" alt="Celebrate Milestones" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Celebrate Milestones</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/contests-programs.png" alt="Contests & Programs" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Contests & Programs</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/award-nominations.png" alt="Award Nominations" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Award Nominations</h3>
+        </div>
+        <!-- Row 2 -->
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/reinforce-core-values.png" alt="Reinforce Core Values" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Reinforce Core Values</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/send-audio-video.png" alt="Send Audio/Video" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Send Audio/Video</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/send-e-certificate.png" alt="Send e-Certificates" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Send e-Certificates</h3>
+        </div>
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+          <img src="/images/buzzz/ways/spot-award.png" alt="Spot Awards" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Spot Awards</h3>
+        </div>
       </div>
     </div>
   </section>
