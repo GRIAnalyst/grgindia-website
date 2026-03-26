@@ -3,8 +3,8 @@ const navLinks = [
   {
     label: 'Products',
     children: [
-      { label: 'Buzzz', href: '/buzzz' },
-      { label: 'My Incentives', href: '/my-incentives' },
+      { label: 'Buzzz', href: '/buzzz-for-employee-motivation' },
+      { label: 'My Incentives', href: '/my-incentives-for-sales-motivation' },
     ],
   },
   {
@@ -26,13 +26,23 @@ const navLinks = [
   {
     label: 'Company',
     children: [
-      { label: 'About', href: '/about' },
+      { label: 'About', href: '/about-us' },
       { label: 'Careers', href: '/careers' },
     ],
   },
 ];
 ---
 
+<!-- Utility Bar -->
+<div class="bg-[#E41E3A] text-white text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-end h-8 gap-4">
+    <a href="https://clients.letsbuzzz.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white/80 transition-colors font-medium">Buzzz Login</a>
+    <span class="text-white/40">|</span>
+    <a href="https://clients.myincentives.in/" target="_blank" rel="noopener noreferrer" class="hover:text-white/80 transition-colors font-medium">My Incentives Login</a>
+  </div>
+</div>
+
+<!-- Main Nav -->
 <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
@@ -67,14 +77,14 @@ const navLinks = [
             </div>
           </div>
         ))}
-        <a href="/contact" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900">
+        <a href="/contact-us" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900">
           Contact Us
         </a>
         <a
           href="/book-a-demo"
-          class="ml-2 px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700"
+          class="ml-2 px-5 py-2 border-2 border-[#E41E3A] text-[#E41E3A] text-sm font-medium rounded-full hover:bg-[#E41E3A] hover:text-white transition-colors"
         >
-          Book a Demo
+          Book A Demo
         </a>
       </div>
 
@@ -116,14 +126,18 @@ const navLinks = [
           </div>
         </div>
       ))}
-      <a href="/contact" class="block py-2 text-sm font-medium text-gray-700 hover:text-gray-900">
+      <a href="/contact-us" class="block py-2 text-sm font-medium text-gray-700 hover:text-gray-900">
         Contact Us
       </a>
+      <div class="pt-2 mt-2 border-t border-gray-100 flex gap-3">
+        <a href="https://clients.letsbuzzz.com/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 text-sm font-medium text-[#E41E3A] border border-[#E41E3A] rounded-lg hover:bg-red-50">Buzzz Login</a>
+        <a href="https://clients.myincentives.in/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 text-sm font-medium text-[#E41E3A] border border-[#E41E3A] rounded-lg hover:bg-red-50">My Incentives</a>
+      </div>
       <a
         href="/book-a-demo"
-        class="block mt-2 text-center px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700"
+        class="block mt-2 text-center px-5 py-2 bg-[#E41E3A] text-white text-sm font-medium rounded-lg hover:bg-[#c9182f]"
       >
-        Book a Demo
+        Book A Demo
       </a>
     </div>
   </div>

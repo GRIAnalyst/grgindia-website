@@ -2,7 +2,7 @@
 title: "Sales Motivational Quotes You Can Use"
 date: 2022-12-15
 category: "Sales Incentives"
-description: "Sales is tough—rejections, targets, and pressure are constant. Sometimes, a quote is all it takes to re-ignite drive. Explore powerful motivational quotes from industry leaders that uplift confidence,"
+description: "Inspirational sales quotes, Sales motivational quotes related to sales processes, Motivational quotes for the sales team for success"
 readTime: "5 min read"
 image: "/images/blog/Sales-Motivational-Quotes.jpg"
 ---
@@ -13,7 +13,7 @@ image: "/images/blog/Sales-Motivational-Quotes.jpg"
 
 ##  Sales motivation quotes 2022 
 
-**Motivational quotes for the sales team for success**
+### Motivational quotes for the sales team for success
 
   1. “Success is the sum of small efforts, repeated day in and day out.” – Robert Collier 
   2. “I never lose. I either win or learn.” – Nelson Mandela 
@@ -52,6 +52,4 @@ image: "/images/blog/Sales-Motivational-Quotes.jpg"
   7. “Sellers who listen to buyers carefully and then give them the missing ingredients – those are the ones who stand out.” – Deb Calvert 
   8. “Every sale has five basic obstacles: no need, no money, no hurry, no desire, no trust.”– Zig Ziglar 
 
-Your sales team needs to be motivated, yes. Inspirational sales quotes are a wonderful way to pep them up. But for results, you might need some more things than simple quotes. Ensure that your [ sales incentive program ](<https://www.grgindia.in/5-ideas-to-improve-the-sales-motivation-of-your-retail-employees/>) is failproof. Find innovative ways to [ boost employee engagement ](<https://www.grgindia.in/super-charge-your-team-with-these-employee-engagement-methods/>) . Use a high-tech platform like [ Buzz ](<https://www.grgindia.in/buzzz/>) and [ My Incentives ](<https://www.grgindia.in/my-incentives/>) for result-oriented performances. The job of a salesperson is pretty difficult, to say the least. Of course, no job is easy and we do not mean that either. Marketing, production, HR, admin, Finance, Manufacturing, Supply Chain, Procurement, Logistics, Warehousing, Front Office, Back Office – none of these domains have ‘as easy as pie’ jobs. But since the sales team needs to fetch business, get leads, prospect, and convert them, the going gets tough most of the time. Dejection, rejection, failures, etc., etc., are a part and parcel of a salesperson’s everyday routine. The grinding mill can become pretty suffocating often. Sometimes, a simple sentence, a sales motivation message 
-
-<li da
+Your sales team needs to be motivated, yes. Inspirational sales quotes are a wonderful way to pep them up. But for results, you might need some more things than simple quotes. Ensure that your [ sales incentive program ](<https://www.grgindia.in/5-ideas-to-improve-the-sales-motivation-of-your-retail-employees/>) is failproof. Find innovative ways to [ boost employee engagement ](<https://www.grgindia.in/super-charge-your-team-with-these-employee-engagement-methods/>) . Use a high-tech platform like [ Buzz ](<https://www.grgindia.in/buzzz/>) and [ My Incentives ](<https://www.grgindia.in/my-incentives/>) for result-oriented performances.

@@ -2,7 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Buzzz – Employee Rewards & Recognition" description="Buzzz by GRG India — an all-in-one employee rewards and recognition platform to boost motivation, engagement, and workplace culture.">
+<Layout
+  title="Buzzz – Employee Rewards & Recognition"
+  description="Buzzz by GRG India — an all-in-one employee rewards and recognition platform to boost motivation, engagement, and workplace culture."
+  canonical="https://www.grgindia.in/buzzz-for-employee-motivation/"
+>
 
   <!-- ==================== HERO ==================== -->
   <section class="bg-[#f5f5f8] relative overflow-hidden">
@@ -15,21 +19,22 @@ import Layout from '../layouts/Layout.astro';
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d]">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d] anim-fade-up">
             All-in-One Rewards & Recognition Platform to Boost Employee Motivation
           </h1>
-          <p class="mt-6 text-lg text-[#4a5568]">
+          <p class="mt-6 text-lg text-[#4a5568] anim-fade-up" data-anim-delay="150">
             Drive peer-to-peer recognition, celebrate milestones, and build a culture of appreciation — all from one platform.
           </p>
           <a
             href="/book-a-demo"
-            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up"
+            data-anim-delay="300"
           >
             Book a Demo
           </a>
         </div>
         <div>
-          <img src="/images/buzzz/hero-banner.png" alt="Buzzz platform overview" class="w-full h-auto" />
+          <img src="/images/buzzz/hero-banner.png" alt="Buzzz platform overview" class="w-full h-auto anim-slide-right" data-anim-delay="200" />
         </div>
       </div>
     </div>
@@ -38,18 +43,14 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== CLIENT LOGOS ==================== -->
   <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8">Trusted by leading brands</p>
-      <div class="flex flex-wrap justify-center items-center gap-8">
-        {[
-          'Adani-Wilmar', 'Caratlane', 'Dell', 'Latentview', 'Mahindra',
-          'PRESTIGE', 'gulf', 'sbi-card', 'tanishq', 'titan',
-        ].map((name) => (
-          <img
-            src={`/images/logos/${name}.png`}
-            alt={name}
-            class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300"
-          />
-        ))}
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] mb-8 anim-fade-up">Trusted by</h2>
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-8 md:gap-10 items-center justify-items-center max-w-4xl mx-auto">
+        <img src="/images/logos/corob.png" alt="Corob" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" />
+        <img src="/images/logos/willis-towers-watson.png" alt="Willis Towers Watson" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="50" />
+        <img src="/images/logos/Latentview.png" alt="Latentview" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="100" />
+        <img src="/images/logos/systems-plus.webp" alt="Systems+" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="150" style="mix-blend-mode:multiply" />
+        <img src="/images/logos/barclays.png" alt="Barclays" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="200" />
+        <img src="/images/logos/sbi-card.png" alt="SBI Card" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="250" />
       </div>
     </div>
   </section>
@@ -57,12 +58,12 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== HOW IT WORKS ==================== -->
   <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">How Buzzz Works</h2>
-      <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">How Buzzz Works</h2>
+      <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto anim-fade-up" data-anim-delay="150">
         Get up and running in two simple steps — set up your recognition programs and watch engagement soar.
       </p>
       <div class="mt-14 grid md:grid-cols-2 gap-12 items-center">
-        <div class="text-center">
+        <div class="text-center anim-fade-up">
           <img src="/images/buzzz/how-it-works-01.png" alt="Step 1 – Set up recognition programs" class="w-full max-w-md mx-auto" />
           <div class="mt-6">
             <span class="inline-block w-10 h-10 rounded-full bg-[#E41E3A] text-white font-bold text-lg leading-10 text-center">1</span>
@@ -70,7 +71,7 @@ import Layout from '../layouts/Layout.astro';
             <p class="mt-2 text-gray-600">Configure recognition categories, point structures, and reward catalogs tailored to your organization.</p>
           </div>
         </div>
-        <div class="text-center">
+        <div class="text-center anim-fade-up" data-anim-delay="200">
           <img src="/images/buzzz/how-it-works-02.png" alt="Step 2 – Engage and reward" class="w-full max-w-md mx-auto" />
           <div class="mt-6">
             <span class="inline-block w-10 h-10 rounded-full bg-[#E41E3A] text-white font-bold text-lg leading-10 text-center">2</span>
@@ -85,10 +86,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== 4 PRODUCT FEATURES (alternating) ==================== -->
   <section class="py-16 md:py-24 bg-[#f8f8f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">
         Gamify Employee Rewards & Recognition
       </h2>
-      <p class="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
+      <p class="mt-4 text-center text-gray-600 max-w-3xl mx-auto anim-fade-up" data-anim-delay="150">
         Four powerful modules that work together to create a culture of appreciation and high performance.
       </p>
 
@@ -97,8 +98,8 @@ import Layout from '../layouts/Layout.astro';
         <!-- Feature 1: Social Recognition — text left, image right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div class="px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Social Recognition</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Social Recognition</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Empower employees to recognize each other's contributions on a social feed. Send buzzzes, appreciation posts, and celebrate wins publicly across the organization.
             </p>
             <ul class="mt-6 space-y-3">
@@ -116,15 +117,15 @@ import Layout from '../layouts/Layout.astro';
               </li>
             </ul>
           </div>
-          <img src="/images/buzzz/social-recognition.png" alt="Social Recognition feature" class="w-full max-w-lg mx-auto" />
+          <img src="/images/buzzz/social-recognition.png" alt="Social Recognition feature" class="w-full max-w-lg mx-auto anim-slide-right" />
         </div>
 
         <!-- Feature 2: Mood-o-Meter — image left, text right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <img src="/images/buzzz/mood-o-meter.png" alt="Mood-o-Meter feature" class="w-full max-w-lg mx-auto order-2 md:order-1" />
+          <img src="/images/buzzz/mood-o-meter.png" alt="Mood-o-Meter feature" class="w-full max-w-lg mx-auto order-2 md:order-1 anim-slide-left" />
           <div class="order-1 md:order-2 px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Mood-o-Meter</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Mood-o-Meter</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Track employee sentiment in real time with quick mood check-ins. Monitor engagement and happiness trends to proactively address workplace concerns.
             </p>
             <ul class="mt-6 space-y-3">
@@ -147,8 +148,8 @@ import Layout from '../layouts/Layout.astro';
         <!-- Feature 3: Gamification — text left, image right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div class="px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Gamification</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Gamification</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Spark healthy competition with leaderboards, badges, and achievement tracking. Gamify participation to keep engagement levels high across teams.
             </p>
             <ul class="mt-6 space-y-3">
@@ -166,15 +167,15 @@ import Layout from '../layouts/Layout.astro';
               </li>
             </ul>
           </div>
-          <img src="/images/buzzz/gamification.png" alt="Gamification feature" class="w-full max-w-lg mx-auto" />
+          <img src="/images/buzzz/gamification.png" alt="Gamification feature" class="w-full max-w-lg mx-auto anim-slide-right" />
         </div>
 
         <!-- Feature 4: Analytics & Dashboard — image left, text right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <img src="/images/buzzz/analytics-dashboard.png" alt="Analytics & Dashboard feature" class="w-full max-w-lg mx-auto order-2 md:order-1" />
+          <img src="/images/buzzz/analytics-dashboard.png" alt="Analytics & Dashboard feature" class="w-full max-w-lg mx-auto order-2 md:order-1 anim-slide-left" />
           <div class="order-1 md:order-2 px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Analytics & Dashboard</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Analytics & Dashboard</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Get real-time visibility into recognition trends, participation rates, and points distribution. Make data-driven decisions to optimize your rewards program.
             </p>
             <ul class="mt-6 space-y-3">
@@ -201,44 +202,44 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== WAYS TO USE BUZZZ (Icon Grid) ==================== -->
   <section class="py-16 md:py-24" style="background-color: #f9fafb;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">
         There's More Than One Way to Motivate Employees
       </h2>
-      <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+      <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto anim-fade-up" data-anim-delay="150">
         Buzzz gives you multiple tools to drive recognition and engagement across your organization.
       </p>
       <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
         <!-- Row 1 -->
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up">
           <img src="/images/buzzz/ways/peer-recognition.png" alt="Peer Recognition" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Peer Recognition</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="100">
           <img src="/images/buzzz/ways/celebrate-milestones.png" alt="Celebrate Milestones" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Celebrate Milestones</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="200">
           <img src="/images/buzzz/ways/contests-programs.png" alt="Contests & Programs" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Contests & Programs</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="300">
           <img src="/images/buzzz/ways/award-nominations.png" alt="Award Nominations" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Award Nominations</h3>
         </div>
         <!-- Row 2 -->
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up">
           <img src="/images/buzzz/ways/reinforce-core-values.png" alt="Reinforce Core Values" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Reinforce Core Values</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="100">
           <img src="/images/buzzz/ways/send-audio-video.png" alt="Send Audio/Video" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Send Audio/Video</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="200">
           <img src="/images/buzzz/ways/send-e-certificate.png" alt="Send e-Certificates" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Send e-Certificates</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="300">
           <img src="/images/buzzz/ways/spot-award.png" alt="Spot Awards" class="w-16 h-16 object-contain" />
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Spot Awards</h3>
         </div>
@@ -249,8 +250,8 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== WHY BUZZZ ==================== -->
   <section class="py-16 md:py-24 bg-[#f5f5f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">Why Choose Buzzz?</h2>
-      <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">Why Choose Buzzz?</h2>
+      <p class="mt-4 text-center text-gray-600 max-w-2xl mx-auto anim-fade-up" data-anim-delay="150">
         A platform built to make employee recognition effortless, scalable, and impactful.
       </p>
       <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -275,8 +276,8 @@ import Layout from '../layouts/Layout.astro';
             title: 'Integrate with Any Platform',
             desc: 'Connect Buzzz with your existing HRMS, Slack, Teams, or any platform through flexible API integrations.',
           },
-        ].map((item) => (
-          <div class="flex flex-col items-center text-center bg-white rounded-xl p-6 shadow-sm">
+        ].map((item, i) => (
+          <div class="flex flex-col items-center text-center bg-white rounded-xl p-6 shadow-sm anim-fade-up" data-anim-delay={i * 100}>
             <img src={item.img} alt={item.title} class="w-24 h-24 object-contain" />
             <h3 class="mt-5 text-lg font-semibold text-[#0f1f3d]">{item.title}</h3>
             <p class="mt-2 text-sm text-gray-600">{item.desc}</p>
@@ -289,13 +290,14 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== CTA ==================== -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d]">Ready to Build a Culture of Recognition?</h2>
-      <p class="mt-4 text-gray-600 max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d] anim-fade-up">Ready to Build a Culture of Recognition?</h2>
+      <p class="mt-4 text-gray-600 max-w-xl mx-auto anim-fade-up" data-anim-delay="150">
         See how Buzzz can transform employee engagement and motivation at your organization.
       </p>
       <a
         href="/book-a-demo"
-        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up"
+        data-anim-delay="300"
       >
         Book a Demo
       </a>

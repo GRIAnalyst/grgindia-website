@@ -2,7 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="My Incentives – Sales Incentive & Commission Management" description="My Incentives by GRG India — an end-to-end platform to automate incentive calculations, commissions, and payouts for sales teams, channel partners, and retailers.">
+<Layout
+  title="Sales Motivation | Employee Incentive Calculation Software"
+  description="Boost sales motivation through a sales incentive software that automates incentive calculation and incentive management."
+  canonical="https://www.grgindia.in/my-incentives-for-sales-motivation/"
+>
 
   <!-- ==================== HERO ==================== -->
   <section class="bg-[#f5f5f8] relative overflow-hidden">
@@ -15,21 +19,22 @@ import Layout from '../layouts/Layout.astro';
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d]">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d] anim-fade-up">
             Drive Sales Motivation with the Right Incentives
           </h1>
-          <p class="mt-6 text-lg text-[#4a5568]">
+          <p class="mt-6 text-lg text-[#4a5568] anim-fade-up" data-anim-delay="150">
             Boost the performance of your sales and other revenue-generating teams with My Incentives. And pay incentives and commissions with zero hassle or complexity.
           </p>
           <a
             href="/book-a-demo"
-            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up"
+            data-anim-delay="300"
           >
             Book A Demo
           </a>
         </div>
         <div>
-          <img src="/images/my-incentives/hero-banner.png" alt="My Incentives platform overview" class="w-full h-auto" />
+          <img src="/images/my-incentives/hero-banner.png" alt="My Incentives platform overview" class="w-full h-auto anim-slide-right" data-anim-delay="200" />
         </div>
       </div>
     </div>
@@ -38,18 +43,13 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== CLIENT LOGOS ==================== -->
   <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8">Our Clients</p>
-      <div class="flex flex-wrap justify-center items-center gap-8">
-        {[
-          'Mahindra', 'PRESTIGE', 'titan', 'Caratlane', 'sbi-card',
-          'Adani-Wilmar', 'tanishq', 'Dell', 'gulf', 'Latentview',
-        ].map((name) => (
-          <img
-            src={`/images/logos/${name}.png`}
-            alt={name}
-            class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300"
-          />
-        ))}
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] mb-8 anim-fade-up">Trusted by</h2>
+      <div class="grid grid-cols-3 sm:grid-cols-5 gap-8 md:gap-10 items-center justify-items-center max-w-4xl mx-auto">
+        <img src="/images/logos/tvs.jpg" alt="TVS" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" style="mix-blend-mode:multiply" />
+        <img src="/images/logos/damensch.jpg" alt="DaMensch" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="50" style="mix-blend-mode:multiply" />
+        <img src="/images/logos/dalmia.png" alt="Dalmia" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="100" />
+        <img src="/images/logos/sbi-card.png" alt="SBI Card" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="150" />
+        <img src="/images/logos/apar.jpg" alt="APAR" class="max-h-10 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300 anim-scale-in" data-anim-delay="200" style="mix-blend-mode:multiply" />
       </div>
     </div>
   </section>
@@ -59,21 +59,21 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <img src="/images/my-incentives/how-it-works.png" alt="My Incentives – Hermione Jackson profile with earned and redeemed points" class="w-full max-w-lg mx-auto" />
+          <img src="/images/my-incentives/how-it-works.png" alt="My Incentives – Hermione Jackson profile with earned and redeemed points" class="w-full max-w-lg mx-auto anim-slide-left" />
         </div>
         <div>
-          <p class="text-sm font-semibold uppercase tracking-widest text-[#E41E3A] mb-2">How it works</p>
-          <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d]">
+          <p class="text-sm font-semibold uppercase tracking-widest text-[#E41E3A] mb-2 anim-fade-up">How it works</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d] anim-fade-up" data-anim-delay="100">
             Simplify Your Incentive Management Process
           </h2>
-          <p class="mt-6 text-lg text-gray-600">
+          <p class="mt-6 text-lg text-gray-600 anim-fade-up" data-anim-delay="200">
             Bid goodbye to the stress of creating incentive campaigns, collating sales data and doing complex calculations to pay compensation and incentives to your sales teams and channel partners.
           </p>
-          <p class="mt-4 text-lg text-gray-600">
+          <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="200">
             With My Incentives, you can create and manage multiple commission or incentive plans, gamify the campaigns, set the rules for calculation as you wish and track every aspect of these programs from a single platform.
           </p>
-          <p class="mt-6 text-lg font-semibold text-[#0f1f3d]">What's more?</p>
-          <p class="mt-2 text-lg text-gray-600">
+          <p class="mt-6 text-lg font-semibold text-[#0f1f3d] anim-fade-up" data-anim-delay="300">What's more?</p>
+          <p class="mt-2 text-lg text-gray-600 anim-fade-up" data-anim-delay="300">
             You have complete control and visibility of your incentive payouts, letting you eliminate leakages, delays and tedious processes.
           </p>
         </div>
@@ -84,55 +84,55 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== SHAPING THE FUTURE — ICON GRID ==================== -->
   <section class="py-16 md:py-24 bg-[#f8f8f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">
         Shaping the Future of Commissions & Incentive Payouts
       </h2>
       <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
         <!-- Row 1 -->
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dbeafe;">
             <img src="/images/my-incentives/icons/webhooks-api.png" alt="Webhooks and API Integrations" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Webhooks and<br/>API Integrations</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="100">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #fef9c3;">
             <img src="/images/my-incentives/icons/point-budget.png" alt="Point & Budget Management System" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Point & Budget<br/>Management System</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="200">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #ffe4e6;">
             <img src="/images/my-incentives/icons/approval-workflow.png" alt="Hierarchy-based Approval Workflow" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Hierarchy-based<br/>Approval Workflow</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="300">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dcfce7;">
             <img src="/images/my-incentives/icons/realtime-dashboards.png" alt="Real-time User & Admin Dashboards" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Real-time User<br/>& Admin Dashboards</h3>
         </div>
         <!-- Row 2 -->
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dcfce7;">
             <img src="/images/my-incentives/icons/multi-country-catalog.png" alt="Multi-country Reward Catalog" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Multi-country<br/>Reward Catalog</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="100">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #ffe4e6;">
             <img src="/images/my-incentives/icons/cash-products.png" alt="Cash Products" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">Cash<br/>Products</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="200">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dbeafe;">
             <img src="/images/my-incentives/icons/digital-rewards.png" alt="500+ Digital Reward Options" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="mt-4 text-sm font-semibold text-[#0f1f3d]">500+ Digital<br/>Reward Options</h3>
         </div>
-        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="300">
           <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #dbeafe;">
             <img src="/images/my-incentives/icons/kyc-tds.png" alt="KYC & TDS Management" class="w-12 h-12 object-contain" />
           </div>
@@ -145,7 +145,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== STAKEHOLDERS ==================== -->
   <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">
         Automate Incentives for a Variety of Stakeholders
       </h2>
       <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -170,8 +170,8 @@ import Layout from '../layouts/Layout.astro';
             title: 'Influencers',
             desc: 'Sales-based commission for your influencers doesn\'t have to be chaotic and ill-managed.',
           },
-        ].map((card) => (
-          <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden text-center">
+        ].map((card, i) => (
+          <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden text-center anim-fade-up" data-anim-delay={i * 100}>
             <div class="p-6 pb-0">
               <img src={card.img} alt={card.title} class="w-full max-w-[160px] h-auto mx-auto object-contain" />
             </div>
@@ -192,10 +192,10 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Feature 1: Integrate — image left, text right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <img src="/images/my-incentives/integrate-platform-diagram.png" alt="Integration hub with SAP, Salesforce, invoice upload, scan and earn" class="w-full max-w-lg mx-auto order-2 md:order-1" />
+          <img src="/images/my-incentives/integrate-platform-diagram.png" alt="Integration hub with SAP, Salesforce, invoice upload, scan and earn" class="w-full max-w-lg mx-auto order-2 md:order-1 anim-slide-left" />
           <div class="order-1 md:order-2 px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Integrate with Any Platform</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Integrate with Any Platform</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Integrate My Incentives with your database, CRM, and other tools through easy and time-saving API integrations. Whether it's SAP, Salesforce, or custom ERPs — connect seamlessly with invoice uploads, scan-and-earn modules, and referral tracking.
             </p>
             <ul class="mt-6 space-y-3">
@@ -218,8 +218,8 @@ import Layout from '../layouts/Layout.astro';
         <!-- Feature 2: Automate Calculations — text left, image right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div class="px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Automate Calculations & Approvals</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Automate Calculations & Approvals</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Access a flexible rule engine for complex incentive calculations. Configure approval workflows for instant payouts, and track every aspect of these programs from a single platform.
             </p>
             <ul class="mt-6 space-y-3">
@@ -237,15 +237,15 @@ import Layout from '../layouts/Layout.astro';
               </li>
             </ul>
           </div>
-          <img src="/images/my-incentives/automate-calculations.png" alt="Rule engine with IF/THEN/ELSE logic and payout calculation" class="w-full max-w-lg mx-auto" />
+          <img src="/images/my-incentives/automate-calculations.png" alt="Rule engine with IF/THEN/ELSE logic and payout calculation" class="w-full max-w-lg mx-auto anim-slide-right" />
         </div>
 
         <!-- Feature 3: Drive Performance — image left, text right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <img src="/images/my-incentives/drive-transparency.png" alt="Mobile app with target meter, nudges, and earnings tracker" class="w-full max-w-lg mx-auto order-2 md:order-1" />
+          <img src="/images/my-incentives/drive-transparency.png" alt="Mobile app with target meter, nudges, and earnings tracker" class="w-full max-w-lg mx-auto order-2 md:order-1 anim-slide-left" />
           <div class="order-1 md:order-2 px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Drive Performance with Transparency</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Drive Performance with Transparency</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Create multiple incentive programs for as many target groups as you wish. Give your sales teams and channel partners real-time visibility into their targets, achievement, and earnings — driving motivation through transparency.
             </p>
             <ul class="mt-6 space-y-3">
@@ -268,8 +268,8 @@ import Layout from '../layouts/Layout.astro';
         <!-- Feature 4: Payout & Compliance — text left, image right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div class="px-2 md:px-6">
-            <h3 class="text-2xl font-bold text-[#0f1f3d]">Payout and Compliance Automation</h3>
-            <p class="mt-4 text-lg text-gray-600">
+            <h3 class="text-2xl font-bold text-[#0f1f3d] anim-fade-up">Payout and Compliance Automation</h3>
+            <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
               Drive compliant, low-error rate payouts for users, at scale. Support UPI, NEFT, Amazon Gift Cards, PhonePe and more — with built-in KYC verification including PAN card, GST, and bank details.
             </p>
             <ul class="mt-6 space-y-3">
@@ -287,7 +287,7 @@ import Layout from '../layouts/Layout.astro';
               </li>
             </ul>
           </div>
-          <img src="/images/my-incentives/payout-compliance.png" alt="Payment methods screen with UPI, NEFT, Amazon Gift Card, PhonePe and document verification" class="w-full max-w-lg mx-auto" />
+          <img src="/images/my-incentives/payout-compliance.png" alt="Payment methods screen with UPI, NEFT, Amazon Gift Card, PhonePe and document verification" class="w-full max-w-lg mx-auto anim-slide-right" />
         </div>
 
       </div>
@@ -297,7 +297,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== MORE ON MY INCENTIVES ==================== -->
   <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">
         More on My Incentives
       </h2>
       <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -322,8 +322,8 @@ import Layout from '../layouts/Layout.astro';
             title: 'Access Analytics',
             desc: 'Track program ROI, payout trends, and participant performance with real-time dashboards. Export reports and make data-driven decisions.',
           },
-        ].map((card) => (
-          <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden text-center p-6">
+        ].map((card, i) => (
+          <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden text-center p-6 anim-fade-up" data-anim-delay={i * 100}>
             <img src={card.img} alt={card.title} class="w-20 h-20 mx-auto object-contain" />
             <h3 class="mt-5 text-base font-semibold text-[#0f1f3d]">{card.title}</h3>
             <p class="mt-2 text-sm text-gray-600">{card.desc}</p>
@@ -336,13 +336,14 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== CTA ==================== -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d]">Ready to Transform Your Incentive Programs?</h2>
-      <p class="mt-4 text-gray-600 max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d] anim-fade-up">Ready to Transform Your Incentive Programs?</h2>
+      <p class="mt-4 text-gray-600 max-w-xl mx-auto anim-fade-up" data-anim-delay="150">
         See how My Incentives can help you automate and scale commissions, payouts, and channel programs.
       </p>
       <a
         href="/book-a-demo"
-        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up"
+        data-anim-delay="300"
       >
         Book a Demo
       </a>

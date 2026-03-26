@@ -48,7 +48,11 @@ Track these metrics to evaluate your program's effectiveness:
 4. Partner satisfaction scores
 5. Program redemption rates
 
-[CTA]
+<div class="cta-block">
+<p class="cta-headline">Ready to launch your channel incentive program?</p>
+<p class="cta-sub">See how My Incentives can help you design and manage programs that drive real results.</p>
+<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+</div>
 
 ## Common pitfalls to avoid
 

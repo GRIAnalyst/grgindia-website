@@ -3,8 +3,8 @@ const columns = [
   {
     title: 'Products',
     links: [
-      { label: 'Buzzz', href: '/buzzz' },
-      { label: 'My Incentives', href: '/my-incentives' },
+      { label: 'Buzzz', href: '/buzzz-for-employee-motivation' },
+      { label: 'My Incentives', href: '/my-incentives-for-sales-motivation' },
     ],
   },
   {
@@ -26,9 +26,9 @@ const columns = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
+      { label: 'About', href: '/about-us' },
       { label: 'Careers', href: '/careers' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact', href: '/contact-us' },
     ],
   },
 ];
@@ -39,12 +39,15 @@ const year = new Date().getFullYear();
 <footer class="bg-gray-900 text-gray-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-      <!-- Logo / Brand -->
+      <!-- Logo / Address -->
       <div class="col-span-2 md:col-span-1">
         <a href="/" class="text-xl font-bold text-white">GRG India</a>
-        <p class="mt-3 text-sm text-gray-400">
-          Empowering businesses with intelligent channel incentive and loyalty solutions.
-        </p>
+        <div class="mt-3 text-sm text-gray-400 leading-relaxed">
+          <p class="font-medium text-gray-300">TajOnline Pvt. LTD.</p>
+          <p>Satya House, 402,</p>
+          <p>Hi-Tech IT Park 2nd & 4th Floor</p>
+          <p>Sewri West Mumbai 400 015</p>
+        </div>
       </div>
 
       {columns.map((col) => (

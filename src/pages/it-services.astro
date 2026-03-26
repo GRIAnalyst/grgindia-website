@@ -2,20 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="IT Services – Employee Rewards & Recognition with Buzzz" description="Sustain a high-performing workplace culture with Buzzz by GRG India — rewards and recognition for IT services companies.">
+<Layout
+  title="IT Services - Leaders In Incentives, Rewards & Loyalty Programs | GRG India"
+  description="Sustain a High-performing Workplace Culture with Buzzz. Rewards and recognition platform for IT services companies by GRG India."
+  canonical="https://www.grgindia.in/it-services/"
+>
 
   <!-- ==================== HERO ==================== -->
   <section class="bg-[#f5f5f8] relative overflow-hidden">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d]">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d] anim-fade-up">
             Sustain a High-performing Workplace Culture with Buzzz
           </h1>
-          <p class="mt-6 text-lg text-[#4a5568]">
+          <p class="mt-6 text-lg text-[#4a5568] anim-fade-up" data-anim-delay="100">
             Buzzz powered by GRG India is your go-to platform to make rewards and recognition fun, interactive and impactful. Reinforce your company values, culture and high performance with peer-to-peer, social appreciation.
           </p>
-          <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-4">
+          <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 anim-fade-up" data-anim-delay="200">
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
               <span class="text-sm text-gray-700">Integrate with existing platforms</span>
@@ -35,13 +39,14 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <a
             href="/book-a-demo"
-            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+            class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up"
+            data-anim-delay="300"
           >
             Book a Demo
           </a>
         </div>
         <div>
-          <img src="/images/buzzz/hero-banner.png" alt="Buzzz rewards and recognition platform" class="w-full h-auto" />
+          <img src="/images/buzzz/hero-banner.png" alt="Buzzz rewards and recognition platform" class="w-full h-auto anim-slide-right" data-anim-delay="200" />
         </div>
       </div>
     </div>
@@ -50,9 +55,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== TESTIMONIALS ==================== -->
   <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">Enabling Companies Just Like You</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">Enabling Companies Just Like You</h2>
       <div class="mt-14 grid md:grid-cols-2 gap-8">
-        <div class="border border-gray-200 rounded-2xl p-8">
+        <div class="border border-gray-200 rounded-2xl p-8 anim-fade-up">
           <div class="flex justify-center mb-6">
             <!-- Systems+ text logo -->
             <span class="text-2xl font-bold tracking-wider" style="color: #2b7cba;">SYSTEMS+</span>
@@ -61,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
             "At Systems+, we wanted to break out of the mould of top-down employee recognition and enable everyone within the firm to appreciate each other. Giving and receiving appreciation can greatly impact employee morale – both of the giver and the receiver. Buzzz helped us facilitate this vision seamlessly."
           </p>
         </div>
-        <div class="border border-gray-200 rounded-2xl p-8">
+        <div class="border border-gray-200 rounded-2xl p-8 anim-fade-up" data-anim-delay="100">
           <div class="flex justify-center mb-6">
             <img src="/images/logos/Latentview.png" alt="LatentView Analytics" class="h-12 object-contain" />
           </div>
@@ -80,7 +85,7 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Social Recognition — text left, image right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div class="px-2 md:px-6">
+          <div class="px-2 md:px-6 anim-fade-up">
             <h3 class="text-2xl font-bold text-[#0f1f3d]">Social Recognition</h3>
             <p class="mt-4 text-lg text-gray-600">
               Empower employees to recognize each other's contributions on a social feed. Send buzzzes, appreciation posts, and celebrate wins publicly across the organization.
@@ -100,13 +105,13 @@ import Layout from '../layouts/Layout.astro';
               </li>
             </ul>
           </div>
-          <img src="/images/buzzz/social-recognition.png" alt="Social Recognition feature" class="w-full max-w-lg mx-auto" />
+          <img src="/images/buzzz/social-recognition.png" alt="Social Recognition feature" class="w-full max-w-lg mx-auto anim-fade-in" data-anim-delay="100" />
         </div>
 
         <!-- Mood-o-Meter — image left, text right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <img src="/images/buzzz/mood-o-meter.png" alt="Mood-o-Meter feature" class="w-full max-w-lg mx-auto order-2 md:order-1" />
-          <div class="order-1 md:order-2 px-2 md:px-6">
+          <img src="/images/buzzz/mood-o-meter.png" alt="Mood-o-Meter feature" class="w-full max-w-lg mx-auto order-2 md:order-1 anim-fade-in" data-anim-delay="100" />
+          <div class="order-1 md:order-2 px-2 md:px-6 anim-fade-up">
             <h3 class="text-2xl font-bold text-[#0f1f3d]">Mood-o-Meter</h3>
             <p class="mt-4 text-lg text-gray-600">
               Track employee sentiment in real time with quick mood check-ins. Monitor engagement and happiness trends to proactively address workplace concerns.
@@ -130,7 +135,7 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- Gamification — text left, image right -->
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div class="px-2 md:px-6">
+          <div class="px-2 md:px-6 anim-fade-up">
             <h3 class="text-2xl font-bold text-[#0f1f3d]">Gamification</h3>
             <p class="mt-4 text-lg text-gray-600">
               Spark healthy competition with leaderboards, badges, and achievement tracking. Gamify participation to keep engagement levels high across teams.
@@ -150,7 +155,7 @@ import Layout from '../layouts/Layout.astro';
               </li>
             </ul>
           </div>
-          <img src="/images/buzzz/gamification.png" alt="Gamification feature" class="w-full max-w-lg mx-auto" />
+          <img src="/images/buzzz/gamification.png" alt="Gamification feature" class="w-full max-w-lg mx-auto anim-fade-in" data-anim-delay="100" />
         </div>
 
       </div>
@@ -160,13 +165,14 @@ import Layout from '../layouts/Layout.astro';
   <!-- ==================== CTA ==================== -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d]">Ready to Build a Culture of Recognition?</h2>
-      <p class="mt-4 text-gray-600 max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d] anim-fade-up">Ready to Build a Culture of Recognition?</h2>
+      <p class="mt-4 text-gray-600 max-w-xl mx-auto anim-fade-up" data-anim-delay="100">
         See how Buzzz can transform employee engagement and motivation at your organization.
       </p>
       <a
         href="/book-a-demo"
-        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up"
+        data-anim-delay="200"
       >
         Book a Demo
       </a>

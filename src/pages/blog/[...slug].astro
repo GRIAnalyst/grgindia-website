@@ -21,9 +21,38 @@ const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1]
 const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 
 const hasImage = !!post.data.image;
+
+const blogPostSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  url: `https://www.grgindia.in/blog/${post.id}/`,
+  ...(post.data.image && { image: new URL(post.data.image, 'https://www.grgindia.in').href }),
+  author: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    url: 'https://www.grgindia.in',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.grgindia.in/images/grg-india-logo.png',
+    },
+  },
+};
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout
+  title={`${post.data.title} - GRG India`}
+  description={post.data.description}
+  ogImage={post.data.image ? new URL(post.data.image, 'https://www.grgindia.in').href : undefined}
+  canonical={`https://www.grgindia.in/blog/${post.id}/`}
+  jsonLd={blogPostSchema}
+>
   <!-- Post Hero -->
   <section class="bg-[#0f1f3d] text-white py-14 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,6 +178,36 @@ const hasImage = !!post.data.image;
     margin-bottom: 0.75rem;
   }
 
+  .blog-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Inline game/link buttons in headings ── */
+  .game-link-btn {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #E41E3A;
+    background: #fef2f2;
+    border: 1px solid #E41E3A;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-decoration: none;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .game-link-btn:hover {
+    background: #E41E3A;
+    color: #ffffff;
+  }
+
   .blog-content p {
     color: #374151;
     font-size: 1rem;
@@ -171,16 +230,37 @@ const hasImage = !!post.data.image;
   }
 
   .blog-content blockquote {
-    border-left: 4px solid #E41E3A;
-    padding: 0.75rem 1.25rem;
-    background-color: #fff7ed;
+    border-left: none;
+    border: 1px solid #e5e7eb;
+    padding: 1.25rem 1.5rem;
+    background-color: #f9fafb;
     font-style: italic;
-    color: #4b5563;
-    border-radius: 0 0.5rem 0.5rem 0;
+    color: #374151;
+    border-radius: 0.5rem;
     margin: 2rem 0;
+    position: relative;
+  }
+
+  .blog-content blockquote::before {
+    content: '\201C';
+    font-size: 3rem;
+    color: #E41E3A;
+    position: absolute;
+    top: -0.25rem;
+    left: 1rem;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+
+  .blog-content blockquote p:first-child {
+    padding-top: 1.5rem;
   }
 
   .blog-content blockquote p {
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-content blockquote p:last-child {
     margin-bottom: 0;
   }
 
@@ -194,6 +274,12 @@ const hasImage = !!post.data.image;
     margin: 2rem auto;
     max-width: 100%;
     display: block;
+  }
+
+  .blog-content iframe {
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    max-width: 100%;
   }
 
   /* ── CTA block ── */
@@ -280,6 +366,120 @@ const hasImage = !!post.data.image;
     color: #4b5563;
     font-size: 0.95rem;
   }
+
+  /* ── Email template cards ── */
+  .email-template {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0;
+    font-style: normal;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .email-template .email-body {
+    color: #374151;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .email-template .email-body p {
+    margin-bottom: 0.75rem;
+    color: #374151;
+    font-size: 0.95rem;
+  }
+
+  .email-template .email-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .email-template .email-signoff {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f3f4f6;
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  /* ── Tables ── */
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+  }
+
+  .blog-content thead th {
+    background: #0f1f3d;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .blog-content tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+    vertical-align: top;
+  }
+
+  .blog-content tbody tr:nth-child(even) {
+    background: #f9fafb;
+  }
+
+  .blog-content tbody tr:hover {
+    background: #f3f4f6;
+  }
+
+  /* ── Incentive integration boxes ── */
+  .incentive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .incentive-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .incentive-box h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0f1f3d;
+    margin-bottom: 0.5rem;
+  }
+
+  .incentive-box p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
+
+  .incentive-box ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 0;
+  }
+
+  .incentive-box li {
+    font-size: 0.85rem;
+    color: #374151;
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
 </style>
 
 <script>
@@ -352,11 +552,19 @@ const hasImage = !!post.data.image;
     function buildCtaHtml(headline, subtext) {
       const div = document.createElement('div');
       div.className = 'cta-block';
-      div.innerHTML = `
-        <p class="cta-headline">${headline}</p>
-        <p class="cta-sub">${subtext}</p>
-        <a href="/book-a-demo" class="cta-btn">Get Started</a>
-      `;
+      const h = document.createElement('p');
+      h.className = 'cta-headline';
+      h.textContent = headline;
+      const s = document.createElement('p');
+      s.className = 'cta-sub';
+      s.textContent = subtext;
+      const a = document.createElement('a');
+      a.href = '/book-a-demo';
+      a.className = 'cta-btn';
+      a.textContent = 'Get Started';
+      div.appendChild(h);
+      div.appendChild(s);
+      div.appendChild(a);
       return div;
     }
 
@@ -470,11 +678,7 @@ const hasImage = !!post.data.image;
       // Skip very short or junk headings
       const text = h.textContent.trim();
       if (text.length < 3) return;
-      // For h3: only include if it looks like a real section (starts with "Section", "Introduction", "Conclusion", or numbered)
-      if (h.tagName === 'H3') {
-        const looksLikeSection = /^(section|introduction|conclusion|part|chapter|\d)/i.test(text);
-        if (!looksLikeSection) return;
-      }
+      // Include all h3 headings as indented sub-items in the TOC
       tocHeadings.push(h);
     });
 

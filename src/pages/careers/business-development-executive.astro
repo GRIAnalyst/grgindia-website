@@ -17,7 +17,7 @@ const job = {
   <!-- Breadcrumb + Back -->
   <div class="bg-gray-50 border-b border-gray-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <nav class="flex items-center gap-2 text-sm text-gray-500">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 anim-fade-up">
         <a href="/careers" class="hover:text-gray-900 transition-colors">Careers</a>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
         <span class="text-gray-900 font-medium">{job.title}</span>
@@ -32,7 +32,7 @@ const job = {
       <div class="lg:col-span-2">
 
         <!-- Header -->
-        <div class="mb-10">
+        <div class="mb-10 anim-fade-up">
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="inline-block px-3 py-1 text-xs font-medium rounded-full" style="background-color: #fef2f2; color: #E41E3A;">{job.department}</span>
             <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">{job.type}</span>
@@ -52,7 +52,7 @@ const job = {
         </div>
 
         <!-- About Us -->
-        <section class="mb-10">
+        <section class="mb-10 anim-fade-up">
           <h2 class="text-xl font-bold text-gray-900 mb-4">About GRG India</h2>
           <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed space-y-4">
             <p>
@@ -72,7 +72,7 @@ const job = {
         </section>
 
         <!-- What Makes This Role Great -->
-        <section class="mb-10">
+        <section class="mb-10 anim-fade-up">
           <h2 class="text-xl font-bold text-gray-900 mb-4">What Makes This Role Great</h2>
           <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
             <ul class="space-y-3 text-gray-600">
@@ -93,7 +93,7 @@ const job = {
         </section>
 
         <!-- Responsibilities -->
-        <section class="mb-10">
+        <section class="mb-10 anim-fade-up">
           <h2 class="text-xl font-bold text-gray-900 mb-4">What You'll Do</h2>
           <ul class="space-y-3 text-gray-600">
             <li class="flex items-start gap-3">
@@ -140,7 +140,7 @@ const job = {
         </section>
 
         <!-- Requirements -->
-        <section class="mb-10">
+        <section class="mb-10 anim-fade-up">
           <h2 class="text-xl font-bold text-gray-900 mb-4">What You'll Need</h2>
           <div class="space-y-6">
             <div>
@@ -195,14 +195,11 @@ const job = {
         <div class="sticky top-24 space-y-6">
 
           <!-- Apply Card -->
-          <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm anim-slide-right" data-anim-delay="200">
             <h3 class="text-lg font-bold text-gray-900 mb-4">Interested?</h3>
             <a
               href="mailto:contactus@grgindia.in?subject=Application%3A%20Business%20Development%20Executive"
-              class="block w-full text-center px-5 py-3 text-white font-semibold rounded-lg transition-colors"
-              style="background-color: #E41E3A;"
-              onmouseover="this.style.backgroundColor='#b8162e'"
-              onmouseout="this.style.backgroundColor='#E41E3A'"
+              class="block w-full text-center px-5 py-3 text-white font-semibold rounded-lg transition-colors btn-brand-red"
             >
               Apply for This Role
             </a>
@@ -212,7 +209,7 @@ const job = {
           </div>
 
           <!-- Role Summary Card -->
-          <div class="bg-gray-50 border border-gray-100 rounded-xl p-6">
+          <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 anim-slide-right" data-anim-delay="300">
             <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Role Details</h3>
             <dl class="space-y-4 text-sm">
               <div>

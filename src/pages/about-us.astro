@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  { name: 'Charoo Aggarwal', role: 'Managing Director', initials: 'CA', image: '/images/about/charoo-aggarwal.png' },
+  { name: 'Khushy Aggarwal', role: 'Head - Strategy and Growth', initials: 'KA', image: '/images/about/khushy-aggarwal.png' },
+  { name: 'Manoj Nair', role: 'Chief Financial Officer', initials: 'MN', image: '/images/about/manoj-nair.png' },
+  { name: 'Ankush Jagtap', role: 'VP - Technology', initials: 'AJ', image: '/images/about/ankush-jagtap.png' },
+  { name: 'Saurabh Kumar', role: 'Head - Sales & Strategy', initials: 'SK', image: '/images/about/saurabh-kumar.png' },
+];
+
+const stats = [
+  { number: '50+', label: 'Employees' },
+  { number: '100+', label: 'Clients' },
+  { number: '20+', label: 'Years' },
+  { number: '500+', label: 'Annual Awards' },
+];
+---
+
+<Layout
+  title="About Us - Leaders In Incentives, Rewards & Loyalty Programs | GRG India"
+  description="Simplifying employee engagement and incentives since 2008. GRG India brings you products that seamlessly blend enterprise-grade functionality with user-friendly simplicity."
+  canonical="https://www.grgindia.in/about-us/"
+>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="bg-[#f5f5f8] relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,100 C360,180 1080,20 1440,100 L1440,200 L0,200 Z" fill="#ebebf0" opacity="0.6"/>
+        <path d="M0,140 C400,80 1000,160 1440,120 L1440,200 L0,200 Z" fill="#e2e2ea" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d] anim-fade-up">
+            Simplifying employee engagement and incentives since 2008
+          </h1>
+          <p class="mt-6 text-lg text-[#4a5568] anim-fade-up" data-anim-delay="150">
+            Dedicated to simplifying employee engagement and incentives, GRG India brings you products that seamlessly blend enterprise grade-functionality with user-friendly simplicity.
+          </p>
+          <a href="https://www.g2.com/products/my-incentives/reviews" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2 hover:shadow-md transition-shadow anim-fade-up" data-anim-delay="300">
+            <div class="flex items-center gap-0.5">
+              <span class="text-[#FF492C] text-xl">&#9733;&#9733;&#9733;&#9733;</span><span class="text-[#FF492C] text-xl opacity-50">&#9733;</span>
+            </div>
+            <span class="text-sm font-medium text-gray-700">Read our reviews on</span>
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="#FF492C"/>
+              <text x="12" y="28" fill="white" font-size="22" font-weight="bold" font-family="Arial, sans-serif">G</text>
+              <text x="24" y="22" fill="white" font-size="12" font-weight="bold" font-family="Arial, sans-serif">2</text>
+            </svg>
+          </a>
+        </div>
+        <div>
+          <img src="/images/buzzz/hero-banner.png" alt="GRG India platform overview showing leaderboards, recognition, rewards, and engagement features" class="w-full h-auto anim-slide-right" data-anim-delay="200" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LEADERSHIP TEAM ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] anim-fade-up">Meet Our Leadership Team</h2>
+
+      <div class="mt-14 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 md:gap-10">
+        {team.map((member, index) => (
+          <div class="text-center anim-fade-up" data-anim-delay={index * 100}>
+            <div class="w-full aspect-[4/5] rounded-xl bg-gray-200 overflow-hidden mx-auto max-w-[200px]">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-full h-full object-cover object-top"
+                data-fallback-initials={member.initials}
+              />
+            </div>
+            <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">{member.name}</h3>
+            <p class="mt-1 text-sm text-gray-500">{member.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR STORY IN NUMBERS ==================== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] mb-12 anim-fade-up">Our Story in Numbers</h2>
+      <div
+        class="max-w-5xl mx-auto rounded-3xl py-12 px-8 md:px-16"
+        style="background: radial-gradient(ellipse at center, #e8192c 0%, #b01020 100%); box-shadow: 0 8px 40px rgba(180,10,30,0.25);"
+      >
+        <div class="grid grid-cols-2 gap-8 text-center text-white md:grid-cols-4 md:gap-0 md:divide-x md:divide-white/30">
+          {stats.map((stat, index) => (
+            <div class="px-4 anim-fade-up" data-anim-delay={index * 100}>
+              <div class="text-5xl font-extrabold">{stat.number}</div>
+              <div class="mt-3 text-sm uppercase tracking-widest font-medium opacity-90">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="py-16 md:py-20 bg-[#f9fafb]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#0f1f3d] anim-fade-up">Ready to transform your incentive programs?</h2>
+      <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">See how GRG India can help you drive engagement and performance across your organization.</p>
+      <a
+        href="/book-a-demo"
+        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors anim-fade-up" data-anim-delay="200"
+      >
+        Book a Demo
+      </a>
+    </div>
+  </section>
+
+<script>
+  document.querySelectorAll('img[data-fallback-initials]').forEach((img) => {
+    img.addEventListener('error', function () {
+      const initials = this.getAttribute('data-fallback-initials') || '';
+      const fallback = document.createElement('div');
+      fallback.className = 'w-full h-full flex items-center justify-center bg-gray-200';
+      const span = document.createElement('span');
+      span.className = 'text-3xl font-bold text-gray-400';
+      span.textContent = initials;
+      fallback.appendChild(span);
+      this.style.display = 'none';
+      this.parentElement.appendChild(fallback);
+    });
+  });
+</script>
+</Layout>

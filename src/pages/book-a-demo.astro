@@ -2,86 +2,107 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Book a Demo" description="Schedule a demo of GRG India's channel incentive solutions.">
-  <section class="py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-center">Book a Demo</h1>
-      <p class="mt-4 text-center text-gray-600">
-        See our platform in action. Fill in the form and our team will schedule a personalized demo.
-      </p>
+<Layout
+  title="Book a Demo - Leaders In Incentives, Rewards & Loyalty Programs | GRG India"
+  description="GRG India has motivated 50,000+ people across 20+ countries to outperform!"
+  canonical="https://www.grgindia.in/book-a-demo/"
+>
 
-      <form class="mt-12 space-y-6">
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
-            <input
-              type="text"
-              id="first-name"
-              name="first-name"
-              required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+  <!-- ==================== HERO + FORM ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- LEFT: Image + Text -->
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold text-[#0f1f3d] leading-tight anim-fade-up">
+            GRG India has motivated 50,000+ people across 20+ countries to outperform!
+          </h1>
+          <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="150">
+            See our platform in action. Fill in the form and our team will schedule a personalized demo.
+          </p>
+          <div class="mt-8">
+            <img
+              src="/images/contact-hero.png"
+              alt="GRG India platform showing sales achievements and gold member rewards"
+              class="w-full max-w-md h-auto anim-fade-in" data-anim-delay="300"
             />
           </div>
-          <div>
-            <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
-            <input
-              type="text"
-              id="last-name"
-              name="last-name"
-              required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            />
-          </div>
         </div>
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Work Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          />
+
+        <!-- RIGHT: Form -->
+        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 md:p-10 anim-slide-right" data-anim-delay="200">
+          <h2 class="text-xl font-bold text-gray-900 mb-1">Book a Demo</h2>
+          <p class="text-sm text-gray-500 mb-6">We'll get back to you within one business day.</p>
+
+          <form class="space-y-5">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name <span class="text-red-400">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Work Email -->
+            <div>
+              <label for="work-email" class="block text-sm font-medium text-gray-700 mb-1">Work Email <span class="text-red-400">*</span></label>
+              <input
+                type="email"
+                id="work-email"
+                name="work-email"
+                required
+                placeholder="you@company.com"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-400">*</span></label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="+91 XXXXX XXXXX"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                placeholder="Tell us about your use case, team size, or anything else..."
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="w-full bg-[#E41E3A] text-white font-semibold py-3 rounded-lg hover:bg-[#c9182f] transition-colors"
+            >
+              Schedule Demo
+            </button>
+          </form>
+
+          <p class="text-xs text-gray-400 text-center mt-3">
+            By submitting, you agree to our Privacy Policy. We'll never share your data.
+          </p>
         </div>
-        <div>
-          <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            required
-            class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          />
-        </div>
-        <div>
-          <label for="product" class="block text-sm font-medium text-gray-700">Product of Interest</label>
-          <select
-            id="product"
-            name="product"
-            class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          >
-            <option value="">Select a product</option>
-            <option value="buzzz">Buzzz</option>
-            <option value="my-incentives">My Incentives</option>
-            <option value="both">Both</option>
-          </select>
-        </div>
-        <div>
-          <label for="notes" class="block text-sm font-medium text-gray-700">Additional Notes</label>
-          <textarea
-            id="notes"
-            name="notes"
-            rows="3"
-            class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
-        >
-          Schedule Demo
-        </button>
-      </form>
+
+      </div>
     </div>
   </section>
+
 </Layout>

@@ -66,7 +66,11 @@ Not everyone values the same things. Give employees the freedom to choose reward
 
 Rotate program elements regularly to maintain excitement and prevent recognition fatigue.
 
-[CTA]
+<div class="cta-block">
+<p class="cta-headline">Ready to build a recognition culture that sticks?</p>
+<p class="cta-sub">See how My Incentives can help you launch and scale employee recognition programs that boost engagement and retention.</p>
+<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+</div>
 
 ## The bottom line
 

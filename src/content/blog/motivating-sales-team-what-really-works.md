@@ -7,29 +7,78 @@ readTime: "5 min read"
 image: "/images/blog/Motivating-Sales-Team-What-Really-Works.jpg"
 ---
 
-##  Motivating Sales Team: What Really Works? 
+## Motivating Sales Team: What Really Works?
 
-![Image](/images/blog/Motivating-Sales-Team-What-Really-Works.jpg) Your sales team, without a hint of doubt, is one of your biggest assets. Being on ground zero, day in and day out is not an easy job. Mounting internal and external pressures make things even more difficult. Achieving targets, at times being pushed to over-achieve, a fiercely competitive market, difficult-to-please customers, a not-so-easy work-life balance, and so many other factors can make their life challenging. Amidst all this, what is it that they need to keep them going? Better salaries, rewards, recognition, growth opportunities, promotions, offsites, trips abroad, what? Read on to know more about what motivates a sales team – what works and what does not. 
+![Image](/images/blog/Motivating-Sales-Team-What-Really-Works.jpg)
 
-##  Motivating the sales team 
+Your sales team, without a hint of doubt, is one of your biggest assets. Being on ground zero, day in and day out is not an easy job. Mounting internal and external pressures make things even more difficult. Achieving targets, at times being pushed to over-achieve, a fiercely competitive market, difficult-to-please customers, a not-so-easy work-life balance, and so many other factors can make their life challenging.
 
-Do you need to motivate your sales team, in the first place? Is it worth the effort, money, and time? What would happen if the team is let to itself without a word of encouragement, a pat on the back, or a message on an e-platform socially acknowledging their hard work and zeal? Typically, most salespeople are innately motivated individuals. They are passionate and pretty ambitious, have high self-esteem, are good at communication, are great networkers, and above all, are quite confident. This is not a thumb-rule but in most cases, you’ll find salespeople to have these common characteristics. There are variations too but that’s usually a small percentage. Having said this, even the most self-motivated and confident person needs some kind of appreciation and acknowledgment from time to time to keep their motivational levels intact. You need to celebrate their achievements and socially accept their contributions to value their work so that their self-pride and confidence never wavers. Thus, motivating the sales people who are directly responsible for selling your products and services and promoting your brand is crucial. If you want your business and returns to grow positively, then, as an organizational head, you need to work on this psychological aspect of human behavior from the beginning. It should be an integral part of your work culture. And, it needs to be done on a regular basis and not as a yearly event. _“People often say that motivation does not last. Well, neither does bathing – that's why we recommend it daily.”_ by Zig Ziglar What can happen if your salespeople are demotivated and feel unappreciated, they will look for the earliest opportunity to leave and join the competition. Now that we understand that motivation is a necessity for your sales team, what is the best way to motivate a sales team? What to say, do, and how to do all of these? 
+Amidst all this, what is it that they need to keep them going? Better salaries, rewards, recognition, growth opportunities, promotions, offsites, trips abroad, what? Read on to know more about what motivates a sales team -- what works and what does not.
 
-##  Ways to inspire and motivate your sales team 
+## Motivating the sales team
 
-**1\. Get to know your team** Motivation is more of a personal need than anything else. To ensure that your team remains sincerely yours, make an effort to know them at a personal level. This goes for team leaders, managers, higher management, and even CEOs, CXOs, etc. For family-owned businesses, this endeavor should be undertaken by owners too. Regular one-to-one meetings, the occasional team meets, get-togethers, and involving team members in big decisions that will affect their lives and performances, etc., should be a part of the company culture. Such opportunities give you the chance to know what inspires each individual and how you can gain their trust and loyalty in the workplace. When you understand and know your team members, you are bound to work out techniques and processes that drive them to achieve their best. **2.** **Build a collaborative environment** “Collaboration is Multiplication.” 
+Do you need to motivate your sales team, in the first place? Is it worth the effort, money, and time? What would happen if the team is let to itself without a word of encouragement, a pat on the back, or a message on an e-platform socially acknowledging their hard work and zeal?
 
-  * John C. Maxwell 
+Typically, most salespeople are innately motivated individuals. They are passionate and pretty ambitious, have high self-esteem, are good at communication, are great networkers, and above all, are quite confident. This is not a thumb-rule but in most cases, you'll find salespeople to have these common characteristics. There are variations too but that's usually a small percentage.
 
-Collaboration always helps. In organizations where the sales team might be working in siloes, problems creep up in no time. Blame game become a part of the sales teams' culture before long. This is because in siloes, salespeople work all alone and have no idea what the others are up to or aren’t aligned to the team’s collective vision. If you want your sales team to give their best, and stay motivated all through, bring them at par with the rest of their team. Let them be a part of the table where they can converse, communicate, flag bothering issues, and more. This becomes a platform for everyone around the table to cross the hurdles together, to break prejudices, and work as a team for better productivity. **3.** **Goals** Sales teams everywhere are about targets and goals. There's no contention about this. Segregating the goals further is one of the practical ways of motivating a Sales Team. Give them goals for the day, week, and month. Daily goals are short-term and accomplishment should be associated with a pat on the back, accolading in a team meeting, etc. Weekly goals are much meatier and more tangible. Achievement of these goals can be tied to social appreciation on your internal sales incentive platform like [ My Incentives ](<https://www.grgindia.in/my-incentives/>) wherein everyone from the organization can join in to appreciate the person. Monthly goals should be associated with value-added rewards like gift vouchers, memberships, subscriptions, recommendations for professional workshops, etc, all of which can again be accomplished using a sales incentive software. **4.** **Reward them** What is the best way to motivate a sales team, you may ask? This is it. Rewards. Not just cash and money, increments and promotions – these are essential, of course. But, more than that, devise attractive reward schemes. Free lunches or dinners, a day off, a movie break for the entire team, going out to attend a sports match as a team, Friday BBQs, participating in a philanthropic cause, a foreign trip, etc. There’s no end to innovating newer ideas to make your sales folks feel appreciated and valued. **5.** **Multi-tiered rewards** If you keep rewards only for the winners, you may end up motivating only a select few. Some assume that they will never win or achieve their targets and therefore will not try hard. Some feel that the winner is already pre-decided and will never try hard enough to get to the crossing line. Multi-tiered rewards ensure wins for multiple winners and therefore, there’s always something for someone. Everyone will try to be that someone. Consequently, the performance of the team is bound to get better. **6.** **Recognition** Another crucial aspect of what can motivate a sales team is recognition. It is a basic human need and for the people who are selling your products and services in a highly volatile and competitive environment, recognition can do wonders. Email blasts across the organization recognizing team members with their photos, awarding salesperson of the month, an Employee Hall of Fame for consistent achievers, callouts from colleagues, etc., are simple ways to recognize. [ My Incentives ](<https://www.grgindia.in/my-incentives/>) , for instance, lets you automate all the above ways, thereby, minimizing manual work and making things way more exciting and fun for everyone in the sales department. 
+Having said this, even the most self-motivated and confident person needs some kind of appreciation and acknowledgment from time to time to keep their motivational levels intact. You need to celebrate their achievements and socially accept their contributions to value their work so that their self-pride and confidence never wavers. Thus, motivating the sales people who are directly responsible for selling your products and services and promoting your brand is crucial.
 
-##  What to say to motivate your sales team? 
+If you want your business and returns to grow positively, then, as an organizational head, you need to work on this psychological aspect of human behavior from the beginning. It should be an integral part of your work culture. And, it needs to be done on a regular basis and not as a yearly event.
 
-Earlier in the article, we spoke of patting the back, appreciating the person, saying positive things to the salespeople, etc. But what are things that can be said to the team to keep them pepped up always? Try some of these. These are very, very simple yet most of us forget it amidst the day-to-day toils of work and life. 
+_"People often say that motivation does not last. Well, neither does bathing -- that's why we recommend it daily."_ -- Zig Ziglar
 
-  * **Thank You.** If not every day, say it when they make small but significant contributions. 
-  * **What is your opinion about this?** It shows that their views matter and not just yours. 
+What can happen if your salespeople are demotivated and feel unappreciated, they will look for the earliest opportunity to leave and join the competition. Now that we understand that motivation is a necessity for your sales team, what is the best way to motivate a sales team? What to say, do, and how to do all of these?
 
-  * **Wonderful, that’s great** . Highly motivating words from a boss to the person who is toiling hard on the ground. 
-  * **Is there anything that I can help with?** This shows that you are there to fall back on in case the team is facing any issues. 
-  * **It’s a ‘We.’** Together as a unit you will stand and win, but as solos and individuals, there are more chances of failure.
+## Ways to inspire and motivate your sales team
+
+### 1. Get to know your team
+
+Motivation is more of a personal need than anything else. To ensure that your team remains sincerely yours, make an effort to know them at a personal level. This goes for team leaders, managers, higher management, and even CEOs, CXOs, etc. For family-owned businesses, this endeavor should be undertaken by owners too.
+
+Regular one-to-one meetings, the occasional team meets, get-togethers, and involving team members in big decisions that will affect their lives and performances, etc., should be a part of the company culture. Such opportunities give you the chance to know what inspires each individual and how you can gain their trust and loyalty in the workplace.
+
+When you understand and know your team members, you are bound to work out techniques and processes that drive them to achieve their best.
+
+### 2. Build a collaborative environment
+
+_"Collaboration is Multiplication."_ -- John C. Maxwell
+
+Collaboration always helps. In organizations where the sales team might be working in siloes, problems creep up in no time. Blame game become a part of the sales teams' culture before long. This is because in siloes, salespeople work all alone and have no idea what the others are up to or aren't aligned to the team's collective vision.
+
+If you want your sales team to give their best, and stay motivated all through, bring them at par with the rest of their team. Let them be a part of the table where they can converse, communicate, flag bothering issues, and more. This becomes a platform for everyone around the table to cross the hurdles together, to break prejudices, and work as a team for better productivity.
+
+### 3. Goals
+
+Sales teams everywhere are about targets and goals. There's no contention about this. Segregating the goals further is one of the practical ways of motivating a Sales Team. Give them goals for the day, week, and month.
+
+Daily goals are short-term and accomplishment should be associated with a pat on the back, accolading in a team meeting, etc. Weekly goals are much meatier and more tangible. Achievement of these goals can be tied to social appreciation on your internal sales incentive platform like [My Incentives](https://www.grgindia.in/my-incentives/) wherein everyone from the organization can join in to appreciate the person.
+
+Monthly goals should be associated with value-added rewards like gift vouchers, memberships, subscriptions, recommendations for professional workshops, etc, all of which can again be accomplished using a sales incentive software.
+
+### 4. Reward them
+
+What is the best way to motivate a sales team, you may ask? This is it. Rewards. Not just cash and money, increments and promotions -- these are essential, of course. But, more than that, devise attractive reward schemes.
+
+Free lunches or dinners, a day off, a movie break for the entire team, going out to attend a sports match as a team, Friday BBQs, participating in a philanthropic cause, a foreign trip, etc. There's no end to innovating newer ideas to make your sales folks feel appreciated and valued.
+
+### 5. Multi-tiered rewards
+
+If you keep rewards only for the winners, you may end up motivating only a select few. Some assume that they will never win or achieve their targets and therefore will not try hard. Some feel that the winner is already pre-decided and will never try hard enough to get to the crossing line.
+
+Multi-tiered rewards ensure wins for multiple winners and therefore, there's always something for someone. Everyone will try to be that someone. Consequently, the performance of the team is bound to get better.
+
+### 6. Recognition
+
+Another crucial aspect of what can motivate a sales team is recognition. It is a basic human need and for the people who are selling your products and services in a highly volatile and competitive environment, recognition can do wonders.
+
+Email blasts across the organization recognizing team members with their photos, awarding salesperson of the month, an Employee Hall of Fame for consistent achievers, callouts from colleagues, etc., are simple ways to recognize. [My Incentives](https://www.grgindia.in/my-incentives/), for instance, lets you automate all the above ways, thereby, minimizing manual work and making things way more exciting and fun for everyone in the sales department.
+
+## What to say to motivate your sales team?
+
+Earlier in the article, we spoke of patting the back, appreciating the person, saying positive things to the salespeople, etc. But what are things that can be said to the team to keep them pepped up always? Try some of these. These are very, very simple yet most of us forget it amidst the day-to-day toils of work and life.
+
+- **Thank You.** If not every day, say it when they make small but significant contributions.
+- **What is your opinion about this?** It shows that their views matter and not just yours.
+- **Wonderful, that's great.** Highly motivating words from a boss to the person who is toiling hard on the ground.
+- **Is there anything that I can help with?** This shows that you are there to fall back on in case the team is facing any issues.
+- **It's a 'We.'** Together as a unit you will stand and win, but as solos and individuals, there are more chances of failure.

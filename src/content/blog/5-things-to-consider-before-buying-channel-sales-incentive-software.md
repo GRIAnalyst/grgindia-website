@@ -51,4 +51,8 @@ A channel sales incentive program's performance can be further boosted with the 
 
 Interested to know more about [My Incentives](/my-incentives)? Get in touch for a detailed demo!
 
-[CTA]
+<div class="cta-block">
+<p class="cta-headline">Looking for the right channel sales incentive software?</p>
+<p class="cta-sub">Discover how My Incentives can help you automate, gamify, and scale your channel incentive programs with real-time dashboards and mobile access.</p>
+<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+</div>

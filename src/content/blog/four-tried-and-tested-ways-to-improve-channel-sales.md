@@ -47,4 +47,8 @@ If yours is an established business with a proper setup of channel partners, go 
 
 Channel sales have great potential if leveraged effectively. Ensure that you choose the right ones and do everything possible to keep them with you. Keep the communication channels open and be accessible for them. Give them the resources and tools to perform well and incentivize them wholeheartedly and, of course, timely. Ensure their excitement levels towards your products and services are as much as yours!
 
-[CTA]
+<div class="cta-block">
+<p class="cta-headline">Ready to boost your channel sales performance?</p>
+<p class="cta-sub">See how My Incentives can help you engage channel partners, streamline incentive programs, and drive more revenue through your sales network.</p>
+<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+</div>

@@ -53,7 +53,11 @@ Look for these capabilities when evaluating commission automation tools:
 - Scalability to handle growing transaction volumes
 - Role-based access controls and security certifications
 
-[CTA]
+<div class="cta-block">
+<p class="cta-headline">Ready to stop managing commissions in spreadsheets?</p>
+<p class="cta-sub">See how My Incentives can automate your sales commission calculations for accurate, on-time payouts every cycle.</p>
+<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+</div>
 
 ## Getting started
 

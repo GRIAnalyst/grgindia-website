@@ -6,9 +6,50 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  canonical?: string;
+  jsonLd?: Record<string, unknown>;
 }
 
-const { title, description = 'GRG India - Channel Incentive & Loyalty Solutions' } = Astro.props;
+const {
+  title,
+  description = 'GRG India - Channel Incentive & Loyalty Solutions',
+  ogTitle,
+  ogDescription,
+  ogImage = 'https://www.grgindia.in/wp-content/uploads/2023/06/grg-india-og.png',
+  canonical,
+  jsonLd,
+} = Astro.props;
+
+const resolvedOgTitle = ogTitle || title;
+const resolvedOgDesc = ogDescription || description;
+const canonicalUrl = canonical || new URL(Astro.url.pathname, 'https://www.grgindia.in').href;
+
+// Default Organization schema for all pages
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'GRG India',
+  legalName: 'TajOnline Pvt. Ltd.',
+  url: 'https://www.grgindia.in',
+  logo: 'https://www.grgindia.in/images/grg-india-logo.png',
+  foundingDate: '2008',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Satya House, 402, Hi-Tech IT Park 2nd & 4th Floor',
+    addressLocality: 'Sewri West',
+    addressRegion: 'Mumbai',
+    postalCode: '400015',
+    addressCountry: 'IN',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/grg-india/',
+  ],
+};
+
+const schemaToRender = jsonLd || orgSchema;
 ---
 
 <!doctype html>
@@ -18,7 +59,26 @@ const { title, description = 'GRG India - Channel Incentive & Loyalty Solutions'
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | GRG India</title>
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={resolvedOgTitle} />
+    <meta property="og:description" content={resolvedOgDesc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="GRG India" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={resolvedOgTitle} />
+    <meta name="twitter:description" content={resolvedOgDesc} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaToRender)} />
+
+    <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900">
     <Navbar />
@@ -26,5 +86,155 @@ const { title, description = 'GRG India - Channel Incentive & Loyalty Solutions'
       <slot />
     </main>
     <Footer />
+    <!-- Animation Styles & Intersection Observer -->
+    <style>
+      /* ---- Brand button (replaces inline onmouseover/onmouseout) ---- */
+      .btn-brand-red {
+        background-color: #E41E3A;
+        color: #ffffff;
+      }
+      .btn-brand-red:hover {
+        background-color: #b8162e;
+      }
+
+      /* ---- Base hidden states ---- */
+      .anim-fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      }
+      .anim-fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .anim-fade-in {
+        opacity: 0;
+        transition: opacity 0.7s ease-out;
+      }
+      .anim-fade-in.is-visible {
+        opacity: 1;
+      }
+
+      .anim-slide-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      }
+      .anim-slide-left.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .anim-slide-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      }
+      .anim-slide-right.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .anim-scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+      .anim-scale-in.is-visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        .anim-fade-up,
+        .anim-fade-in,
+        .anim-slide-left,
+        .anim-slide-right,
+        .anim-scale-in {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // ---- Intersection Observer for scroll animations ----
+        const animEls = document.querySelectorAll(
+          '.anim-fade-up, .anim-fade-in, .anim-slide-left, .anim-slide-right, .anim-scale-in'
+        );
+
+        if (animEls.length === 0) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.dataset.animDelay || '0';
+                setTimeout(() => {
+                  el.classList.add('is-visible');
+                }, parseInt(delay));
+                observer.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        animEls.forEach((el) => observer.observe(el));
+
+        // ---- Counter animation for stats ----
+        const counters = document.querySelectorAll('[data-count-to]');
+        if (counters.length === 0) return;
+
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = el.dataset.countTo;
+                const suffix = el.dataset.countSuffix || '';
+                const prefix = el.dataset.countPrefix || '';
+                const isDecimal = target.includes('.');
+                const numTarget = parseFloat(target);
+                const duration = 1500;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                  const elapsed = currentTime - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  // Ease-out cubic
+                  const eased = 1 - Math.pow(1 - progress, 3);
+                  const current = eased * numTarget;
+
+                  if (isDecimal) {
+                    el.textContent = prefix + current.toFixed(1) + suffix;
+                  } else {
+                    el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+                  }
+
+                  if (progress < 1) {
+                    requestAnimationFrame(update);
+                  } else {
+                    // Ensure final value is exact
+                    el.textContent = prefix + target + suffix;
+                  }
+                }
+
+                requestAnimationFrame(update);
+                counterObserver.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        counters.forEach((el) => counterObserver.observe(el));
+      });
+    </script>
   </body>
 </html>

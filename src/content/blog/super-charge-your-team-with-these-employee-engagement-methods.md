@@ -128,4 +128,8 @@ Many organizations play the policy of hide-and-seek. They are not transparent an
 
 Remember, highly engaged organizations are listening better, are more purposeful and inclusive than those that are not. If you are looking at driving **employee engagement** with purpose and inclusiveness, consider the [Buzzz](/buzzz) platform.
 
-[CTA]
+<div class="cta-block">
+<p class="cta-headline">Ready to supercharge your employee engagement?</p>
+<p class="cta-sub">See how Buzzz can help you build a motivated, engaged workforce with peer recognition and gamified rewards.</p>
+<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+</div>
