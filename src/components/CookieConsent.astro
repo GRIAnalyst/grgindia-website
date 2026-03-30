@@ -1,0 +1,74 @@
+---
+// Cookie Consent Banner
+// Blocks analytics/marketing cookies until user opts in
+// Only "necessary" cookies are allowed by default
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden">
+  <div class="bg-gray-900 text-white px-4 sm:px-6 py-4 shadow-lg border-t border-gray-700">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div class="flex-1 text-sm text-gray-300 leading-relaxed">
+        We use cookies to improve your experience and analyse site traffic. By clicking "Accept All", you consent to our use of cookies.
+        <a href="/privacy-policy" class="underline text-white hover:text-gray-200 ml-1">Privacy Policy</a>
+      </div>
+      <div class="flex gap-3 shrink-0">
+        <button id="cookie-reject" class="px-4 py-2 text-sm font-medium border border-gray-500 rounded-lg hover:bg-gray-800 transition-colors">
+          Necessary Only
+        </button>
+        <button id="cookie-accept" class="px-4 py-2 text-sm font-medium bg-[#E41E3A] text-white rounded-lg hover:bg-[#b8162e] transition-colors">
+          Accept All
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+
+    // Check if user has already made a choice
+    const consent = localStorage.getItem('cookie-consent');
+
+    if (!consent) {
+      // No choice made yet — show banner
+      banner?.classList.remove('hidden');
+    } else if (consent === 'all') {
+      // User previously accepted — load analytics
+      loadAnalytics();
+    }
+
+    acceptBtn?.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'all');
+      banner?.classList.add('hidden');
+      loadAnalytics();
+    });
+
+    rejectBtn?.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'necessary');
+      banner?.classList.add('hidden');
+    });
+
+    function loadAnalytics() {
+      // Google Analytics (replace GA_MEASUREMENT_ID with your actual ID when ready)
+      // Uncomment when you have a GA tracking ID:
+      /*
+      if (!document.querySelector('script[src*="googletagmanager"]')) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+        document.head.appendChild(script);
+
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'GA_MEASUREMENT_ID');
+        };
+      }
+      */
+    }
+  });
+</script>

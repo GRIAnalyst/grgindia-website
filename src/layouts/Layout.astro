@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -86,6 +87,7 @@ const schemaToRender = jsonLd || orgSchema;
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
     <!-- Animation Styles & Intersection Observer -->
     <style>
       /* ---- Brand button (replaces inline onmouseover/onmouseout) ---- */
