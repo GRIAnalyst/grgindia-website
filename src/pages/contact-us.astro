@@ -152,46 +152,4 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-<script>
-  const form = document.getElementById('contact-form');
-  const btn = document.getElementById('contact-submit');
-  const status = document.getElementById('contact-status');
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    status?.classList.add('hidden');
-
-    const data = {
-      name: form.querySelector('#name')?.value,
-      email: form.querySelector('#work-email')?.value,
-      phone: form.querySelector('#phone')?.value,
-      message: form.querySelector('#message')?.value,
-      formType: 'contact',
-    };
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        status.textContent = 'Thank you! We'll get back to you shortly.';
-        status.className = 'text-sm text-center mt-2 text-green-600';
-        status.classList.remove('hidden');
-        form.reset();
-      } else {
-        throw new Error();
-      }
-    } catch {
-      status.textContent = 'Something went wrong. Please try again or email contactus@grgindia.in.';
-      status.className = 'text-sm text-center mt-2 text-red-500';
-      status.classList.remove('hidden');
-    }
-    btn.disabled = false;
-    btn.textContent = 'Submit';
-  });
-</script>
 </Layout>

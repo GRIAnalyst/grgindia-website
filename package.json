@@ -15,7 +15,6 @@
     "@astrojs/vercel": "^10.0.2",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
-    "resend": "^6.10.0",
     "tailwindcss": "^4.2.2",
     "unist-util-visit": "^5.1.0"
   }

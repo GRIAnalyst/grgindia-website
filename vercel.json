@@ -21,6 +21,86 @@
       "source": "/book-a-demo-myincentives",
       "destination": "/book-a-demo/",
       "statusCode": 301
+    },
+    {
+      "source": "/customer-support/",
+      "destination": "/contact-us/",
+      "statusCode": 301
+    },
+    {
+      "source": "/customer-support",
+      "destination": "/contact-us/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/jobs/",
+      "destination": "/careers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/jobs",
+      "destination": "/careers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/news/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/news",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ios-developer/",
+      "destination": "/careers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ios-developer",
+      "destination": "/careers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sales-manager/",
+      "destination": "/careers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sales-manager",
+      "destination": "/careers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers/business-development-executive/",
+      "destination": "/business-development-executive/",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers/business-development-executive",
+      "destination": "/business-development-executive/",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers/business-development-executive/apply/",
+      "destination": "/business-development-executive/apply/",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers/business-development-executive/apply",
+      "destination": "/business-development-executive/apply/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/:slug/",
+      "destination": "/:slug/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/:slug/",
+      "statusCode": 301
     }
   ]
 }
