@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="rounded-2xl p-7 md:p-9 bg-white shadow-lg border-l-4 border-l-[#E41E3A] anim-fade-up">
             <h1 class="text-2xl md:text-3xl font-bold text-[#0f1f3d] mb-6">Get in touch with our team</h1>
 
-            <form class="space-y-4">
+            <form class="space-y-4" id="contact-form">
               <!-- Name -->
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name <span class="text-[#E41E3A]">*</span></label>
@@ -73,10 +73,12 @@ import Layout from '../layouts/Layout.astro';
               <!-- Submit -->
               <button
                 type="submit"
+                id="contact-submit"
                 class="w-full bg-[#E41E3A] text-white font-semibold py-3 rounded-lg hover:bg-[#c9182f] transition-colors text-sm cursor-pointer"
               >
                 Submit
               </button>
+              <p id="contact-status" class="hidden text-sm text-center mt-2"></p>
             </form>
 
             <p class="text-xs text-gray-400 text-center mt-3">
@@ -86,54 +88,42 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- RIGHT: Sidebar (2/5 width) -->
-        <div class="lg:col-span-2 flex flex-col space-y-6 h-full anim-fade-up" data-anim-delay="200">
+        <div class="lg:col-span-2 flex flex-col h-full anim-fade-up" data-anim-delay="200">
 
           <!-- Existing Customer Section -->
           <div>
-            <h2 class="text-base font-bold text-[#0f1f3d] mb-3">Existing customer?</h2>
-            <p class="text-sm text-gray-600 mb-3">Log in to your platform to raise a support ticket directly.</p>
+            <h2 class="text-lg font-bold text-[#0f1f3d] mb-3">Existing customer?</h2>
+            <p class="text-base text-gray-600 mb-4">Log in to your platform to raise a support ticket directly.</p>
 
-            <div class="space-y-2.5">
+            <div class="space-y-3">
               <a href="https://clients.myincentives.in/" target="_blank" rel="noopener noreferrer"
-                class="group flex items-center gap-3 p-3.5 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-[#E41E3A]/30 transition-all">
-                <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #E41E3A, #b8162e);">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                class="group flex items-center gap-4 p-4 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-[#E41E3A]/30 transition-all">
+                <div class="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #E41E3A, #b8162e);">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div class="min-w-0">
-                  <p class="text-sm font-semibold text-[#0f1f3d] group-hover:text-[#E41E3A] transition-colors">My Incentives</p>
-                  <p class="text-xs text-gray-500">Log in to raise a ticket</p>
+                  <p class="text-base font-semibold text-[#0f1f3d] group-hover:text-[#E41E3A] transition-colors">My Incentives</p>
+                  <p class="text-sm text-gray-500">Log in to raise a ticket</p>
                 </div>
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-[#E41E3A] ml-auto shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <svg class="w-5 h-5 text-gray-300 group-hover:text-[#E41E3A] ml-auto shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </a>
 
               <a href="https://clients.letsbuzzz.com/" target="_blank" rel="noopener noreferrer"
-                class="group flex items-center gap-3 p-3.5 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-[#E41E3A]/30 transition-all">
-                <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #E41E3A, #b8162e);">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                class="group flex items-center gap-4 p-4 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-[#E41E3A]/30 transition-all">
+                <div class="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #E41E3A, #b8162e);">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
                 <div class="min-w-0">
-                  <p class="text-sm font-semibold text-[#0f1f3d] group-hover:text-[#E41E3A] transition-colors">Buzzz</p>
-                  <p class="text-xs text-gray-500">Log in to raise a ticket</p>
+                  <p class="text-base font-semibold text-[#0f1f3d] group-hover:text-[#E41E3A] transition-colors">Buzzz</p>
+                  <p class="text-sm text-gray-500">Log in to raise a ticket</p>
                 </div>
-                <svg class="w-4 h-4 text-gray-300 group-hover:text-[#E41E3A] ml-auto shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <svg class="w-5 h-5 text-gray-300 group-hover:text-[#E41E3A] ml-auto shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </a>
             </div>
           </div>
 
           <!-- Divider -->
-          <hr class="border-gray-200" />
-
-          <!-- Anything Else -->
-          <div>
-            <h2 class="text-base font-bold text-[#0f1f3d] mb-1">Anything else?</h2>
-            <p class="text-sm text-gray-600">
-              Write to us at
-              <a href="mailto:contactus@grgindia.in" class="font-semibold text-[#E41E3A] hover:underline">contactus@grgindia.in</a>
-            </p>
-          </div>
-
-          <!-- Divider -->
-          <hr class="border-gray-200" />
+          <hr class="border-gray-200 my-6" />
 
           <!-- Office Details -->
           <div class="space-y-2.5 text-sm text-gray-600">
@@ -147,9 +137,8 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <!-- Trust Signal -->
-          <div class="flex-1"></div>
-          <div class="rounded-xl bg-[#f9fafb] p-4">
+          <!-- Trust Signal — pinned to bottom -->
+          <div class="mt-auto pt-6 rounded-xl bg-[#f9fafb] p-4">
             <div class="flex items-center gap-2.5 mb-1">
               <svg class="w-4 h-4 text-[#E41E3A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
               <span class="text-sm font-semibold text-[#0f1f3d]">Trusted by 100+ enterprises</span>
@@ -163,4 +152,46 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+<script>
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('contact-submit');
+  const status = document.getElementById('contact-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status?.classList.add('hidden');
+
+    const data = {
+      name: form.querySelector('#name')?.value,
+      email: form.querySelector('#work-email')?.value,
+      phone: form.querySelector('#phone')?.value,
+      message: form.querySelector('#message')?.value,
+      formType: 'contact',
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        status.textContent = 'Thank you! We'll get back to you shortly.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please try again or email contactus@grgindia.in.';
+      status.className = 'text-sm text-center mt-2 text-red-500';
+      status.classList.remove('hidden');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Submit';
+  });
+</script>
 </Layout>

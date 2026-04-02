@@ -35,7 +35,7 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="text-xl font-bold text-gray-900 mb-1">Book a Demo</h2>
           <p class="text-sm text-gray-500 mb-6">We'll get back to you within one business day.</p>
 
-          <form class="space-y-5">
+          <form class="space-y-5" id="demo-form">
             <!-- Name -->
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name <span class="text-red-400">*</span></label>
@@ -90,10 +90,12 @@ import Layout from '../layouts/Layout.astro';
             <!-- Submit -->
             <button
               type="submit"
+              id="demo-submit"
               class="w-full bg-[#E41E3A] text-white font-semibold py-3 rounded-lg hover:bg-[#c9182f] transition-colors"
             >
               Schedule Demo
             </button>
+            <p id="demo-status" class="hidden text-sm text-center mt-2"></p>
           </form>
 
           <p class="text-xs text-gray-400 text-center mt-3">
@@ -105,4 +107,46 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+<script>
+  const form = document.getElementById('demo-form');
+  const btn = document.getElementById('demo-submit');
+  const status = document.getElementById('demo-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status?.classList.add('hidden');
+
+    const data = {
+      name: form.querySelector('#name')?.value,
+      email: form.querySelector('#work-email')?.value,
+      phone: form.querySelector('#phone')?.value,
+      message: form.querySelector('#message')?.value,
+      formType: 'demo',
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        status.textContent = 'Thank you! We'll reach out to schedule your demo.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please try again or email contactus@grgindia.in.';
+      status.className = 'text-sm text-center mt-2 text-red-500';
+      status.classList.remove('hidden');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Schedule Demo';
+  });
+</script>
 </Layout>
