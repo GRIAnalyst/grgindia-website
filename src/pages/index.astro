@@ -75,11 +75,11 @@ import Layout from '../layouts/Layout.astro';
         {[
           { title: 'Channel Partners', img: '/images/segments/channel-partners.png', desc: "Incentivize your channel partners, franchise stores, dealers, and distributors through a structured loyalty program - that's automated & managed digitally." },
           { title: 'Sales Teams', img: '/images/segments/sales-teams.png', desc: 'Motivate your sales teams to drive higher revenues by automating sales commission and incentive management for timely and hassle-free payouts.' },
-          { title: 'Employees', img: '/images/segments/employees.png', desc: "Build a culture of appreciation by rewarding and recognizing employees' best performances, alignment with company values and service milestones." },
-          { title: 'Other Teams', img: '/images/segments/other-teams.png', desc: 'Motivate other revenue-focused teams using digital loyalty programs that manage and disburse timely commission & incentives.' },
+          { title: 'Retail Stores', img: '/images/segments/retail-stores.png', desc: "Keep the frontline employees at your stores and outlets motivated with regular incentives and rewards." },
+          { title: 'Influencers', img: '/images/segments/influencers.png', desc: 'Drive sales through influencer-led programs with automated commission tracking and hassle-free payouts.' },
         ].map((card, i) => (
-          <div class="anim-fade-up border border-gray-200 rounded-xl shadow-sm" data-anim-delay={String(i * 100)}>
-            <img src={card.img} alt={card.title} class="w-full h-auto object-contain" />
+          <div class="anim-fade-up border border-gray-200 rounded-xl shadow-sm overflow-hidden" data-anim-delay={String(i * 100)}>
+            <img src={card.img} alt={card.title} class="w-full aspect-square object-cover" />
             <div class="p-6">
               <h3 class="text-lg font-semibold">{card.title}</h3>
               <p class="mt-2 text-sm text-gray-600">{card.desc}</p>
