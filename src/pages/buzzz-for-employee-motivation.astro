@@ -1,11 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Buzzz',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web, iOS, Android',
+  description: 'All-in-one employee rewards and recognition platform that enables peer-to-peer recognition, automates milestone celebrations, and builds a culture of appreciation.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'INR',
+    availability: 'https://schema.org/OnlineOnly',
+  },
+  author: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    url: 'https://www.grgindia.in',
+  },
+};
 ---
 
 <Layout
   title="Buzzz – Employee Rewards & Recognition"
   description="Buzzz by GRG India — an all-in-one employee rewards and recognition platform to boost motivation, engagement, and workplace culture."
   canonical="https://www.grgindia.in/buzzz-for-employee-motivation/"
+  ogImage="https://www.grgindia.in/images/buzzz/hero-banner.png"
+  jsonLd={productSchema}
 >
 
   <!-- ==================== HERO ==================== -->

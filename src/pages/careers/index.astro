@@ -34,13 +34,37 @@ const testimonials = [
   },
 ];
 
-
+const jobPostingSchema = openings.map((job) => ({
+  '@context': 'https://schema.org',
+  '@type': 'JobPosting',
+  title: job.title,
+  description: job.summary,
+  datePosted: '2026-03-01',
+  employmentType: 'FULL_TIME',
+  jobLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Mumbai',
+      addressRegion: 'Maharashtra',
+      addressCountry: 'IN',
+    },
+  },
+  hiringOrganization: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    sameAs: 'https://www.grgindia.in',
+    logo: 'https://www.grgindia.in/images/grg-india-logo.png',
+  },
+}));
 ---
 
 <Layout
   title="Careers - Leaders In Incentives, Rewards & Loyalty Programs | GRG India"
   description="Careers at GRG India. Let's together make work enjoyable and fulfilling for people around the world."
   canonical="https://www.grgindia.in/careers/"
+  ogImage="https://www.grgindia.in/images/careers/career-hero.png"
+  jsonLd={jobPostingSchema[0]}
 >
 
   <!-- Hero -->

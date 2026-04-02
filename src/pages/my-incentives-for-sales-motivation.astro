@@ -1,11 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'My Incentives',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web, iOS, Android',
+  description: 'End-to-end sales incentive and commission management platform that automates incentive calculations, gamifies sales performance, and enables real-time payouts.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'INR',
+    availability: 'https://schema.org/OnlineOnly',
+  },
+  author: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    url: 'https://www.grgindia.in',
+  },
+};
 ---
 
 <Layout
   title="Sales Motivation | Employee Incentive Calculation Software"
   description="Boost sales motivation through a sales incentive software that automates incentive calculation and incentive management."
   canonical="https://www.grgindia.in/my-incentives-for-sales-motivation/"
+  ogImage="https://www.grgindia.in/images/home-banner.png"
+  jsonLd={productSchema}
 >
 
   <!-- ==================== HERO ==================== -->
