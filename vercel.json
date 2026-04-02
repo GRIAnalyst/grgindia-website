@@ -13,16 +13,6 @@
   ],
   "redirects": [
     {
-      "source": "/book-a-demo-myincentives/",
-      "destination": "/book-a-demo/",
-      "statusCode": 301
-    },
-    {
-      "source": "/book-a-demo-myincentives",
-      "destination": "/book-a-demo/",
-      "statusCode": 301
-    },
-    {
       "source": "/customer-support/",
       "destination": "/contact-us/",
       "statusCode": 301
