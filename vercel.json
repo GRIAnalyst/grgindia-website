@@ -91,6 +91,76 @@
       "source": "/blog/:slug",
       "destination": "/:slug/",
       "statusCode": 301
+    },
+    {
+      "source": "/category/channel-partner-loyalty/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/channel-partner-loyalty",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/sales-incentives/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/sales-incentives",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/rewards-recognition/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/rewards-recognition",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/employee-engagement/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/employee-engagement",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/:slug/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/:slug",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/channel-partner-loyalty/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/channel-partner-loyalty",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/loyalty-programs-for-channel-partners-why-are-they-important/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/loyalty-programs-for-channel-partners-why-are-they-important",
+      "destination": "/blog/",
+      "statusCode": 301
     }
   ]
 }
