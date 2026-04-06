@@ -62,5 +62,5 @@ Measuring sales incentive effectiveness is not optional — it is the difference
 <div class="cta-block">
 <p class="cta-headline">Want to track your incentive ROI in real time?</p>
 <p class="cta-sub">My Incentives gives you automated calculations, live dashboards, and detailed analytics — so you always know what is working.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

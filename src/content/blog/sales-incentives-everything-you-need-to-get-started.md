@@ -20,7 +20,7 @@ Wish deciding the right incentive program was an easy task, though. It isn't. On
 <div class="cta-block">
 <p class="cta-headline">Looking to launch a sales incentive program?</p>
 <p class="cta-sub">My Incentives helps you design, automate, and manage incentive programs that drive real results. See it in action.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>
 
 ## What is sales incentive?
@@ -94,5 +94,5 @@ Keen to know more about My Incentives? Call us today for a [one-to-one demo](htt
 <div class="cta-block">
 <p class="cta-headline">Ready to supercharge your sales team?</p>
 <p class="cta-sub">From automated calculations to gamification and real-time tracking, My Incentives has everything you need to run a world-class incentive program.</p>
-<a href="/book-a-demo" class="cta-btn">Get Started</a>
+<a href="/book-a-demo/" class="cta-btn">Get Started</a>
 </div>

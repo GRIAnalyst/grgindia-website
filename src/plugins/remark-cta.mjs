@@ -20,7 +20,7 @@ export function remarkCta() {
           value: `<div class="cta-block">
   <p class="cta-headline">Ready to get started?</p>
   <p class="cta-sub">See how GRG India can transform your incentive programs.</p>
-  <a href="/book-a-demo" class="cta-btn">Get Started</a>
+  <a href="/book-a-demo/" class="cta-btn">Get Started</a>
 </div>`,
         };
         return;
@@ -38,7 +38,7 @@ export function remarkCta() {
           value: `<div class="cta-block">
   <p class="cta-headline">${headline}</p>
   <p class="cta-sub">${sub}</p>
-  <a href="/book-a-demo" class="cta-btn">Get Started</a>
+  <a href="/book-a-demo/" class="cta-btn">Get Started</a>
 </div>`,
         };
       }

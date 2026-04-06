@@ -131,5 +131,5 @@ Remember, highly engaged organizations are listening better, are more purposeful
 <div class="cta-block">
 <p class="cta-headline">Ready to supercharge your employee engagement?</p>
 <p class="cta-sub">See how Buzzz can help you build a motivated, engaged workforce with peer recognition and gamified rewards.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

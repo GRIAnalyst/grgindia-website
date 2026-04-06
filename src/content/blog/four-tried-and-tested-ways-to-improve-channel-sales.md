@@ -50,5 +50,5 @@ Channel sales have great potential if leveraged effectively. Ensure that you cho
 <div class="cta-block">
 <p class="cta-headline">Ready to boost your channel sales performance?</p>
 <p class="cta-sub">See how My Incentives can help you engage channel partners, streamline incentive programs, and drive more revenue through your sales network.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

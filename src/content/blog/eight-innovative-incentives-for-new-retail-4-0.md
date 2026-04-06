@@ -52,5 +52,5 @@ Implementing eight different incentive strategies sounds complex, but the right 
 <div class="cta-block">
 <p class="cta-headline">Ready to modernise your retail incentives?</p>
 <p class="cta-sub">My Incentives helps you design, launch, and manage innovative incentive programs — all from one platform, with zero code.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

@@ -67,5 +67,5 @@ For [employee rewards and recognition](https://grgindia.in), Buzzz has the perfe
 <div class="cta-block">
 <p class="cta-headline">Looking for more ways to engage your remote team?</p>
 <p class="cta-sub">Buzzz helps you build a culture of recognition and engagement — even when your team is distributed. From peer-to-peer shoutouts to gamified rewards, keep your people connected and motivated.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

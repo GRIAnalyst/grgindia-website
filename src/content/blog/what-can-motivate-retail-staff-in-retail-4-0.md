@@ -60,5 +60,5 @@ Motivating retail staff in Retail 4.0 is not about any single tactic — it is a
 <div class="cta-block">
 <p class="cta-headline">Want to see what motivated retail teams look like?</p>
 <p class="cta-sub">My Incentives helps retail brands design gamified, transparent incentive programs that keep frontline staff engaged and performing.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

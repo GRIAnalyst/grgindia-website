@@ -60,5 +60,5 @@ The next frontier for loyalty is hyper-personalisation powered by AI and predict
 <div class="cta-block">
 <p class="cta-headline">Ready to build a loyalty program that actually works?</p>
 <p class="cta-sub">My Incentives gives you the tools to design, automate, and scale channel loyalty programs — with real-time data and zero code.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>

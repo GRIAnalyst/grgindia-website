@@ -35,7 +35,13 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="text-xl font-bold text-gray-900 mb-1">Book a Demo</h2>
           <p class="text-sm text-gray-500 mb-6">We'll get back to you within one business day.</p>
 
-          <form class="space-y-5">
+          <form class="space-y-5" id="mi-demo-form">
+            <!-- Honeypot — hidden from real users, bots auto-fill it -->
+            <div class="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+              <label for="mi-website">Website</label>
+              <input type="text" id="mi-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
             <!-- Name -->
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name <span class="text-red-400">*</span></label>
@@ -49,30 +55,60 @@ import Layout from '../layouts/Layout.astro';
               />
             </div>
 
-            <!-- Work Email -->
-            <div>
-              <label for="work-email" class="block text-sm font-medium text-gray-700 mb-1">Work Email <span class="text-red-400">*</span></label>
-              <input
-                type="email"
-                id="work-email"
-                name="work-email"
-                required
-                placeholder="you@company.com"
-                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
-              />
+            <!-- Work Email + Phone on same row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="work-email" class="block text-sm font-medium text-gray-700 mb-1">Work Email <span class="text-red-400">*</span></label>
+                <input
+                  type="email"
+                  id="work-email"
+                  name="work-email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-400">*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="+91 XXXXX XXXXX"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+                />
+              </div>
             </div>
 
-            <!-- Phone Number -->
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-400">*</span></label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                placeholder="+91 XXXXX XXXXX"
-                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
-              />
+            <!-- Company Name + Team Size on same row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company Name <span class="text-red-400">*</span></label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  required
+                  placeholder="Your company"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label for="team-size" class="block text-sm font-medium text-gray-700 mb-1">Team Size <span class="text-red-400">*</span></label>
+                <select
+                  id="team-size"
+                  name="team-size"
+                  required
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors bg-white"
+                >
+                  <option value="" disabled selected>Select team size</option>
+                  <option value="1-10">1–10</option>
+                  <option value="11-50">11–50</option>
+                  <option value="51-200">51–200</option>
+                  <option value="200+">200+</option>
+                </select>
+              </div>
             </div>
 
             <!-- Message -->
@@ -82,7 +118,7 @@ import Layout from '../layouts/Layout.astro';
                 id="message"
                 name="message"
                 rows="3"
-                placeholder="Tell us about your use case, team size, or anything else..."
+                placeholder="Tell us about your use case or anything else..."
                 class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-[#E41E3A] focus:ring-1 focus:ring-[#E41E3A] outline-none transition-colors"
               ></textarea>
             </div>

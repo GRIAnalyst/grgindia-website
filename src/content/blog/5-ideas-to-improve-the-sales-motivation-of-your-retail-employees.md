@@ -34,5 +34,5 @@ In the retail store, teamwork can make team members bond better. Therefore, work
 <div class="cta-block">
 <p class="cta-headline">Ready to motivate your retail team?</p>
 <p class="cta-sub">See how My Incentives can help you design and manage sales incentive programs that keep your retail employees engaged and performing at their best.</p>
-<a href="/book-a-demo" class="cta-btn">Book a Demo</a>
+<a href="/book-a-demo/" class="cta-btn">Book a Demo</a>
 </div>
