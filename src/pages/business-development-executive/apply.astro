@@ -125,11 +125,36 @@ import Layout from '../../layouts/Layout.astro';
 
   const form = document.getElementById('apply-form');
   const success = document.getElementById('apply-success');
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    form.classList.add('hidden');
-    success?.classList.remove('hidden');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+    }
+
+    const formData = new FormData(form);
+    formData.append('role', 'Business Development Executive');
+
+    try {
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        body: formData,
+      });
+      if (res.ok) {
+        form.classList.add('hidden');
+        success?.classList.remove('hidden');
+      } else {
+        throw new Error();
+      }
+    } catch {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+      }
+      alert('Something went wrong. Please try again or email GRI-Hr@grgindia.in directly.');
+    }
   });
 </script>
 

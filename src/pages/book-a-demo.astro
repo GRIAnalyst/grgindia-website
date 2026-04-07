@@ -143,4 +143,49 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+<script>
+  const form = document.getElementById('demo-form');
+  const btn = document.getElementById('demo-submit');
+  const status = document.getElementById('demo-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status?.classList.add('hidden');
+
+    const data = Object.fromEntries(new FormData(form));
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data['work-email'],
+          phone: data.phone,
+          company: data.company,
+          teamSize: data['team-size'],
+          message: data.message || '',
+          website: data.website || '',
+          formSource: 'book-a-demo',
+        }),
+      });
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Thank you! We'll be in touch within one business day.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status?.classList.remove('hidden');
+      } else {
+        throw new Error();
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please try again or email contactus@grgindia.in.';
+      status.className = 'text-sm text-center mt-2 text-red-500';
+      status?.classList.remove('hidden');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Schedule Demo';
+  });
+</script>
+
 </Layout>
