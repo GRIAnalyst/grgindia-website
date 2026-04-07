@@ -9,10 +9,49 @@ export const config = {
   },
 };
 
+// Rate limiter
+const submissions = new Map();
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const RATE_LIMIT_MAX = 3; // max 3 applications per IP per minute
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const entry = submissions.get(ip);
+  if (!entry || now - entry.firstRequest > RATE_LIMIT_WINDOW) {
+    submissions.set(ip, { firstRequest: now, count: 1 });
+    return false;
+  }
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// Max file size: 5MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const ALLOWED_MIME_TYPES = [
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+];
+
 // Parse multipart form data manually (lightweight, no external deps)
 async function parseMultipart(req) {
   const chunks = [];
+  let totalSize = 0;
   for await (const chunk of req) {
+    totalSize += chunk.length;
+    if (totalSize > MAX_FILE_SIZE + 100000) {
+      throw new Error('Upload too large');
+    }
     chunks.push(chunk);
   }
   const body = Buffer.concat(chunks);
@@ -41,7 +80,6 @@ async function parseMultipart(req) {
     if (filenameMatch && filenameMatch[1]) {
       fileName = filenameMatch[1];
       fileMime = mimeMatch ? mimeMatch[1].trim() : 'application/octet-stream';
-      // Re-extract binary data from the original buffer
       const headerEnd = body.indexOf('\r\n\r\n', body.indexOf(nameMatch[0]));
       const partStart = headerEnd + 4;
       const partBoundary = Buffer.from(`\r\n--${boundary}`);
@@ -56,8 +94,25 @@ async function parseMultipart(req) {
 }
 
 export default async function handler(req, res) {
+  // CORS
+  const origin = req.headers.origin || '';
+  const allowedOrigins = [
+    'https://www.grgindia.in',
+    'https://grgindia.in',
+    'https://grgindia-website.vercel.app',
+  ];
+  if (origin && !allowedOrigins.some((o) => origin.startsWith(o))) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Rate limit
+  const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
+  if (isRateLimited(ip)) {
+    return res.status(429).json({ error: 'Too many requests. Please try again later.' });
   }
 
   try {
@@ -68,22 +123,41 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Email and phone are required.' });
     }
 
-    const roleTitle = role || 'Unknown Role';
+    // Email format check
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ error: 'Invalid email address.' });
+    }
+
+    // File validation
+    if (fileData) {
+      if (fileData.length > MAX_FILE_SIZE) {
+        return res.status(400).json({ error: 'File too large. Maximum 5MB allowed.' });
+      }
+      if (fileMime && !ALLOWED_MIME_TYPES.includes(fileMime)) {
+        return res.status(400).json({ error: 'Invalid file type. Only PDF, DOC, and DOCX are accepted.' });
+      }
+    }
+
+    const safeRole = escapeHtml(role) || 'Unknown Role';
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
 
     const html = `
-      <h2>New Job Application: ${roleTitle}</h2>
+      <h2>New Job Application: ${safeRole}</h2>
       <table style="border-collapse:collapse;width:100%;max-width:500px;font-family:sans-serif;">
-        <tr><td style="padding:8px 12px;font-weight:bold;color:#555;border-bottom:1px solid #eee;">Role</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${roleTitle}</td></tr>
-        <tr><td style="padding:8px 12px;font-weight:bold;color:#555;border-bottom:1px solid #eee;">Email</td><td style="padding:8px 12px;border-bottom:1px solid #eee;"><a href="mailto:${email}">${email}</a></td></tr>
-        <tr><td style="padding:8px 12px;font-weight:bold;color:#555;border-bottom:1px solid #eee;">Phone</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${phone}</td></tr>
+        <tr><td style="padding:8px 12px;font-weight:bold;color:#555;border-bottom:1px solid #eee;">Role</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${safeRole}</td></tr>
+        <tr><td style="padding:8px 12px;font-weight:bold;color:#555;border-bottom:1px solid #eee;">Email</td><td style="padding:8px 12px;border-bottom:1px solid #eee;"><a href="mailto:${safeEmail}">${safeEmail}</a></td></tr>
+        <tr><td style="padding:8px 12px;font-weight:bold;color:#555;border-bottom:1px solid #eee;">Phone</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${safePhone}</td></tr>
       </table>
       <p style="margin-top:16px;font-size:12px;color:#999;">Sent from grgindia.in Careers application form</p>
     `;
 
     const attachments = [];
     if (fileData && fileName) {
+      // Sanitize filename
+      const safeFileName = fileName.replace(/[^a-zA-Z0-9._-]/g, '_');
       attachments.push({
-        filename: fileName,
+        filename: safeFileName,
         content: fileData,
         contentType: fileMime,
       });
@@ -93,13 +167,16 @@ export default async function handler(req, res) {
       from: 'GRG India Careers <noreply@grgindia.in>',
       to: 'GRI-Hr@grgindia.in',
       replyTo: email,
-      subject: `Job Application: ${roleTitle} — ${email}`,
+      subject: `Job Application: ${safeRole} — ${safeEmail}`,
       html,
       attachments,
     });
 
     return res.status(200).json({ success: true });
   } catch (error) {
+    if (error.message === 'Upload too large') {
+      return res.status(400).json({ error: 'File too large. Maximum 5MB allowed.' });
+    }
     console.error('Application email error:', error);
     return res.status(500).json({ error: 'Failed to send application. Please try again.' });
   }
