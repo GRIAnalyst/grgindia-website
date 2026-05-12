@@ -1,0 +1,234 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const job = {
+  title: 'Digital Marketing Executive',
+  department: 'Marketing',
+  location: 'Sewri West, Mumbai',
+  type: 'Full-time',
+  experience: '2+ years',
+  reportsTo: 'Head of Sales',
+  posted: '2026-05-12',
+};
+---
+
+<Layout title={`${job.title} — Careers at GRG India`} description="Join GRG India as a Digital Marketing Executive. Own paid search, LinkedIn Ads, SEO, and CRO for our B2B SaaS incentive management platform.">
+
+  <!-- Breadcrumb + Back -->
+  <div class="bg-gray-50 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 anim-fade-up">
+        <a href="/careers/" class="hover:text-gray-900 transition-colors">Careers</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        <span class="text-gray-900 font-medium">{job.title}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid lg:grid-cols-3 gap-12">
+
+      <!-- Main Content (2/3) -->
+      <div class="lg:col-span-2">
+
+        <!-- Header -->
+        <div class="mb-10 anim-fade-up">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="inline-block px-3 py-1 text-xs font-medium rounded-full" style="background-color: #fef2f2; color: #E41E3A;">{job.department}</span>
+            <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">{job.type}</span>
+            <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">{job.experience}</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">{job.title}</h1>
+          <div class="mt-4 flex flex-wrap gap-4 text-sm text-gray-500">
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              {job.location}
+            </span>
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+              Reports to {job.reportsTo}
+            </span>
+          </div>
+        </div>
+
+        <!-- About Us -->
+        <section class="mb-10 anim-fade-up">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">About GRG India</h2>
+          <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed space-y-4">
+            <p>
+              GRG India is a SaaS company providing products in incentive and reward management. Our flagship product — <strong>My Incentives</strong> — helps companies engage and incentivize their sales teams, customers, and channel partners. Our clients include some of India's top brands across BFSI, FMCG, Construction, IT, Agro Chemicals, and Automotive industries.
+            </p>
+            <p>
+              My Incentives is a B2B, no-code enterprise SaaS product. We automate the end-to-end sales and channel incentive process, typically for large companies with 2,000+ member strong frontline and channel sales teams.
+            </p>
+            <p>Specifically, we keep our clients' brands and sales top of mind via:</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li><strong>Automating the admin hassle</strong> of executing and calculating sales incentives — our sophisticated, real-time engine ingests and transforms data and calculates incentives in real time</li>
+              <li><strong>Gamifying and motivating</strong> frontline and channel sales teams</li>
+              <li><strong>Providing visibility</strong> to regional sales leadership</li>
+              <li><strong>Driving zero leakages and zero fraud</strong> in incentive payouts</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- What Makes This Role Great -->
+        <section class="mb-10 anim-fade-up">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">What Makes This Role Great</h2>
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Work in a rapidly evolving industry where scalable tech products have a huge impact</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Have complete ownership of marketing activities and grow your team over time</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Potential for the role to evolve into a senior role</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Responsibilities -->
+        <section class="mb-10 anim-fade-up">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">What You'll Do</h2>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-semibold text-gray-500 mt-0.5">1</span>
+              <span><strong class="text-gray-900">Paid Search &amp; Performance:</strong> Develop, implement, and optimize high-performing Google Ads campaigns (Search, Display, Retargeting) to drive B2B lead generation</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-semibold text-gray-500 mt-0.5">2</span>
+              <span><strong class="text-gray-900">Multi-Channel Acquisition:</strong> In addition to Google Ads, drive leads via outbound campaigns including email, LinkedIn, and other B2B platforms</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-semibold text-gray-500 mt-0.5">3</span>
+              <span><strong class="text-gray-900">Conversion Rate Optimization (CRO):</strong> Identify technical hacks and integrations to improve visitor-to-lead conversion rates on landing pages</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-semibold text-gray-500 mt-0.5">4</span>
+              <span><strong class="text-gray-900">Data-Driven Execution:</strong> Gather and derive actionable insights from Google Analytics and Pipedrive to refine targeting and reduce Customer Acquisition Cost (CAC)</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Measures of Success -->
+        <section class="mb-10 anim-fade-up">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Measures of Success</h2>
+          <p class="text-gray-600 mb-6">How we'll measure your impact in this role.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { label: 'Website Traffic Growth', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6' },
+              { label: 'Visitor-to-Lead Conversion Rate', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' },
+              { label: 'Sales-Qualified Leads Generated', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' },
+              { label: 'Opportunities / Pipeline Revenue', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+              { label: 'New Customers Generated', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
+              { label: 'Revenue Generated', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+            ].map((kpi, i) => (
+              <div class="border border-gray-200 rounded-xl p-5 bg-white hover:shadow-md hover:border-gray-300 transition-all anim-fade-up" data-anim-delay={i * 50}>
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background-color: #fef2f2;">
+                  <svg class="w-5 h-5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={kpi.icon} /></svg>
+                </div>
+                <p class="text-sm font-semibold text-gray-900 leading-snug">{kpi.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Requirements -->
+        <section class="mb-10 anim-fade-up">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">What You'll Need</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Experience</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                  <span>Minimum 2 years of experience in B2B marketing, preferably in the SaaS domain</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                  <span>Deep hands-on expertise in Google Ads (AdWords), Google Analytics, and LinkedIn Ads is mandatory</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Skills &amp; Qualities</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                  <span>Analytical mindset — strong bias for using data and tools to make decisions</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                  <span>Great communication skills and a creative mindset to balance technical performance with compelling brand messaging</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                  <span>Ability to coordinate with internal and external stakeholders and report into the Head of Sales</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar (1/3) -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-24 space-y-6">
+
+          <!-- Apply Card -->
+          <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm anim-slide-right" data-anim-delay="200">
+            <h3 class="text-lg font-bold text-gray-900 mb-4">Interested?</h3>
+            <a
+              href="/digital-marketing-executive/apply/"
+              class="block w-full text-center px-5 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+            >
+              Apply for This Role
+            </a>
+          </div>
+
+          <!-- Role Summary Card -->
+          <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 anim-slide-right" data-anim-delay="300">
+            <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Role Details</h3>
+            <dl class="space-y-4 text-sm">
+              <div>
+                <dt class="text-gray-500">Department</dt>
+                <dd class="mt-0.5 text-gray-900 font-medium">{job.department}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">Location</dt>
+                <dd class="mt-0.5 text-gray-900 font-medium">{job.location}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">Employment Type</dt>
+                <dd class="mt-0.5 text-gray-900 font-medium">{job.type}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">Experience</dt>
+                <dd class="mt-0.5 text-gray-900 font-medium">{job.experience}</dd>
+              </div>
+              <div>
+                <dt class="text-gray-500">Reports To</dt>
+                <dd class="mt-0.5 text-gray-900 font-medium">{job.reportsTo}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Back link -->
+          <a href="/careers/" class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Back to all openings
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>

@@ -3,6 +3,15 @@ import Layout from '../../layouts/Layout.astro';
 
 const openings = [
   {
+    title: 'Digital Marketing Executive',
+    slug: 'digital-marketing-executive',
+    department: 'Marketing',
+    location: 'Sewri West, Mumbai',
+    type: 'Full-time',
+    experience: '2+ years',
+    summary: 'Own paid search, LinkedIn Ads, SEO, and conversion-rate optimization for our B2B SaaS product, My Incentives. Drive lead generation across digital channels.',
+  },
+  {
     title: 'Business Development Executive',
     slug: 'business-development-executive',
     department: 'Growth & Strategy',
@@ -171,12 +180,12 @@ const jobPostingSchema = openings.map((job) => ({
         </p>
       </div>
 
-      <div class="max-w-3xl mx-auto space-y-4">
-        {openings.map((job) => (
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-4">
+        {openings.map((job, i) => (
           <a
             href={`/${job.slug}/`}
             class="block bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-gray-300 transition-all group anim-fade-up"
-            data-anim-delay="200"
+            data-anim-delay={200 + i * 100}
           >
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
