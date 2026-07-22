@@ -81,6 +81,31 @@ const schemaToRender = jsonLd || orgSchema;
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaToRender)} />
 
+    <!-- Google tag (gtag.js) with Consent Mode: Google Ads conversion tracking + GA4 -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+
+      if (localStorage.getItem('cookie-consent') === 'all') {
+        gtag('consent', 'update', {
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'AW-11342761792');          // Google Ads conversion tracking
+      gtag('config', 'G-D7VZH7Y0MW');          // GA4 site analytics
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-11342761792"></script>
+
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900">

@@ -23,52 +23,33 @@
   </div>
 </div>
 
-<script>
+<script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const banner = document.getElementById('cookie-banner');
     const acceptBtn = document.getElementById('cookie-accept');
     const rejectBtn = document.getElementById('cookie-reject');
 
-    // Check if user has already made a choice
-    const consent = localStorage.getItem('cookie-consent');
-
-    if (!consent) {
-      // No choice made yet — show banner
+    // Show banner only if no choice has been made yet.
+    // The Google tag itself loads in Layout.astro with Consent Mode defaults;
+    // this banner only updates consent state.
+    if (!localStorage.getItem('cookie-consent')) {
       banner?.classList.remove('hidden');
-    } else if (consent === 'all') {
-      // User previously accepted — load analytics
-      loadAnalytics();
     }
 
     acceptBtn?.addEventListener('click', () => {
       localStorage.setItem('cookie-consent', 'all');
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
       banner?.classList.add('hidden');
-      loadAnalytics();
     });
 
     rejectBtn?.addEventListener('click', () => {
       localStorage.setItem('cookie-consent', 'necessary');
       banner?.classList.add('hidden');
     });
-
-    function loadAnalytics() {
-      // Google Analytics (replace GA_MEASUREMENT_ID with your actual ID when ready)
-      // Uncomment when you have a GA tracking ID:
-      /*
-      if (!document.querySelector('script[src*="googletagmanager"]')) {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
-        document.head.appendChild(script);
-
-        script.onload = () => {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { window.dataLayer.push(arguments); }
-          gtag('js', new Date());
-          gtag('config', 'GA_MEASUREMENT_ID');
-        };
-      }
-      */
-    }
   });
 </script>

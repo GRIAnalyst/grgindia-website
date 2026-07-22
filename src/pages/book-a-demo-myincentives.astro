@@ -190,6 +190,12 @@ import Layout from '../layouts/Layout.astro';
         status.textContent = 'Thank you! We will be in touch within one business day.';
         status.className = 'text-sm text-center mt-2 text-green-600';
         status?.classList.remove('hidden');
+        // Google Ads conversion — fires only on successful lead submit
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-11342761792/sj73CLOxyP4YEMCe06Aq'
+          });
+        }
       } else {
         throw new Error();
       }
