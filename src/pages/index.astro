@@ -1,5 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LogoGrid from '../components/LogoGrid.astro';
+
+const clientLogos = [
+  { src: '/images/logos/sbi-card.png', alt: 'SBI Card', width: 444, height: 150 },
+  { src: '/images/logos/hdfc-bank.png', alt: 'HDFC Bank', width: 248, height: 130 },
+  { src: '/images/logos/Dell.png', alt: 'Dell', width: 444, height: 150 },
+  { src: '/images/logos/fujitsu.png', alt: 'Fujitsu', width: 768, height: 385 },
+  { src: '/images/logos/godrej.png', alt: 'Godrej', width: 444, height: 150 },
+  { src: '/images/logos/apar.jpg', alt: 'APAR', width: 900, height: 900, blend: true },
+  { src: '/images/logos/schneider-electric.png', alt: 'Schneider Electric', width: 248, height: 130 },
+  { src: '/images/logos/dalmia.png', alt: 'Dalmia', width: 390, height: 130 },
+  { src: '/images/logos/PRESTIGE.png', alt: 'Prestige', width: 444, height: 150 },
+  { src: '/images/logos/gulf.png', alt: 'Gulf', width: 444, height: 150 },
+  { src: '/images/logos/tafe.png', alt: 'TAFE', width: 768, height: 385 },
+  { src: '/images/logos/Mahindra.png', alt: 'Mahindra', width: 444, height: 150 },
+];
+import CheckItem from '../components/CheckItem.astro';
 ---
 
 <Layout
@@ -19,10 +36,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="anim-fade-up text-4xl md:text-5xl font-bold leading-tight text-[#0f1f3d]">
+          <h1 class="anim-fade-up text-4xl md:text-5xl font-bold leading-tight text-navy">
             The Smartest Way to
             <br />
-            <span id="hero-typed" class="text-[#E41E3A]">Manage</span><span id="hero-cursor" class="text-[#E41E3A] font-light">|</span>
+            <span id="hero-typed" class="text-brand">Manage</span><span id="hero-cursor" class="text-brand font-light">|</span>
             <br />
             Rewards &amp; Incentives
           </h1>
@@ -31,39 +48,21 @@ import Layout from '../layouts/Layout.astro';
           </p>
           <a
             href="/book-a-demo/"
-            class="anim-fade-up mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e]"
+            class="anim-fade-up mt-8 inline-block px-8 py-3 bg-brand text-white font-semibold rounded-lg hover:bg-brand-dark"
             data-anim-delay="300"
           >
             Book a Demo
           </a>
         </div>
         <div class="anim-slide-right" data-anim-delay="200">
-          <img src="/images/home-banner.png" alt="GRG India platform" class="w-full h-auto" />
+          <img width="900" height="896" src="/images/home-banner.png" alt="GRG India platform" class="w-full h-auto" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Client Logos Strip -->
-  <section class="py-10 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="anim-fade-up text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] mb-8">Trusted by</h2>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 md:gap-10 items-center justify-items-center">
-        <img src="/images/logos/sbi-card.png" alt="SBI Card" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="0" />
-        <img src="/images/logos/hdfc-bank.png" alt="HDFC Bank" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="50" />
-        <img src="/images/logos/Dell.png" alt="Dell" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="100" />
-        <img src="/images/logos/fujitsu.png" alt="Fujitsu" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="150" />
-        <img src="/images/logos/godrej.png" alt="Godrej" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="200" />
-        <img src="/images/logos/apar.jpg" alt="APAR" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="250" style="mix-blend-mode:multiply" />
-        <img src="/images/logos/schneider-electric.png" alt="Schneider Electric" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="300" />
-        <img src="/images/logos/dalmia.png" alt="Dalmia" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="350" />
-        <img src="/images/logos/PRESTIGE.png" alt="Prestige" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="400" />
-        <img src="/images/logos/gulf.png" alt="Gulf" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="450" />
-        <img src="/images/logos/tafe.png" alt="TAFE" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="500" />
-        <img src="/images/logos/Mahindra.png" alt="Mahindra" class="anim-scale-in h-12 w-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-300" data-anim-delay="550" />
-      </div>
-    </div>
-  </section>
+  <LogoGrid logos={clientLogos} />
 
   <!-- Loyalty Segments -->
   <section class="py-16 md:py-24 bg-white">
@@ -94,15 +93,15 @@ import Layout from '../layouts/Layout.astro';
   <!-- Features (Tabbed) -->
   <section class="py-12 md:py-16 bg-[#f8f8f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="anim-fade-up text-3xl md:text-4xl font-bold text-center text-[#0f1f3d] mb-8">Automate and manage rewards & incentives programs from scratch</h2>
+      <h2 class="anim-fade-up text-3xl md:text-4xl font-bold text-center text-navy mb-8">Automate and manage rewards & incentives programs from scratch</h2>
 
       <div class="anim-fade-up" data-anim-delay="150">
         <!-- Mobile: horizontal pill tabs (visible below lg) -->
         <div class="flex flex-wrap justify-center gap-2 mb-6 lg:hidden" role="tablist">
-          <button role="tab" aria-selected="true" data-tab="campaigns" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-[#E41E3A] text-white shadow-md">Campaigns</button>
-          <button role="tab" aria-selected="false" data-tab="gamify" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-[#0f1f3d] border border-gray-200">Gamification</button>
-          <button role="tab" aria-selected="false" data-tab="rewards" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-[#0f1f3d] border border-gray-200">Rewards</button>
-          <button role="tab" aria-selected="false" data-tab="social" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-[#0f1f3d] border border-gray-200">Recognition</button>
+          <button role="tab" aria-selected="true" data-tab="campaigns" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-brand text-white shadow-md">Campaigns</button>
+          <button role="tab" aria-selected="false" data-tab="gamify" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-navy border border-gray-200">Gamification</button>
+          <button role="tab" aria-selected="false" data-tab="rewards" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-navy border border-gray-200">Rewards</button>
+          <button role="tab" aria-selected="false" data-tab="social" class="feature-tab px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-navy border border-gray-200">Recognition</button>
         </div>
 
         <!-- Desktop: vertical tabs left + panel right -->
@@ -110,16 +109,16 @@ import Layout from '../layouts/Layout.astro';
           <!-- Vertical tab list (visible at lg+) -->
           <div class="hidden lg:block pt-2" role="tablist">
             <div class="border-l-2 border-gray-200">
-              <button role="tab" aria-selected="true" data-tab="campaigns" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-[#E41E3A] text-[#0f1f3d] font-semibold text-sm bg-[#E41E3A]/5 transition-all duration-200">
+              <button role="tab" aria-selected="true" data-tab="campaigns" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-brand text-navy font-semibold text-sm bg-brand/5 transition-all duration-200">
                 Create Multiple Campaigns
               </button>
-              <button role="tab" aria-selected="false" data-tab="gamify" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-transparent text-gray-500 font-medium text-sm hover:text-[#0f1f3d] hover:bg-gray-50 transition-all duration-200">
+              <button role="tab" aria-selected="false" data-tab="gamify" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-transparent text-gray-500 font-medium text-sm hover:text-navy hover:bg-gray-50 transition-all duration-200">
                 Gamify Loyalty Programs
               </button>
-              <button role="tab" aria-selected="false" data-tab="rewards" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-transparent text-gray-500 font-medium text-sm hover:text-[#0f1f3d] hover:bg-gray-50 transition-all duration-200">
+              <button role="tab" aria-selected="false" data-tab="rewards" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-transparent text-gray-500 font-medium text-sm hover:text-navy hover:bg-gray-50 transition-all duration-200">
                 Global Reward Catalog
               </button>
-              <button role="tab" aria-selected="false" data-tab="social" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-transparent text-gray-500 font-medium text-sm hover:text-[#0f1f3d] hover:bg-gray-50 transition-all duration-200">
+              <button role="tab" aria-selected="false" data-tab="social" class="feature-tab w-full text-left px-5 py-3 -ml-[2px] border-l-2 border-transparent text-gray-500 font-medium text-sm hover:text-navy hover:bg-gray-50 transition-all duration-200">
                 Drive Social Recognition
               </button>
             </div>
@@ -130,27 +129,18 @@ import Layout from '../layouts/Layout.astro';
             <div data-panel="campaigns" class="feature-panel">
               <div class="grid md:grid-cols-[1fr_1fr] gap-6 items-center bg-white rounded-2xl p-6 md:p-8 shadow-sm">
                 <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-[#0f1f3d]">Create multiple campaigns</h3>
+                  <h3 class="text-xl md:text-2xl font-bold text-navy">Create multiple campaigns</h3>
                   <p class="mt-3 text-sm text-gray-600 leading-relaxed">
                     Publish multiple rewards or incentive campaigns with ease. From complex calculations to paperwork and disbursement — everything can be automated.
                   </p>
                   <ul class="mt-4 space-y-2">
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Target-based, slab-based, or custom incentive structures</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Automate calculations and disbursement end-to-end</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Run multiple campaigns simultaneously with zero overlap</span>
-                    </li>
+                    <CheckItem text="Target-based, slab-based, or custom incentive structures" />
+                    <CheckItem text="Automate calculations and disbursement end-to-end" />
+                    <CheckItem text="Run multiple campaigns simultaneously with zero overlap" />
                   </ul>
                 </div>
                 <div class="flex items-center justify-center">
-                  <img src="/images/features/create-campaigns.png" alt="Create multiple campaigns" class="w-full max-w-sm" />
+                  <img loading="lazy" decoding="async" width="850" height="1109" src="/images/features/create-campaigns.png" alt="Create multiple campaigns" class="w-full max-w-sm" />
                 </div>
               </div>
             </div>
@@ -158,27 +148,18 @@ import Layout from '../layouts/Layout.astro';
             <div data-panel="gamify" class="feature-panel hidden">
               <div class="grid md:grid-cols-[1fr_1fr] gap-6 items-center bg-white rounded-2xl p-6 md:p-8 shadow-sm">
                 <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-[#0f1f3d]">Gamify loyalty programs</h3>
+                  <h3 class="text-xl md:text-2xl font-bold text-navy">Gamify loyalty programs</h3>
                   <p class="mt-3 text-sm text-gray-600 leading-relaxed">
                     Make reaching targets fun and competitive with leaderboards, points, badges, polls and votes, and so much more.
                   </p>
                   <ul class="mt-4 space-y-2">
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Real-time leaderboards with tier-based rankings</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Digital badges and milestone achievements</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Interactive quizzes, polls, and knowledge challenges</span>
-                    </li>
+                    <CheckItem text="Real-time leaderboards with tier-based rankings" />
+                    <CheckItem text="Digital badges and milestone achievements" />
+                    <CheckItem text="Interactive quizzes, polls, and knowledge challenges" />
                   </ul>
                 </div>
                 <div class="flex items-center justify-center">
-                  <img src="/images/features/gamify-loyalty.png" alt="Gamify loyalty programs" class="w-full max-w-sm" />
+                  <img loading="lazy" decoding="async" width="750" height="1109" src="/images/features/gamify-loyalty.png" alt="Gamify loyalty programs" class="w-full max-w-sm" />
                 </div>
               </div>
             </div>
@@ -186,27 +167,18 @@ import Layout from '../layouts/Layout.astro';
             <div data-panel="rewards" class="feature-panel hidden">
               <div class="grid md:grid-cols-[1fr_1fr] gap-6 items-center bg-white rounded-2xl p-6 md:p-8 shadow-sm">
                 <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-[#0f1f3d]">Global reward catalog</h3>
+                  <h3 class="text-xl md:text-2xl font-bold text-navy">Global reward catalog</h3>
                   <p class="mt-3 text-sm text-gray-600 leading-relaxed">
                     Give your teams the freedom to choose from thousands of rewards — vouchers, experiences, and more — across multiple countries.
                   </p>
                   <ul class="mt-4 space-y-2">
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Thousands of brand vouchers and experiences worldwide</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Flexible redemption — digital wallets, gift cards, merchandise</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Multi-currency and multi-country support built in</span>
-                    </li>
+                    <CheckItem text="Thousands of brand vouchers and experiences worldwide" />
+                    <CheckItem text="Flexible redemption — digital wallets, gift cards, merchandise" />
+                    <CheckItem text="Multi-currency and multi-country support built in" />
                   </ul>
                 </div>
                 <div class="flex items-center justify-center">
-                  <img src="/images/features/global-rewards.png" alt="Global reward catalog" class="w-full max-w-sm" />
+                  <img loading="lazy" decoding="async" width="672" height="1109" src="/images/features/global-rewards.png" alt="Global reward catalog" class="w-full max-w-sm" />
                 </div>
               </div>
             </div>
@@ -214,27 +186,18 @@ import Layout from '../layouts/Layout.astro';
             <div data-panel="social" class="feature-panel hidden">
               <div class="grid md:grid-cols-[1fr_1fr] gap-6 items-center bg-white rounded-2xl p-6 md:p-8 shadow-sm">
                 <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-[#0f1f3d]">Drive social recognition</h3>
+                  <h3 class="text-xl md:text-2xl font-bold text-navy">Drive social recognition</h3>
                   <p class="mt-3 text-sm text-gray-600 leading-relaxed">
                     Appreciate and celebrate the great work and behaviors of your employees and teams on a social feed. Add points and give out e-certificates too!
                   </p>
                   <ul class="mt-4 space-y-2">
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Company-wide social feed for peer-to-peer recognition</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Auto-generated e-certificates and digital awards</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#E41E3A]/10 flex items-center justify-center"><svg class="w-2.5 h-2.5 text-[#E41E3A]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                      <span class="text-sm text-gray-700">Manager and peer appreciation with point-based rewards</span>
-                    </li>
+                    <CheckItem text="Company-wide social feed for peer-to-peer recognition" />
+                    <CheckItem text="Auto-generated e-certificates and digital awards" />
+                    <CheckItem text="Manager and peer appreciation with point-based rewards" />
                   </ul>
                 </div>
                 <div class="flex items-center justify-center">
-                  <img src="/images/features/social-recognition.png" alt="Drive social recognition" class="w-full max-w-sm" />
+                  <img loading="lazy" decoding="async" width="800" height="1109" src="/images/features/social-recognition.png" alt="Drive social recognition" class="w-full max-w-sm" />
                 </div>
               </div>
             </div>
@@ -251,12 +214,12 @@ import Layout from '../layouts/Layout.astro';
       const panels = document.querySelectorAll('.feature-panel');
 
       // Desktop vertical tab classes
-      const deskActive = ['border-[#E41E3A]', 'text-[#0f1f3d]', 'font-semibold', 'bg-[#E41E3A]/5'];
-      const deskInactive = ['border-transparent', 'text-gray-500', 'font-medium', 'hover:text-[#0f1f3d]', 'hover:bg-gray-50'];
+      const deskActive = ['border-brand', 'text-navy', 'font-semibold', 'bg-brand/5'];
+      const deskInactive = ['border-transparent', 'text-gray-500', 'font-medium', 'hover:text-navy', 'hover:bg-gray-50'];
 
       // Mobile pill tab classes
-      const mobActive = ['bg-[#E41E3A]', 'text-white', 'shadow-md'];
-      const mobInactive = ['bg-white', 'text-[#0f1f3d]', 'border', 'border-gray-200'];
+      const mobActive = ['bg-brand', 'text-white', 'shadow-md'];
+      const mobInactive = ['bg-white', 'text-navy', 'border', 'border-gray-200'];
 
       function isDesktopTab(el) {
         return el.closest('[role="tablist"]')?.classList.contains('border-l-2') ||
@@ -344,13 +307,13 @@ import Layout from '../layouts/Layout.astro';
   <!-- GRG Advantage -->
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="anim-fade-up text-3xl md:text-4xl font-bold text-center text-[#0f1f3d]">The GRG India Advantage</h2>
+      <h2 class="anim-fade-up text-3xl md:text-4xl font-bold text-center text-navy">The GRG India Advantage</h2>
       <p class="anim-fade-up mt-3 text-center text-gray-600 max-w-2xl mx-auto text-sm" data-anim-delay="100">
         We give more power to you by simplifying everyday operations and delivering exemplary results.
       </p>
       <div class="mt-10 grid md:grid-cols-[1fr_1fr] gap-8 items-center">
         <div class="anim-fade-in" data-anim-delay="200">
-          <img src="/images/grg-advantage.png" alt="GRG India Advantage" class="w-full max-h-[480px] object-cover object-top rounded-lg" />
+          <img loading="lazy" decoding="async" width="863" height="791" src="/images/grg-advantage.png" alt="GRG India Advantage" class="w-full max-h-[480px] object-cover object-top rounded-lg" />
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {[
@@ -361,7 +324,7 @@ import Layout from '../layouts/Layout.astro';
           ].map((item, i) => (
             <div class="anim-fade-up" data-anim-delay={String(150 + i * 100)}>
               <img src={item.icon} alt={item.title} class="w-11 h-11" />
-              <h3 class="mt-2.5 text-lg font-semibold text-[#0f1f3d]">{item.title}</h3>
+              <h3 class="mt-2.5 text-lg font-semibold text-navy">{item.title}</h3>
               <p class="mt-1.5 text-sm text-gray-600 leading-relaxed">{item.desc}</p>
             </div>
           ))}
@@ -379,7 +342,7 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <a
         href="/book-a-demo/"
-        class="mt-8 inline-block px-8 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e]"
+        class="mt-8 inline-block px-8 py-3 bg-brand text-white font-semibold rounded-lg hover:bg-brand-dark"
       >
         Book a Demo
       </a>

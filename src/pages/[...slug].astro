@@ -54,7 +54,7 @@ const blogPostSchema = {
   jsonLd={blogPostSchema}
 >
   <!-- Post Hero -->
-  <section class="bg-[#0f1f3d] text-white py-14 md:py-20">
+  <section class="bg-navy text-white py-14 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {hasImage ? (
         <div class="grid md:grid-cols-[3fr_2fr] gap-10 items-center">
@@ -144,13 +144,13 @@ const blogPostSchema = {
         {prevPost ? (
           <a href={`/${prevPost.id}/`} class="group flex-1 text-left">
             <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">&larr; Previous</span>
-            <p class="mt-1 text-sm font-semibold text-gray-900 group-hover:text-[#E41E3A]">{prevPost.data.title}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900 group-hover:text-brand">{prevPost.data.title}</p>
           </a>
         ) : <div class="flex-1" />}
         {nextPost ? (
           <a href={`/${nextPost.id}/`} class="group flex-1 text-right">
             <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Next &rarr;</span>
-            <p class="mt-1 text-sm font-semibold text-gray-900 group-hover:text-[#E41E3A]">{nextPost.data.title}</p>
+            <p class="mt-1 text-sm font-semibold text-gray-900 group-hover:text-brand">{nextPost.data.title}</p>
           </a>
         ) : <div class="flex-1" />}
       </div>
@@ -166,7 +166,7 @@ const blogPostSchema = {
     color: #111827;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    border-left: 4px solid #E41E3A;
+    border-left: 4px solid var(--brand-red);
     padding-left: 1rem;
   }
 
@@ -192,9 +192,9 @@ const blogPostSchema = {
     font-size: 0.7rem;
     font-weight: 600;
     font-style: normal;
-    color: #E41E3A;
+    color: var(--brand-red);
     background: #fef2f2;
-    border: 1px solid #E41E3A;
+    border: 1px solid var(--brand-red);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     text-decoration: none;
@@ -204,7 +204,7 @@ const blogPostSchema = {
   }
 
   .game-link-btn:hover {
-    background: #E41E3A;
+    background: var(--brand-red);
     color: #ffffff;
   }
 
@@ -244,7 +244,7 @@ const blogPostSchema = {
   .blog-content blockquote::before {
     content: '\201C';
     font-size: 3rem;
-    color: #E41E3A;
+    color: var(--brand-red);
     position: absolute;
     top: -0.25rem;
     left: 1rem;
@@ -286,7 +286,7 @@ const blogPostSchema = {
   .cta-block {
     background: #f8f8fa;
     border: 1px solid #e5e7eb;
-    border-left: 4px solid #E41E3A;
+    border-left: 4px solid var(--brand-red);
     border-radius: 0.5rem;
     padding: 1.75rem 2rem;
     text-align: left;
@@ -296,7 +296,7 @@ const blogPostSchema = {
   .cta-sub { color: #6b7280; font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.5; }
   .cta-btn {
     display: inline-block;
-    background: #E41E3A;
+    background: var(--brand-red);
     color: white;
     font-weight: 600;
     padding: 0.5rem 1.5rem;
@@ -305,11 +305,11 @@ const blogPostSchema = {
     font-size: 0.85rem;
     transition: background 0.2s;
   }
-  .cta-btn:hover { background: #c9182f; }
+  .cta-btn:hover { background: var(--brand-red-dark); }
 
   /* Legacy .cta-box fallback */
   .blog-content .cta-box {
-    background: #E41E3A;
+    background: var(--brand-red);
     color: #ffffff;
     padding: 2rem;
     border-radius: 0.75rem;
@@ -335,7 +335,7 @@ const blogPostSchema = {
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    color: #0f1f3d;
+    color: var(--brand-navy);
     background: #f8f9fa;
     list-style: none;
   }
@@ -345,7 +345,7 @@ const blogPostSchema = {
   .faq-question::after {
     content: '▼';
     font-size: 0.7rem;
-    color: #E41E3A;
+    color: var(--brand-red);
     transition: transform 0.2s;
   }
 
@@ -414,7 +414,7 @@ const blogPostSchema = {
   }
 
   .blog-content thead th {
-    background: #0f1f3d;
+    background: var(--brand-navy);
     color: #ffffff;
     font-weight: 600;
     text-align: left;
@@ -457,7 +457,7 @@ const blogPostSchema = {
   .incentive-box h4 {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #0f1f3d;
+    color: var(--brand-navy);
     margin-bottom: 0.5rem;
   }
 
@@ -709,10 +709,10 @@ const blogPostSchema = {
               const id = entry.target.id;
               tocLinks.forEach((link) => {
                 if (link.getAttribute('href') === `#${id}`) {
-                  link.classList.add('text-[#E41E3A]', 'border-[#E41E3A]', 'font-medium');
+                  link.classList.add('text-brand', 'border-brand', 'font-medium');
                   link.classList.remove('text-gray-500', 'text-gray-400', 'border-transparent');
                 } else {
-                  link.classList.remove('text-[#E41E3A]', 'border-[#E41E3A]', 'font-medium');
+                  link.classList.remove('text-brand', 'border-brand', 'font-medium');
                   if (!link.classList.contains('pl-6')) {
                     link.classList.add('text-gray-500', 'border-transparent');
                   } else {

@@ -33,7 +33,7 @@ const navLinks = [
 ---
 
 <!-- Utility Bar -->
-<div class="bg-[#E41E3A] text-white text-xs">
+<div class="bg-brand text-white text-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-end h-8 gap-4">
     <a href="https://clients.letsbuzzz.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white/80 transition-colors font-medium">Buzzz Login</a>
     <span class="text-white/40">|</span>
@@ -47,22 +47,24 @@ const navLinks = [
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href="/" class="flex-shrink-0">
-        <img src="/images/logo.png" alt="GRG India" class="h-10 w-auto" />
+        <img width="3456" height="864" src="/images/logo.png" alt="GRG India" class="h-10 w-auto" />
       </a>
 
       <!-- Desktop Nav -->
       <div class="hidden lg:flex items-center gap-1">
         {navLinks.map((link) => (
-          <div class="relative group">
+          <div class="relative group nav-dropdown">
             <button
               class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 inline-flex items-center gap-1"
+              aria-expanded="false"
+              aria-haspopup="true"
             >
               {link.label}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div class="absolute left-0 top-full pt-1 hidden group-hover:block">
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block group-focus-within:block">
               <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[180px]">
                 {link.children.map((child) => (
                   <a
@@ -81,7 +83,7 @@ const navLinks = [
         </a>
         <a
           href="/book-a-demo/"
-          class="ml-2 px-5 py-2 border-2 border-[#E41E3A] text-[#E41E3A] text-sm font-medium rounded-full hover:bg-[#E41E3A] hover:text-white transition-colors"
+          class="ml-2 px-5 py-2 border-2 border-brand text-brand text-sm font-medium rounded-full hover:bg-brand hover:text-white transition-colors"
         >
           Book A Demo
         </a>
@@ -92,6 +94,8 @@ const navLinks = [
         id="mobile-menu-btn"
         class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
         aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
         <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -110,6 +114,7 @@ const navLinks = [
         <div class="mobile-dropdown">
           <button
             class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm font-medium text-gray-700"
+            aria-expanded="false"
           >
             {link.label}
             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,12 +134,12 @@ const navLinks = [
         Contact Us
       </a>
       <div class="pt-2 mt-2 border-t border-gray-100 flex gap-3">
-        <a href="https://clients.letsbuzzz.com/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 text-sm font-medium text-[#E41E3A] border border-[#E41E3A] rounded-lg hover:bg-red-50">Buzzz Login</a>
-        <a href="https://clients.myincentives.in/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 text-sm font-medium text-[#E41E3A] border border-[#E41E3A] rounded-lg hover:bg-red-50">My Incentives</a>
+        <a href="https://clients.letsbuzzz.com/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 text-sm font-medium text-brand border border-brand rounded-lg hover:bg-red-50">Buzzz Login</a>
+        <a href="https://clients.myincentives.in/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 text-sm font-medium text-brand border border-brand rounded-lg hover:bg-red-50">My Incentives</a>
       </div>
       <a
         href="/book-a-demo/"
-        class="block mt-2 text-center px-5 py-2 bg-[#E41E3A] text-white text-sm font-medium rounded-lg hover:bg-[#c9182f]"
+        class="block mt-2 text-center px-5 py-2 bg-brand text-white text-sm font-medium rounded-lg hover:bg-brand-dark"
       >
         Book A Demo
       </a>
@@ -154,14 +159,38 @@ const navLinks = [
     iconOpen?.classList.toggle('hidden');
     iconClose?.classList.toggle('hidden');
     menuBtn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
   });
 
   document.querySelectorAll('.mobile-dropdown-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const content = btn.nextElementSibling;
       const arrow = btn.querySelector('svg');
-      content?.classList.toggle('hidden');
+      const nowOpen = content?.classList.toggle('hidden') === false;
       arrow?.classList.toggle('rotate-180');
+      btn.setAttribute('aria-expanded', String(nowOpen));
+    });
+  });
+
+  // Desktop dropdowns: visibility is CSS-driven (hover + focus-within).
+  // JS mirrors that state into aria-expanded and lets Escape close.
+  document.querySelectorAll('.nav-dropdown').forEach((group) => {
+    const btn = group.querySelector('button');
+    const setExpanded = (v) => btn?.setAttribute('aria-expanded', String(v));
+
+    group.addEventListener('mouseenter', () => setExpanded(true));
+    group.addEventListener('mouseleave', () => setExpanded(false));
+    group.addEventListener('focusin', () => setExpanded(true));
+    group.addEventListener('focusout', (e) => {
+      if (!group.contains(e.relatedTarget)) setExpanded(false);
+    });
+    group.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        setExpanded(false);
+        document.activeElement?.blur();
+        btn?.focus();
+        btn?.blur();
+      }
     });
   });
 </script>

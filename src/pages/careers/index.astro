@@ -82,8 +82,8 @@ const jobPostingSchema = openings.map((job) => ({
       <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <!-- Left: text -->
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase anim-fade-up" style="color: #E41E3A;">Careers at GRG India</p>
-          <h1 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight anim-fade-up" data-anim-delay="100" style="color: #0f1f3d;">
+          <p class="text-sm font-semibold tracking-widest uppercase anim-fade-up" style="color: var(--brand-red);">Careers at GRG India</p>
+          <h1 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight anim-fade-up" data-anim-delay="100" style="color: var(--brand-navy);">
             Join us in making work enjoyable and fulfilling for all
           </h1>
           <p class="mt-5 text-lg text-gray-600 max-w-lg anim-fade-up" data-anim-delay="150">
@@ -136,7 +136,7 @@ const jobPostingSchema = openings.map((job) => ({
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10 anim-fade-up">We've got each other's backs</h2>
       <div class="max-w-4xl mx-auto">
-        <img src="/images/careers/Collage-pic.png" alt="GRG India team moments" class="w-full rounded-2xl anim-fade-in" data-anim-delay="100" />
+        <img loading="lazy" decoding="async" width="1866" height="786" src="/images/careers/Collage-pic.png" alt="GRG India team moments" class="w-full rounded-2xl anim-fade-in" data-anim-delay="100" />
       </div>
     </div>
   </section>
@@ -147,23 +147,23 @@ const jobPostingSchema = openings.map((job) => ({
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-14 anim-fade-up">Our guiding values</h2>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-scale-in">
-          <img src="/images/careers/We-re-passionate.png" alt="We're passionate" class="w-16 h-16 object-contain" />
-          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We're passionate</h3>
+          <img loading="lazy" decoding="async" width="118" height="118" src="/images/careers/We-re-passionate.png" alt="We're passionate" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-navy">We're passionate</h3>
           <p class="mt-2 text-sm text-gray-600 leading-relaxed">Not one dull moment, we take a lot of pride and enthusiasm in everything we do.</p>
         </div>
         <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-scale-in" data-anim-delay="100">
-          <img src="/images/careers/We-go-the-extra-mile.png" alt="We go the extra mile" class="w-16 h-16 object-contain" />
-          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We go the extra mile</h3>
+          <img loading="lazy" decoding="async" width="118" height="118" src="/images/careers/We-go-the-extra-mile.png" alt="We go the extra mile" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-navy">We go the extra mile</h3>
           <p class="mt-2 text-sm text-gray-600 leading-relaxed">We do whatever it takes to deliver exceptional results that delight our customers.</p>
         </div>
         <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-scale-in" data-anim-delay="200">
-          <img src="/images/careers/We-are-professional.png" alt="We're professional" class="w-16 h-16 object-contain" />
-          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We're professional</h3>
+          <img loading="lazy" decoding="async" width="118" height="118" src="/images/careers/We-are-professional.png" alt="We're professional" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-navy">We're professional</h3>
           <p class="mt-2 text-sm text-gray-600 leading-relaxed">We take ownership of the quality of work we deliver and how others perceive us.</p>
         </div>
         <div class="flex flex-col items-center text-center p-6 rounded-xl border border-gray-200 bg-white hover:shadow-md transition-shadow anim-scale-in" data-anim-delay="300">
-          <img src="/images/careers/We-respect-others.png" alt="We respect others" class="w-16 h-16 object-contain" />
-          <h3 class="mt-4 text-base font-semibold text-[#0f1f3d]">We respect others</h3>
+          <img loading="lazy" decoding="async" width="118" height="118" src="/images/careers/We-respect-others.png" alt="We respect others" class="w-16 h-16 object-contain" />
+          <h3 class="mt-4 text-base font-semibold text-navy">We respect others</h3>
           <p class="mt-2 text-sm text-gray-600 leading-relaxed">We consider, care for and acknowledge our colleagues, customers, vendors and every other stakeholder.</p>
         </div>
       </div>
@@ -189,7 +189,7 @@ const jobPostingSchema = openings.map((job) => ({
           >
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-[#E41E3A] transition-colors">{job.title}</h3>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-brand transition-colors">{job.title}</h3>
                 <div class="mt-2 flex flex-wrap gap-3 text-sm text-gray-500">
                   <span class="inline-flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
@@ -210,7 +210,7 @@ const jobPostingSchema = openings.map((job) => ({
                 </div>
               </div>
               <div class="shrink-0">
-                <span class="inline-flex items-center gap-1 text-sm font-medium group-hover:text-[#E41E3A] transition-colors" style="color: #E41E3A;">
+                <span class="inline-flex items-center gap-1 text-sm font-medium group-hover:text-brand transition-colors" style="color: var(--brand-red);">
                   View Role
                   <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                 </span>

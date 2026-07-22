@@ -34,7 +34,7 @@ const job = {
         <!-- Header -->
         <div class="mb-10 anim-fade-up">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="inline-block px-3 py-1 text-xs font-medium rounded-full" style="background-color: #fef2f2; color: #E41E3A;">{job.department}</span>
+            <span class="inline-block px-3 py-1 text-xs font-medium rounded-full" style="background-color: #fef2f2; color: var(--brand-red);">{job.department}</span>
             <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">{job.type}</span>
             <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">{job.experience}</span>
           </div>
@@ -77,15 +77,15 @@ const job = {
           <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: var(--brand-red);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                 <span>Work in a rapidly evolving industry where scalable tech products have a huge impact</span>
               </li>
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: var(--brand-red);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                 <span>Have complete ownership of marketing activities and grow your team over time</span>
               </li>
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <svg class="w-5 h-5 shrink-0 mt-0.5" style="color: var(--brand-red);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                 <span>Potential for the role to evolve into a senior role</span>
               </li>
             </ul>
@@ -130,7 +130,7 @@ const job = {
             ].map((kpi, i) => (
               <div class="border border-gray-200 rounded-xl p-5 bg-white hover:shadow-md hover:border-gray-300 transition-all anim-fade-up" data-anim-delay={i * 50}>
                 <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background-color: #fef2f2;">
-                  <svg class="w-5 h-5" style="color: #E41E3A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={kpi.icon} /></svg>
+                  <svg class="w-5 h-5" style="color: var(--brand-red);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={kpi.icon} /></svg>
                 </div>
                 <p class="text-sm font-semibold text-gray-900 leading-snug">{kpi.label}</p>
               </div>
@@ -186,7 +186,7 @@ const job = {
             <h3 class="text-lg font-bold text-gray-900 mb-4">Interested?</h3>
             <a
               href="/digital-marketing-executive/apply/"
-              class="block w-full text-center px-5 py-3 bg-[#E41E3A] text-white font-semibold rounded-lg hover:bg-[#b8162e] transition-colors"
+              class="block w-full text-center px-5 py-3 bg-brand text-white font-semibold rounded-lg hover:bg-brand-dark transition-colors"
             >
               Apply for This Role
             </a>
