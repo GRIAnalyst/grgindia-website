@@ -161,6 +161,16 @@
       "source": "/loyalty-programs-for-channel-partners-why-are-they-important",
       "destination": "/blog/",
       "statusCode": 301
+    },
+    {
+      "source": "/ceo-employee-engagement-5-mistakes-to-avoid-2/",
+      "destination": "/ceo-employee-engagement-5-mistakes-to-avoid/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ceo-employee-engagement-5-mistakes-to-avoid-2",
+      "destination": "/ceo-employee-engagement-5-mistakes-to-avoid/",
+      "statusCode": 301
     }
   ]
 }
