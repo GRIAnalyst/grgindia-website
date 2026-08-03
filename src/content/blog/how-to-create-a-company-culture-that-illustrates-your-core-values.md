@@ -84,7 +84,7 @@ Employee Recognition plays an important role when it comes to building a company
 
 Acknowledging and rewarding value-based behaviour encourages the employee to perpetuate this throughout their tenure. When these behaviours are rewarded, it creates an emotional connection between the employee and company — they achieve a state of synergy and eventually attain true employee engagement.
 
-Today, employee recognition can be done digitally, which allows business owners to track individual performance and measure it against core values. Platforms like [Buzzz](https://www.grgindia.in/buzzz/) allow peer-to-peer employee appreciation, where employees across departments and ranks appreciate and recognize fellow employees for demonstrating certain behaviours — creating a chain reaction of acknowledgement that drives a value-based culture.
+Today, employee recognition can be done digitally, which allows business owners to track individual performance and measure it against core values. Platforms like [**Buzzz**](https://www.grgindia.in/buzzz-for-employee-motivation/) allow peer-to-peer employee appreciation, where employees across departments and ranks appreciate and recognize fellow employees for demonstrating certain behaviours — creating a chain reaction of acknowledgement that drives a value-based culture.
 
 ## Conclusion
 

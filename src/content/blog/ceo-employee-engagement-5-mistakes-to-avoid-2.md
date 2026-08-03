@@ -11,7 +11,7 @@ image: "/images/blog/Untitled-design-30.png"
 
 ![CEO & Employee Engagement](/images/blog/Untitled-design-30.png)
 
-Start-up founders, first-time bosses and CEOs that have been in the corporate world for a long time have already witnessed that they have a huge role to play in [Employee Engagement](https://www.letsbuzzz.com/). The direct managers have learned the importance and are constantly in search of ways to increase it, HR leaders are taking more initiatives than before and senior management is changing their approach as they are well aware of the benefits it brings to the organization.
+Start-up founders, first-time bosses and CEOs that have been in the corporate world for a long time have already witnessed that they have a huge role to play in [Employee Engagement](https://www.grgindia.in/buzzz-for-employee-motivation/). The direct managers have learned the importance and are constantly in search of ways to increase it, HR leaders are taking more initiatives than before and senior management is changing their approach as they are well aware of the benefits it brings to the organization.
 
 ### HR is not solely responsible for the success and failure of employee engagement anymore.
 

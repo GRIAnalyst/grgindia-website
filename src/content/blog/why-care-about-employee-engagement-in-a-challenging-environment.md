@@ -81,4 +81,4 @@ Make sure you have the right tools in place:
 - A video conferencing tool like [Zoom](https://zoom.us/)
 - Cloud-based collaborative applications like Google Docs and Sheets
 - Web-based project management tools such as [Trello](https://trello.com/en-US)
-- Engagement platforms like [Buzzz](https://www.grgindia.in/buzzz/)
+- Engagement platforms like [**Buzzz**](https://www.grgindia.in/buzzz-for-employee-motivation/)

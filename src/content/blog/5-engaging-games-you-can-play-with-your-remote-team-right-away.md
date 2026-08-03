@@ -62,7 +62,7 @@ Since it is a trivia party game, it is fun and exceedingly entertaining. A brill
 
 Hope you enjoyed the list and have some fun bonding sessions with your remote teams!
 
-For [employee rewards and recognition](https://grgindia.in), Buzzz has the perfect solution for employers across industries and different verticals. Touch base with us to know how [Buzzz](https://grgindia.in/buzzz/) can add value to your employee engagement programs.
+For [employee rewards and recognition](https://grgindia.in), Buzzz has the perfect solution for employers across industries and different verticals. Touch base with us to know how [**Buzzz**](https://www.grgindia.in/buzzz-for-employee-motivation/) can add value to your employee engagement programs.
 
 <div class="cta-block">
 <p class="cta-headline">Looking for more ways to engage your remote team?</p>

@@ -51,7 +51,7 @@ If you want your sales team to give their best, and stay motivated all through, 
 
 Sales teams everywhere are about targets and goals. There's no contention about this. Segregating the goals further is one of the practical ways of motivating a Sales Team. Give them goals for the day, week, and month.
 
-Daily goals are short-term and accomplishment should be associated with a pat on the back, accolading in a team meeting, etc. Weekly goals are much meatier and more tangible. Achievement of these goals can be tied to social appreciation on your internal sales incentive platform like [My Incentives](https://www.grgindia.in/my-incentives/) wherein everyone from the organization can join in to appreciate the person.
+Daily goals are short-term and accomplishment should be associated with a pat on the back, accolading in a team meeting, etc. Weekly goals are much meatier and more tangible. Achievement of these goals can be tied to social appreciation on your internal sales incentive platform like [**My Incentives**](https://www.grgindia.in/my-incentives-for-sales-motivation/) wherein everyone from the organization can join in to appreciate the person.
 
 Monthly goals should be associated with value-added rewards like gift vouchers, memberships, subscriptions, recommendations for professional workshops, etc, all of which can again be accomplished using a sales incentive software.
 
@@ -71,7 +71,7 @@ Multi-tiered rewards ensure wins for multiple winners and therefore, there's alw
 
 Another crucial aspect of what can motivate a sales team is recognition. It is a basic human need and for the people who are selling your products and services in a highly volatile and competitive environment, recognition can do wonders.
 
-Email blasts across the organization recognizing team members with their photos, awarding salesperson of the month, an Employee Hall of Fame for consistent achievers, callouts from colleagues, etc., are simple ways to recognize. [My Incentives](https://www.grgindia.in/my-incentives/), for instance, lets you automate all the above ways, thereby, minimizing manual work and making things way more exciting and fun for everyone in the sales department.
+Email blasts across the organization recognizing team members with their photos, awarding salesperson of the month, an Employee Hall of Fame for consistent achievers, callouts from colleagues, etc., are simple ways to recognize. [**My Incentives**](https://www.grgindia.in/my-incentives-for-sales-motivation/), for instance, lets you automate all the above ways, thereby, minimizing manual work and making things way more exciting and fun for everyone in the sales department.
 
 ## What to say to motivate your sales team?
 

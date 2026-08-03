@@ -17,10 +17,10 @@ Employers expect their in-house sales team, including inside and outside sales, 
 
 * As per a recently conducted [The State Of The Global Workplace](<https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx>) survey, sales, office staff, and construction workforce is the most disengaged employees in the workplace.
 * It mentions only a 12% engagement rate for these three sections of people.
-* [**Employee engagement**](<https://www.grgindia.in/buzzz/>) in the sales team is a universal issue -- at a given time, only [one-third](<https://www.vonage.com/resources/articles/20-sales-statistics-and-what-they-mean-for-your-team/>) of your sales executives are engaged and motivated. On the other hand, things can be way more challenging when it comes to your extended sales team like distributors, agents, your franchised and dealer networks.
+* [**Employee engagement**](<https://www.grgindia.in/buzzz-for-employee-motivation/>) in the sales team is a universal issue -- at a given time, only [one-third](<https://www.vonage.com/resources/articles/20-sales-statistics-and-what-they-mean-for-your-team/>) of your sales executives are engaged and motivated. On the other hand, things can be way more challenging when it comes to your extended sales team like distributors, agents, your franchised and dealer networks.
 * About [73% of channel partners](<https://www.getlift.com/blog/20-b2b-channel-partner-marketing-statistics>) in an engagement program feel that channel programs are too complex.
 
-What makes [**channel incentive programs**](<https://www.grgindia.in/my-incentives>) complicated is that your organization does not directly employ them -- they are a part of a distribution network that resells your products and services. In many cases, they are selling not just your products but that of the competitors too. For dealers and agents, customer preferences make a difference, not your sales targets and profits as much.
+What makes [**channel incentive programs**](<https://www.grgindia.in/my-incentives-for-sales-motivation/>) complicated is that your organization does not directly employ them -- they are a part of a distribution network that resells your products and services. In many cases, they are selling not just your products but that of the competitors too. For dealers and agents, customer preferences make a difference, not your sales targets and profits as much.
 
 Hence, as a brand that aims to grow, you need to have a robust **sales incentive program** to have middlemen selling your products heartily. While you may want to directly **reward and recognize** the salespeople of your extended network for their hard work, the middlemen in between can act as a big resistance to an external-sponsored incentive program. Some, however, give all their support because they are unable to afford such top-of-the-line incentive programs.
 
@@ -28,7 +28,7 @@ Hence, as a brand that aims to grow, you need to have a robust **sales incentive
 
 The relationship is simple -- the sales team is responsible for earning revenues for the company. There is enough data to prove that only a motivated and engaged team can fetch the desired results that establish that the sales team's motivational levels and performance are directly proportional.
 
-While many organizations do not have properly defined sales team engagement modules in place, the others use very basic incentive modules without considering factors outside their control. Many use the generic [**employee engagement tools**](<https://www.grgindia.in/buzzz/>) to drive the performance of their sales teams and incentivize them. But, is it enough?
+While many organizations do not have properly defined sales team engagement modules in place, the others use very basic incentive modules without considering factors outside their control. Many use the generic [**employee engagement tools**](<https://www.grgindia.in/buzzz-for-employee-motivation/>) to drive the performance of their sales teams and incentivize them. But, is it enough?
 
 Unquestionably, automated **employee recognition** and **sales incentive platforms** are the need of the hour. A futuristic customized performance-driven solution can boost the sales team's excitement levels and push them meaningfully out of their comfort zone. But, what parameters should be assessed when choosing these platforms for seamless integration and yielding the desired results? In this article, we will cover the nine top features to look for when deciding on a platform or a **sales incentive** tool.
 
@@ -63,7 +63,7 @@ For the sales team, targets and budgets are integral tools that help them mainta
 
 ### 6. Lean towards gamification and fun elements
 
-More and more organizations use gamification strategies to coach their workforce and sales teams to remain focused on their goals. [**Gamification**](<https://www.letsbuzzz.com/what-we-offer/>) is strategies used in online games but can be used in non-game situations to inspire desired actions. The techniques used involve real-time coaching blended with fun elements and consistent feedback. The right platform will include a combo of well-designed incentives with sales contests. Focus on platforms with game mechanics for encouraging salespeople to fulfill high-value activities in the form of missions.
+More and more organizations use gamification strategies to coach their workforce and sales teams to remain focused on their goals. [**Gamification**](<https://www.grgindia.in/buzzz-for-employee-motivation/>) is strategies used in online games but can be used in non-game situations to inspire desired actions. The techniques used involve real-time coaching blended with fun elements and consistent feedback. The right platform will include a combo of well-designed incentives with sales contests. Focus on platforms with game mechanics for encouraging salespeople to fulfill high-value activities in the form of missions.
 
 ### 7. Ensure both leader and peer-to-peer recognition
 

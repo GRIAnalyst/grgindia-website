@@ -11,12 +11,12 @@ image: "/images/blog/individuality-concept-among-silhouettes.jpg"
 
 ![HR leaders and their changing priorities](/images/blog/individuality-concept-among-silhouettes.jpg)
 
-At the end of 2022, it was more important than ever for HR departments to take note of successes and failures, but this year it's all about scrutinizing the strategy every 30 days or every quarter to stay on track. It's no surprise that organizational design and change management are the top priorities for HR managers in 2023. This priority is because [46% of HR executives](https://www.gartner.com/smarterwithgartner/gartner-top-3-priorities-for-hr-leaders-in-2021/) feel that they are unable to lead change when it is necessary.
+At the end of 2022, it was more important than ever for HR departments to take note of successes and failures, but this year it's all about scrutinizing the strategy every 30 days or every quarter to stay on track. It's no surprise that organizational design and change management are the top priorities for HR managers in 2023. This priority is because 46% of HR executives feel that they are unable to lead change when it is necessary.
 
 To prepare for the future, human resource leaders must develop and incorporate the following skillsets into their portfolio, according to Gartner.
 
 1. Technological competence- As CHROs are a crucial part of strategic business decision-making in 2021, they need to be well aware of the latest technologies to suggest or quickly adapt to the changes.
-2. Employee experience- The year 2021 is more than just basic [employee engagement](https://www.letsbuzzz.com/). It is about capturing employee needs and providing them with a richer experience.
+2. Employee experience- The year 2021 is more than just basic [employee engagement](https://www.grgindia.in/buzzz-for-employee-motivation/). It is about capturing employee needs and providing them with a richer experience.
 
 When investing in your HR initiative, you should consider the trends that will significantly influence the way you design and implement strategies, processes, and best practices. The question for HR managers is: Do the trends look similar to what we have seen in the past? What immediate action and long-term adjustments will be necessary?
 
@@ -34,7 +34,7 @@ Rather than spending your time figuring out what your teams did well during the 
 
 This review will help you understand how effective your current performance management system is and where it needs to be improved. In addition, evaluate the impact of changes and consider what could be further improved or optimized in your performance management process, and be ready to make changes if needed. Make sure that your process is driven clear stating the objective of your performance management system and that you make progress in achieving these objectives whilst managing your organization's performance.
 
-[PwC](https://www.humanresourcestoday.com/2021/performance-management/?open-article-id=15665755&article-title=new-practices-in-performance-management-for-2021&blog-domain=astronsolutions.net&blog-title=astron-solutions) handles its performance management by way of frequent and informal feedback. Regular feedback compared to annual reviews helps individuals to quickly cover the gap, maximize their strength and drive L&D throughout the year.
+PwC handles its performance management by way of frequent and informal feedback. Regular feedback compared to annual reviews helps individuals to quickly cover the gap, maximize their strength and drive L&D throughout the year.
 
 ### 3. Build out an HR crisis plan
 

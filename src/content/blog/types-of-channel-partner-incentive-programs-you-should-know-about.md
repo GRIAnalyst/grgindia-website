@@ -67,6 +67,6 @@ Choosing suitable channel incentive programs for your partners is the key to lev
 
 But running multiple programs with multiple channel partners, calculating the incentives and then disbursing the sales incentives can be extremely cumbersome. Even as a lot of companies understand the importance of it, many are still struggling to maximize its potential due to manual processes. Using excel to manage your incentive program is not a great idea. It limits your opportunity to strategize and build incentive programs that drive business value, often leaving you snarled up in managing the operational parts including incentive disbursal.
 
-[My Incentives](https://www.grgindia.in/my-incentives/) solves this problem for you. A platform that has been built to run multiple incentive campaigns, automatically calculate incentives based on the set-up rules and then give access to end users to a reward store of 500+ brand vouchers.
+[**My Incentives**](https://www.grgindia.in/my-incentives-for-sales-motivation/) solves this problem for you. A platform that has been built to run multiple incentive campaigns, automatically calculate incentives based on the set-up rules and then give access to end users to a reward store of 500+ brand vouchers.
 
 If that sounds like what you need right now, we'd love to give you a [quick demo](https://www.grgindia.in/book-a-demo/).

@@ -65,6 +65,6 @@ Similarly, another aspect is about being appreciated by seniors and team leaders
 
 ## Conclusion
 
-How do you show appreciation when you love someone? The easiest and the quickest way is to compliment them. [Buzzz](https://grgindia.in/buzzz/) by GRG India is a **Reward & Recognition** platform that can be used to appreciate team members with peer-to-peer recognition features. Such platforms encourage open feedback and communication that can be used as an effective medium to help enhance confidence in employees to keep loving their work.
+How do you show appreciation when you love someone? The easiest and the quickest way is to compliment them. [**Buzzz**](https://www.grgindia.in/buzzz-for-employee-motivation/) by GRG India is a **Reward & Recognition** platform that can be used to appreciate team members with peer-to-peer recognition features. Such platforms encourage open feedback and communication that can be used as an effective medium to help enhance confidence in employees to keep loving their work.
 
 > Stephen Stills had once written – "If you can't be in the job you love...love the job you're in."

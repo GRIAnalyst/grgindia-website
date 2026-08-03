@@ -153,7 +153,7 @@ Their comprehensive platform offers features such as customized reward structure
 
 ## 5. Netcarrotz
 
-With a strong emphasis on delivering smooth and seamless experiences, [Netcarrotz](https://www.netcarrots.com/) comes 5th on our list. Netcarrotz offers a user-friendly platform that effortlessly integrates loyalty programs.
+With a strong emphasis on delivering smooth and seamless experiences, Netcarrotz comes 5th on our list. Netcarrotz offers a user-friendly platform that effortlessly integrates loyalty programs.
 
 With customizable rewards and personalized loyalty solutions, Netcarrotz enables businesses to address the specific requirements of their channel partners, fostering deeper engagement and long-term loyalty.
 

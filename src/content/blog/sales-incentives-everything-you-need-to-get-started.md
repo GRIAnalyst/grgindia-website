@@ -83,7 +83,7 @@ Some of the types of incentives with incredible results are:
 5. **Offsites and Adventure-activities:** Rewards in the form of corporate offsites, and activity-based awards are also good considerations for incentivizing your sales team. These activities could be solo events or in groups like river rafting, ziplining, sky diving, etc.
 6. **Subscription Boxes:** You can infuse an element of excitement in your sales team by offering them subscription boxes. Some examples include gourmet food, skincare products, eco-friendly clothing, personalized treats, etc.
 7. **Paid Leaves:** Over and above the leaves your team gets annually, give them extra paid leaves to let down their hair and enjoy. After all, they do deserve a good break after toiling so hard.
-8. **Recognition:** Unlike all the others, this reward system does not need money or investment. It can be made into a company culture without too much effort. All human beings love to be socially recognized. When you offer recognition to your top performers using a platform like [My Incentives](https://www.grgindia.in/my-incentives/), you empower them to work even better.
+8. **Recognition:** Unlike all the others, this reward system does not need money or investment. It can be made into a company culture without too much effort. All human beings love to be socially recognized. When you offer recognition to your top performers using a platform like [**My Incentives**](https://www.grgindia.in/my-incentives-for-sales-motivation/), you empower them to work even better.
 
 ### Summing it Up
 

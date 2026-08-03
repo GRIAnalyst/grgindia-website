@@ -11,7 +11,7 @@ image: "/images/blog/Picture234.jpg"
 
 "Employees who believe that management is concerned about them as a whole person -- not just an employee -- are more productive, more satisfied, more fulfilled. Satisfied employees mean satisfied customers, which leads to profitability." These are the words of the former CEO and Chairperson of Xerox, Anna Mulcahy. These words should be the gospel for all managers for all organizations, irrespective of business scale and industry type. These words should be resonating in their attitude and approach when dealing with their team members.
 
-Unfortunately, organizations have always tended to focus more on their customers and fairly so because their customers drive sales and revenues. Employees are usually taken for granted! Or, let's say that organizations are not too ready to spend time, money, and efforts on employees. It was the common state of affairs in the last century. However, in 1990, Kahn introduced a unique concept called **Employee Engagement** in his article titled "Psychological Conditions of Personal Engagement and Disengagement at Work." It kind of laid the foundation for modern-day [employee engagement](/buzzz), as we know though the term was coined much later.
+Unfortunately, organizations have always tended to focus more on their customers and fairly so because their customers drive sales and revenues. Employees are usually taken for granted! Or, let's say that organizations are not too ready to spend time, money, and efforts on employees. It was the common state of affairs in the last century. However, in 1990, Kahn introduced a unique concept called **Employee Engagement** in his article titled "Psychological Conditions of Personal Engagement and Disengagement at Work." It kind of laid the foundation for modern-day [**employee engagement**](/buzzz-for-employee-motivation/), as we know though the term was coined much later.
 
 **Employee engagement** has been defined in hundreds of different ways. Simply said, it is about employees being genuinely positively connected to their work. As a result, their level of engrossment in their work is unmatched -- almost inducing envy in the competition. Such employees are people who would not mind replying to an email at 6 PM, taking it in their stride, invested as much as they would be to any such demand in their personal life.
 
@@ -126,7 +126,7 @@ Many organizations play the policy of hide-and-seek. They are not transparent an
 
 **Employee engagement** is not a farce, the imagination of a psychologist, or the fancy of an HR manager. It is real; it is something that your competition is addressing dynamically. Engaging employees results in a productivity boost, better innovation, better services to your customers, and fewer chances of leaving the organization.
 
-Remember, highly engaged organizations are listening better, are more purposeful and inclusive than those that are not. If you are looking at driving **employee engagement** with purpose and inclusiveness, consider the [Buzzz](/buzzz) platform.
+Remember, highly engaged organizations are listening better, are more purposeful and inclusive than those that are not. If you are looking at driving **employee engagement** with purpose and inclusiveness, consider the [**Buzzz**](/buzzz-for-employee-motivation/) platform.
 
 <div class="cta-block">
 <p class="cta-headline">Ready to supercharge your employee engagement?</p>

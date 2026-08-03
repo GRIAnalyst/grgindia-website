@@ -57,4 +57,4 @@ Sales incentive programs should be designed in a way that your salespeople are t
 
 Gamification can do a lot of good. It’s a powerful tool in your weaponry to keep your sales team motivated and achieve the desired results. 
 
-Looking for a gamified sales incentive software. [My Incentives](https://www.myincentives.in/) is the perfect answer. Call us today for a demo!
+Looking for a gamified sales incentive software. [My Incentives](https://www.grgindia.in/my-incentives-for-sales-motivation/) is the perfect answer. Call us today for a demo!

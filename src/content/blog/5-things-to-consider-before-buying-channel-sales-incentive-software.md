@@ -47,9 +47,9 @@ Another pre-requisite for the software program is related to making the system a
 
 ## In a nutshell
 
-A channel sales incentive program's performance can be further boosted with the help of a well-designed software system. [My Incentives](/my-incentives) is one such customizable platform that helps collaborate across distributed teams, provides authentic analytical insight, and is accessible from mobile phones. A versatile and multi-faceted software system that makes automation of your incentive compensation program a comfortable and seamless journey.
+A channel sales incentive program's performance can be further boosted with the help of a well-designed software system. [**My Incentives**](/my-incentives-for-sales-motivation/) is one such customizable platform that helps collaborate across distributed teams, provides authentic analytical insight, and is accessible from mobile phones. A versatile and multi-faceted software system that makes automation of your incentive compensation program a comfortable and seamless journey.
 
-Interested to know more about [My Incentives](/my-incentives)? Get in touch for a detailed demo!
+Interested to know more about [**My Incentives**](/my-incentives-for-sales-motivation/)? Get in touch for a detailed demo!
 
 <div class="cta-block">
 <p class="cta-headline">Looking for the right channel sales incentive software?</p>
