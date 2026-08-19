@@ -4,7 +4,7 @@ date: 2026-08-11
 category: "Sales Incentives"
 description: "Most agri OEM channel schemes still travel by WhatsApp forward and PDF — and dealers never see them in time. Here's why closing that gap is now a competitive advantage."
 readTime: "8 min read"
-image: "/images/blog/Agri-OEM-Dealer-Scheme-Communication.jpg"
+image: "/images/blog/Agri-OEM-Dealer-Field-Tractor.jpg"
 ---
 
 ## Your scheme is designed for a dealer who checks email. Most of yours don't.
@@ -33,7 +33,7 @@ The less visible cost is what happens to trust over time. Partners who consisten
 
 And then there is the speed problem. Static quarterly trade schemes designed 90 days in advance cannot respond to a competitor entering a district with an aggressive introductory offer. They cannot capitalize on a Kharif sowing window that opened two weeks early. A flash promotion that takes three weeks to configure, approve, and communicate is not a flash promotion. It is a post-event notification. By the time it reaches the mechanic in a tier-3 taluka, the moment has passed.
 
-![Banner contrasting sales-in tracking with building a channel partner customer database.](/images/blog/Agri-OEM-Channel-Incentives-Banner.jpg)
+![Banner reading "Your scheme is designed for a dealer who checks email. Most of yours don't."](/images/blog/Agri-OEM-Email-Scheme-Banner.jpg)
 
 ## What the first OEM to fix this actually gains
 
