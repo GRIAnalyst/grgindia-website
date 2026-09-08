@@ -20,15 +20,22 @@ const solutionLinks = [
 
 // SEO-focused keyword grid, grouped into 5 semantic categories (one per
 // desktop column). Every clickable entry maps to a real, existing GRG page.
-// "Influencer Loyalty Programs", "Customer Loyalty Programs", "Franchise
-// Store Loyalty Programs", and "Customer Referral Programs" are
-// intentionally plain text — no matching GRG page exists and no URL has
-// been invented for any of them.
+// "Customer Loyalty Programs" is intentionally plain text — GRG has no
+// documented B2C/end-consumer loyalty offering anywhere on the site, so no
+// URL has been invented for it. Every other entry maps to real content:
+// "Franchise Store Loyalty Programs" links to /retail/ (franchise stores
+// are explicitly named alongside dealers/distributors on the homepage's
+// Channel Partners card, and this matches its sibling retail keywords in
+// this same category). "Influencer Loyalty Programs" links to My
+// Incentives (it has a real Influencers stakeholder section).
+//
+// "Specialized Programs" intentionally has 3 items, not 4 — "Customer
+// Referral Programs" was removed rather than left linked or unlinked.
 const keywordCategories = [
   {
     title: 'Sales & Incentives',
     items: [
-      { label: 'Sales Incentives', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Sales Incentives Program', href: '/my-incentives-for-sales-motivation/' },
       { label: 'Sales Performance Management', href: '/my-incentives-for-sales-motivation/' },
       { label: 'Gamified Sales Incentives', href: '/make-sales-incentives-more-exciting-with-gamification/' },
       { label: 'Incentive Compensation Management Programs', href: '/sales-commission-automation/' },
@@ -47,7 +54,7 @@ const keywordCategories = [
     title: 'Retail & Customer',
     items: [
       { label: 'Retail Store Loyalty Programs', href: '/retail/' },
-      { label: 'Franchise Store Loyalty Programs', href: null },
+      { label: 'Franchise Store Loyalty Programs', href: '/retail/' },
       { label: 'Car Dealer Loyalty Programs', href: '/auto/' },
       { label: 'Retailer Loyalty Programs', href: '/retail/' },
     ],
@@ -57,7 +64,7 @@ const keywordCategories = [
     items: [
       { label: 'Employee Rewards & Recognition', href: '/buzzz-for-employee-motivation/' },
       { label: 'B2B Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
-      { label: 'Influencer Loyalty Programs', href: null },
+      { label: 'Influencer Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
       { label: 'Customer Loyalty Programs', href: null },
     ],
   },
@@ -67,7 +74,6 @@ const keywordCategories = [
       { label: 'Festive & Seasonal Incentive Programs', href: '/diwali-sales-how-to-incentivize-retailers-and-channel-partners/' },
       { label: 'QR Code Loyalty Programs', href: '/youre-tracking-sales-in-your-competitor-is-building-a-customer-database/' },
       { label: 'Incentive Claims & Payouts', href: '/streamlining-incentive-claim-management/' },
-      { label: 'Customer Referral Programs', href: null },
     ],
   },
 ];
@@ -89,6 +95,7 @@ const year = new Date().getFullYear();
           <img src="/images/logo.png" alt="GRG India" class="h-8 w-auto" />
         </a>
         <div class="mt-4 text-sm text-gray-400 leading-relaxed">
+          <p class="font-semibold text-white">GRG India</p>
           <p class="font-medium text-gray-300">TajOnline Pvt. LTD.</p>
           <p>Satya House, 402,</p>
           <p>Hi-Tech IT Park 2nd & 4th Floor</p>
@@ -226,8 +233,6 @@ const year = new Date().getFullYear();
         <a href="/terms-of-use/" class="hover:text-white transition-colors">Terms of Use</a>
         <span class="text-gray-700">|</span>
         <a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a>
-        <span class="text-gray-700">|</span>
-        <a href="/security-compliance/" class="hover:text-white transition-colors">Security & Compliance</a>
         <span class="text-gray-700">|</span>
         <a href="/cookie-policy/" class="hover:text-white transition-colors">Cookie Policy</a>
       </div>
