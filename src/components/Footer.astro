@@ -1,36 +1,87 @@
 ---
-const columns = [
+const companyLinks = [
+  { label: 'About', href: '/about-us/' },
+  { label: 'Careers', href: '/careers/' },
+  { label: 'Contact', href: '/contact-us/' },
+  { label: 'Blog', href: '/blog/' },
+];
+
+const productLinks = [
+  { label: 'Buzzz', href: '/buzzz-for-employee-motivation/' },
+  { label: 'My Incentives', href: '/my-incentives-for-sales-motivation/' },
+];
+
+const solutionLinks = [
+  { label: 'Retail', href: '/retail/' },
+  { label: 'Auto', href: '/auto/' },
+  { label: 'Manufacturing', href: '/manufacturing/' },
+  { label: 'IT Services', href: '/it-services/' },
+];
+
+// SEO-focused keyword grid, grouped into 5 semantic categories (one per
+// desktop column). Every clickable entry maps to a real, existing GRG page.
+// "Customer Loyalty Programs" is intentionally plain text — GRG has no
+// documented B2C/end-consumer loyalty offering anywhere on the site, so no
+// URL has been invented for it. Every other entry maps to real content:
+// "Franchise Store Loyalty Programs" links to /retail/ (franchise stores
+// are explicitly named alongside dealers/distributors on the homepage's
+// Channel Partners card, and this matches its sibling retail keywords in
+// this same category). "Influencer Loyalty Programs" links to My
+// Incentives (it has a real Influencers stakeholder section).
+//
+// "Specialized Programs" intentionally has 3 items, not 4 — "Customer
+// Referral Programs" was removed rather than left linked or unlinked.
+const keywordCategories = [
   {
-    title: 'Products',
-    links: [
-      { label: 'Buzzz', href: '/buzzz-for-employee-motivation/' },
-      { label: 'My Incentives', href: '/my-incentives-for-sales-motivation/' },
+    title: 'Sales & Incentives',
+    items: [
+      { label: 'Sales Incentives Program', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Sales Performance Management', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Gamified Sales Incentives', href: '/make-sales-incentives-more-exciting-with-gamification/' },
+      { label: 'Incentive Compensation Management Programs', href: '/sales-commission-automation/' },
     ],
   },
   {
-    title: 'Solutions',
-    links: [
-      { label: 'Retail', href: '/retail/' },
-      { label: 'Auto', href: '/auto/' },
-      { label: 'Manufacturing', href: '/manufacturing/' },
-      { label: 'IT Services', href: '/it-services/' },
+    title: 'Channel & Dealer',
+    items: [
+      { label: 'Channel Loyalty Programs', href: '/5-best-channel-loyalty-software-program/' },
+      { label: 'Channel Partner Programs', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Dealer Incentive Programs', href: '/auto/' },
+      { label: 'Distributor Loyalty Programs', href: '/loyalty-seeds-industry-distributors-retailer/' },
     ],
   },
   {
-    title: 'Resources',
-    links: [
-      { label: 'Blog', href: '/blog/' },
+    title: 'Retail & Customer',
+    items: [
+      { label: 'Retail Store Loyalty Programs', href: '/retail/' },
+      { label: 'Franchise Store Loyalty Programs', href: '/retail/' },
+      { label: 'Car Dealer Loyalty Programs', href: '/auto/' },
+      { label: 'Retailer Loyalty Programs', href: '/retail/' },
     ],
   },
   {
-    title: 'Company',
-    links: [
-      { label: 'About', href: '/about-us/' },
-      { label: 'Careers', href: '/careers/' },
-      { label: 'Contact', href: '/contact-us/' },
+    title: 'Rewards & Loyalty',
+    items: [
+      { label: 'Employee Rewards & Recognition', href: '/buzzz-for-employee-motivation/' },
+      { label: 'B2B Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Influencer Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Customer Loyalty Programs', href: null },
+    ],
+  },
+  {
+    title: 'Specialized Programs',
+    items: [
+      { label: 'Festive & Seasonal Incentive Programs', href: '/diwali-sales-how-to-incentivize-retailers-and-channel-partners/' },
+      { label: 'QR Code Loyalty Programs', href: '/youre-tracking-sales-in-your-competitor-is-building-a-customer-database/' },
+      { label: 'Incentive Claims & Payouts', href: '/streamlining-incentive-claim-management/' },
     ],
   },
 ];
+
+// Mobile: 2 columns, never splitting a category across columns. First 3
+// categories (10 items) in column 1, remaining 2 categories (6 items) in
+// column 2 — same category grouping as desktop, just stacked differently.
+const mobileKeywordColumns = [keywordCategories.slice(0, 3), keywordCategories.slice(3, 5)];
 
 const year = new Date().getFullYear();
 ---
@@ -40,8 +91,11 @@ const year = new Date().getFullYear();
     <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
       <!-- Logo / Address -->
       <div class="col-span-2 md:col-span-1">
-        <a href="/" class="text-xl font-bold text-white">GRG India</a>
-        <div class="mt-3 text-sm text-gray-400 leading-relaxed">
+        <a href="/" class="inline-block bg-white rounded px-3 py-2">
+          <img src="/images/logo.png" alt="GRG India" class="h-8 w-auto" />
+        </a>
+        <div class="mt-4 text-sm text-gray-400 leading-relaxed">
+          <p class="font-semibold text-white">GRG India</p>
           <p class="font-medium text-gray-300">TajOnline Pvt. LTD.</p>
           <p>Satya House, 402,</p>
           <p>Hi-Tech IT Park 2nd & 4th Floor</p>
@@ -49,25 +103,189 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      {columns.map((col) => (
-        <div>
-          <h3 class="text-sm font-semibold text-white uppercase tracking-wider">{col.title}</h3>
-          <ul class="mt-3 space-y-2">
-            {col.links.map((link) => (
+      <!-- Company -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Company</h3>
+        <ul class="mt-3 space-y-2">
+          {companyLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Products</h3>
+        <ul class="mt-3 space-y-2">
+          {productLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Industries -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Industries</h3>
+        <ul class="mt-3 space-y-2">
+          {solutionLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Connect with us -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Connect with us</h3>
+        <ul class="mt-3 space-y-2">
+          <li>
+            <a href="mailto:contactus@grgindia.in" class="text-sm text-gray-400 hover:text-white transition-colors">
+              contactus@grgindia.in
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/grg-india/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="/book-a-demo/" class="text-sm text-gray-400 hover:text-white transition-colors">
+              Book a Demo
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEO Keyword Grid -->
+    <div class="mt-10 pt-8 border-t border-gray-800">
+      <h3 class="text-sm font-semibold text-white uppercase tracking-wider">Explore Our Solutions</h3>
+
+      <!-- Mobile / tablet (below md): 2 columns, each holding a whole number
+           of categories (never split mid-category). Same gap-y-12 between
+           groups / gap-y-3 within a group as before — the "group" is now a
+           category instead of a fixed chunk of 4. No visible headers, just
+           the keywords. Desktop is untouched (separate block below). -->
+      <div class="mt-4 grid grid-cols-2 gap-x-10 md:hidden">
+        {mobileKeywordColumns.map((categories) => (
+          <div class="flex flex-col gap-y-12">
+            {categories.map((category) => (
+              <div class="flex flex-col gap-y-3">
+                {category.items.map((item) => (
+                  <div class="text-sm leading-snug">
+                    {item.href ? (
+                      <a href={item.href} class="text-gray-400 hover:text-white transition-colors">
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="text-gray-500">{item.label}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <!-- Desktop (md and up): 5 columns, one category per column, no
+           visible headers — just the keywords. -->
+      <div class="hidden md:grid md:grid-cols-5 md:mt-8 gap-8">
+        {keywordCategories.map((category) => (
+          <ul class="space-y-2">
+            {category.items.map((item) => (
               <li>
-                <a href={link.href} class="text-sm text-gray-400 hover:text-white">
-                  {link.label}
-                </a>
+                {item.href ? (
+                  <a href={item.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                    {item.label}
+                  </a>
+                ) : (
+                  <span class="text-sm text-gray-500">{item.label}</span>
+                )}
               </li>
             ))}
           </ul>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
-    <div class="mt-10 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+    <div class="mt-10 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
       <span>&copy; {year} GRG India. All rights reserved.</span>
-      <a href="/privacy-policy/" class="text-gray-500 hover:text-white">Privacy Policy</a>
+
+      <!-- Legal links -->
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+        <a href="/terms-of-use/" class="hover:text-white transition-colors">Terms of Use</a>
+        <span class="text-gray-700">|</span>
+        <a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a>
+        <span class="text-gray-700">|</span>
+        <a href="/cookie-policy/" class="hover:text-white transition-colors">Cookie Policy</a>
+      </div>
+
+      <!-- Social media (kept visually separate from the legal links) -->
+      <div class="flex items-center gap-3">
+        <a
+          href="https://www.linkedin.com/company/grg-india/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GRG India on LinkedIn"
+          class="text-gray-500 hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.124 2.062 2.062 0 01-.001 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/>
+          </svg>
+        </a>
+        <!-- TODO: verify this channel is live before merging to production —
+             user-provided handle, channel did not exist as of this edit. -->
+        <a
+          href="https://www.youtube.com/@tajonlinetajgifts4235"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GRG India on YouTube"
+          class="text-gray-500 hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a
+          href="https://x.com/GRG_India"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GRG India on X"
+          class="text-gray-500 hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a
+          href="https://www.facebook.com/GRGIndiaTeam/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GRG India on Facebook"
+          class="text-gray-500 hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 12.06C22 6.505 17.523 2 12 2S2 6.505 2 12.06c0 5.02 3.657 9.184 8.438 9.94v-7.03H7.898v-2.91h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.877h2.773l-.443 2.91h-2.33V22c4.78-.756 8.437-4.92 8.437-9.94z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
