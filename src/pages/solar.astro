@@ -1,0 +1,868 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CheckItem from '../components/CheckItem.astro';
+
+// Solar channel partner landing page.
+// Content source of truth: GRG_Solar_LandingPage_DesignA_v9.html, sections S01-S06.
+// The design file's own header, footer and headline-alternates appendix are
+// deliberately excluded — the site Navbar and Footer from Layout.astro are used
+// instead, per the brief.
+//
+// Image slots IMG 02, IMG 03 and IMG 05 from the design have no matching asset
+// in this repo. Rather than ship broken <img> tags or invent artwork, those
+// slots are rendered as real content (numbered cards, a role diagram drawn as
+// inline SVG). IMG 01 and IMG 06 reuse existing, genuinely relevant platform
+// screenshots from /images/my-incentives/.
+
+const gaps = [
+  {
+    num: '01',
+    title: 'The dealer decides which brand to supply',
+    body: 'That choice to offer belongs to the dealer. A discount or a scheme changes that choice only when it is better than what a competitor gives.',
+  },
+  {
+    num: '02',
+    title: 'Your view of the product ends at the invoice',
+    body: 'After that, only the dealer knows the onward sale, the site and the date.',
+  },
+  {
+    num: '03',
+    title: 'Nothing connects your brand to the installer',
+    body: 'An installer fits the product on the roof and is paid by the firm that employs them. Your brand has no commercial relationship with that person.',
+  },
+  {
+    num: '04',
+    title: 'You have no basis for a performance scheme',
+    body: 'Without a record of what each partner sold, you cannot pay on a focus product, a quarterly target, or a territory result.',
+  },
+];
+
+const capabilities = [
+  { title: 'Reward', body: 'A claim is checked against your own sales data before any payment is made.' },
+  { title: 'Engage', body: 'Campaigns, contests and training keep partners active between payments.' },
+  { title: 'Support', body: 'A GRG team runs the program day to day and answers partner questions in their own language.' },
+  { title: 'Track', body: 'A report shows what each partner sold and what the program cost, by role and by territory.' },
+  { title: 'Keep', body: 'Tiers and earning history stay with the partner past the current scheme.' },
+];
+
+const roles = [
+  {
+    role: 'Distributor',
+    decides: 'How much stock to hold, and which brand to push',
+    earns: 'Volume slabs, territory coverage',
+  },
+  {
+    role: 'Dealer',
+    decides: 'Which brand is stocked and quoted first',
+    earns: 'Verified sales, focus products',
+  },
+  {
+    role: 'Installer',
+    decides: 'Which panel and inverter go on the roof',
+    earns: 'Verified installations, scanned product codes',
+  },
+  {
+    role: 'EPC contractor',
+    decides: 'Which brand is named in a project specification',
+    earns: 'Project milestones, capacity commissioned',
+  },
+  {
+    role: 'System integrator',
+    decides: 'Which brand is designed into the system',
+    earns: 'Certified designs, repeat specification',
+  },
+];
+
+const results = [
+  {
+    title: 'Auto spare parts, 35,000 mechanics',
+    body: '62% of signed-up mechanics are active, and the program now covers six sectors.',
+  },
+  {
+    title: 'Lubricants, 7,000+ retailers',
+    body: 'About 45% of brand volume goes through the program. It has been in place for 13 years.',
+  },
+  {
+    title: 'Window films, applicators and retailers',
+    body: 'The dealer and the applicator both confirm a claim before it is paid.',
+  },
+];
+
+const stats = [
+  '₹500 Cr rewards paid a year',
+  '300+ reward brands',
+  '80% of rewards paid as cash',
+  'ISO 27001 certified',
+];
+
+const heroChecks = [
+  'Partners earn on sales and installations that are verified.',
+  'Distributors, dealers, installers and contractors all join the same program.',
+  'You see which partner is selling and where.',
+  "Payment reaches the partner's bank account, usually within 24 hours of approval.",
+];
+
+const faqs = [
+  {
+    q: 'What is a solar channel loyalty program?',
+    a: 'A program that rewards distributors, dealers, installers and other channel partners for verified sales, installations or defined business actions.',
+  },
+  {
+    q: 'How is this different from a traditional trade discount?',
+    a: 'A trade discount supports the sale. A loyalty program builds an ongoing relationship by rewarding verified partner activity beyond the invoice.',
+  },
+  {
+    q: 'Which channel partners can participate?',
+    a: 'Distributors, dealers, installers, EPC contractors and system integrators can all participate in one program.',
+  },
+  {
+    q: 'What can we reward partners for?',
+    a: 'You can reward verified sales, installations, focus products, scanned product codes, project milestones, targets and territory performance.',
+  },
+  {
+    q: 'How are partner claims verified?',
+    a: 'Claims can be checked against your sales data, with partner identity and bank-account verification before payment.',
+  },
+  {
+    q: 'Can different partners have different incentive structures?',
+    a: 'Yes. Each partner role can have its own earning rules, targets and reward structure.',
+  },
+  {
+    q: 'Can the program integrate with our existing systems?',
+    a: 'Yes. The program can work with your existing sales data and systems, based on your specific data and integration requirements.',
+  },
+  {
+    q: 'How quickly are rewards paid?',
+    a: "Once a claim is approved, payment usually reaches the partner's bank account within 24 hours.",
+  },
+  {
+    q: 'Can we engage partners beyond rewards?',
+    a: 'Yes. Campaigns, contests, training, tiers and gamification can keep partners engaged between payouts.',
+  },
+  {
+    q: 'What visibility will we get?',
+    a: 'You can track partner activity, sales and program costs by role and territory.',
+  },
+  {
+    q: 'How do we get started?',
+    a: "Book a 20-minute walkthrough and we'll show you how the program can work for your channel.",
+  },
+];
+
+// Layout renders whatever `jsonLd` receives, so the Service and FAQPage
+// entities are combined into a single @graph rather than adding a second
+// script tag or any new dependency.
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Solar Channel Partner Program',
+  provider: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    legalName: 'TajOnline Pvt. Ltd.',
+    url: 'https://www.grgindia.in',
+  },
+  serviceType: 'Channel loyalty and incentive program for the solar industry',
+  areaServed: 'IN',
+  description:
+    'A channel loyalty and incentive program for solar manufacturers, covering distributors, dealers, installers, EPC contractors and system integrators on the My Incentives platform.',
+};
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [serviceSchema, faqSchema],
+};
+---
+
+<Layout
+  title="Solar Channel Partner Program | GRG India"
+  description="Reward solar distributors, dealers, installers and EPC contractors on verified sales and installations. Runs on My Incentives."
+  canonical="https://www.grgindia.in/solar/"
+  ogImage="https://www.grgindia.in/images/solutions/solar-hero.png"
+  jsonLd={jsonLd}
+>
+
+  <!-- ==================== S01 · HERO ==================== -->
+  <section class="bg-[#f5f5f8] relative overflow-hidden">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            Solar Channel Partner Program
+          </p>
+          <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-navy anim-fade-up" data-anim-delay="50">
+            Add a loyalty layer on top of your trade discount
+          </h1>
+          <p class="mt-6 text-lg md:text-xl leading-relaxed text-[#4a5568] anim-fade-up" data-anim-delay="100">
+            A trade discount is applied when you bill the dealer. The program pays the dealer and
+            the installer on what they sell, and keeps a record of it.
+          </p>
+
+          <ul class="mt-8 space-y-3 anim-fade-up" data-anim-delay="150">
+            {heroChecks.map((text) => <CheckItem text={text} />)}
+          </ul>
+
+          <a
+            href="#book-a-walkthrough"
+            class="mt-8 inline-block px-8 py-3 bg-brand text-white font-semibold rounded-lg hover:bg-brand-dark transition-colors anim-fade-up"
+            data-anim-delay="200"
+          >
+            Book a 20-minute walkthrough
+          </a>
+
+          <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="250">
+            The program runs on <a href="/my-incentives-for-sales-motivation/" class="text-brand hover:underline">My Incentives</a>, the GRG India incentive platform.
+          </p>
+        </div>
+
+        <div class="anim-slide-right" data-anim-delay="200">
+          <!-- IMG 01 — My Incentives dashboard for a solar partner program.
+               Served as a single 256-colour palette PNG (96 KB). For a flat-colour
+               UI screenshot that beats WebP on both weight and accuracy, and it
+               keeps the artwork's own transparent torn edge. No border or shadow
+               here: the mockup already carries its own card treatment. -->
+          <img
+            width="1513"
+            height="1040"
+            src="/images/solutions/solar-hero.png"
+            alt="My Incentives solar partner program dashboard, showing partner and claim totals, a filterable channel partner list with role, territory and incentive status, and a claim approval queue"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-auto"
+          />
+
+          <!-- Program overview panel. Supplied as artwork rather than markup,
+               so the "Sample view. The figures are illustrative." disclaimer is
+               baked into the image itself. The pale pink card fill has been
+               knocked out to transparency and the image cropped to its content,
+               so it sits directly on the section background. -->
+          <img
+            loading="lazy"
+            decoding="async"
+            width="1671"
+            height="703"
+            src="/images/solutions/solar-overview.png"
+            alt="Program overview sample view: partner identity, PAN and bank account checks verified for 11,904 of 12,480 partners; 268 claims in review held for a territory check; an active quarterly scheme with four reward levels running to 31 December 2026"
+            class="mt-6 w-full h-auto rounded-lg border border-gray-200"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== S02 · THE GAP ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">The gap</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        A discount does not cover these four things
+      </h2>
+
+      <div class="mt-12 grid sm:grid-cols-2 gap-8 md:gap-10">
+        {gaps.map((gap, i) => (
+          <div class="border-l-[3px] border-brand pl-5 anim-fade-up" data-anim-delay={String(i * 75)}>
+            <div class="text-xs font-bold tracking-[0.1em] text-brand">{gap.num}</div>
+            <h3 class="mt-2 text-lg font-bold text-navy leading-snug">{gap.title}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-gray-600">{gap.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== S03 · WHAT THE PROGRAM DOES ==================== -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Two columns at ~1.7:1. The comp's 2:1 split squeezed the report cards
+           until their baked-in text fell below ~9px; 1.7:1 keeps them legible
+           at desktop size. Heading and intro sit inside the left column, and
+           the card stack is offset by the eyebrow's height so the first card
+           lines up with the H2 rather than the eyebrow. -->
+      <div class="grid lg:grid-cols-[1.7fr_1fr] gap-10 lg:gap-14">
+
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">What it does</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            A structured program adds five things
+          </h2>
+          <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            All five run from one platform and one partner record.
+          </p>
+
+          <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-12 lg:gap-y-14 content-start">
+            {capabilities.map((item, i) => (
+              <div class="border-l-[3px] border-brand pl-5 anim-fade-up" data-anim-delay={String(i * 75)}>
+                <h3 class="text-lg font-bold text-navy">{item.title}</h3>
+                <p class="mt-2 text-[15px] leading-relaxed text-gray-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- No CSS border or radius on these two, unlike solar-report and
+             solar-overview. Both of these assets carry their own rounded card
+             outline several pixels inside the image edge (claims at depth 4-9,
+             territory at 15-26), so adding `border border-gray-200` drew a
+             second outline outside the artwork's own with a white margin
+             between the two. solar-overview's baked border sits flush at depth
+             0-3 so its CSS border coincides with it, and solar-report has no
+             baked border at all — which is why those two render clean with the
+             border class and these two did not. Same precedent as solar-hero:
+             an asset that carries its own edge treatment gets no CSS edge. -->
+        <!-- Claim-to-payment supports the "Reward" claim, territory supports
+             "Track". -->
+        <!-- 56px gap between the two cards (mt-14). -->
+        <figure class="anim-fade-in lg:mt-8" data-anim-delay="150">
+          <img
+            loading="lazy"
+            decoding="async"
+            width="1577"
+            height="817"
+            src="/images/solutions/solar-claims.png"
+            alt="Claim to payment: 3,120 claims submitted, 2,847 verified, 147 held for a territory check, 126 rejected, and 2,791 paid within 24 hours"
+            class="w-full h-auto"
+          />
+          <img
+            loading="lazy"
+            decoding="async"
+            width="1637"
+            height="806"
+            src="/images/solutions/solar-territory.png"
+            alt="Verified sales by territory: Maharashtra 5,338 units up 12%, Gujarat 4,102 up 7%, Rajasthan 3,486 unchanged, Tamil Nadu 2,914 up 4%, Karnataka 2,240 down 6%, Uttar Pradesh 1,807 up 15%"
+            class="mt-14 w-full h-auto"
+          />
+          <figcaption class="mt-3 text-xs text-gray-500">
+            Sample view. Figures are illustrative and do not represent a live program.
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== S04 · YOUR CHANNEL ==================== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Your channel</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        One program covers every role in your channel
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        Each role decides a different part of the sale and earns on what it decides.
+      </p>
+
+      <!-- items-stretch (the grid default) makes both columns share the height
+           of the taller one; h-full on the table wrapper and the table itself
+           lets the rows expand to fill it, so both columns end on the same line
+           instead of the table stopping short. -->
+      <div class="mt-12 grid lg:grid-cols-[1.35fr_1fr] gap-10 lg:gap-14">
+
+        <!-- Role table: scrolls horizontally on narrow screens rather than
+             duplicating the content into a separate mobile-only block. -->
+        <div class="overflow-x-auto h-full anim-fade-up">
+          <table class="w-full h-full min-w-[540px] border-collapse text-sm">
+            <caption class="sr-only">
+              Solar channel roles, what each role decides, and what each role earns on
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" class="border border-gray-200 bg-gray-50 px-4 py-3 text-left font-bold text-navy">Role</th>
+                <th scope="col" class="border border-gray-200 bg-gray-50 px-4 py-3 text-left font-bold text-navy">What they decide</th>
+                <th scope="col" class="border border-gray-200 bg-gray-50 px-4 py-3 text-left font-bold text-navy">What they earn on</th>
+              </tr>
+            </thead>
+            <tbody>
+              {roles.map((r) => (
+                <tr>
+                  <th scope="row" class="border border-gray-200 px-4 py-3 text-left align-top font-semibold text-navy">{r.role}</th>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-gray-600">{r.decides}</td>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-gray-600">{r.earns}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Hub-and-spoke: five roles reporting into one program.
+             Drawn inline so it scales cleanly and needs no asset. -->
+        <figure class="anim-fade-in" data-anim-delay="150">
+          <svg
+            viewBox="0 0 420 380"
+            class="w-full max-w-sm mx-auto h-auto"
+            role="img"
+            aria-labelledby="channel-diagram-title"
+          >
+            <title id="channel-diagram-title">
+              Diagram of five solar channel roles reporting into one program
+            </title>
+            <g stroke="#cbd5e1" stroke-width="1.5">
+              <line x1="210" y1="190" x2="210" y2="56" />
+              <line x1="210" y1="190" x2="356" y2="140" />
+              <line x1="210" y1="190" x2="300" y2="318" />
+              <line x1="210" y1="190" x2="120" y2="318" />
+              <line x1="210" y1="190" x2="64" y2="140" />
+            </g>
+            <circle cx="210" cy="190" r="52" fill="#E41E3A" />
+            <text x="210" y="185" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Your</text>
+            <text x="210" y="202" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">brand</text>
+
+            <g font-size="11" font-weight="700" fill="#0f1f3d" text-anchor="middle">
+              <rect x="150" y="18" width="120" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+              <text x="210" y="42">Distributor</text>
+
+              <rect x="300" y="121" width="112" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+              <text x="356" y="145">Dealer</text>
+
+              <rect x="244" y="299" width="112" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+              <text x="300" y="323">Installer</text>
+
+              <rect x="58" y="299" width="124" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+              <text x="120" y="317">EPC</text>
+              <text x="120" y="330">contractor</text>
+
+              <rect x="8" y="121" width="112" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+              <text x="64" y="139">System</text>
+              <text x="64" y="152">integrator</text>
+            </g>
+          </svg>
+          <figcaption class="mt-3 text-center text-xs text-gray-500">
+            Every role reports into one program and one partner record.
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== S05 · PROOF ==================== -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Proof</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Programs like this already work in categories close to solar
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        Pumps, inverters and stabilisers are sold through the same kind of channel. A technician or
+        an installer decides what gets fitted.
+      </p>
+
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {results.map((r, i) => (
+          <div class="bg-white border border-gray-200 rounded-xl p-6 anim-fade-up" data-anim-delay={String(i * 75)}>
+            <h3 class="text-base font-bold text-navy leading-snug">{r.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600">{r.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Stat strip. divide-x is gated to lg: because Tailwind applies it via
+           `> * + *`, so on the 2-column layout the third item would pick up a
+           left border while sitting flush against the container's left edge. -->
+      <dl class="mt-12 grid grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 lg:divide-x lg:divide-gray-200">
+        {stats.map((stat, i) => (
+          <div class="px-4 py-5 anim-fade-up" data-anim-delay={String(i * 75)}>
+            <dd class="text-sm font-bold text-navy leading-snug">{stat}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <!-- Client quotes -->
+      <div class="mt-12 grid md:grid-cols-2 gap-8">
+        <figure class="bg-white border border-gray-200 rounded-2xl p-8 anim-fade-up">
+          <img
+            loading="lazy"
+            decoding="async"
+            width="444"
+            height="150"
+            src="/images/logos/Mahindra.png"
+            alt="Mahindra"
+            class="h-10 object-contain"
+          />
+          <blockquote class="mt-6">
+            <p class="text-gray-600 italic leading-relaxed">
+              "My Incentive has been instrumental in enhancing our incentive programs for this
+              crucial segment of our ecosystem. We've been able to design tailored programs that not
+              only incentivize performance but also foster long-term loyalty."
+            </p>
+          </blockquote>
+          <figcaption class="mt-4 text-sm font-semibold text-gray-500">
+            Mahindra, automotive channel program
+          </figcaption>
+        </figure>
+
+        <figure class="bg-white border border-gray-200 rounded-2xl p-8 anim-fade-up" data-anim-delay="100">
+          <img
+            loading="lazy"
+            decoding="async"
+            width="444"
+            height="150"
+            src="/images/logos/gulf.png"
+            alt="Gulf Oil"
+            class="h-10 object-contain"
+          />
+          <blockquote class="mt-6">
+            <p class="text-gray-600 italic leading-relaxed">
+              "With automated partner onboarding and KYC verification, we've streamlined operations
+              and accelerated partner engagement. The gamification features, including leaderboards,
+              have sparked healthy competition and boosted productivity."
+            </p>
+          </blockquote>
+          <figcaption class="mt-4 text-sm font-semibold text-gray-500">
+            Gulf Oil, automotive channel program
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <!-- Accordion follows the Navbar's established pattern: a semantic <button>
+       carrying aria-expanded + aria-controls, toggling state on the panel.
+       Open/closed is driven by a data attribute rather than Tailwind classes
+       added at runtime, so the transition is reliable and nothing depends on
+       the JIT seeing a class that only exists inside a script. -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">FAQs</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Frequently asked questions
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        Clear answers about the program, partner eligibility, rewards and implementation.
+      </p>
+
+      <div id="solar-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
+        {faqs.map((f, i) => (
+          <div class="border-b border-gray-200">
+            <h3 class="m-0">
+              <button
+                type="button"
+                id={`faq-trigger-${i}`}
+                aria-controls={`faq-panel-${i}`}
+                aria-expanded="false"
+                class="faq-trigger w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
+              >
+                <span class="text-base md:text-lg font-bold text-navy leading-snug group-hover:text-brand transition-colors">
+                  {f.q}
+                </span>
+                <svg
+                  class="faq-icon mt-1 w-5 h-5 shrink-0 text-brand transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </h3>
+            <div
+              id={`faq-panel-${i}`}
+              role="region"
+              aria-labelledby={`faq-trigger-${i}`}
+              class="faq-panel"
+              data-open="false"
+            >
+              <div class="faq-panel-inner">
+                <!-- Answer uses the full row width; pr-10 keeps it clear of the
+                     chevron column and it still wraps naturally on narrow
+                     viewports. -->
+                <p class="pb-5 pr-10 text-[15px] leading-relaxed text-gray-600">{f.a}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Height animation via grid-template-rows so the panel can transition from
+       nothing to its natural height without hard-coding a max-height.
+       visibility keeps collapsed answers out of the accessibility tree. */
+    .faq-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows 0.28s ease, visibility 0.28s;
+    }
+    .faq-panel[data-open='true'] {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+    .faq-panel-inner {
+      overflow: hidden;
+    }
+    .faq-trigger[aria-expanded='true'] .faq-icon {
+      transform: rotate(180deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-panel,
+      .faq-icon {
+        transition: none;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const root = document.getElementById('solar-faq');
+      if (!root) return;
+      const triggers = Array.from(root.querySelectorAll('.faq-trigger'));
+
+      const setOpen = (btn: Element, open: boolean) => {
+        btn.setAttribute('aria-expanded', String(open));
+        const id = btn.getAttribute('aria-controls');
+        const panel = id ? document.getElementById(id) : null;
+        panel?.setAttribute('data-open', String(open));
+      };
+
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+          // Only one answer open at a time.
+          triggers.forEach((other) => setOpen(other, false));
+          if (!wasOpen) setOpen(btn, true);
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          const ev = e as KeyboardEvent;
+          if (ev.key === 'Escape') {
+            setOpen(btn, false);
+            (btn as HTMLButtonElement).focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- ==================== S06 · CALL TO ACTION ==================== -->
+  <section id="book-a-walkthrough" class="py-16 md:py-24 bg-[#f8f8f8] scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Next step</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy leading-tight anim-fade-up" data-anim-delay="50">
+            See how the program would run for your channel
+          </h2>
+          <p class="mt-6 text-lg md:text-xl leading-relaxed text-[#4a5568] anim-fade-up" data-anim-delay="100">
+            Tell us the size and shape of your partner network. We will show you how we would set it
+            up, and what the reports would look like.
+          </p>
+          <!-- IMG 06 — My Incentives program report, partner activity by
+               territory. WebP first here (68 KB vs 90 KB, and more accurate):
+               unlike the flat-colour screens elsewhere on this page, the
+               choropleth map has smooth gradients that palette-quantise badly.
+               PNG stays as the fallback. -->
+          <picture>
+            <source srcset="/images/solutions/solar-report.webp" type="image/webp" />
+            <img
+              loading="lazy"
+              decoding="async"
+              width="1512"
+              height="931"
+              src="/images/solutions/solar-report.png"
+              alt="My Incentives program report showing partner activity by territory, with a shaded India map and a table of partners, activities and activity level for nine territories"
+              class="mt-8 w-full h-auto rounded-lg border border-gray-200 anim-fade-in"
+              data-anim-delay="200"
+            />
+          </picture>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 md:p-10 anim-slide-right" data-anim-delay="150">
+          <h3 class="text-xl font-bold text-navy mb-1">Book a 20-minute walkthrough</h3>
+          <p class="text-sm text-gray-500 mb-6">We will share our screen on the call.</p>
+
+          <form class="space-y-5" id="solar-form">
+            <!-- Honeypot — hidden from real users, bots auto-fill it -->
+            <div class="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+              <label for="solar-website">Website</label>
+              <input type="text" id="solar-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div>
+              <label for="solar-name" class="block text-sm font-medium text-gray-700 mb-1">
+                Name <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="solar-name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="solar-email" class="block text-sm font-medium text-gray-700 mb-1">
+                  Work email <span class="text-red-400">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="solar-email"
+                  name="work-email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label for="solar-phone" class="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number <span class="text-red-400">*</span>
+                </label>
+                <div class="flex">
+                  <span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg">+91</span>
+                  <input
+                    type="tel"
+                    id="solar-phone"
+                    name="phone"
+                    required
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    title="Enter 10-digit mobile number"
+                    placeholder="XXXXX XXXXX"
+                    class="w-full border border-gray-300 rounded-r-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="solar-company" class="block text-sm font-medium text-gray-700 mb-1">
+                Company <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="solar-company"
+                name="company"
+                required
+                placeholder="Your company"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="solar-partners" class="block text-sm font-medium text-gray-700 mb-1">
+                Number of channel partners <span class="text-red-400">*</span>
+              </label>
+              <select
+                id="solar-partners"
+                name="partner-count"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors bg-white"
+              >
+                <option value="" disabled selected>Select number of partners</option>
+                <option value="Under 100">Under 100</option>
+                <option value="100-500">100 to 500</option>
+                <option value="500-2000">500 to 2000</option>
+                <option value="2000+">2000+</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              id="solar-submit"
+              class="w-full bg-brand text-white font-semibold py-3 rounded-lg hover:bg-brand-dark transition-colors"
+            >
+              Book a 20-minute walkthrough
+            </button>
+            <p id="solar-status" class="hidden text-sm text-center mt-2"></p>
+          </form>
+
+          <p class="text-sm text-gray-500 text-center mt-4">
+            Or write to
+            <a href="mailto:contactus@grgindia.in" class="text-brand hover:underline">contactus@grgindia.in</a>
+          </p>
+          <p class="text-xs text-gray-400 text-center mt-3">
+            By submitting, you agree to our
+            <a href="/privacy-policy/" class="underline hover:text-gray-500">Privacy Policy</a>. We'll never share your data.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('solar-form') as HTMLFormElement | null;
+    const btn = document.getElementById('solar-submit') as HTMLButtonElement | null;
+    const status = document.getElementById('solar-status');
+    const LABEL = 'Book a 20-minute walkthrough';
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!btn || !status) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.classList.add('hidden');
+
+      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      const rawPhone = (data.phone || '').replace(/\D/g, '');
+
+      if (rawPhone.length !== 10) {
+        status.textContent = 'Please enter a valid 10-digit phone number.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = LABEL;
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data['work-email'],
+            phone: '+91 ' + rawPhone,
+            company: data.company,
+            teamSize: data['partner-count'],
+            message: 'Solar channel partner program enquiry.',
+            website: data.website || '',
+            formSource: 'solar-landing',
+          }),
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        // Google Ads conversion — fires only on successful lead submit, and
+        // before reset() so enhanced conversions can still read the email.
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-11342761792/sj73CLOxyP4YEMCe06Aq',
+          });
+        }
+
+        form.reset();
+        status.textContent = 'Thank you! We will be in touch within one business day.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status.classList.remove('hidden');
+      } catch {
+        status.textContent =
+          'Something went wrong. Please try again or email contactus@grgindia.in.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+      }
+
+      btn.disabled = false;
+      btn.textContent = LABEL;
+    });
+  </script>
+
+</Layout>
