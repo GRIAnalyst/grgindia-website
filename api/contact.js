@@ -81,6 +81,7 @@ export default async function handler(req, res) {
       'buzzz-book-a-demo': 'Buzzz Demo',
       'book-a-demo-myincentives': 'My Incentives Demo',
       'contact-us': 'Contact Us',
+      'solar-landing': 'Solar Channel Partner Program',
     }[formSource] || 'Website Form';
 
     const isDemoForm = formSource !== 'contact-us';
