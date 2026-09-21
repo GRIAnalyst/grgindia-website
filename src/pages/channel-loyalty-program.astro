@@ -1,0 +1,956 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const heroChecks = [
+  'Distributors, dealers, retailers, influencers and the brand sales team are covered by one program.',
+  'Each role earns on its own measure, and the platform works out every role in one calculation.',
+  "Payment reaches the partner's bank account or Unified Payments Interface (UPI) ID, usually within 24 hours of approval.",
+  'Rates, slabs and reward levels are changed as settings, without a software release.',
+];
+
+const stats = [
+  '27 years in the rewards business',
+  'More than 100 client brands',
+  '1 million people paid across programs',
+  'ISO 27001 certified',
+];
+
+const roles = [
+  {
+    role: 'Distributor',
+    decides: 'How much stock to hold, and which brand to push',
+    earns: 'Volume slabs, territory coverage',
+  },
+  {
+    role: 'Retailer or dealer',
+    decides: 'What goes on the counter, and what gets substituted',
+    earns: 'Verified secondary sales, focus products',
+  },
+  {
+    role: 'Influencer',
+    decides: 'Which brand is fitted or used on the job',
+    earns: 'Verified scans, completed jobs',
+  },
+  {
+    role: 'Distributor salesperson',
+    decides: 'Which brand the order is written for',
+    earns: 'Target achievement, coverage',
+  },
+  {
+    role: 'Brand sales team',
+    decides: 'Primary sales',
+    earns: 'Target achievement, scheme measures',
+  },
+];
+
+const problems = [
+  {
+    num: '01',
+    title: 'Scheme design by region',
+    body: 'Each regional team designs its own scheme, and head office has little central control over the design.',
+    fix: 'The brand sets scheme design centrally and still allows territory level schemes underneath it.',
+  },
+  {
+    num: '02',
+    title: 'The rate carried over from last year',
+    body: 'The incentive rate is matched to a competitor or copied from the previous scheme.',
+    fix: 'The analytics module shows how each group of partners performed and what the last scheme changed.',
+  },
+  {
+    num: '03',
+    title: 'A scheme read as a price cut',
+    body: 'A general scheme with one rate across the channel works like a price cut on the invoice.',
+    fix: 'The payout is built in tiers, and each tier is tied to something the brand wants.',
+  },
+  {
+    num: '04',
+    title: 'Payment on purchase volume alone',
+    body: 'Slabs pay on purchase volume alone. The partner earns nothing for anything else it does for the brand.',
+    fix: 'Earning is recorded at primary, secondary or tertiary sales, and channel partner incentives are paid on any of them.',
+  },
+];
+
+const platformStages = [
+  {
+    title: 'Sign-up and verification',
+    body: 'A partner signs up once and keeps that checked identity and those bank details.',
+  },
+  {
+    title: 'Sales recording',
+    body: 'Scans, invoice photos, distributor feeds and dealer management system data all record earning.',
+  },
+  {
+    title: 'Earning calculation',
+    body: 'Slabs, rates, thresholds and caps are applied to every role in a single run.',
+  },
+  {
+    title: 'Fraud controls',
+    body: "Duplicate identities, claims from outside a partner's territory and unusual scan patterns are flagged before payment.",
+  },
+  {
+    title: 'Payment',
+    body: 'Cash goes by bank transfer or UPI, and more than 300 voucher brands are available.',
+  },
+  {
+    title: 'Reporting',
+    body: 'Head office, regional and territory users see sign-up, activity, earning and redemption.',
+  },
+];
+
+const recordingMethods = [
+  {
+    title: 'Scan and earn',
+    body: 'The partner scans a unique code on the pack, and the earning is recorded against the person who scanned it.',
+  },
+  {
+    title: 'Invoice upload',
+    body: 'The partner photographs the sale invoice and the platform reads the line items from the image.',
+  },
+  {
+    title: 'Two-party confirmation',
+    body: 'The dealer and the person who fitted the product both confirm the same code before the claim is paid.',
+  },
+  {
+    title: 'Sales data feed',
+    body: 'Primary sales, targets and hierarchy come in from the brand systems, and secondary sales from the distributor management system.',
+  },
+];
+
+const b2bRequirements = [
+  {
+    title: 'Identity and tax checks',
+    body: 'PAN and the bank account are checked in real time through the National Securities Depository Limited (NSDL) and the payment partner. Section 194R deduction is handled.',
+  },
+  {
+    title: 'One record when a person changes role',
+    body: 'A distributor, dealer, retailer, influencer or salesperson is not signed up again, and the record, the completed verification and the earning history stay with that person.',
+  },
+  {
+    title: 'Rewards a business will accept',
+    body: 'B2B rewards programs pay cash into a bank account or UPI ID. About 80 percent of loyalty points are redeemed in cash.',
+  },
+  {
+    title: 'Schemes that change every quarter',
+    body: 'B2B loyalty schemes are rewritten each quarter, and a rewrite needs no software release.',
+  },
+];
+
+const results = [
+  {
+    fig: '30% to 80%',
+    lab: 'Active retailers, before and after',
+    cli: 'Leading FMCG brand',
+    body: "Sign-up was run by the brand's field team on a form made for a phone. Active means a retailer paid an incentive at least once a quarter.",
+  },
+  {
+    fig: '65 days to 5',
+    lab: 'Time from sale to payout',
+    cli: 'Leading retail brand',
+    body: 'Incentive was calculated on spreadsheets. The loyalty platform has automated the calculation.',
+  },
+  {
+    fig: '13 years',
+    lab: 'Longest unbroken client relationship',
+    cli: 'Leading lubricants brand',
+    body: 'Three programs on one platform, each with different rules, user types and rewards.',
+  },
+  {
+    fig: '99%',
+    lab: 'Scans made by earners themselves',
+    cli: 'Leading auto brand',
+    body: 'The earning is recorded against the person who did the work.',
+  },
+  {
+    fig: '1 to 8',
+    lab: 'Brands on one program',
+    cli: 'Consumer goods group',
+    body: 'One brand grew to eight, each with a separate approval chain and separate reward schemes.',
+  },
+  {
+    fig: 'More than ₹75 Cr',
+    lab: 'Rewards delivered a year',
+    cli: 'Global HR technology company',
+    body: 'A reward program for 90 brands, with checks on how fast a user redeems and a full audit trail.',
+  },
+];
+
+const quotes = [
+  {
+    text: 'My Incentives has been instrumental in enhancing our incentive programs for this crucial segment of our ecosystem. We have been able to design tailored programs that not only incentivize performance but also foster long-term loyalty.',
+    cite: 'Mahindra, automotive channel program',
+  },
+  {
+    text: 'With automated partner onboarding and KYC verification, we have streamlined operations and accelerated partner engagement. The gamification features, including leaderboards, have sparked healthy competition and boosted productivity.',
+    cite: 'Gulf Oil, automotive channel program',
+  },
+];
+
+const whyGrg = [
+  {
+    title: 'Account management',
+    body: 'A dedicated or shared team runs the program day to day.',
+  },
+  {
+    title: 'Regional-language call centre',
+    body: 'The GRG India call centre answers partners in their own language and supports the brand field team.',
+  },
+  {
+    title: 'Scheme configuration support',
+    body: 'A shared business analyst configures the scheme and the rules with the brand team.',
+  },
+  {
+    title: 'Migration from another vendor',
+    body: 'User records, completed verification and unused balances are brought across from the previous vendor.',
+  },
+  {
+    title: 'Payout log for audit',
+    body: 'Every payment is recorded with who was paid and when, and an internal audit checks payout accuracy.',
+  },
+  {
+    title: 'One contract for several programs',
+    body: 'One account team and one place to call when something goes wrong.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is a channel loyalty program?',
+    a: 'A program that rewards distributors, dealers, retailers, influencers and salespeople for verified sales or defined business actions. The brand does not employ most of these people, so the program has to identify each one, record what they did and pay them directly.',
+  },
+  {
+    q: 'How is this different from a trade scheme or a discount?',
+    a: 'A trade scheme adjusts the invoice. A loyalty program pays a named person against a verified action and keeps the earning history on that person’s record. A general scheme with one rate across the channel works like a price cut. A loyalty program pays in tiers, and each tier is tied to something the brand wants.',
+  },
+  {
+    q: 'How is a sale recorded before anything is paid?',
+    a: 'Four ways: a scan of a unique code on the pack, a photograph of the sale invoice, a two-party confirmation where the dealer and the person who fitted the product both confirm the same code, or a data feed from the brand and distributor systems. A program can use more than one, and one partner record keeps the earning from every method.',
+  },
+  {
+    q: 'What stops a partner claiming a sale that did not happen?',
+    a: 'Duplicate identities, claims from outside a partner’s territory and unusual scan patterns are flagged before payment. Where two parties are involved, the dealer and the person who fitted the product both confirm the same code before the claim is paid.',
+  },
+  {
+    q: 'What tax and identity checks run before a payout?',
+    a: 'PAN and the bank account are checked in real time through the National Securities Depository Limited (NSDL) and the payment partner. Section 194R deduction is handled. Every payment is recorded with who was paid and when, and an internal audit checks payout accuracy.',
+  },
+  {
+    q: 'How often can the scheme change?',
+    a: 'B2B loyalty schemes are usually rewritten each quarter. Rates, slabs and reward levels are changed as settings, and a rewrite needs no software release.',
+  },
+  {
+    q: 'Can head office control scheme design while regions still run their own schemes?',
+    a: 'Yes. The brand sets scheme design centrally and still allows territory level schemes underneath it. Head office, regional and territory users each see sign-up, activity, earning and redemption.',
+  },
+  {
+    q: 'Can we move an existing program from another vendor?',
+    a: 'User records, completed verification and unused balances are brought across from the previous vendor.',
+  },
+];
+
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Channel Loyalty Program',
+  provider: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    legalName: 'TajOnline Pvt. Ltd.',
+    url: 'https://www.grgindia.in',
+  },
+  serviceType: 'Channel loyalty and incentive program',
+  areaServed: 'IN',
+  description:
+    'A channel loyalty program covering distributors, dealers, retailers, influencers, distributor salespeople and the brand sales team, run on the My Incentives B2B loyalty platform.',
+};
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [serviceSchema, faqSchema],
+};
+---
+
+<Layout
+  title="Channel Loyalty Program and Platform in India | GRG India"
+  description="GRG India runs channel loyalty programs for distributors, dealers, retailers and influencers. My Incentives is the B2B loyalty platform behind them."
+  jsonLd={jsonLd}
+>
+  <!-- S01 — Hero -->
+  <section class="py-16 md:py-24 bg-[#f5f5f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+          Channel loyalty programs
+        </p>
+        <h1 class="mt-4 text-4xl md:text-5xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+          Channel loyalty programs for distributors, dealers and influencers
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-gray-600 anim-fade-up" data-anim-delay="100">
+          GRG India designs the scheme, runs the channel loyalty platform and manages the program
+          day to day. Rewards paid through it come to more than ₹500 crore a year.
+        </p>
+
+        <ul class="mt-8 space-y-4 anim-fade-up" data-anim-delay="150">
+          {
+            heroChecks.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-sm bg-brand" aria-hidden="true" />
+                <span class="text-base text-gray-700">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-10 flex flex-wrap items-center gap-3 anim-fade-up" data-anim-delay="200">
+          <a
+            href="#next-step"
+            class="inline-block bg-brand text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-dark transition-colors"
+          >
+            Book a 20-minute walkthrough
+          </a>
+          <a
+            href="#the-platform"
+            class="inline-block bg-white text-navy font-semibold px-7 py-3.5 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors"
+          >
+            See how a program is set up
+          </a>
+        </div>
+
+        <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="250">
+          The program runs on <a
+            href="/my-incentives-for-sales-motivation/"
+            class="text-brand hover:underline">My Incentives</a
+          >, the GRG India channel loyalty platform.
+        </p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 anim-fade-up" data-anim-delay="300">
+        {
+          stats.map((stat, i) => (
+            <div
+              class:list={[
+                'px-5 py-5 text-sm font-semibold text-navy',
+                i > 0 && 'border-t border-gray-200 sm:border-t-0 sm:border-l',
+                i === 2 && 'sm:border-t sm:border-l-0 lg:border-t-0 lg:border-l',
+              ]}
+            >
+              {stat}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S02 — Your channel -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        Your channel
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        The people who decide which brand the customer buys
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        The brand employs its sales team. The distributor, the dealer and the influencer are not
+        employed, and one of those three usually decides the purchase. A loyalty program for channel
+        partners covers every one of these roles on a single partner record.
+      </p>
+
+      <div class="mt-10 overflow-x-auto anim-fade-up" data-anim-delay="150">
+        <table class="w-full min-w-[640px] border-collapse text-left">
+          <thead>
+            <tr class="bg-[#f2f3f6]">
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">Role</th>
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">
+                What they decide
+              </th>
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">
+                What they earn on
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              roles.map((r) => (
+                <tr>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-sm font-semibold text-navy">
+                    {r.role}
+                  </td>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-sm text-gray-600">
+                    {r.decides}
+                  </td>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-sm text-gray-600">
+                    {r.earns}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- S03 — The problem -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        The problem
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        The design of channel incentives today
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        McKinsey looked at trade scheme spend in 2026 and found several structural flaws. Between ₹8
+        and ₹11 of every ₹100 of revenue goes into trade schemes and channel incentives.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          problems.map((p, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <div class="text-xs font-bold tracking-[0.1em] text-brand">{p.num}</div>
+              <h3 class="mt-2 text-base font-bold text-navy">{p.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{p.body}</p>
+              <p class="mt-4 text-sm text-gray-600">
+                <span class="block mb-1 text-[10px] font-bold tracking-[0.1em] uppercase text-gray-500">
+                  How we design for it
+                </span>
+                {p.fix}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-4xl text-xs italic text-gray-500 anim-fade-up" data-anim-delay="350">
+        Source: McKinsey and Company, <a
+          href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/reimagining-trade-spend-from-cost-center-to-growth-catalyst"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-gray-700">“Reimagining trade spend: from cost center to growth
+          catalyst”</a
+        >, published 9 June 2026. The four faults described in this section are drawn from that
+        report.
+      </p>
+    </div>
+  </section>
+
+  <!-- S04 — The platform -->
+  <section id="the-platform" class="py-16 md:py-24 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        The platform
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Six stages on the channel loyalty platform
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        Loyalty program software is usually built for consumer points schemes. <a
+          href="/my-incentives-for-sales-motivation/"
+          class="text-brand hover:underline">My Incentives</a
+        > works for a channel where the brand does not employ the people it pays.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          platformStages.map((s, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <h3 class="text-base font-bold text-navy">{s.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="450">
+        Channel incentive management software of this kind replaces the spreadsheets a regional team
+        keeps today. That loyalty management software covers every scheme the brand has live.
+      </p>
+    </div>
+  </section>
+
+  <!-- S05 — Recording a sale -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        Recording a sale
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        The ways a sale is recorded in a channel incentive program
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        Nothing earns until the sale is recorded against a named partner. These are a few of the
+        loyalty program sales recording methods available on My Incentives.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          recordingMethods.map((m, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <h3 class="text-base font-bold text-navy">{m.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{m.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="350">
+        The method is set for each channel incentive scheme, and a program can use more than one. One
+        partner record keeps the earning from every method.
+      </p>
+    </div>
+  </section>
+
+  <!-- S06 — B2B loyalty -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        B2B loyalty
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        The requirements of a B2B loyalty program
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        In B2B loyalty programs the brand pays a business, or a person inside that business, whom it
+        does not employ. That changes what the platform has to do.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          b2bRequirements.map((r, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <h3 class="text-base font-bold text-navy">{r.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{r.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="350">
+        A loyalty program for B2B customers and a channel partner loyalty program run on the same B2B
+        loyalty platform, under a single contract and one account team.
+      </p>
+    </div>
+  </section>
+
+  <!-- S07 — Results -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Results</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Changes on programs already running
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        Figures as of March 2026.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          results.map((r, i) => (
+            <div
+              class="rounded-lg border border-gray-200 bg-white p-6 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <div class="text-2xl font-bold leading-tight text-navy">{r.fig}</div>
+              <div class="mt-2 text-sm font-bold text-navy">{r.lab}</div>
+              <div class="mt-0.5 text-[13px] text-gray-500">{r.cli}</div>
+              <p class="mt-3 text-[13.5px] text-gray-600">{r.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-2 gap-10">
+        {
+          quotes.map((q, i) => (
+            <blockquote
+              class="border-l-[3px] border-gray-300 pl-5 anim-fade-up"
+              data-anim-delay={450 + i * 50}
+            >
+              <p class="text-[15px] italic text-gray-600">{q.text}</p>
+              <cite class="mt-3 block text-[13px] font-bold not-italic text-gray-500">
+                {q.cite}
+              </cite>
+            </blockquote>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S08 — Why GRG India -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        Why GRG India
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        The team and the service around the platform
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        The average client relationship lasts more than eight years.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          whyGrg.map((w, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <h3 class="text-base font-bold text-navy">{w.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{w.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">FAQs</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Frequently asked questions
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        Clear answers about how the program records a sale, checks a partner and pays them.
+      </p>
+
+      <div id="channel-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
+        {
+          faqs.map((f, i) => (
+            <div class="border-b border-gray-200">
+              <h3 class="m-0">
+                <button
+                  type="button"
+                  id={`faq-trigger-${i}`}
+                  aria-controls={`faq-panel-${i}`}
+                  aria-expanded="false"
+                  class="faq-trigger w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
+                >
+                  <span class="text-base md:text-lg font-bold text-navy leading-snug group-hover:text-brand transition-colors">
+                    {f.q}
+                  </span>
+                  <svg
+                    class="faq-icon mt-1 w-5 h-5 shrink-0 text-brand transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-trigger-${i}`}
+                class="faq-panel"
+                data-open="false"
+              >
+                <div class="faq-panel-inner">
+                  <p class="pb-5 pr-10 text-[15px] leading-relaxed text-gray-600">{f.a}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S09 — Call to action -->
+  <section id="next-step" class="py-16 md:py-24 bg-[#f5f5f8] scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            Next step
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            A walkthrough of a channel loyalty program for your channel
+          </h2>
+          <p class="mt-6 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            Tell us the size and shape of your channel, and we will show how the program would be set
+            up for it.
+          </p>
+          <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="150">
+            The call takes twenty minutes and includes a screen share.
+          </p>
+          <p class="mt-2 text-sm text-gray-500 anim-fade-up" data-anim-delay="200">
+            Or write to <a href="mailto:contactus@grgindia.in" class="text-brand hover:underline"
+              >contactus@grgindia.in</a
+            >
+          </p>
+        </div>
+
+        <div class="relative rounded-xl border border-gray-200 bg-white p-6 sm:p-8 anim-fade-up" data-anim-delay="150">
+          <form class="space-y-5" id="channel-form">
+            <!-- Honeypot — hidden from real users, bots auto-fill it -->
+            <div class="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+              <label for="channel-website">Website</label>
+              <input type="text" id="channel-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div>
+              <label for="channel-name" class="block text-sm font-medium text-gray-700 mb-1">
+                Name <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="channel-name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="channel-email" class="block text-sm font-medium text-gray-700 mb-1">
+                  Work email <span class="text-red-400">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="channel-email"
+                  name="work-email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label for="channel-phone" class="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number <span class="text-red-400">*</span>
+                </label>
+                <div class="flex">
+                  <span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg">+91</span>
+                  <input
+                    type="tel"
+                    id="channel-phone"
+                    name="phone"
+                    required
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    title="Enter 10-digit mobile number"
+                    placeholder="XXXXX XXXXX"
+                    class="w-full border border-gray-300 rounded-r-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="channel-company" class="block text-sm font-medium text-gray-700 mb-1">
+                Company <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="channel-company"
+                name="company"
+                required
+                placeholder="Your company"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="channel-type" class="block text-sm font-medium text-gray-700 mb-1">
+                Channel type <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="channel-type"
+                name="channel-type"
+                required
+                placeholder="Distributors, dealers, retailers, influencers"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="channel-partners" class="block text-sm font-medium text-gray-700 mb-1">
+                Number of channel partners <span class="text-red-400">*</span>
+              </label>
+              <select
+                id="channel-partners"
+                name="partner-count"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors bg-white"
+              >
+                <option value="" disabled selected>Select number of partners</option>
+                <option value="Under 100">Under 100</option>
+                <option value="100-500">100 to 500</option>
+                <option value="500-2000">500 to 2000</option>
+                <option value="2000+">2000+</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              id="channel-submit"
+              class="w-full bg-brand text-white font-semibold py-3 rounded-lg hover:bg-brand-dark transition-colors"
+            >
+              Book a 20-minute walkthrough
+            </button>
+            <p id="channel-status" class="hidden text-sm text-center mt-2"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Height animation via grid-template-rows so the panel can transition from
+       nothing to its natural height without hard-coding a max-height.
+       visibility keeps collapsed answers out of the accessibility tree. */
+    .faq-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows 0.28s ease, visibility 0.28s;
+    }
+    .faq-panel[data-open='true'] {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+    .faq-panel-inner {
+      overflow: hidden;
+    }
+    .faq-trigger[aria-expanded='true'] .faq-icon {
+      transform: rotate(180deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-panel,
+      .faq-icon {
+        transition: none;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const root = document.getElementById('channel-faq');
+      if (!root) return;
+      const triggers = Array.from(root.querySelectorAll('.faq-trigger'));
+
+      const setOpen = (btn: Element, open: boolean) => {
+        btn.setAttribute('aria-expanded', String(open));
+        const id = btn.getAttribute('aria-controls');
+        const panel = id ? document.getElementById(id) : null;
+        panel?.setAttribute('data-open', String(open));
+      };
+
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+          // Only one answer open at a time.
+          triggers.forEach((other) => setOpen(other, false));
+          if (!wasOpen) setOpen(btn, true);
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          const ev = e as KeyboardEvent;
+          if (ev.key === 'Escape') {
+            setOpen(btn, false);
+            (btn as HTMLButtonElement).focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    const form = document.getElementById('channel-form') as HTMLFormElement | null;
+    const btn = document.getElementById('channel-submit') as HTMLButtonElement | null;
+    const status = document.getElementById('channel-status');
+    const LABEL = 'Book a 20-minute walkthrough';
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!btn || !status) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.classList.add('hidden');
+
+      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      const rawPhone = (data.phone || '').replace(/\D/g, '');
+
+      if (rawPhone.length !== 10) {
+        status.textContent = 'Please enter a valid 10-digit phone number.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = LABEL;
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data['work-email'],
+            phone: '+91 ' + rawPhone,
+            company: data.company,
+            teamSize: data['partner-count'],
+            message: 'Channel loyalty program enquiry. Channel type: ' + (data['channel-type'] || 'Not specified'),
+            website: data.website || '',
+            formSource: 'channel-landing',
+          }),
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        // Google Ads conversion — fires only on successful lead submit, and
+        // before reset() so enhanced conversions can still read the email.
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-11342761792/sj73CLOxyP4YEMCe06Aq',
+          });
+        }
+
+        form.reset();
+        status.textContent = 'Thank you! We will be in touch within one business day.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status.classList.remove('hidden');
+      } catch {
+        status.textContent =
+          'Something went wrong. Please try again or email contactus@grgindia.in.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+      }
+
+      btn.disabled = false;
+      btn.textContent = LABEL;
+    });
+  </script>
+</Layout>
