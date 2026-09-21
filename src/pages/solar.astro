@@ -309,37 +309,31 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- No CSS border or radius on these two, unlike solar-report and
-             solar-overview. Both of these assets carry their own rounded card
-             outline several pixels inside the image edge (claims at depth 4-9,
-             territory at 15-26), so adding `border border-gray-200` drew a
-             second outline outside the artwork's own with a white margin
-             between the two. solar-overview's baked border sits flush at depth
-             0-3 so its CSS border coincides with it, and solar-report has no
-             baked border at all — which is why those two render clean with the
-             border class and these two did not. Same precedent as solar-hero:
-             an asset that carries its own edge treatment gets no CSS edge. -->
-        <!-- Claim-to-payment supports the "Reward" claim, territory supports
-             "Track". -->
-        <!-- 56px gap between the two cards (mt-14). -->
+        <!-- One combined panel: territory table over claim-to-payment. It
+             replaced the separate solar-claims and solar-territory images,
+             which each carried their own baked card outline and so took no CSS
+             border. This asset has none — it was cropped flush to the white
+             card, with the grey surround removed — so it does get
+             `rounded-lg border border-gray-200`, matching solar-report. The
+             card's own ~10px corner radius is clipped by the CSS radius.
+             Rule throughout this page: an asset that carries its own edge
+             treatment gets no CSS edge, one that doesn't gets the border. -->
+        <!-- WebP only, no PNG fallback. A palette PNG of the same panel runs
+             551KB against WebP's 71KB and damages the photographic avatar in
+             the header bar (mean error 3.81 vs 2.59), so shipping one as a
+             fallback cost five times the primary for browsers that predate
+             Safari 14. Same bare-WebP approach as the logo on
+             /buzzz-for-employee-motivation/. Territory supports the "Track"
+             claim, claim-to-payment the "Reward" claim. -->
         <figure class="anim-fade-in lg:mt-8" data-anim-delay="150">
           <img
             loading="lazy"
             decoding="async"
-            width="1577"
-            height="817"
-            src="/images/solutions/solar-claims.png"
-            alt="Claim to payment: 3,120 claims submitted, 2,847 verified, 147 held for a territory check, 126 rejected, and 2,791 paid within 24 hours"
-            class="w-full h-auto"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            width="1637"
-            height="806"
-            src="/images/solutions/solar-territory.png"
-            alt="Verified sales by territory: Maharashtra 5,338 units up 12%, Gujarat 4,102 up 7%, Rajasthan 3,486 unchanged, Tamil Nadu 2,914 up 4%, Karnataka 2,240 down 6%, Uttar Pradesh 1,807 up 15%"
-            class="mt-14 w-full h-auto"
+            width="1202"
+            height="1204"
+            src="/images/solutions/solar-program-panel.webp"
+            alt="Where your channel is selling, sample view. Verified sales by territory, 1 to 16 September 2026: Maharashtra 5,338 units up 12%, Gujarat 4,102 up 7%, Rajasthan 3,486 unchanged, Tamil Nadu 2,914 up 4%, Karnataka 2,240 down 6%, Uttar Pradesh 1,807 up 15%. Claim to payment for all partners: 3,120 claims submitted, 2,847 verified, 147 held for a territory check, 126 rejected, and 2,791 paid within 24 hours."
+            class="w-full h-auto rounded-lg border border-gray-200"
           />
           <figcaption class="mt-3 text-xs text-gray-500">
             Sample view. Figures are illustrative and do not represent a live program.
