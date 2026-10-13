@@ -1,137 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// Source of truth: GRG_ChannelLoyalty_Core_Mock_v3 (1).html, sections S01-S07.
+// The mock's own topbar, S08 footer and the S01-S08 marker chips are excluded —
+// the site Navbar and Footer come from Layout.astro.
+//
+// The mock's dashed IMG 01, IMG 01b, IMG 02 and IMG 03 placeholders have no
+// matching asset, so those slots are left out rather than shipping broken
+// <img> tags. The one exception is the client logo strip (IMG 03), which is
+// rendered from the twelve logos the homepage already publishes.
+
 const heroChecks = [
-  'Distributors, dealers, retailers, influencers and the brand sales team are covered by one program.',
-  'Each role earns on its own measure, and the platform works out every role in one calculation.',
-  "Payment reaches the partner's bank account or Unified Payments Interface (UPI) ID, usually within 24 hours of approval.",
-  'Rates, slabs and reward levels are changed as settings, without a software release.',
+  'Distributors, retailers, influencers, dealership teams, direct sales teams and store staff earn on one platform.',
+  'Each partner has one record across every scheme.',
+  'Payment reaches the verified account of the partner, usually within 24 hours of approval.',
 ];
 
 const stats = [
   '27 years in the rewards business',
-  'More than 100 client brands',
-  '1 million people paid across programs',
+  'More than ₹500 Cr of rewards a year',
+  'More than 1 million people paid across programs',
   'ISO 27001 certified',
 ];
 
-const roles = [
+const audiences = [
   {
-    role: 'Distributor',
-    decides: 'How much stock to hold, and which brand to push',
-    earns: 'Volume slabs, territory coverage',
+    who: 'Distributor',
+    influences: 'The stock level, paid for from own working capital',
+    earns: 'Volume slabs and territory coverage',
   },
   {
-    role: 'Retailer or dealer',
-    decides: 'What goes on the counter, and what gets substituted',
-    earns: 'Verified secondary sales, focus products',
+    who: 'Retailer or dealer',
+    influences: 'The counter space given to each brand',
+    earns: 'Verified secondary sales and focus products',
   },
   {
-    role: 'Influencer',
-    decides: 'Which brand is fitted or used on the job',
-    earns: 'Verified scans, completed jobs',
+    who: 'Influencer: mechanic, technician, carpenter, painter or applicator',
+    influences: 'The brand recommended on the job',
+    earns: 'A code scan or an invoice photograph',
   },
   {
-    role: 'Distributor salesperson',
-    decides: 'Which brand the order is written for',
-    earns: 'Target achievement, coverage',
+    who: 'Dealership sales team',
+    influences: 'The product recommended to the customer',
+    earns: 'Target achievement, approved along the reporting line',
   },
   {
-    role: 'Brand sales team',
-    decides: 'Primary sales',
-    earns: 'Target achievement, scheme measures',
-  },
-];
-
-const problems = [
-  {
-    num: '01',
-    title: 'Scheme design by region',
-    body: 'Each regional team designs its own scheme, and head office has little central control over the design.',
-    fix: 'The brand sets scheme design centrally and still allows territory level schemes underneath it.',
+    who: 'Direct sales team',
+    influences: 'Primary sales against the plan',
+    earns: 'Targets and slabs set by region',
   },
   {
-    num: '02',
-    title: 'The rate carried over from last year',
-    body: 'The incentive rate is matched to a competitor or copied from the previous scheme.',
-    fix: 'The analytics module shows how each group of partners performed and what the last scheme changed.',
-  },
-  {
-    num: '03',
-    title: 'A scheme read as a price cut',
-    body: 'A general scheme with one rate across the channel works like a price cut on the invoice.',
-    fix: 'The payout is built in tiers, and each tier is tied to something the brand wants.',
-  },
-  {
-    num: '04',
-    title: 'Payment on purchase volume alone',
-    body: 'Slabs pay on purchase volume alone. The partner earns nothing for anything else it does for the brand.',
-    fix: 'Earning is recorded at primary, secondary or tertiary sales, and channel partner incentives are paid on any of them.',
+    who: 'Franchise store staff',
+    influences: 'The product shown first at the counter',
+    earns: 'Monthly rules by brand, category and store format',
   },
 ];
 
-const platformStages = [
+const steps = [
   {
     title: 'Sign-up and verification',
-    body: 'A partner signs up once and keeps that checked identity and those bank details.',
+    body: 'The partner signs up once. The platform checks PAN, bank account and mobile number before the first payment.',
   },
   {
-    title: 'Sales recording',
-    body: 'Scans, invoice photos, distributor feeds and dealer management system data all record earning.',
+    title: 'Recording the sale',
+    body: 'A code scan, an invoice photograph or a distributor data feed records each sale against the partner.',
   },
   {
-    title: 'Earning calculation',
-    body: 'Slabs, rates, thresholds and caps are applied to every role in a single run.',
-  },
-  {
-    title: 'Fraud controls',
-    body: "Duplicate identities, claims from outside a partner's territory and unusual scan patterns are flagged before payment.",
-  },
-  {
-    title: 'Payment',
-    body: 'Cash goes by bank transfer or UPI, and more than 300 voucher brands are available.',
-  },
-  {
-    title: 'Reporting',
-    body: 'Head office, regional and territory users see sign-up, activity, earning and redemption.',
+    title: 'Calculation and payout',
+    body: 'The platform works out the earning as data arrives. Approved amounts reach the partner by bank transfer, Unified Payments Interface (UPI) or voucher.',
   },
 ];
 
-const recordingMethods = [
+const requirements = [
   {
-    title: 'Scan and earn',
-    body: 'The partner scans a unique code on the pack, and the earning is recorded against the person who scanned it.',
+    title: 'Scheme changes without a software release',
+    body: 'Rates, slabs and reward levels are settings. The program team changes them in hours at no extra cost.',
   },
   {
-    title: 'Invoice upload',
-    body: 'The partner photographs the sale invoice and the platform reads the line items from the image.',
+    title: 'Visit list for the brand field team',
+    body: 'The list shows each retailer short of a slab. The manager closes the gap during the visit.',
   },
   {
-    title: 'Two-party confirmation',
-    body: 'The dealer and the person who fitted the product both confirm the same code before the claim is paid.',
+    title: 'Misuse checks before payment',
+    body: 'The platform flags duplicate identities, claims from outside the mapped territory and unusual scan speed first.',
   },
   {
-    title: 'Sales data feed',
-    body: 'Primary sales, targets and hierarchy come in from the brand systems, and secondary sales from the distributor management system.',
-  },
-];
-
-const b2bRequirements = [
-  {
-    title: 'Identity and tax checks',
-    body: 'PAN and the bank account are checked in real time through the National Securities Depository Limited (NSDL) and the payment partner. Section 194R deduction is handled.',
-  },
-  {
-    title: 'One record when a person changes role',
-    body: 'A distributor, dealer, retailer, influencer or salesperson is not signed up again, and the record, the completed verification and the earning history stay with that person.',
-  },
-  {
-    title: 'Rewards a business will accept',
-    body: 'B2B rewards programs pay cash into a bank account or UPI ID. About 80 percent of loyalty points are redeemed in cash.',
-  },
-  {
-    title: 'Schemes that change every quarter',
-    body: 'B2B loyalty schemes are rewritten each quarter, and a rewrite needs no software release.',
+    title: 'Program messages on WhatsApp',
+    body: 'The platform sends target alerts, scheme announcements and statements in the language of the partner.',
   },
 ];
 
@@ -139,113 +94,87 @@ const results = [
   {
     fig: '30% to 80%',
     lab: 'Active retailers, before and after',
-    cli: 'Leading FMCG brand',
-    body: "Sign-up was run by the brand's field team on a form made for a phone. Active means a retailer paid an incentive at least once a quarter.",
+    cli: 'FMCG brand',
+    body: 'The brand field team signed retailers up on a mobile form.',
   },
   {
     fig: '65 days to 5',
     lab: 'Time from sale to payout',
-    cli: 'Leading retail brand',
-    body: 'Incentive was calculated on spreadsheets. The loyalty platform has automated the calculation.',
+    cli: 'Retail brand',
+    body: 'A real-time calculation on the platform replaced the monthly spreadsheet.',
   },
   {
     fig: '13 years',
-    lab: 'Longest unbroken client relationship',
-    cli: 'Leading lubricants brand',
-    body: 'Three programs on one platform, each with different rules, user types and rewards.',
-  },
-  {
-    fig: '99%',
-    lab: 'Scans made by earners themselves',
-    cli: 'Leading auto brand',
-    body: 'The earning is recorded against the person who did the work.',
-  },
-  {
-    fig: '1 to 8',
-    lab: 'Brands on one program',
-    cli: 'Consumer goods group',
-    body: 'One brand grew to eight, each with a separate approval chain and separate reward schemes.',
-  },
-  {
-    fig: 'More than ₹75 Cr',
-    lab: 'Rewards delivered a year',
-    cli: 'Global HR technology company',
-    body: 'A reward program for 90 brands, with checks on how fast a user redeems and a full audit trail.',
+    lab: 'Three programs for one client without a break',
+    cli: 'Lubricants brand',
+    body: 'Each program has separate rules, users and rewards on one platform.',
   },
 ];
 
-const quotes = [
-  {
-    text: 'My Incentives has been instrumental in enhancing our incentive programs for this crucial segment of our ecosystem. We have been able to design tailored programs that not only incentivize performance but also foster long-term loyalty.',
-    cite: 'Mahindra, automotive channel program',
-  },
-  {
-    text: 'With automated partner onboarding and KYC verification, we have streamlined operations and accelerated partner engagement. The gamification features, including leaderboards, have sparked healthy competition and boosted productivity.',
-    cite: 'Gulf Oil, automotive channel program',
-  },
+// IMG 03, the client logo strip. These are the twelve logos the homepage
+// already publishes, so the section introduces no client name that is not
+// already public on grgindia.in.
+const clientLogos = [
+  { src: '/images/logos/sbi-card.png', alt: 'SBI Card', width: 444, height: 150 },
+  { src: '/images/logos/hdfc-bank.png', alt: 'HDFC Bank', width: 248, height: 130 },
+  { src: '/images/logos/Dell.png', alt: 'Dell', width: 444, height: 150 },
+  { src: '/images/logos/fujitsu.png', alt: 'Fujitsu', width: 768, height: 385 },
+  { src: '/images/logos/godrej.png', alt: 'Godrej', width: 444, height: 150 },
+  { src: '/images/logos/apar.jpg', alt: 'APAR', width: 900, height: 900, blend: true },
+  { src: '/images/logos/schneider-electric.png', alt: 'Schneider Electric', width: 248, height: 130 },
+  { src: '/images/logos/dalmia.png', alt: 'Dalmia', width: 390, height: 130 },
+  { src: '/images/logos/PRESTIGE.png', alt: 'Prestige', width: 444, height: 150 },
+  { src: '/images/logos/gulf.png', alt: 'Gulf', width: 444, height: 150 },
+  { src: '/images/logos/tafe.png', alt: 'TAFE', width: 768, height: 385 },
+  { src: '/images/logos/Mahindra.png', alt: 'Mahindra', width: 444, height: 150 },
 ];
 
-const whyGrg = [
-  {
-    title: 'Account management',
-    body: 'A dedicated or shared team runs the program day to day.',
-  },
-  {
-    title: 'Regional-language call centre',
-    body: 'The GRG India call centre answers partners in their own language and supports the brand field team.',
-  },
-  {
-    title: 'Scheme configuration support',
-    body: 'A shared business analyst configures the scheme and the rules with the brand team.',
-  },
-  {
-    title: 'Migration from another vendor',
-    body: 'User records, completed verification and unused balances are brought across from the previous vendor.',
-  },
-  {
-    title: 'Payout log for audit',
-    body: 'Every payment is recorded with who was paid and when, and an internal audit checks payout accuracy.',
-  },
-  {
-    title: 'One contract for several programs',
-    body: 'One account team and one place to call when something goes wrong.',
-  },
-];
-
+// Questions are written to match how buyers phrase them in search, not how
+// the page phrases them. Every answer is drawn from the body copy above, so
+// nothing here makes a claim the page does not already make.
 const faqs = [
   {
     q: 'What is a channel loyalty program?',
-    a: 'A program that rewards distributors, dealers, retailers, influencers and salespeople for verified sales or defined business actions. The brand does not employ most of these people, so the program has to identify each one, record what they did and pay them directly.',
+    a: 'A program that rewards the distributors, retailers, influencers and sales teams who move a brand’s product. The brand does not employ most of them, so the program identifies each one, records what they sold and pays them directly. One platform covers every audience, and each audience earns on its own measure.',
   },
   {
-    q: 'How is this different from a trade scheme or a discount?',
-    a: 'A trade scheme adjusts the invoice. A loyalty program pays a named person against a verified action and keeps the earning history on that person’s record. A general scheme with one rate across the channel works like a price cut. A loyalty program pays in tiers, and each tier is tied to something the brand wants.',
+    q: 'How does a channel loyalty program work?',
+    a: 'In three steps. The partner signs up once and the platform checks PAN, bank account and mobile number before the first payment. A code scan, an invoice photograph or a distributor data feed then records each sale against that partner. The platform works out the earning as data arrives, and approved amounts reach the partner by bank transfer, Unified Payments Interface (UPI) or voucher, usually within 24 hours of approval.',
   },
   {
-    q: 'How is a sale recorded before anything is paid?',
-    a: 'Four ways: a scan of a unique code on the pack, a photograph of the sale invoice, a two-party confirmation where the dealer and the person who fitted the product both confirm the same code, or a data feed from the brand and distributor systems. A program can use more than one, and one partner record keeps the earning from every method.',
+    q: 'What is channel incentive management?',
+    a: 'Designing a scheme, recording what each partner sells, working out what each one earns and paying it, across every scheme a brand has live at the same time. A channel incentive program on one platform runs a national scheme, a regional campaign and a product launch together.',
   },
   {
-    q: 'What stops a partner claiming a sale that did not happen?',
-    a: 'Duplicate identities, claims from outside a partner’s territory and unusual scan patterns are flagged before payment. Where two parties are involved, the dealer and the person who fitted the product both confirm the same code before the claim is paid.',
+    q: 'What is the difference between a channel loyalty program and a trade scheme?',
+    a: 'A trade scheme changes the price on the invoice. A loyalty program pays a named partner against a verified action, and the record, the completed verification and the earning history stay with that partner across every scheme.',
   },
   {
-    q: 'What tax and identity checks run before a payout?',
-    a: 'PAN and the bank account are checked in real time through the National Securities Depository Limited (NSDL) and the payment partner. Section 194R deduction is handled. Every payment is recorded with who was paid and when, and an internal audit checks payout accuracy.',
+    q: 'How do distributor and dealer incentive programs work?',
+    a: 'They pay on different things, because the two audiences influence different things. A distributor decides the stock level, paid for from its own working capital, so it earns on volume slabs and territory coverage. A retailer or dealer decides the counter space given to each brand, so it earns on verified secondary sales and focus products.',
   },
   {
-    q: 'How often can the scheme change?',
-    a: 'B2B loyalty schemes are usually rewritten each quarter. Rates, slabs and reward levels are changed as settings, and a rewrite needs no software release.',
+    q: 'How are channel partner incentives calculated?',
+    a: 'The platform works out the earning as data arrives, applying the rates, slabs and reward levels set for each audience. Those are settings rather than code, so the program team changes them in hours at no extra cost and without a software release.',
   },
   {
-    q: 'Can head office control scheme design while regions still run their own schemes?',
-    a: 'Yes. The brand sets scheme design centrally and still allows territory level schemes underneath it. Head office, regional and territory users each see sign-up, activity, earning and redemption.',
+    q: 'What is channel loyalty software?',
+    a: 'Software that runs a loyalty program for people a brand does not employ. It has to verify an unfamiliar partner’s identity and bank account, apply different earning rules to distributors, retailers, influencers and sales teams at the same time, and pay a business rather than a consumer.',
   },
   {
-    q: 'Can we move an existing program from another vendor?',
-    a: 'User records, completed verification and unused balances are brought across from the previous vendor.',
+    q: 'How do channel incentive programs prevent fraud?',
+    a: 'The platform flags duplicate identities, claims from outside the mapped territory and unusual scan speed before payment. PAN, bank account and mobile number are checked before a partner can be paid at all.',
   },
 ];
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 const serviceSchema = {
   '@type': 'Service',
@@ -259,16 +188,7 @@ const serviceSchema = {
   serviceType: 'Channel loyalty and incentive program',
   areaServed: 'IN',
   description:
-    'A channel loyalty program covering distributors, dealers, retailers, influencers, distributor salespeople and the brand sales team, run on the My Incentives B2B loyalty platform.',
-};
-
-const faqSchema = {
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
+    'A channel loyalty program covering distributors, retailers, influencers, dealership teams, direct sales teams and franchise store staff, run on the My Incentives platform.',
 };
 
 const jsonLd = {
@@ -278,23 +198,29 @@ const jsonLd = {
 ---
 
 <Layout
-  title="Channel Loyalty Program and Platform in India | GRG India"
-  description="GRG India runs channel loyalty programs for distributors, dealers, retailers and influencers. My Incentives is the B2B loyalty platform behind them."
+  title="Channel Loyalty Program and Platform | GRG India"
+  description="GRG India designs, runs and manages channel loyalty programs for distributors, retailers and influencers. Each partner has one record across every scheme."
+  canonical="https://www.grgindia.in/channel-loyalty-program/"
+  ogImage="https://www.grgindia.in/images/solutions/channel-og.png"
   jsonLd={jsonLd}
 >
-  <!-- S01 — Hero -->
-  <section class="py-16 md:py-24 bg-[#f5f5f8]">
+  <!-- S01 — Hero. The mock sets this as a 1.05fr / .95fr split: copy left,
+       IMG 01 right. Below lg the grid collapses and the image, second in
+       source order, stacks under the copy. -->
+  <section class="py-12 md:py-16 bg-[#f5f5f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-start">
+      <div>
         <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
           Channel loyalty programs
         </p>
         <h1 class="mt-4 text-4xl md:text-5xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-          Channel loyalty programs for distributors, dealers and influencers
+          Channel loyalty programs for the people outside the brand payroll
         </h1>
         <p class="mt-6 text-lg md:text-xl text-gray-600 anim-fade-up" data-anim-delay="100">
-          GRG India designs the scheme, runs the channel loyalty platform and manages the program
-          day to day. Rewards paid through it come to more than ₹500 crore a year.
+          The distributor, the retailer and the mechanic influence the purchase decision. None of the
+          three is on the brand payroll. GRG India designs, runs and manages the loyalty program
+          behind that decision.
         </p>
 
         <ul class="mt-8 space-y-4 anim-fade-up" data-anim-delay="150">
@@ -308,18 +234,46 @@ const jsonLd = {
           }
         </ul>
 
-        <div class="mt-10 flex flex-wrap items-center gap-3 anim-fade-up" data-anim-delay="200">
+        <!-- CTA and the G2 badge share one row. flex-wrap so the badge drops
+             below the button on narrow viewports rather than overflowing;
+             items-center keeps the two different heights aligned. -->
+        <div class="mt-10 flex flex-wrap items-center gap-4 anim-fade-up" data-anim-delay="200">
           <a
             href="#next-step"
             class="inline-block bg-brand text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-dark transition-colors"
           >
             Book a 20-minute walkthrough
           </a>
+
+          <!-- G2 reviews badge, same markup as the one on /retail/. Two
+               additions retail does not have, neither of which changes a
+               pixel: the stars are aria-hidden so a screen reader does not
+               read five star glyphs, and the link carries an aria-label. -->
           <a
-            href="#the-platform"
-            class="inline-block bg-white text-navy font-semibold px-7 py-3.5 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors"
+            href="https://www.g2.com/products/my-incentives/reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read our reviews on G2, rated four and a half out of five"
+            class="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2 hover:shadow-md transition-shadow"
           >
-            See how a program is set up
+            <div class="flex items-center gap-0.5" aria-hidden="true">
+              <span class="text-[#FF492C] text-xl">&#9733;&#9733;&#9733;&#9733;</span><span
+                class="text-[#FF492C] text-xl opacity-50">&#9733;</span
+              >
+            </div>
+            <span class="text-sm font-medium text-gray-700">Read our reviews on</span>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect width="40" height="40" rx="8" fill="#FF492C"></rect>
+              <text x="12" y="28" fill="white" font-size="22" font-weight="bold" font-family="Arial, sans-serif">G</text>
+              <text x="24" y="22" fill="white" font-size="12" font-weight="bold" font-family="Arial, sans-serif">2</text>
+            </svg>
           </a>
         </div>
 
@@ -329,9 +283,31 @@ const jsonLd = {
             class="text-brand hover:underline">My Incentives</a
           >, the GRG India channel loyalty platform.
         </p>
+
       </div>
 
-      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 anim-fade-up" data-anim-delay="300">
+        <!-- IMG 01 — the My Incentives platform showing partners by role and
+             territory. A transparent cut-out (28% clear), so it sits on the
+             #f5f5f8 hero fill with no rectangle edge. Eager with
+             fetchpriority high: this is the LCP element. -->
+        <img
+          width="1145"
+          height="1130"
+          src="/images/solutions/channel-img01-840.webp"
+          srcset="/images/solutions/channel-img01-560.webp 560w, /images/solutions/channel-img01-840.webp 840w, /images/solutions/channel-img01-1145.webp 1145w"
+          sizes="(min-width: 1280px) 551px, (min-width: 1024px) calc(47.5vw - 60px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+          alt="The My Incentives channel loyalty platform. A dashboard showing INR 10,000 total incentives, INR 5,000 redeemed points, 10,900 kg of sales, verification status for LPI, bank and PAN, a primary goal at 80 out of 100 and playbook verification at 60 out of 100, and a performance overview with sales achievement at 75% against target, channel growth at 52% new partners, scheme participation at 25% partner engagement and claim processing at 90% claims approved. Callouts mark the partner list with role tags, the territory filters and the claim approval queue."
+          fetchpriority="high"
+          decoding="async"
+          class="w-full h-auto anim-fade-in"
+          data-anim-delay="200"
+        />
+      </div>
+
+      <div
+        class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 anim-fade-up"
+        data-anim-delay="350"
+      >
         {
           stats.map((stat, i) => (
             <div
@@ -349,46 +325,72 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- S02 — Your channel -->
-  <section class="py-16 md:py-24 bg-white">
+  <!-- S02 — The audiences -->
+  <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
-        Your channel
-      </p>
-      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        The people who decide which brand the customer buys
-      </h2>
-      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-        The brand employs its sales team. The distributor, the dealer and the influencer are not
-        employed, and one of those three usually decides the purchase. A loyalty program for channel
-        partners covers every one of these roles on a single partner record.
-      </p>
+      <!-- The eyebrow and heading belong INSIDE the left column. Sitting them
+           above the grid meant items-center only centred the one-paragraph
+           lede against a 390px image, which left a large hole under the
+           heading. As one block the whole text column centres together. -->
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            The audiences
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            Six audiences on one platform
+          </h2>
+          <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            A loyalty program for channel partners and a sales incentive scheme run on the same platform.
+            A person enrols once for every scheme.
+          </p>
+        </div>
 
-      <div class="mt-10 overflow-x-auto anim-fade-up" data-anim-delay="150">
-        <table class="w-full min-w-[640px] border-collapse text-left">
+        <!-- IMG 02 — the hub, now showing all six audiences so the artwork
+             matches the heading and the table beneath it. Supplied on flat
+             white (border std 0.5), which would show as a box on this white
+             section, so near-white was flood-filled inwards from the border
+             only: that took 51% of the canvas and left the 14% of white
+             inside the audience cards intact. -->
+        <img
+          loading="lazy"
+          decoding="async"
+          width="1446"
+          height="949"
+          src="/images/solutions/channel-img02-840.webp"
+          srcset="/images/solutions/channel-img02-560.webp 560w, /images/solutions/channel-img02-840.webp 840w, /images/solutions/channel-img02-1152.webp 1152w"
+          sizes="(min-width: 1280px) 580px, (min-width: 1024px) calc(50vw - 56px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+          alt="Six audiences reporting into one channel loyalty program: a distributor and a dealer or retailer above, an influencer to the left, a direct sales team to the right, and a dealership sales team and franchise store staff below. At the centre the My Incentives dashboard shows 2,482 total partners, 8,921 total claims and ₹48,60,000 in payouts."
+          class="w-full h-auto anim-fade-in"
+          data-anim-delay="150"
+        />
+      </div>
+
+      <div class="mt-10 overflow-x-auto anim-fade-up" data-anim-delay="200">
+        <table class="w-full min-w-[720px] border-collapse text-left">
           <thead>
             <tr class="bg-[#f2f3f6]">
-              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">Role</th>
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">Audience</th>
               <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">
-                What they decide
+                What the audience influences
               </th>
               <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">
-                What they earn on
+                What the audience earns on
               </th>
             </tr>
           </thead>
           <tbody>
             {
-              roles.map((r) => (
+              audiences.map((a) => (
                 <tr>
                   <td class="border border-gray-200 px-4 py-3 align-top text-sm font-semibold text-navy">
-                    {r.role}
+                    {a.who}
                   </td>
                   <td class="border border-gray-200 px-4 py-3 align-top text-sm text-gray-600">
-                    {r.decides}
+                    {a.influences}
                   </td>
                   <td class="border border-gray-200 px-4 py-3 align-top text-sm text-gray-600">
-                    {r.earns}
+                    {a.earns}
                   </td>
                 </tr>
               ))
@@ -399,73 +401,22 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- S03 — The problem -->
-  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+  <!-- S03 — How it runs -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
-        The problem
+        How it runs
       </p>
       <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        The design of channel incentives today
+        Three steps on the channel loyalty platform
       </h2>
       <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-        McKinsey looked at trade scheme spend in 2026 and found several structural flaws. Between ₹8
-        and ₹11 of every ₹100 of revenue goes into trade schemes and channel incentives.
-      </p>
-
-      <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
-        {
-          problems.map((p, i) => (
-            <div
-              class="border-l-[3px] border-brand pl-5 anim-fade-up"
-              data-anim-delay={150 + i * 50}
-            >
-              <div class="text-xs font-bold tracking-[0.1em] text-brand">{p.num}</div>
-              <h3 class="mt-2 text-base font-bold text-navy">{p.title}</h3>
-              <p class="mt-2 text-[15px] text-gray-600">{p.body}</p>
-              <p class="mt-4 text-sm text-gray-600">
-                <span class="block mb-1 text-[10px] font-bold tracking-[0.1em] uppercase text-gray-500">
-                  How we design for it
-                </span>
-                {p.fix}
-              </p>
-            </div>
-          ))
-        }
-      </div>
-
-      <p class="mt-10 max-w-4xl text-xs italic text-gray-500 anim-fade-up" data-anim-delay="350">
-        Source: McKinsey and Company, <a
-          href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/reimagining-trade-spend-from-cost-center-to-growth-catalyst"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline hover:text-gray-700">“Reimagining trade spend: from cost center to growth
-          catalyst”</a
-        >, published 9 June 2026. The four faults described in this section are drawn from that
-        report.
-      </p>
-    </div>
-  </section>
-
-  <!-- S04 — The platform -->
-  <section id="the-platform" class="py-16 md:py-24 bg-white scroll-mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
-        The platform
-      </p>
-      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        Six stages on the channel loyalty platform
-      </h2>
-      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-        Loyalty program software is usually built for consumer points schemes. <a
-          href="/my-incentives-for-sales-motivation/"
-          class="text-brand hover:underline">My Incentives</a
-        > works for a channel where the brand does not employ the people it pays.
+        The brand sets the budget and the scheme. The platform handles sign-up, recording and payout.
       </p>
 
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
         {
-          platformStages.map((s, i) => (
+          steps.map((s, i) => (
             <div
               class="border-l-[3px] border-brand pl-5 anim-fade-up"
               data-anim-delay={150 + i * 50}
@@ -477,65 +428,30 @@ const jsonLd = {
         }
       </div>
 
-      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="450">
-        Channel incentive management software of this kind replaces the spreadsheets a regional team
-        keeps today. That loyalty management software covers every scheme the brand has live.
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="320">
+        A channel incentive program on this platform runs a national scheme, a regional campaign and a
+        product launch at the same time.
       </p>
     </div>
   </section>
 
-  <!-- S05 — Recording a sale -->
-  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+  <!-- S04 — What is different -->
+  <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
-        Recording a sale
+        What is different
       </p>
       <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        The ways a sale is recorded in a channel incentive program
+        Four requirements of a B2B loyalty platform
       </h2>
       <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-        Nothing earns until the sale is recorded against a named partner. These are a few of the
-        loyalty program sales recording methods available on My Incentives.
+        The brand does not employ the people on a channel loyalty program. Loyalty program software
+        for channel incentives pays them.
       </p>
 
       <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
         {
-          recordingMethods.map((m, i) => (
-            <div
-              class="border-l-[3px] border-brand pl-5 anim-fade-up"
-              data-anim-delay={150 + i * 50}
-            >
-              <h3 class="text-base font-bold text-navy">{m.title}</h3>
-              <p class="mt-2 text-[15px] text-gray-600">{m.body}</p>
-            </div>
-          ))
-        }
-      </div>
-
-      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="350">
-        The method is set for each channel incentive scheme, and a program can use more than one. One
-        partner record keeps the earning from every method.
-      </p>
-    </div>
-  </section>
-
-  <!-- S06 — B2B loyalty -->
-  <section class="py-16 md:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
-        B2B loyalty
-      </p>
-      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        The requirements of a B2B loyalty program
-      </h2>
-      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-        In B2B loyalty programs the brand pays a business, or a person inside that business, whom it
-        does not employ. That changes what the platform has to do.
-      </p>
-
-      <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
-        {
-          b2bRequirements.map((r, i) => (
+          requirements.map((r, i) => (
             <div
               class="border-l-[3px] border-brand pl-5 anim-fade-up"
               data-anim-delay={150 + i * 50}
@@ -548,14 +464,13 @@ const jsonLd = {
       </div>
 
       <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="350">
-        A loyalty program for B2B customers and a channel partner loyalty program run on the same B2B
-        loyalty platform, under a single contract and one account team.
+        A B2B rewards program needs all four.
       </p>
     </div>
   </section>
 
-  <!-- S07 — Results -->
-  <section class="py-16 md:py-24 bg-[#f8f8f8]">
+  <!-- S05 — Results -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Results</p>
       <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
@@ -580,112 +495,60 @@ const jsonLd = {
           ))
         }
       </div>
-
-      <div class="mt-12 grid md:grid-cols-2 gap-10">
-        {
-          quotes.map((q, i) => (
-            <blockquote
-              class="border-l-[3px] border-gray-300 pl-5 anim-fade-up"
-              data-anim-delay={450 + i * 50}
-            >
-              <p class="text-[15px] italic text-gray-600">{q.text}</p>
-              <cite class="mt-3 block text-[13px] font-bold not-italic text-gray-500">
-                {q.cite}
-              </cite>
-            </blockquote>
-          ))
-        }
-      </div>
     </div>
   </section>
 
-  <!-- S08 — Why GRG India -->
-  <section class="py-16 md:py-24 bg-white">
+  <!-- S06 — Clients. IMG 03 in the mock: a greyscale logo strip. Rendered as a
+       CSS-only marquee, the list drawn twice so the track slides exactly -50%
+       and the loop has no seam. No library, no JavaScript. The duplicate set
+       is aria-hidden so a screen reader hears each client once. -->
+  <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
-        Why GRG India
-      </p>
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Clients</p>
       <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        The team and the service around the platform
+        Brands served by GRG India
       </h2>
       <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-        The average client relationship lasts more than eight years.
+        Each client has given permission for its logo.
       </p>
 
-      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
-        {
-          whyGrg.map((w, i) => (
-            <div
-              class="border-l-[3px] border-brand pl-5 anim-fade-up"
-              data-anim-delay={150 + i * 50}
-            >
-              <h3 class="text-base font-bold text-navy">{w.title}</h3>
-              <p class="mt-2 text-[15px] text-gray-600">{w.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQs -->
-  <section class="py-16 md:py-24 bg-[#f8f8f8]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">FAQs</p>
-      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        Frequently asked questions
-      </h2>
-      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
-        Clear answers about how the program records a sale, checks a partner and pays them.
-      </p>
-
-      <div id="channel-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
-        {
-          faqs.map((f, i) => (
-            <div class="border-b border-gray-200">
-              <h3 class="m-0">
-                <button
-                  type="button"
-                  id={`faq-trigger-${i}`}
-                  aria-controls={`faq-panel-${i}`}
-                  aria-expanded="false"
-                  class="faq-trigger w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
-                >
-                  <span class="text-base md:text-lg font-bold text-navy leading-snug group-hover:text-brand transition-colors">
-                    {f.q}
-                  </span>
-                  <svg
-                    class="faq-icon mt-1 w-5 h-5 shrink-0 text-brand transition-transform duration-200"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id={`faq-panel-${i}`}
-                role="region"
-                aria-labelledby={`faq-trigger-${i}`}
-                class="faq-panel"
-                data-open="false"
+      <div
+        class="logo-marquee mt-10 anim-fade-up"
+        data-anim-delay="150"
+        role="group"
+        aria-label="Brands running channel loyalty programs on My Incentives"
+      >
+        <div class="logo-track">
+          {
+            [0, 1].map((copy) => (
+              <ul
+                class="flex shrink-0 items-center gap-12 pr-12 pl-12"
+                aria-hidden={copy === 1 ? 'true' : undefined}
               >
-                <div class="faq-panel-inner">
-                  <p class="pb-5 pr-10 text-[15px] leading-relaxed text-gray-600">{f.a}</p>
-                </div>
-              </div>
-            </div>
-          ))
-        }
+                {clientLogos.map((logo) => (
+                  <li class="shrink-0">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={logo.src}
+                      alt={copy === 0 ? logo.alt : ''}
+                      width={logo.width}
+                      height={logo.height}
+                      class="h-10 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                      style={logo.blend ? 'mix-blend-mode:multiply' : undefined}
+                    />
+                  </li>
+                ))}
+              </ul>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- S09 — Call to action -->
-  <section id="next-step" class="py-16 md:py-24 bg-[#f5f5f8] scroll-mt-20">
+  <!-- S07 — Call to action -->
+  <section id="next-step" class="py-12 md:py-16 bg-[#f5f5f8] scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div>
@@ -696,7 +559,7 @@ const jsonLd = {
             A walkthrough of a channel loyalty program for your channel
           </h2>
           <p class="mt-6 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
-            Tell us the size and shape of your channel, and we will show how the program would be set
+            Tell us the channel and the number of partners. We will show how the program would be set
             up for it.
           </p>
           <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="150">
@@ -709,6 +572,10 @@ const jsonLd = {
           </p>
         </div>
 
+        <!-- The mock specifies Name, Work email and Company only. Phone and the
+             partner count are added back because api/contact.js rejects any
+             submission missing them (line 62 returns a 400), so the three-field
+             form as drawn would fail on every send. -->
         <div class="relative rounded-xl border border-gray-200 bg-white p-6 sm:p-8 anim-fade-up" data-anim-delay="150">
           <form class="space-y-5" id="channel-form">
             <!-- Honeypot — hidden from real users, bots auto-fill it -->
@@ -781,20 +648,6 @@ const jsonLd = {
             </div>
 
             <div>
-              <label for="channel-type" class="block text-sm font-medium text-gray-700 mb-1">
-                Channel type <span class="text-red-400">*</span>
-              </label>
-              <input
-                type="text"
-                id="channel-type"
-                name="channel-type"
-                required
-                placeholder="Distributors, dealers, retailers, influencers"
-                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
-              />
-            </div>
-
-            <div>
               <label for="channel-partners" class="block text-sm font-medium text-gray-700 mb-1">
                 Number of channel partners <span class="text-red-400">*</span>
               </label>
@@ -826,6 +679,66 @@ const jsonLd = {
     </div>
   </section>
 
+  <!-- FAQs — after Next step, as asked. Collapsed accordion: semantic
+       buttons with aria-expanded and aria-controls, the panel height animated
+       with grid-template-rows so it can go from nothing to its natural height
+       without a hard-coded max-height. Every answer is in the DOM on load, so
+       the FAQPage schema and the visible text match exactly. -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">FAQs</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Frequently asked questions
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        What a channel loyalty program is, how it is run and how partners are paid.
+      </p>
+
+      <div id="channel-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
+        {
+          faqs.map((f, i) => (
+            <div class="border-b border-gray-200">
+              <h3 class="m-0">
+                <button
+                  type="button"
+                  id={`faq-trigger-${i}`}
+                  aria-controls={`faq-panel-${i}`}
+                  aria-expanded="false"
+                  class="faq-trigger w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
+                >
+                  <span class="text-base md:text-lg font-bold text-navy leading-snug group-hover:text-brand transition-colors">
+                    {f.q}
+                  </span>
+                  <svg
+                    class="faq-icon mt-1 w-5 h-5 shrink-0 text-brand transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-trigger-${i}`}
+                class="faq-panel"
+                data-open="false"
+              >
+                <div class="faq-panel-inner">
+                  <p class="pb-5 pr-10 text-[15px] leading-relaxed text-gray-600">{f.a}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <style>
     /* Height animation via grid-template-rows so the panel can transition from
        nothing to its natural height without hard-coding a max-height.
@@ -850,6 +763,54 @@ const jsonLd = {
       .faq-panel,
       .faq-icon {
         transition: none;
+      }
+    }
+
+    /* Client logo marquee. The track holds two identical copies of the list,
+       so translating it by exactly -50% puts copy two where copy one started
+       and the loop never shows a seam. */
+    .logo-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 6rem,
+        black calc(100% - 6rem),
+        transparent
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 6rem,
+        black calc(100% - 6rem),
+        transparent
+      );
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: logo-marquee 45s linear infinite;
+    }
+    .logo-marquee:hover .logo-track,
+    .logo-marquee:focus-within .logo-track {
+      animation-play-state: paused;
+    }
+    @keyframes logo-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track {
+        animation: none;
+      }
+      .logo-marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
       }
     }
   </style>
@@ -922,7 +883,7 @@ const jsonLd = {
             phone: '+91 ' + rawPhone,
             company: data.company,
             teamSize: data['partner-count'],
-            message: 'Channel loyalty program enquiry. Channel type: ' + (data['channel-type'] || 'Not specified'),
+            message: 'Channel loyalty program enquiry.',
             website: data.website || '',
             formSource: 'channel-landing',
           }),
