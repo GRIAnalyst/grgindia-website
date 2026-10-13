@@ -113,4 +113,8 @@ GRG India brings 20+ years of experience in incentive and loyalty management acr
 
 The objective is not to make the QR code more complicated. It is to make what happens after the scan worth coming back for.
 
-[See a live QR code loyalty program](/my-incentives-for-sales-motivation/)
+<div class="cta-block">
+<p class="cta-headline">See a live QR code loyalty program</p>
+<p class="cta-sub">My Incentives connects the scan on the carton to verification, earning and payout — so the partner who did the work is the one who gets paid, and you can see who is still scanning in month nine.</p>
+<a href="/book-a-demo-myincentives/" class="cta-btn">Book a Demo</a>
+</div>
