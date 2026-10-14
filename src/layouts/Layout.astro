@@ -28,14 +28,36 @@ const resolvedOgTitle = ogTitle || title;
 const resolvedOgDesc = ogDescription || description;
 const canonicalUrl = canonical || new URL(Astro.url.pathname, 'https://www.grgindia.in').href;
 
-// Default Organization schema for all pages
+// ---------------------------------------------------------------------------
+// Structured data
+//
+// Previously this file read `jsonLd || orgSchema`, so any page that passed its
+// own schema LOST the Organization node altogether. That was 81 of 99 pages,
+// including every blog post, /solar/ and /channel-loyalty-program/ — the pages
+// that most need to tell Google who publishes them. The page-specific schemas
+// carried only thin inline stubs (name and url, no logo, address or profiles).
+//
+// Now the Organization is always emitted, and the page's own schema is merged
+// alongside it in a single @graph. The Organization carries a stable @id, and
+// the GRG stubs inside page schemas are replaced by references to that @id, so
+// the document describes one company rather than several near-duplicates.
+// ---------------------------------------------------------------------------
+
+const ORGANIZATION_ID = 'https://www.grgindia.in/#organization';
+
 const orgSchema = {
-  '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': ORGANIZATION_ID,
   name: 'GRG India',
   legalName: 'TajOnline Pvt. Ltd.',
   url: 'https://www.grgindia.in',
-  logo: 'https://www.grgindia.in/images/grg-india-logo.png',
+  // An ImageObject rather than a bare URL string. Blog posts used to supply
+  // their own publisher.logo in this shape; now that they reference the
+  // Organization by @id instead, the logo has to be just as complete here.
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://www.grgindia.in/images/grg-india-logo.png',
+  },
   foundingDate: '2008',
   address: {
     '@type': 'PostalAddress',
@@ -45,12 +67,54 @@ const orgSchema = {
     postalCode: '400015',
     addressCountry: 'IN',
   },
+  // The same profiles the footer already links on every page.
   sameAs: [
     'https://www.linkedin.com/company/grg-india/',
+    'https://www.youtube.com/@tajonlinetajgifts4235',
+    'https://x.com/GRG_India',
+    'https://www.facebook.com/GRGIndiaTeam/',
   ],
 };
 
-const schemaToRender = jsonLd || orgSchema;
+// Properties whose value is the publishing company rather than a third party.
+// Only these are rewritten, and only when the value is recognisably GRG India,
+// so a future schema naming an outside author or hiring partner is left alone.
+const ORG_REFERENCE_KEYS = ['provider', 'author', 'publisher', 'hiringOrganization'];
+
+function isGrgOrganization(value: unknown): boolean {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const node = value as Record<string, unknown>;
+  if (node['@type'] !== 'Organization') return false;
+  const url = typeof node.url === 'string' ? node.url : '';
+  const sameAs = typeof node.sameAs === 'string' ? node.sameAs : '';
+  return node.name === 'GRG India' || url.includes('grgindia.in') || sameAs.includes('grgindia.in');
+}
+
+/** Drop the node's own @context and point its GRG stubs at the shared @id. */
+function linkToOrganization(node: Record<string, unknown>): Record<string, unknown> {
+  const { '@context': _context, ...rest } = node;
+  for (const key of ORG_REFERENCE_KEYS) {
+    if (key in rest && isGrgOrganization(rest[key])) {
+      rest[key] = { '@id': ORGANIZATION_ID };
+    }
+  }
+  return rest;
+}
+
+// A page may pass a single node or an object wrapping its own @graph. Both are
+// flattened to a list so everything ends up in one graph with one @context.
+const rawPageNodes = !jsonLd
+  ? []
+  : Array.isArray((jsonLd as Record<string, unknown>)['@graph'])
+    ? ((jsonLd as Record<string, unknown>)['@graph'] as Record<string, unknown>[])
+    : [jsonLd as Record<string, unknown>];
+
+const pageNodes = rawPageNodes.map(linkToOrganization);
+
+const schemaToRender = {
+  '@context': 'https://schema.org',
+  '@graph': [orgSchema, ...pageNodes],
+};
 ---
 
 <!doctype html>
