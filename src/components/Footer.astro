@@ -21,17 +21,20 @@ const solutionLinks = [
 
 // SEO-focused keyword grid, grouped into 5 semantic categories (one per
 // desktop column). Every clickable entry maps to a real, existing GRG page.
-// "Customer Loyalty Programs" is intentionally plain text — GRG has no
-// documented B2C/end-consumer loyalty offering anywhere on the site, so no
-// URL has been invented for it. Every other entry maps to real content:
+// "Customer Loyalty Programs" has been removed. It was the one entry with no
+// href, left as plain text because GRG has no documented B2C/end-consumer
+// loyalty offering anywhere on the site. Rather than keep an unlinked label
+// in a grid of links, it is gone. Every entry here now maps to real content:
 // "Franchise Store Loyalty Programs" links to /retail/ (franchise stores
 // are explicitly named alongside dealers/distributors on the homepage's
 // Channel Partners card, and this matches its sibling retail keywords in
 // this same category). "Influencer Loyalty Programs" links to My
 // Incentives (it has a real Influencers stakeholder section).
 //
-// "Specialized Programs" intentionally has 3 items, not 4 — "Customer
-// Referral Programs" was removed rather than left linked or unlinked.
+// Two categories carry 3 items rather than 4: "Specialized Programs", where
+// "Customer Referral Programs" was removed, and "Rewards & Loyalty", where
+// "Customer Loyalty Programs" was removed. Both for the same reason, no real
+// page behind them.
 const keywordCategories = [
   {
     title: 'Sales & Incentives',
@@ -45,7 +48,7 @@ const keywordCategories = [
   {
     title: 'Channel & Dealer',
     items: [
-      { label: 'Channel Loyalty Programs', href: '/5-best-channel-loyalty-software-program/' },
+      { label: 'Channel Loyalty Programs', href: '/channel-loyalty-program/' },
       { label: 'Channel Partner Programs', href: '/my-incentives-for-sales-motivation/' },
       { label: 'Dealer Incentive Programs', href: '/auto/' },
       { label: 'Distributor Loyalty Programs', href: '/loyalty-seeds-industry-distributors-retailer/' },
@@ -66,7 +69,6 @@ const keywordCategories = [
       { label: 'Employee Rewards & Recognition', href: '/buzzz-for-employee-motivation/' },
       { label: 'B2B Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
       { label: 'Influencer Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
-      { label: 'Customer Loyalty Programs', href: null },
     ],
   },
   {
