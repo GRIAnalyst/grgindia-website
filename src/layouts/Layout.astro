@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import { FOUNDING_YEAR } from '../lib/company';
 
 interface Props {
   title: string;
@@ -36,7 +37,9 @@ const orgSchema = {
   legalName: 'TajOnline Pvt. Ltd.',
   url: 'https://www.grgindia.in',
   logo: 'https://www.grgindia.in/images/grg-india-logo.png',
-  foundingDate: '2008',
+  // Kept in step with FOUNDING_YEAR in src/lib/company.ts, which is what the
+  // "N years" lines on the home, contact and channel loyalty pages count from.
+  foundingDate: String(FOUNDING_YEAR),
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Satya House, 402, Hi-Tech IT Park 2nd & 4th Floor',

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LogoGrid from '../components/LogoGrid.astro';
+import { YEARS_CLAIM } from '../lib/company';
 
 const clientLogos = [
   { src: '/images/logos/sbi-card.png', alt: 'SBI Card', width: 444, height: 150 },
@@ -317,7 +318,7 @@ import CheckItem from '../components/CheckItem.astro';
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {[
-            { icon: '/images/icons/reliability.png', title: 'Reliability & Trust', desc: "20+ years of expertise helping organizations transform their rewards and incentive programs." },
+            { icon: '/images/icons/reliability.png', title: 'Reliability & Trust', desc: `${YEARS_CLAIM} of expertise helping organizations transform their rewards and incentive programs.` },
             { icon: '/images/icons/security.png', title: 'Security & Safety', desc: 'ISO/IEC 27001 certified with best-in-class encryption and robust data access policies.' },
             { icon: '/images/icons/pricing.png', title: 'Competitive Pricing', desc: 'Subscription-based model with the best prices in the incentive space. No hidden fees.' },
             { icon: '/images/icons/service.png', title: 'Service-first Approach', desc: 'Our most lasting client relationships are built on dependable, responsive customer support.' },
