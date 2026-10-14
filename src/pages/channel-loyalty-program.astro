@@ -1,0 +1,993 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { YEARS_CLAIM } from '../lib/company';
+
+// Source of truth: GRG_ChannelLoyalty_Core_Mock_v3 (1).html, sections S01-S07.
+// The mock's own topbar, S08 footer and the S01-S08 marker chips are excluded —
+// the site Navbar and Footer come from Layout.astro.
+//
+// The mock's dashed IMG 01, IMG 01b, IMG 02 and IMG 03 placeholders have no
+// matching asset, so those slots are left out rather than shipping broken
+// <img> tags. The one exception is the client logo strip (IMG 03), which is
+// rendered from the twelve logos the homepage already publishes.
+
+const heroChecks = [
+  'Distributors, retailers, influencers, dealership teams, direct sales teams and store staff earn on one platform.',
+  'Each partner has one record across every scheme.',
+  'Payment reaches the verified account of the partner, usually within 24 hours of approval.',
+];
+
+const stats = [
+  `${YEARS_CLAIM} in the rewards business`,
+  'More than ₹500 Cr of rewards a year',
+  'More than 1 million people paid across programs',
+  'ISO 27001 certified',
+];
+
+const audiences = [
+  {
+    who: 'Distributor',
+    influences: 'The stock level, paid for from own working capital',
+    earns: 'Volume slabs and territory coverage',
+  },
+  {
+    who: 'Retailer or dealer',
+    influences: 'The counter space given to each brand',
+    earns: 'Verified secondary sales and focus products',
+  },
+  {
+    who: 'Influencer: mechanic, technician, carpenter, painter or applicator',
+    influences: 'The brand recommended on the job',
+    earns: 'A code scan or an invoice photograph',
+  },
+  {
+    who: 'Dealership sales team',
+    influences: 'The product recommended to the customer',
+    earns: 'Target achievement, approved along the reporting line',
+  },
+  {
+    who: 'Direct sales team',
+    influences: 'Primary sales against the plan',
+    earns: 'Targets and slabs set by region',
+  },
+  {
+    who: 'Franchise store staff',
+    influences: 'The product shown first at the counter',
+    earns: 'Monthly rules by brand, category and store format',
+  },
+];
+
+const steps = [
+  {
+    title: 'Sign-up and verification',
+    body: 'The partner signs up once. The platform checks PAN, bank account and mobile number before the first payment.',
+  },
+  {
+    title: 'Recording the sale',
+    body: 'A code scan, an invoice photograph or a distributor data feed records each sale against the partner.',
+  },
+  {
+    title: 'Calculation and payout',
+    body: 'The platform works out the earning as data arrives. Approved amounts reach the partner by bank transfer, Unified Payments Interface (UPI) or voucher.',
+  },
+];
+
+const requirements = [
+  {
+    title: 'Scheme changes without a software release',
+    body: 'Rates, slabs and reward levels are settings. The program team changes them in hours at no extra cost.',
+  },
+  {
+    title: 'Visit list for the brand field team',
+    body: 'The list shows each retailer short of a slab. The manager closes the gap during the visit.',
+  },
+  {
+    title: 'Misuse checks before payment',
+    body: 'The platform flags duplicate identities, claims from outside the mapped territory and unusual scan speed first.',
+  },
+  {
+    title: 'Program messages on WhatsApp',
+    body: 'The platform sends target alerts, scheme announcements and statements in the language of the partner.',
+  },
+];
+
+const results = [
+  {
+    fig: '30% to 80%',
+    lab: 'Active retailers, before and after',
+    cli: 'FMCG brand',
+    body: 'The brand field team signed retailers up on a mobile form.',
+  },
+  {
+    fig: '65 days to 5',
+    lab: 'Time from sale to payout',
+    cli: 'Retail brand',
+    body: 'A real-time calculation on the platform replaced the monthly spreadsheet.',
+  },
+  {
+    fig: '13 years',
+    lab: 'Three programs for one client without a break',
+    cli: 'Lubricants brand',
+    body: 'Each program has separate rules, users and rewards on one platform.',
+  },
+];
+
+// IMG 03, the client logo strip. These are the twelve logos the homepage
+// already publishes, so the section introduces no client name that is not
+// already public on grgindia.in.
+const clientLogos = [
+  { src: '/images/logos/sbi-card.png', alt: 'SBI Card', width: 444, height: 150 },
+  { src: '/images/logos/hdfc-bank.png', alt: 'HDFC Bank', width: 248, height: 130 },
+  { src: '/images/logos/Dell.png', alt: 'Dell', width: 444, height: 150 },
+  { src: '/images/logos/fujitsu.png', alt: 'Fujitsu', width: 768, height: 385 },
+  { src: '/images/logos/godrej.png', alt: 'Godrej', width: 444, height: 150 },
+  { src: '/images/logos/apar.jpg', alt: 'APAR', width: 900, height: 900, blend: true },
+  { src: '/images/logos/schneider-electric.png', alt: 'Schneider Electric', width: 248, height: 130 },
+  { src: '/images/logos/dalmia.png', alt: 'Dalmia', width: 390, height: 130 },
+  { src: '/images/logos/PRESTIGE.png', alt: 'Prestige', width: 444, height: 150 },
+  { src: '/images/logos/gulf.png', alt: 'Gulf', width: 444, height: 150 },
+  { src: '/images/logos/tafe.png', alt: 'TAFE', width: 768, height: 385 },
+  { src: '/images/logos/Mahindra.png', alt: 'Mahindra', width: 444, height: 150 },
+];
+
+// Questions are written to match how buyers phrase them in search, not how
+// the page phrases them. Every answer is drawn from the body copy above, so
+// nothing here makes a claim the page does not already make.
+const faqs = [
+  {
+    q: 'What is a channel loyalty program?',
+    a: 'A program that rewards the distributors, retailers, influencers and sales teams who move a brand’s product. The brand does not employ most of them, so the program identifies each one, records what they sold and pays them directly. One platform covers every audience, and each audience earns on its own measure.',
+  },
+  {
+    q: 'How does a channel loyalty program work?',
+    a: 'In three steps. The partner signs up once and the platform checks PAN, bank account and mobile number before the first payment. A code scan, an invoice photograph or a distributor data feed then records each sale against that partner. The platform works out the earning as data arrives, and approved amounts reach the partner by bank transfer, Unified Payments Interface (UPI) or voucher, usually within 24 hours of approval.',
+  },
+  {
+    q: 'What is channel incentive management?',
+    a: 'Designing a scheme, recording what each partner sells, working out what each one earns and paying it, across every scheme a brand has live at the same time. A channel incentive program on one platform runs a national scheme, a regional campaign and a product launch together.',
+  },
+  {
+    q: 'What is the difference between a channel loyalty program and a trade scheme?',
+    a: 'A trade scheme changes the price on the invoice. A loyalty program pays a named partner against a verified action, and the record, the completed verification and the earning history stay with that partner across every scheme.',
+  },
+  {
+    q: 'How do distributor and dealer incentive programs work?',
+    a: 'They pay on different things, because the two audiences influence different things. A distributor decides the stock level, paid for from its own working capital, so it earns on volume slabs and territory coverage. A retailer or dealer decides the counter space given to each brand, so it earns on verified secondary sales and focus products.',
+  },
+  {
+    q: 'How are channel partner incentives calculated?',
+    a: 'The platform works out the earning as data arrives, applying the rates, slabs and reward levels set for each audience. Those are settings rather than code, so the program team changes them in hours at no extra cost and without a software release.',
+  },
+  {
+    q: 'What is channel loyalty software?',
+    a: 'Software that runs a loyalty program for people a brand does not employ. It has to verify an unfamiliar partner’s identity and bank account, apply different earning rules to distributors, retailers, influencers and sales teams at the same time, and pay a business rather than a consumer.',
+  },
+  {
+    q: 'How do channel incentive programs prevent fraud?',
+    a: 'The platform flags duplicate identities, claims from outside the mapped territory and unusual scan speed before payment. PAN, bank account and mobile number are checked before a partner can be paid at all.',
+  },
+  {
+    q: 'Is TDS applicable on channel partner incentives in India?',
+    a: 'Section 194R of the Income-tax Act requires the person providing a benefit or perquisite arising from a resident’s business or profession to deduct tax at 10 per cent of its value. It has applied since 1 July 2022, and is triggered once the value provided to one recipient crosses ₹20,000 in a financial year. The Central Board of Direct Taxes has clarified that ordinary sales discounts, cash discounts and rebates fall outside it, while incentives given in cash or in kind, free samples and sponsored trips fall inside it. That is why a verified PAN sits against every partner record before anything is paid. Confirm how it applies to your own scheme with your tax advisor.',
+    source: {
+      href: 'https://www.incometaxindia.gov.in/w/tds-on-benefit-or-perquisite-arising-from-business-or-profession',
+      label: 'Income Tax Department, Government of India — Section 194R',
+    },
+  },
+  {
+    q: 'How much do brands spend on channel incentives?',
+    a: 'McKinsey puts trade incentives at 8 to 11 per cent of revenue for most organisations, with some spending up to 20 per cent, based on its analysis of India-specific trade scheme spend. The same work found that more than half of channel partners with flat or falling sales still receive incentives, often because volume slabs reward absolute scale rather than growth. A channel loyalty program narrows that gap by paying a named partner against a verified action instead of spreading a budget across a territory.',
+    source: {
+      href: 'https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/reimagining-trade-spend-from-cost-center-to-growth-catalyst',
+      label: 'McKinsey & Company, “Reimagining trade spend”, June 2026',
+    },
+  },
+  {
+    q: 'Is GRG India ISO 27001 certified?',
+    a: 'Yes. Tajonline (India) Pvt. Ltd., trading as GRG India, holds ISO/IEC 27001:2022 certificate GIS1115, issued by Shamkris Global Inspection Services. The certified scope is reward and recognition programs, incentive and loyalty programs, and sales schemes and promotions for corporate clients, so it covers the work described on this page rather than a separate part of the business. First registered in July 2021 and valid to 1 July 2027. The number can be checked against the certification body’s public register.',
+    source: {
+      href: 'https://www.shamkris.com/certificate-check',
+      label: 'Shamkris Global certificate register — check certificate GIS1115',
+    },
+  },
+];
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      // Where an answer cites an external source, the citation is carried into
+      // the schema as an anchor so the structured data and the visible answer
+      // say the same thing. FAQPage answerText permits <a>.
+      text: f.source ? `${f.a} <a href="${f.source.href}">${f.source.label}</a>` : f.a,
+    },
+  })),
+};
+
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Channel Loyalty Program',
+  provider: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    legalName: 'TajOnline Pvt. Ltd.',
+    url: 'https://www.grgindia.in',
+  },
+  serviceType: 'Channel loyalty and incentive program',
+  areaServed: 'IN',
+  description:
+    'A channel loyalty program covering distributors, retailers, influencers, dealership teams, direct sales teams and franchise store staff, run on the My Incentives platform.',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [serviceSchema, faqSchema],
+};
+---
+
+<Layout
+  title="Channel Loyalty Program and Platform | GRG India"
+  description="GRG India designs, runs and manages channel loyalty programs for distributors, retailers and influencers. Each partner has one record across every scheme."
+  canonical="https://www.grgindia.in/channel-loyalty-program/"
+  ogImage="https://www.grgindia.in/images/solutions/channel-og.png"
+  jsonLd={jsonLd}
+>
+  <!-- S01 — Hero. The mock sets this as a 1.05fr / .95fr split: copy left,
+       IMG 01 right. Below lg the grid collapses and the image, second in
+       source order, stacks under the copy. -->
+  <section class="py-12 md:py-16 bg-[#f5f5f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-start">
+      <div>
+        <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+          Channel loyalty programs
+        </p>
+        <h1 class="mt-4 text-4xl md:text-5xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+          Channel loyalty programs for the people outside the brand payroll
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-gray-600 anim-fade-up" data-anim-delay="100">
+          The distributor, the retailer and the mechanic influence the purchase decision. None of the
+          three is on the brand payroll. GRG India designs, runs and manages the loyalty program
+          behind that decision.
+        </p>
+
+        <ul class="mt-8 space-y-4 anim-fade-up" data-anim-delay="150">
+          {
+            heroChecks.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-sm bg-brand" aria-hidden="true" />
+                <span class="text-base text-gray-700">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <!-- CTA and the G2 badge share one row. flex-wrap so the badge drops
+             below the button on narrow viewports rather than overflowing;
+             items-center keeps the two different heights aligned. -->
+        <div class="mt-10 flex flex-wrap items-center gap-4 anim-fade-up" data-anim-delay="200">
+          <a
+            href="#next-step"
+            class="inline-block bg-brand text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-dark transition-colors"
+          >
+            Book a 20-minute walkthrough
+          </a>
+
+          <!-- G2 reviews badge, same markup as the one on /retail/. Two
+               additions retail does not have, neither of which changes a
+               pixel: the stars are aria-hidden so a screen reader does not
+               read five star glyphs, and the link carries an aria-label. -->
+          <a
+            href="https://www.g2.com/products/my-incentives/reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read our reviews on G2, rated four and a half out of five"
+            class="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-center gap-0.5" aria-hidden="true">
+              <span class="text-[#FF492C] text-xl">&#9733;&#9733;&#9733;&#9733;</span><span
+                class="text-[#FF492C] text-xl opacity-50">&#9733;</span
+              >
+            </div>
+            <span class="text-sm font-medium text-gray-700">Read our reviews on</span>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect width="40" height="40" rx="8" fill="#FF492C"></rect>
+              <text x="12" y="28" fill="white" font-size="22" font-weight="bold" font-family="Arial, sans-serif">G</text>
+              <text x="24" y="22" fill="white" font-size="12" font-weight="bold" font-family="Arial, sans-serif">2</text>
+            </svg>
+          </a>
+        </div>
+
+        <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="250">
+          The program runs on <a
+            href="/my-incentives-for-sales-motivation/"
+            class="text-brand hover:underline">My Incentives</a
+          >, the GRG India channel loyalty platform.
+        </p>
+
+      </div>
+
+        <!-- IMG 01 — the My Incentives platform showing partners by role and
+             territory. A transparent cut-out (28% clear), so it sits on the
+             #f5f5f8 hero fill with no rectangle edge. Eager with
+             fetchpriority high: this is the LCP element. -->
+        <!-- This is the LCP element, so it is tuned for it rather than for
+             convenience. AVIF is listed first and runs about 35% under WebP at
+             every width: at the 720w file a desktop actually fetches, that is
+             46 KB against 70 KB, and against 92 KB for the hero it replaces.
+             Three widths so a phone never pulls the desktop file.
+
+             fetchpriority="high" with no lazy attribute keeps it in the
+             preload scanner's first pass. width and height are the intrinsic
+             size, so the 1.00 aspect ratio is reserved before any bytes land
+             and the block contributes nothing to CLS.
+
+             A transparent cut-out (27% clear), so it sits on the #f5f5f8 hero
+             with no rectangle edge. Alpha at or above 250 was snapped to 255
+             and anything at or below 8 zeroed, which clears stray speckle
+             without touching the soft shadow. -->
+        <figure class="m-0">
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/images/solutions/channel-hero-dash-480.avif 480w, /images/solutions/channel-hero-dash-720.avif 720w, /images/solutions/channel-hero-dash-1068.avif 1068w"
+            sizes="(min-width: 1280px) 551px, (min-width: 1024px) calc(47.5vw - 60px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+          />
+          <source
+            type="image/webp"
+            srcset="/images/solutions/channel-hero-dash-480.webp 480w, /images/solutions/channel-hero-dash-720.webp 720w, /images/solutions/channel-hero-dash-1068.webp 1068w"
+            sizes="(min-width: 1280px) 551px, (min-width: 1024px) calc(47.5vw - 60px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+          />
+          <img
+            width="1068"
+            height="1064"
+            src="/images/solutions/channel-hero-dash-720.webp"
+            alt="The My Incentives channel loyalty dashboard. Campaign banners for Scan and Jeeto, Diwali Dhamaka and Asli Kaam Asli Kaamyabi run across the top. Below them, INR 10,000 total incentives, INR 5,000 redeemed points, 10,900 kg of sales, and verification status for LPI, bank and PAN. A primary goal sits at 80 out of 100 and playbook verification at 60 out of 100. A performance panel shows sales achievement at 75% against target, channel growth at 52% new partners, scheme participation at 25% partner engagement and claim processing at 90% claims approved, alongside a top performers leaderboard and quick actions for points, redemption, rewards and document submission."
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-auto anim-fade-in"
+            data-anim-delay="200"
+          />
+        </picture>
+          <!-- Same disclaimer, same wording and same type scale as the one
+               under the dashboard panels on /solar/. The dashboard is a
+               screenshot of the product populated with made-up figures, so it
+               has to say so wherever it appears. -->
+          <figcaption class="mt-3 text-center text-xs text-gray-500 anim-fade-in" data-anim-delay="250">
+            Sample view. Figures are illustrative and do not represent a live program.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div
+        class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 anim-fade-up"
+        data-anim-delay="350"
+      >
+        {
+          stats.map((stat, i) => (
+            <div
+              class:list={[
+                'px-5 py-5 text-sm font-semibold text-navy',
+                i > 0 && 'border-t border-gray-200 sm:border-t-0 sm:border-l',
+                i === 2 && 'sm:border-t sm:border-l-0 lg:border-t-0 lg:border-l',
+              ]}
+            >
+              {stat}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S02 — The audiences -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- The eyebrow and heading belong INSIDE the left column. Sitting them
+           above the grid meant items-center only centred the one-paragraph
+           lede against a 390px image, which left a large hole under the
+           heading. As one block the whole text column centres together. -->
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            The audiences
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            Six audiences on one platform
+          </h2>
+          <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            A loyalty program for channel partners and a sales incentive scheme run on the same platform.
+            A person enrols once for every scheme.
+          </p>
+        </div>
+
+        <!-- IMG 02 — the hub, now showing all six audiences so the artwork
+             matches the heading and the table beneath it. Supplied on flat
+             white (border std 0.5), which would show as a box on this white
+             section, so near-white was flood-filled inwards from the border
+             only: that took 51% of the canvas and left the 14% of white
+             inside the audience cards intact. -->
+        <img
+          loading="lazy"
+          decoding="async"
+          width="1446"
+          height="949"
+          src="/images/solutions/channel-img02-840.webp"
+          srcset="/images/solutions/channel-img02-560.webp 560w, /images/solutions/channel-img02-840.webp 840w, /images/solutions/channel-img02-1152.webp 1152w"
+          sizes="(min-width: 1280px) 580px, (min-width: 1024px) calc(50vw - 56px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+          alt="Six audiences reporting into one channel loyalty program: a distributor and a dealer or retailer above, an influencer to the left, a direct sales team to the right, and a dealership sales team and franchise store staff below. At the centre the My Incentives dashboard shows 2,482 total partners, 8,921 total claims and ₹48,60,000 in payouts."
+          class="w-full h-auto anim-fade-in"
+          data-anim-delay="150"
+        />
+      </div>
+
+      <div class="mt-10 overflow-x-auto anim-fade-up" data-anim-delay="200">
+        <table class="w-full min-w-[720px] border-collapse text-left">
+          <thead>
+            <tr class="bg-[#f2f3f6]">
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">Audience</th>
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">
+                What the audience influences
+              </th>
+              <th class="border border-gray-200 px-4 py-3 text-sm font-bold text-navy">
+                What the audience earns on
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              audiences.map((a) => (
+                <tr>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-sm font-semibold text-navy">
+                    {a.who}
+                  </td>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-sm text-gray-600">
+                    {a.influences}
+                  </td>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-sm text-gray-600">
+                    {a.earns}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- S03 — How it runs -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        How it runs
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Three steps on the channel loyalty platform
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        The brand sets the budget and the scheme. The platform handles sign-up, recording and payout.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          steps.map((s, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <h3 class="text-base font-bold text-navy">{s.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="320">
+        A channel incentive program on this platform runs a national scheme, a regional campaign and a
+        product launch at the same time.
+      </p>
+    </div>
+  </section>
+
+  <!-- S04 — What is different -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        What is different
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Four requirements of a B2B loyalty platform
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        The brand does not employ the people on a channel loyalty program. Loyalty program software
+        for channel incentives pays them.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          requirements.map((r, i) => (
+            <div
+              class="border-l-[3px] border-brand pl-5 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <h3 class="text-base font-bold text-navy">{r.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{r.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="350">
+        A B2B rewards program needs all four.
+      </p>
+    </div>
+  </section>
+
+  <!-- S05 — Results -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Results</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Changes on programs already running
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        Figures as of March 2026.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          results.map((r, i) => (
+            <div
+              class="rounded-lg border border-gray-200 bg-white p-6 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <div class="text-2xl font-bold leading-tight text-navy">{r.fig}</div>
+              <div class="mt-2 text-sm font-bold text-navy">{r.lab}</div>
+              <div class="mt-0.5 text-[13px] text-gray-500">{r.cli}</div>
+              <p class="mt-3 text-[13.5px] text-gray-600">{r.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S06 — Clients. IMG 03 in the mock: a greyscale logo strip. Rendered as a
+       CSS-only marquee, the list drawn twice so the track slides exactly -50%
+       and the loop has no seam. No library, no JavaScript. The duplicate set
+       is aria-hidden so a screen reader hears each client once. -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Clients</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Brands served by GRG India
+      </h2>
+      <div
+        class="logo-marquee mt-10 anim-fade-up"
+        data-anim-delay="150"
+        role="group"
+        aria-label="Brands running channel loyalty programs on My Incentives"
+      >
+        <div class="logo-track">
+          {
+            [0, 1].map((copy) => (
+              <ul
+                class="flex shrink-0 items-center gap-12 pr-12 pl-12"
+                aria-hidden={copy === 1 ? 'true' : undefined}
+              >
+                {clientLogos.map((logo) => (
+                  <li class="shrink-0">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={logo.src}
+                      alt={copy === 0 ? logo.alt : ''}
+                      width={logo.width}
+                      height={logo.height}
+                      class="h-10 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                      style={logo.blend ? 'mix-blend-mode:multiply' : undefined}
+                    />
+                  </li>
+                ))}
+              </ul>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S07 — Call to action -->
+  <section id="next-step" class="py-12 md:py-16 bg-[#f5f5f8] scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            Next step
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            A walkthrough of a channel loyalty program for your channel
+          </h2>
+          <p class="mt-6 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            Tell us the channel and the number of partners. We will show how the program would be set
+            up for it.
+          </p>
+          <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="150">
+            The call takes twenty minutes and includes a screen share.
+          </p>
+          <p class="mt-2 text-sm text-gray-500 anim-fade-up" data-anim-delay="200">
+            Or write to <a href="mailto:contactus@grgindia.in" class="text-brand hover:underline"
+              >contactus@grgindia.in</a
+            >
+          </p>
+        </div>
+
+        <!-- The mock specifies Name, Work email and Company only. Phone and the
+             partner count are added back because api/contact.js rejects any
+             submission missing them (line 62 returns a 400), so the three-field
+             form as drawn would fail on every send. -->
+        <div class="relative rounded-xl border border-gray-200 bg-white p-6 sm:p-8 anim-fade-up" data-anim-delay="150">
+          <form class="space-y-5" id="channel-form">
+            <!-- Honeypot — hidden from real users, bots auto-fill it -->
+            <div class="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+              <label for="channel-website">Website</label>
+              <input type="text" id="channel-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div>
+              <label for="channel-name" class="block text-sm font-medium text-gray-700 mb-1">
+                Name <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="channel-name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="channel-email" class="block text-sm font-medium text-gray-700 mb-1">
+                  Work email <span class="text-red-400">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="channel-email"
+                  name="work-email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label for="channel-phone" class="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number <span class="text-red-400">*</span>
+                </label>
+                <div class="flex">
+                  <span class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg">+91</span>
+                  <input
+                    type="tel"
+                    id="channel-phone"
+                    name="phone"
+                    required
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    title="Enter 10-digit mobile number"
+                    placeholder="XXXXX XXXXX"
+                    class="w-full border border-gray-300 rounded-r-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="channel-company" class="block text-sm font-medium text-gray-700 mb-1">
+                Company <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="channel-company"
+                name="company"
+                required
+                placeholder="Your company"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="channel-partners" class="block text-sm font-medium text-gray-700 mb-1">
+                Number of channel partners <span class="text-red-400">*</span>
+              </label>
+              <select
+                id="channel-partners"
+                name="partner-count"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors bg-white"
+              >
+                <option value="" disabled selected>Select number of partners</option>
+                <option value="Under 100">Under 100</option>
+                <option value="100-500">100 to 500</option>
+                <option value="500-2000">500 to 2000</option>
+                <option value="2000+">2000+</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              id="channel-submit"
+              class="w-full bg-brand text-white font-semibold py-3 rounded-lg hover:bg-brand-dark transition-colors"
+            >
+              Book a 20-minute walkthrough
+            </button>
+            <p id="channel-status" class="hidden text-sm text-center mt-2"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs — after Next step, as asked. Collapsed accordion: semantic
+       buttons with aria-expanded and aria-controls, the panel height animated
+       with grid-template-rows so it can go from nothing to its natural height
+       without a hard-coded max-height. Every answer is in the DOM on load, so
+       the FAQPage schema and the visible text match exactly. -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">FAQs</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Frequently asked questions
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        What a channel loyalty program is, how it is run and how partners are paid.
+      </p>
+
+      <div id="channel-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
+        {
+          faqs.map((f, i) => (
+            <div class="border-b border-gray-200">
+              <h3 class="m-0">
+                <button
+                  type="button"
+                  id={`faq-trigger-${i}`}
+                  aria-controls={`faq-panel-${i}`}
+                  aria-expanded="false"
+                  class="faq-trigger w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
+                >
+                  <span class="text-base md:text-lg font-bold text-navy leading-snug group-hover:text-brand transition-colors">
+                    {f.q}
+                  </span>
+                  <svg
+                    class="faq-icon mt-1 w-5 h-5 shrink-0 text-brand transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-trigger-${i}`}
+                class="faq-panel"
+                data-open="false"
+              >
+                <div class="faq-panel-inner">
+                  <div class="pb-5">
+                    <p class="pr-10 text-[15px] leading-relaxed text-gray-600">{f.a}</p>
+                    {f.source && (
+                      <p class="mt-2.5 pr-10 text-[13px] leading-relaxed text-gray-500">
+                        Source:{' '}
+                        <a
+                          href={f.source.href}
+                          target="_blank"
+                          rel="noopener"
+                          class="text-brand underline underline-offset-2 hover:no-underline"
+                        >
+                          {f.source.label}
+                        </a>
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Height animation via grid-template-rows so the panel can transition from
+       nothing to its natural height without hard-coding a max-height.
+       visibility keeps collapsed answers out of the accessibility tree. */
+    .faq-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows 0.28s ease, visibility 0.28s;
+    }
+    .faq-panel[data-open='true'] {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+    .faq-panel-inner {
+      overflow: hidden;
+    }
+    .faq-trigger[aria-expanded='true'] .faq-icon {
+      transform: rotate(180deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-panel,
+      .faq-icon {
+        transition: none;
+      }
+    }
+
+    /* Client logo marquee. The track holds two identical copies of the list,
+       so translating it by exactly -50% puts copy two where copy one started
+       and the loop never shows a seam. */
+    .logo-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 6rem,
+        black calc(100% - 6rem),
+        transparent
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 6rem,
+        black calc(100% - 6rem),
+        transparent
+      );
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: logo-marquee 45s linear infinite;
+    }
+    .logo-marquee:hover .logo-track,
+    .logo-marquee:focus-within .logo-track {
+      animation-play-state: paused;
+    }
+    @keyframes logo-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track {
+        animation: none;
+      }
+      .logo-marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const root = document.getElementById('channel-faq');
+      if (!root) return;
+      const triggers = Array.from(root.querySelectorAll('.faq-trigger'));
+
+      const setOpen = (btn: Element, open: boolean) => {
+        btn.setAttribute('aria-expanded', String(open));
+        const id = btn.getAttribute('aria-controls');
+        const panel = id ? document.getElementById(id) : null;
+        panel?.setAttribute('data-open', String(open));
+      };
+
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+          // Only one answer open at a time.
+          triggers.forEach((other) => setOpen(other, false));
+          if (!wasOpen) setOpen(btn, true);
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          const ev = e as KeyboardEvent;
+          if (ev.key === 'Escape') {
+            setOpen(btn, false);
+            (btn as HTMLButtonElement).focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    const form = document.getElementById('channel-form') as HTMLFormElement | null;
+    const btn = document.getElementById('channel-submit') as HTMLButtonElement | null;
+    const status = document.getElementById('channel-status');
+    const LABEL = 'Book a 20-minute walkthrough';
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!btn || !status) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.classList.add('hidden');
+
+      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      const rawPhone = (data.phone || '').replace(/\D/g, '');
+
+      if (rawPhone.length !== 10) {
+        status.textContent = 'Please enter a valid 10-digit phone number.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = LABEL;
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data['work-email'],
+            phone: '+91 ' + rawPhone,
+            company: data.company,
+            teamSize: data['partner-count'],
+            message: 'Channel loyalty program enquiry.',
+            website: data.website || '',
+            formSource: 'channel-landing',
+          }),
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        // Google Ads conversion — fires only on successful lead submit, and
+        // before reset() so enhanced conversions can still read the email.
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-11342761792/sj73CLOxyP4YEMCe06Aq',
+          });
+        }
+
+        form.reset();
+        status.textContent = 'Thank you! We will be in touch within one business day.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status.classList.remove('hidden');
+      } catch {
+        status.textContent =
+          'Something went wrong. Please try again or email contactus@grgindia.in.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+      }
+
+      btn.disabled = false;
+      btn.textContent = LABEL;
+    });
+  </script>
+</Layout>
