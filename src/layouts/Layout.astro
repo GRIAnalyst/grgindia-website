@@ -13,6 +13,21 @@ interface Props {
   ogImage?: string;
   canonical?: string;
   jsonLd?: Record<string, unknown>;
+  /**
+   * Optional LCP image preload. A page that knows which image will be its
+   * Largest Contentful Paint can declare it here, and the link lands in <head>
+   * ahead of the stylesheet, so the preload scanner starts the download before
+   * CSS has blocked rendering. Omit it and nothing is emitted.
+   *
+   * srcset and sizes must match the <picture> on the page exactly, or the
+   * browser preloads one file and then downloads a different one.
+   *
+   * Pass `media` when the image is only the LCP element at some widths. A
+   * hero that stacks below the copy on mobile is usually at or below the
+   * fold there, so preloading it at high priority on a phone takes early
+   * bandwidth from whatever actually paints first.
+   */
+  preloadImage?: { srcset: string; sizes: string; type?: string; media?: string };
 }
 
 const {
@@ -23,6 +38,7 @@ const {
   ogImage = 'https://www.grgindia.in/images/home-banner.png',
   canonical,
   jsonLd,
+  preloadImage,
 } = Astro.props;
 
 const resolvedOgTitle = ogTitle || title;
@@ -131,6 +147,23 @@ const schemaToRender = {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="canonical" href={canonicalUrl} />
+
+    {
+      /* LCP image preload, when the page declares one. Placed above the
+         stylesheet so the preload scanner starts the image before CSS blocks
+         rendering. */
+      preloadImage && (
+        <link
+          rel="preload"
+          as="image"
+          imagesrcset={preloadImage.srcset}
+          imagesizes={preloadImage.sizes}
+          type={preloadImage.type}
+          media={preloadImage.media}
+          fetchpriority="high"
+        />
+      )
+    }
 
     <!-- Open Graph -->
     <meta property="og:title" content={resolvedOgTitle} />

@@ -1,0 +1,1064 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Source of truth: GRG_LP_02_Electrician_LoyaltyProgram_Mock_v1.html, S01-S07.
+// The mock's own topbar and S08 footer are excluded, because the site Navbar
+// and Footer come from Layout.astro, and the S01-S08 marker chips are mock
+// scaffolding rather than content.
+//
+// Corrections made to the mock copy, all agreed before building:
+//   - "A electrician loyalty program" to "An electrician ..." (twice).
+//   - The S05 lede dropped "No electrician rewards program case study exists
+//     in the credentials decks yet", which reads as an internal note. The
+//     point it was making, that these figures come from other audiences, is
+//     kept and said plainly instead.
+//   - The S06 line "Each client has given permission for its logo" is dropped,
+//     matching the decision already taken on /channel-loyalty-program/.
+//   - canonical moved from grgindia.com to www.grgindia.in with a trailing
+//     slash, and the in-body link to the channel page made relative.
+//   - [SALES EMAIL PLACEHOLDER] filled with contactus@grgindia.in.
+//
+// IMG 01 is in the hero, IMG 02 beside the decision table. Both are supplied
+// artwork on a white field; in each case true white has been flood-filled to
+// transparency inwards from the border only, so white inside the cards and
+// inside the phone screen survives, and both images sit on their section
+// background with no rectangle edge.
+//
+// The hero srcset is held here rather than inline because the same two
+// strings are needed twice: once on the <source> elements and once on the
+// preload link in <head>. They have to agree exactly, or the browser
+// preloads one file and then downloads a different one.
+//
+// Width ladder: 480 for phones, 560 because the desktop column is 551 CSS px
+// and without it a 1x screen is pushed up to the 720w file for no visible
+// gain, 720 for mid-range DPR, 1104 for a 2x desktop.
+const HERO_SIZES =
+  '(min-width: 1280px) 551px, (min-width: 1024px) calc(47.5vw - 60px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)';
+const HERO_AVIF_SRCSET =
+  '/images/solutions/electrician-hero-scan-480.avif 480w, /images/solutions/electrician-hero-scan-560.avif 560w, /images/solutions/electrician-hero-scan-720.avif 720w, /images/solutions/electrician-hero-scan-1104.avif 1104w';
+const HERO_WEBP_SRCSET =
+  '/images/solutions/electrician-hero-scan-480.webp 480w, /images/solutions/electrician-hero-scan-560.webp 560w, /images/solutions/electrician-hero-scan-720.webp 720w, /images/solutions/electrician-hero-scan-1104.webp 1104w';
+
+const heroChecks = [
+  'Electricians earn on a code scan or an invoice photograph. The code is on the coil or the pack.',
+  'Points are credited at once and shown in the app.',
+  'Payment reaches the verified account of each electrician, usually within 24 hours of approval.',
+];
+
+const stats = [
+  '600K+ influencers signed up since 2013',
+  '13 years without a break on one program',
+  '18,000 influencers identified on one building program',
+  'ISO 27001 certified',
+];
+
+// S02 — what the electrician decides, and how each decision is recorded.
+const decisions = [
+  {
+    product: 'Wires and cables',
+    decides: 'The brand and gauge pulled through the conduit',
+    recorded: 'A code scan on the coil',
+  },
+  {
+    product: 'Switches and sockets',
+    decides: 'The range fitted in every room',
+    recorded: 'A code scan on the pack',
+  },
+  {
+    product: 'Circuit breakers',
+    decides: 'The brand in the distribution board',
+    recorded: 'An invoice photograph',
+  },
+  {
+    product: 'Fans and lighting',
+    decides: 'The brand recommended to the home owner',
+    recorded: 'A code confirmed by the dealer and the electrician',
+  },
+];
+
+const steps = [
+  {
+    title: 'Sign-up and verification',
+    body: 'The electrician signs up in the app or during a visit by the brand field representative. The platform checks PAN, bank account and mobile number before the first payment.',
+  },
+  {
+    title: 'Recording the job',
+    body: 'The electrician scans the code on the coil or the pack or photographs the invoice. Products with no code are recorded from the dealer sales feed.',
+  },
+  {
+    title: 'Points and payment',
+    body: 'The platform checks the claim against the program controls and credits the points at once. Approved amounts are paid by bank transfer, UPI or voucher.',
+  },
+];
+
+const gapClosers = [
+  {
+    title: 'A message at the right time',
+    body: 'A message names the 18-unit gap on day 20. The electrician can still reach the slab.',
+  },
+  {
+    title: 'The brand field representative',
+    body: 'The visit list shows the electrician 18 units short. The representative closes the gap during the visit.',
+  },
+  {
+    title: 'Central analytics',
+    body: '400 of 1,000 electricians are within 20 units of a slab. The next campaign aims at that group.',
+  },
+];
+
+const results = [
+  {
+    fig: '18,000',
+    lab: 'Influencers identified in a channel with no prior record',
+    cli: 'Locks and hardware brand',
+    body: 'A scan code inside each box records the influencer at the site. Bank details are verified for each one.',
+  },
+  {
+    fig: '4 phases',
+    lab: 'Scheme changes with no development',
+    cli: 'Window films brand',
+    body: 'The dealer and the applicator confirm the same code. One job produces one payment, split two ways.',
+  },
+  {
+    fig: '75,000',
+    lab: 'Mechanics signed up on one program',
+    cli: 'Auto spare parts brand',
+    body: 'The same platform runs the largest trade program GRG India operates.',
+  },
+];
+
+// IMG 03, the client logo strip. The same twelve logos the homepage already
+// publishes, so this section introduces no client name that is not already
+// public on grgindia.in.
+const clientLogos = [
+  { src: '/images/logos/sbi-card.png', alt: 'SBI Card', width: 444, height: 150 },
+  { src: '/images/logos/hdfc-bank.png', alt: 'HDFC Bank', width: 248, height: 130 },
+  { src: '/images/logos/Dell.png', alt: 'Dell', width: 444, height: 150 },
+  { src: '/images/logos/fujitsu.png', alt: 'Fujitsu', width: 768, height: 385 },
+  { src: '/images/logos/godrej.png', alt: 'Godrej', width: 444, height: 150 },
+  { src: '/images/logos/apar.jpg', alt: 'APAR', width: 900, height: 900, blend: true },
+  { src: '/images/logos/schneider-electric.png', alt: 'Schneider Electric', width: 248, height: 130 },
+  { src: '/images/logos/dalmia.png', alt: 'Dalmia', width: 390, height: 130 },
+  { src: '/images/logos/PRESTIGE.png', alt: 'Prestige', width: 444, height: 150 },
+  { src: '/images/logos/gulf.png', alt: 'Gulf', width: 444, height: 150 },
+  { src: '/images/logos/tafe.png', alt: 'TAFE', width: 768, height: 385 },
+  { src: '/images/logos/Mahindra.png', alt: 'Mahindra', width: 444, height: 150 },
+];
+
+// Questions phrased the way a buyer types them, not the way the page phrases
+// things. Every answer is drawn from the body copy above, so nothing here
+// claims anything the page does not already claim. Three carry an outbound
+// citation, which is the only third-party authority on the page.
+const faqs = [
+  {
+    q: 'What is an electrician loyalty program?',
+    a: 'A program that rewards the electricians who choose and fit a brand on the job. The home owner rarely names a wire brand and the electrician usually does, but the electrician is not on the brand payroll and does not appear in the brand’s sales data. The program identifies each electrician, records the jobs and pays them directly.',
+  },
+  {
+    q: 'How do electricians earn points in a loyalty program?',
+    a: 'By scanning a code on the coil or the pack, or by photographing the invoice. Products that carry no code are recorded from the dealer sales feed instead. Points are credited at once and shown in the app, and approved amounts are paid by bank transfer, Unified Payments Interface (UPI) or voucher, usually within 24 hours of approval.',
+  },
+  {
+    q: 'How are electricians verified before they are paid?',
+    a: 'The platform checks PAN, bank account and mobile number before the first payment. Sign-up happens in the app or during a visit by the brand field representative, and the verified account is the one the money reaches.',
+  },
+  {
+    q: 'What is a scan and earn program?',
+    a: 'A program where the reward is triggered by scanning a code printed on the product or its packaging, rather than by a claim form. For an electrician that means scanning the coil or the pack at the job, which records the brand, the product and the person who fitted it in one step.',
+  },
+  {
+    q: 'Can a program launch before the printed codes are ready?',
+    a: 'Yes. Printed codes are often not ready on the launch date, because they depend on the packaging run. An electrician incentive program starts as a scan and earn program on invoice photographs and dealer sales data, and the printed codes are added to the same program once they reach the market. The electrician records and the earning history do not restart.',
+  },
+  {
+    q: 'How are electrician rewards calculated?',
+    a: 'The brand sets every slab and every rate, and the platform applies them as the data arrives. Wiring follows the building calendar, so rates change with the season. Those are settings rather than code, which is why a change does not wait on a software release.',
+  },
+  {
+    q: 'How do you stop duplicate or fraudulent claims?',
+    a: 'Every claim is checked against the program controls before the points are credited, and PAN, bank account and mobile number are verified before an electrician can be paid at all. That means one person cannot hold several identities on the program.',
+  },
+  {
+    q: 'Is TDS applicable on electrician incentives in India?',
+    a: 'Once an electrician crosses the threshold, yes. Section 194R makes the brand providing the benefit responsible for deducting 10 per cent of its value, and it applies once what one person receives in a financial year goes past ₹20,000. A busy electrician on an active scheme passes that well before the year is out, while an occasional one may never reach it, so the running total has to be tracked per person rather than per payout. Rewards in kind count the same as cash. That is why a verified PAN sits against every electrician record before the first rupee moves. The rule has applied since 1 July 2022. Confirm the treatment of your own scheme with your tax advisor.',
+    source: {
+      href: 'https://www.incometaxindia.gov.in/w/tds-on-benefit-or-perquisite-arising-from-business-or-profession',
+      label: 'Income Tax Department, Government of India — Section 194R',
+    },
+  },
+  {
+    q: 'How much do brands spend on trade incentives?',
+    a: 'Trade incentives run at 8 to 11 per cent of revenue for most organisations on McKinsey’s India-specific analysis, and up to 20 per cent for some. What that figure hides is how much of it reaches people the brand cannot name. An electrician scheme paid out as cash through the dealer, or as goods handed over at a counter meet, leaves no record of who received it or what they fitted. Recording the job against a named electrician is what turns that part of the budget into something a brand can measure.',
+    source: {
+      href: 'https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/reimagining-trade-spend-from-cost-center-to-growth-catalyst',
+      label: 'McKinsey & Company, “Reimagining trade spend”, June 2026',
+    },
+  },
+  {
+    q: 'Is the platform ISO 27001 certified?',
+    a: 'Yes, certificate GIS1115 under ISO/IEC 27001:2022, held by Tajonline (India) Pvt. Ltd. and issued by Shamkris Global Inspection Services. It carries more weight on this kind of program than on a dealer scheme, because an electrician program holds PAN and bank details for individuals rather than registered businesses, often tens of thousands of them, and those records sit on the platform for years. The certified scope names incentive and loyalty programs, so it covers this work directly rather than some other part of the business. Valid to 1 July 2027, and checkable by number on the certification body’s public register.',
+    source: {
+      href: 'https://www.shamkris.com/certificate-check',
+      label: 'Shamkris Global certificate register — check certificate GIS1115',
+    },
+  },
+];
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      // Citations are carried into the schema as anchors so the structured
+      // data and the visible answer say the same thing. answerText permits <a>.
+      text: f.source ? `${f.a} <a href="${f.source.href}">${f.source.label}</a>` : f.a,
+    },
+  })),
+};
+
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Electrician Loyalty Program',
+  provider: {
+    '@type': 'Organization',
+    name: 'GRG India',
+    url: 'https://www.grgindia.in',
+  },
+  serviceType: 'Electrician and influencer loyalty program',
+  areaServed: 'IN',
+  description:
+    'A loyalty program for electricians, run on the My Incentives platform. Each electrician earns on a code scan or an invoice photograph and is paid into a verified account.',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [serviceSchema, faqSchema],
+};
+---
+
+<Layout
+  title="Electrician Loyalty Program | GRG India"
+  description="GRG India runs electrician loyalty programs. Each electrician earns on a code scan or an invoice photograph and is paid into a verified account."
+  canonical="https://www.grgindia.in/electrician-loyalty-program/"
+  ogImage="https://www.grgindia.in/images/solutions/electrician-og.png"
+  jsonLd={jsonLd}
+  preloadImage={{
+    srcset: HERO_AVIF_SRCSET,
+    sizes: HERO_SIZES,
+    type: 'image/avif',
+    // Desktop only. Below lg the hero grid collapses and the image stacks
+    // under roughly 700px of copy, which puts it at or below the fold on a
+    // phone. It is not the LCP element there, so preloading it at high
+    // priority would take early bandwidth from the text that is.
+    media: '(min-width: 1024px)',
+  }}
+>
+  <!-- S01 — Hero. The mock sets a 1.05fr / .95fr split, copy left and IMG 01
+       right. Until that asset exists the copy runs on its own at a readable
+       measure rather than beside an empty column. -->
+  <section class="py-12 md:py-16 bg-[#f5f5f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-start">
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            Influencer loyalty program
+          </p>
+          <h1 class="mt-4 text-4xl md:text-5xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            Electrician loyalty programs for the brand installed in the home
+          </h1>
+          <p class="mt-6 text-lg md:text-xl text-gray-600 anim-fade-up" data-anim-delay="100">
+            The home owner rarely names a wire brand. The electrician does. The customer usually
+            accepts the recommendation. GRG India runs the loyalty program for electricians.
+          </p>
+
+          <ul class="mt-8 space-y-4 anim-fade-up" data-anim-delay="150">
+            {
+              heroChecks.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-sm bg-brand" aria-hidden="true" />
+                  <span class="text-base text-gray-700">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="mt-10 flex flex-wrap items-center gap-4 anim-fade-up" data-anim-delay="200">
+            <a
+              href="#next-step"
+              class="inline-block bg-brand text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-dark transition-colors"
+            >
+              Book a 20-minute walkthrough
+            </a>
+
+            <!-- G2 badge, same markup as /retail/ and /channel-loyalty-program/.
+                 The stars are aria-hidden so a screen reader does not read five
+                 star glyphs, and the link carries its own label. -->
+            <a
+              href="https://www.g2.com/products/my-incentives/reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read our reviews on G2, rated four and a half out of five"
+              class="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2 hover:shadow-md transition-shadow"
+            >
+              <div class="flex items-center gap-0.5" aria-hidden="true">
+                <span class="text-[#FF492C] text-xl">&#9733;&#9733;&#9733;&#9733;</span><span
+                  class="text-[#FF492C] text-xl opacity-50">&#9733;</span
+                >
+              </div>
+              <span class="text-sm font-medium text-gray-700">Read our reviews on</span>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <rect width="40" height="40" rx="8" fill="#FF492C"></rect>
+                <text x="12" y="28" fill="white" font-size="22" font-weight="bold" font-family="Arial, sans-serif">G</text>
+                <text x="24" y="22" fill="white" font-size="12" font-weight="bold" font-family="Arial, sans-serif">2</text>
+              </svg>
+            </a>
+          </div>
+
+          <p class="mt-6 text-sm text-gray-500 anim-fade-up" data-anim-delay="250">
+            The program runs on <a
+              href="/my-incentives-for-sales-motivation/"
+              class="text-brand hover:underline">My Incentives</a
+            >, the GRG India channel loyalty platform.
+          </p>
+        </div>
+
+        <!-- IMG 01 — the electrician app mid-scan. This is the LCP element, so
+             it is tuned for that rather than for convenience. AVIF is listed
+             first and runs about 27% under WebP at matched visual error: at
+             the 720w file a desktop actually fetches, 60 KB against 81 KB.
+             Three widths so a phone never pulls the desktop file.
+
+             fetchpriority="high" with no lazy attribute keeps it in the
+             preload scanner's first pass, and the intrinsic width and height
+             reserve the 1.10 aspect ratio before any bytes land, so the block
+             contributes nothing to CLS.
+
+             The supplied artwork sat on a white field. True white has been
+             flood-filled to transparency inwards from the border only, so the
+             white inside the phone screen and inside the floating cards
+             survives, and the image sits on the #f5f5f8 hero with no
+             rectangle edge. Alpha at or above 248 was snapped to 255 and
+             anything at or below 8 zeroed, which clears stray speckle without
+             touching the soft pink glow. -->
+        <div>
+          <figure class="m-0">
+            <picture>
+              <source
+                type="image/avif"
+                srcset={HERO_AVIF_SRCSET}
+                sizes={HERO_SIZES}
+              />
+              <source
+                type="image/webp"
+                srcset={HERO_WEBP_SRCSET}
+                sizes={HERO_SIZES}
+              />
+              <img
+                width="1104"
+                height="1007"
+                src="/images/solutions/electrician-hero-scan-560.webp"
+                alt="The electrician loyalty program app mid-scan. A handheld scanner reads a QR code on a carton. The phone screen shows a green tick, Code scanned successfully, 250 points credited, a verified Electrical Wire Coil with serial number EW240V2026, and an available balance of 2,450 points. Cards around the phone read Scan and Earn, Get rewarded, a 500 point reward voucher, Track balance, and a recent activity list of points credited, reward redeemed and product verified."
+                fetchpriority="high"
+                class="w-full h-auto anim-fade-in"
+                data-anim-delay="200"
+              />
+            </picture>
+            <!-- Same wording and type scale as the captions on /solar/ and
+                 /channel-loyalty-program/. The screen shows invented points,
+                 balances and dates, so it has to say so. -->
+            <figcaption class="mt-3 text-center text-xs text-gray-500 anim-fade-in" data-anim-delay="250">
+              Sample view. Figures are illustrative and do not represent a live program.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div
+        class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-gray-200 anim-fade-up"
+        data-anim-delay="350"
+      >
+        {
+          stats.map((stat, i) => (
+            <div
+              class:list={[
+                'px-5 py-5 text-sm font-semibold text-navy',
+                i > 0 && 'border-t border-gray-200 sm:border-t-0 sm:border-l',
+                i === 2 && 'sm:border-t sm:border-l-0 lg:border-t-0 lg:border-l',
+              ]}
+            >
+              {stat}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S02 — The decision. A four-row table in the mock. Kept as a real table,
+       because it is tabular data with three headed columns, wrapped so it
+       scrolls rather than squashes on a narrow screen. -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        The decision
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        What the electrician decides on the job
+      </h2>
+
+      <!-- items-start, not items-center. Centring put the two-line lede in the
+           vertical middle of a much taller image, which left a gap under the
+           H2 and read as a mistake. The lede now hangs directly off the
+           heading. -->
+      <div class="mt-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <div>
+          <p class="max-w-xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            The electrician is not on the brand payroll and does not buy in bulk. The sales data of
+            the brand does not record the recommendation.
+          </p>
+        </div>
+
+        <!-- IMG 02 — the four product decisions reporting into one program
+             record. Below the fold, so lazy with no fetchpriority: it must not
+             compete with the hero for the first connections. Three widths
+             because below lg this goes full-bleed and a phone would otherwise
+             pull the desktop file. -->
+        <div>
+          <picture>
+            <source
+              type="image/avif"
+              srcset="/images/solutions/electrician-products-580.avif 580w, /images/solutions/electrician-products-880.avif 880w, /images/solutions/electrician-products-1160.avif 1160w"
+              sizes="(min-width: 1280px) 580px, (min-width: 1024px) calc(50vw - 60px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+            />
+            <source
+              type="image/webp"
+              srcset="/images/solutions/electrician-products-580.webp 580w, /images/solutions/electrician-products-880.webp 880w, /images/solutions/electrician-products-1160.webp 1160w"
+              sizes="(min-width: 1280px) 580px, (min-width: 1024px) calc(50vw - 60px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              width="1160"
+              height="687"
+              src="/images/solutions/electrician-products-880.webp"
+              alt="Four product cards, wires and cables, switches and sockets, circuit breakers, and fans and lighting, each joined by a line that meets at a single point and runs down into one card labelled One Loyalty Program."
+              class="w-full h-auto anim-fade-in"
+              data-anim-delay="150"
+            />
+          </picture>
+        </div>
+      </div>
+
+      <div class="mt-10 overflow-x-auto anim-fade-up" data-anim-delay="200">
+        <table class="w-full min-w-[640px] border-collapse text-left text-[15px]">
+          <caption class="sr-only">
+            What the electrician decides for each product category, and how the job is recorded
+          </caption>
+          <thead>
+            <tr class="bg-[#f2f3f6]">
+              <th scope="col" class="border border-gray-200 px-4 py-3 font-bold text-navy">Product</th>
+              <th scope="col" class="border border-gray-200 px-4 py-3 font-bold text-navy">
+                What the electrician decides
+              </th>
+              <th scope="col" class="border border-gray-200 px-4 py-3 font-bold text-navy">
+                How the job is recorded
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              decisions.map((d) => (
+                <tr>
+                  <th
+                    scope="row"
+                    class="border border-gray-200 px-4 py-3 align-top font-semibold text-navy"
+                  >
+                    {d.product}
+                  </th>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-gray-600">
+                    {d.decides}
+                  </td>
+                  <td class="border border-gray-200 px-4 py-3 align-top text-gray-600">
+                    {d.recorded}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-8 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="250">
+        An electrician loyalty program runs on the GRG India <a
+          href="/channel-loyalty-program/"
+          class="text-brand hover:underline">channel loyalty platform</a
+        > with one record for each electrician.
+      </p>
+    </div>
+  </section>
+
+  <!-- S03 — How it runs -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        How it runs
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Three steps from the job to the payment
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        The brand sets the budget and the scheme. The platform handles sign-up, recording and payout.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          steps.map((s, i) => (
+            <div class="border-l-[3px] border-brand pl-5 anim-fade-up" data-anim-delay={150 + i * 50}>
+              <h3 class="text-base font-bold text-navy">{s.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="320">
+        Printed codes are often not ready on the launch date. An electrician incentive program starts
+        as a scan and earn program on invoice photographs and dealer sales data. Printed codes are
+        added to the same program on reaching the market.
+      </p>
+    </div>
+  </section>
+
+  <!-- S04 — Closing the gap -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+        How sales increase
+      </p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Three people close the gap to the slab
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        The illustration follows one electrician through one cycle. The slab is 100 units. 82 units
+        are recorded by day 20. Every figure is an illustration.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10">
+        {
+          gapClosers.map((c, i) => (
+            <div class="border-l-[3px] border-brand pl-5 anim-fade-up" data-anim-delay={150 + i * 50}>
+              <h3 class="text-base font-bold text-navy">{c.title}</h3>
+              <p class="mt-2 text-[15px] text-gray-600">{c.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 max-w-3xl text-base text-gray-600 anim-fade-up" data-anim-delay="320">
+        The brand sets every slab and every rate. Wiring follows the building calendar. Rates change
+        with the season as a setting.
+      </p>
+    </div>
+  </section>
+
+  <!-- S05 — Results -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Results</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Changes on programs already running
+      </h2>
+      <p class="mt-4 max-w-3xl text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+        Figures from trade programs for other influencer audiences on the same platform.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          results.map((r, i) => (
+            <div
+              class="rounded-lg border border-gray-200 bg-white p-6 anim-fade-up"
+              data-anim-delay={150 + i * 50}
+            >
+              <div class="text-2xl font-bold leading-tight text-navy">{r.fig}</div>
+              <div class="mt-2 text-sm font-bold text-navy">{r.lab}</div>
+              <div class="mt-0.5 text-[13px] text-gray-500">{r.cli}</div>
+              <p class="mt-3 text-[13.5px] text-gray-600">{r.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- S06 — Clients. IMG 03 in the mock: a greyscale logo strip. Rendered as a
+       CSS-only marquee, the list drawn twice so the track slides exactly -50%
+       and the loop has no seam. The duplicate set is aria-hidden so a screen
+       reader hears each client once. -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Clients</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Brands served by GRG India
+      </h2>
+
+      <div
+        class="logo-marquee mt-10 anim-fade-up"
+        data-anim-delay="150"
+        role="group"
+        aria-label="Brands running programs on My Incentives"
+      >
+        <div class="logo-track">
+          {
+            [0, 1].map((copy) => (
+              <ul
+                class="flex shrink-0 items-center gap-12 pr-12 pl-12"
+                aria-hidden={copy === 1 ? 'true' : undefined}
+              >
+                {clientLogos.map((logo) => (
+                  <li class="shrink-0">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={logo.src}
+                      alt={copy === 0 ? logo.alt : ''}
+                      width={logo.width}
+                      height={logo.height}
+                      class="h-10 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                      style={logo.blend ? 'mix-blend-mode:multiply' : undefined}
+                    />
+                  </li>
+                ))}
+              </ul>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S07 — Call to action -->
+  <section id="next-step" class="py-12 md:py-16 bg-[#f5f5f8] scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">
+            Next step
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+            A walkthrough of an electrician loyalty program for your brand
+          </h2>
+          <p class="mt-6 text-lg text-gray-600 anim-fade-up" data-anim-delay="100">
+            Tell us the product category and the number of electricians. We will show how the program
+            would be set up for it.
+          </p>
+          <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="150">
+            The call takes twenty minutes and includes a screen share.
+          </p>
+          <p class="mt-2 text-sm text-gray-500 anim-fade-up" data-anim-delay="200">
+            Or write to <a href="mailto:contactus@grgindia.in" class="text-brand hover:underline"
+              >contactus@grgindia.in</a
+            >
+          </p>
+        </div>
+
+        <!-- The mock specifies Name, Work email and Company only. Phone and the
+             electrician count are added because api/contact.js rejects any
+             submission missing them (line 62 returns a 400), so the three-field
+             form as drawn would fail on every send. -->
+        <div
+          class="relative rounded-xl border border-gray-200 bg-white p-6 sm:p-8 anim-fade-up"
+          data-anim-delay="150"
+        >
+          <form class="space-y-5" id="electrician-form">
+            <!-- Honeypot — hidden from real users, bots auto-fill it -->
+            <div class="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+              <label for="electrician-website">Website</label>
+              <input
+                type="text"
+                id="electrician-website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <div>
+              <label for="electrician-name" class="block text-sm font-medium text-gray-700 mb-1">
+                Name <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="electrician-name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="electrician-email" class="block text-sm font-medium text-gray-700 mb-1">
+                  Work email <span class="text-red-400">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="electrician-email"
+                  name="work-email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label for="electrician-phone" class="block text-sm font-medium text-gray-700 mb-1">
+                  Phone Number <span class="text-red-400">*</span>
+                </label>
+                <div class="flex">
+                  <span
+                    class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg"
+                    >+91</span
+                  >
+                  <input
+                    type="tel"
+                    id="electrician-phone"
+                    name="phone"
+                    required
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    title="Enter 10-digit mobile number"
+                    placeholder="XXXXX XXXXX"
+                    class="w-full border border-gray-300 rounded-r-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="electrician-company" class="block text-sm font-medium text-gray-700 mb-1">
+                Company <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="electrician-company"
+                name="company"
+                required
+                placeholder="Your company"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="electrician-count" class="block text-sm font-medium text-gray-700 mb-1">
+                Number of electricians <span class="text-red-400">*</span>
+              </label>
+              <select
+                id="electrician-count"
+                name="electrician-count"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors bg-white"
+              >
+                <option value="" disabled selected>Select number of electricians</option>
+                <option value="Under 1000">Under 1,000</option>
+                <option value="1000-10000">1,000 to 10,000</option>
+                <option value="10000-50000">10,000 to 50,000</option>
+                <option value="50000+">50,000+</option>
+              </select>
+            </div>
+
+            <!-- Optional, and labelled as such. api/contact.js treats message
+                 as optional and only renders the row in the notification
+                 email when there is something in it, so an empty box costs
+                 nothing. Marking it required would add friction to the one
+                 field that is not needed to qualify the lead. -->
+            <div>
+              <label for="electrician-message" class="block text-sm font-medium text-gray-700 mb-1">
+                Message <span class="font-normal text-gray-400">(optional)</span>
+              </label>
+              <textarea
+                id="electrician-message"
+                name="message"
+                rows="4"
+                maxlength="1000"
+                placeholder="Which products the program would cover, and anything you would like us to prepare for the call."
+                class="w-full resize-y border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              id="electrician-submit"
+              class="w-full bg-brand text-white font-semibold py-3 rounded-lg hover:bg-brand-dark transition-colors"
+            >
+              Book a 20-minute walkthrough
+            </button>
+            <p id="electrician-status" class="hidden text-sm text-center mt-2"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs. Collapsed accordion: semantic buttons with aria-expanded and
+       aria-controls, the panel height animated with grid-template-rows so it
+       can go from nothing to its natural height without a hard-coded
+       max-height. Every answer is in the DOM on load, so the FAQPage schema
+       and the visible text match exactly. -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">FAQs</p>
+      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
+        Frequently asked questions
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-3xl anim-fade-up" data-anim-delay="100">
+        What an electrician loyalty program is, how a job is recorded and how electricians are paid.
+      </p>
+
+      <div id="electrician-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
+        {
+          faqs.map((f, i) => (
+            <div class="border-b border-gray-200">
+              <h3 class="m-0">
+                <button
+                  type="button"
+                  id={`faq-trigger-${i}`}
+                  aria-controls={`faq-panel-${i}`}
+                  aria-expanded="false"
+                  class="faq-trigger w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
+                >
+                  <span class="text-base md:text-lg font-bold text-navy leading-snug group-hover:text-brand transition-colors">
+                    {f.q}
+                  </span>
+                  <svg
+                    class="faq-icon mt-1 w-5 h-5 shrink-0 text-brand transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-trigger-${i}`}
+                class="faq-panel"
+                data-open="false"
+              >
+                <div class="faq-panel-inner">
+                  <div class="pb-5">
+                    <p class="pr-10 text-[15px] leading-relaxed text-gray-600">{f.a}</p>
+                    {f.source && (
+                      <p class="mt-2.5 pr-10 text-[13px] leading-relaxed text-gray-500">
+                        Source:{' '}
+                        <a
+                          href={f.source.href}
+                          target="_blank"
+                          rel="noopener"
+                          class="text-brand underline underline-offset-2 hover:no-underline"
+                        >
+                          {f.source.label}
+                        </a>
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Accordion panel. grid-template-rows animates from 0fr to 1fr, which goes
+       from nothing to the panel's natural height without hard-coding a
+       max-height. visibility keeps collapsed answers out of the a11y tree. */
+    .faq-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows 0.28s ease, visibility 0.28s;
+    }
+    .faq-panel[data-open='true'] {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+    .faq-panel-inner {
+      overflow: hidden;
+    }
+    .faq-trigger[aria-expanded='true'] .faq-icon {
+      transform: rotate(180deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-panel,
+      .faq-icon {
+        transition: none;
+      }
+    }
+
+    /* Client logo marquee. The track holds two identical copies of the list,
+       so translating it by exactly -50% puts copy two where copy one started
+       and the loop never shows a seam. */
+    .logo-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 6rem,
+        black calc(100% - 6rem),
+        transparent
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 6rem,
+        black calc(100% - 6rem),
+        transparent
+      );
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: logo-marquee 45s linear infinite;
+    }
+    .logo-marquee:hover .logo-track,
+    .logo-marquee:focus-within .logo-track {
+      animation-play-state: paused;
+    }
+    @keyframes logo-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track {
+        animation: none;
+      }
+      .logo-marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const root = document.getElementById('electrician-faq');
+      if (!root) return;
+      const triggers = Array.from(root.querySelectorAll('.faq-trigger'));
+
+      const setOpen = (btn: Element, open: boolean) => {
+        btn.setAttribute('aria-expanded', String(open));
+        const id = btn.getAttribute('aria-controls');
+        const panel = id ? document.getElementById(id) : null;
+        panel?.setAttribute('data-open', String(open));
+      };
+
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+          // Only one answer open at a time.
+          triggers.forEach((other) => setOpen(other, false));
+          if (!wasOpen) setOpen(btn, true);
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          const ev = e as KeyboardEvent;
+          if (ev.key === 'Escape') {
+            setOpen(btn, false);
+            (btn as HTMLButtonElement).focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    const form = document.getElementById('electrician-form') as HTMLFormElement | null;
+    const btn = document.getElementById('electrician-submit') as HTMLButtonElement | null;
+    const status = document.getElementById('electrician-status');
+    const LABEL = 'Book a 20-minute walkthrough';
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!btn || !status) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.classList.add('hidden');
+
+      const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+      const rawPhone = (data.phone || '').replace(/\D/g, '');
+
+      if (rawPhone.length !== 10) {
+        status.textContent = 'Please enter a valid 10-digit phone number.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = LABEL;
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.name,
+            email: data['work-email'],
+            phone: '+91 ' + rawPhone,
+            company: data.company,
+            teamSize: data['electrician-count'],
+            // What the visitor wrote, when they wrote something. The fallback
+            // keeps the old behaviour so an empty box still tells whoever
+            // reads the email which form it came from.
+            message: (data.message || '').trim() || 'Electrician loyalty program enquiry.',
+            website: data.website || '',
+            formSource: 'electrician-landing',
+          }),
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        // Google Ads conversion — fires only on successful lead submit, and
+        // before reset() so enhanced conversions can still read the email.
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-11342761792/sj73CLOxyP4YEMCe06Aq',
+          });
+        }
+
+        form.reset();
+        status.textContent = 'Thank you! We will be in touch within one business day.';
+        status.className = 'text-sm text-center mt-2 text-green-600';
+        status.classList.remove('hidden');
+      } catch {
+        status.textContent =
+          'Something went wrong. Please try again or email contactus@grgindia.in.';
+        status.className = 'text-sm text-center mt-2 text-red-500';
+        status.classList.remove('hidden');
+      }
+
+      btn.disabled = false;
+      btn.textContent = LABEL;
+    });
+  </script>
+</Layout>
