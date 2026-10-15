@@ -31,10 +31,13 @@ const solutionLinks = [
 // this same category). "Influencer Loyalty Programs" links to My
 // Incentives (it has a real Influencers stakeholder section).
 //
-// Two categories carry 3 items rather than 4: "Specialized Programs", where
-// "Customer Referral Programs" was removed, and "Rewards & Loyalty", where
-// "Customer Loyalty Programs" was removed. Both for the same reason, no real
-// page behind them.
+// "Specialized Programs" carries 3 items rather than 4, because "Customer
+// Referral Programs" was removed for the same reason: no real page behind it.
+//
+// "Electrician Loyalty Programs" sits under Rewards & Loyalty rather than
+// Channel & Dealer, because the page itself is framed as an influencer
+// program and an electrician is not a dealer. It is also the only inbound
+// internal link that page has, so it is load-bearing, not decorative.
 const keywordCategories = [
   {
     title: 'Sales & Incentives',
@@ -69,6 +72,7 @@ const keywordCategories = [
       { label: 'Employee Rewards & Recognition', href: '/buzzz-for-employee-motivation/' },
       { label: 'B2B Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
       { label: 'Influencer Loyalty Programs', href: '/my-incentives-for-sales-motivation/' },
+      { label: 'Electrician Loyalty Programs', href: '/electrician-loyalty-program/' },
     ],
   },
   {
@@ -95,7 +99,20 @@ const year = new Date().getFullYear();
       <!-- Logo / Address -->
       <div class="col-span-2 md:col-span-1">
         <a href="/" class="inline-block bg-white rounded px-3 py-2">
-          <img src="/images/logo.png" alt="GRG India" class="h-8 w-auto" />
+          <!-- Intrinsic 3456x864, a 4:1 ratio. The attributes are not the
+               render size; h-8 w-auto still draws it 32px tall and 128px
+               wide. They exist so the browser reserves that box before the
+               file arrives, instead of collapsing the footer and shifting it
+               once the image loads. This runs on all 101 pages. -->
+          <img
+            src="/images/logo.png"
+            alt="GRG India"
+            width="3456"
+            height="864"
+            loading="lazy"
+            decoding="async"
+            class="h-8 w-auto"
+          />
         </a>
         <div class="mt-4 text-sm text-gray-400 leading-relaxed">
           <p class="font-semibold text-white">GRG India</p>

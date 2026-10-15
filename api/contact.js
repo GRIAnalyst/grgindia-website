@@ -83,6 +83,7 @@ export default async function handler(req, res) {
       'contact-us': 'Contact Us',
       'solar-landing': 'Solar Channel Partner Program',
       'channel-landing': 'Channel Loyalty Program',
+      'electrician-landing': 'Electrician Loyalty Program',
     }[formSource] || 'Website Form';
 
     const isDemoForm = formSource !== 'contact-us';
