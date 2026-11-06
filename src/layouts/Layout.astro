@@ -238,8 +238,15 @@ const schemaToRender = {
       // asserting granted for a visitor who has not consented is not lawful
       // consent in those jurisdictions. Revisit if European traffic becomes
       // material.
+      // ad_Storage is denied deliberately. Microsoft's consent table ties
+      // session recordings, cookies and feature completeness to
+      // analytics_storage alone. ad_storage controls only whether Clarity
+      // shares data with Microsoft Ads for retargeting and conversions, which
+      // this site does not need. Denying it costs no recordings, no heatmaps
+      // and no session stitching. The API requires both parameters, so both
+      // are sent.
       window.clarity('consentv2', {
-        ad_Storage: 'granted',
+        ad_Storage: 'denied',
         analytics_Storage: 'granted'
       });
     </script>
