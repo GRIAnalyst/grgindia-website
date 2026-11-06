@@ -207,6 +207,34 @@ const schemaToRender = {
     </script>
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-11342761792"></script>
 
+    <!-- Microsoft Clarity, project z98bqxq5i2. Heatmaps and session recording.
+         is:inline is required. Without it Astro treats the tag as a module to
+         bundle and move, and Clarity's IIFE stops running as written.
+
+         This loads unconditionally, on instruction. Worth recording that it
+         therefore starts recording before a visitor answers the cookie
+         banner, which is a different posture from gtag directly above: that
+         one defaults analytics_storage to denied and only grants it once
+         cookie-consent is set to 'all'. Clarity can be made to match without
+         touching this code, by turning on cookie consent in the Clarity
+         dashboard under Settings, Setup. Clarity masks text and input
+         content by default, so recordings should not capture what a visitor
+         types into the enquiry forms. -->
+    <script is:inline type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'z98bqxq5i2');
+    </script>
+
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900">
