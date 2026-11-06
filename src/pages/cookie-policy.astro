@@ -33,7 +33,21 @@ import Layout from '../layouts/Layout.astro';
 
         <h2 class="text-2xl font-bold text-navy mt-10">3. Third-Party Cookies</h2>
         <p>
-          Some cookies on our Website are placed by third-party service providers — specifically Google Analytics (site analytics) and Google Ads (conversion tracking), and by embedded content or demo-booking tools where used. These third parties may collect information about your online activities over time and across different websites. Their use of cookies is governed by their own privacy and cookie policies, which we encourage you to review.
+          Some cookies on our Website are placed by third-party service providers — specifically Google Analytics (site analytics), Google Ads (conversion tracking) and Microsoft Clarity (session recording and interaction analytics), and by embedded content or demo-booking tools where used. These third parties may collect information about your online activities over time and across different websites. Their use of cookies is governed by their own privacy and cookie policies, which we encourage you to review.
+        </p>
+
+        <h2 class="text-2xl font-bold text-navy mt-10">3a. Microsoft Clarity</h2>
+        <p>
+          We use Microsoft Clarity on this Website for session recordings, heatmaps and interaction
+          analytics. Clarity records a playback of your visit covering the pages you view, clicks
+          and taps, scrolling and pointer movement, and it masks text and form field contents by
+          default. Microsoft Corporation processes and stores this information under the <a
+            href="https://privacy.microsoft.com/privacystatement"
+            target="_blank"
+            rel="noopener"
+            class="text-brand underline underline-offset-2 hover:no-underline"
+            >Microsoft Privacy Statement</a
+          >, and the cookies it sets are listed below.
         </p>
 
         <h2 class="text-2xl font-bold text-navy mt-10">4. Cookie List</h2>
@@ -65,6 +79,55 @@ import Layout from '../layouts/Layout.astro';
                 <td class="py-2 pr-4">Distinguishes and tracks visitors for site analytics</td>
                 <td class="py-2 pr-4">Set by Google — see Google's cookie documentation</td>
                 <td class="py-2">Google Analytics</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">_clck</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Persists the Clarity user ID so activity on this site is attributed to the same user ID</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (first-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">_clsk</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Connects multiple page views into a single Clarity session recording</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (first-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">CLID</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Identifies the first time Clarity saw this browser on any site using Clarity</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">MUID</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Identifies unique browsers visiting Microsoft sites, used for advertising, site analytics and other operational purposes</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">ANONCHK</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Indicates whether MUID is transferred to ANID, a Microsoft advertising cookie. Clarity does not use ANID, so this is always 0</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">MR</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Indicates whether to refresh MUID</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">SM</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Used in synchronising MUID across Microsoft domains</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
               </tr>
               <tr class="border-b border-gray-200">
                 <td class="py-2 pr-4">Google Ads conversion cookies</td>

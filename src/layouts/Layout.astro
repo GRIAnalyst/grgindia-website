@@ -216,6 +216,32 @@ const schemaToRender = {
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "z98bqxq5i2");
+
+      // Clarity's Consent API v2, Microsoft's recommended way to pass consent
+      // state. Sent unconditionally and immediately, so Clarity uses this
+      // rather than inheriting the gtag Google Consent Mode defaults above,
+      // where analytics_storage is denied until a visitor clicks Accept All.
+      //
+      // Without this, Clarity still records, but it assigns a unique ID per
+      // page view and sets no cookies, so a four-page visit arrives as four
+      // one-page recordings instead of one journey. This restores session
+      // stitching.
+      //
+      // It touches nothing else: no gtag call, no change to GA4, Google Ads,
+      // the cookie banner or Google Consent Mode. It queues a command on an
+      // object already in memory, so there is no extra request and no render
+      // blocking.
+      //
+      // Known limit: for visitors from the EEA, UK and Switzerland Microsoft
+      // enables Consent Mode by default and it cannot be switched off site
+      // side. This call is a valid signal there in the technical sense, but
+      // asserting granted for a visitor who has not consented is not lawful
+      // consent in those jurisdictions. Revisit if European traffic becomes
+      // material.
+      window.clarity('consentv2', {
+        ad_Storage: 'granted',
+        analytics_Storage: 'granted'
+      });
     </script>
 
     <title>{title}</title>
