@@ -1,14 +1,29 @@
 ---
-// Cookie Consent Banner
-// Blocks analytics/marketing cookies until user opts in
-// Only "necessary" cookies are allowed by default
+// Cookie Consent Banner.
+//
+// What this banner does and does not control, stated plainly because the two
+// are different and the old comment above was no longer true:
+//
+//   Google Ads and GA4  - genuinely gated. Layout.astro sets Consent Mode
+//                         defaults to denied and this banner flips them to
+//                         granted only on Accept All.
+//   Microsoft Clarity   - NOT gated by this banner. The Clarity tag loads on
+//                         every page regardless of the choice made here.
+//                         Clarity applies its own consent handling instead,
+//                         and for visitors from the EEA, UK and Switzerland
+//                         Microsoft turns Consent Mode on by default and the
+//                         site owner cannot switch it off.
+//
+// The banner copy therefore does not promise that Necessary Only stops all
+// analytics, because it does not.
 ---
 
 <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden">
   <div class="bg-gray-900 text-white px-4 sm:px-6 py-4 shadow-lg border-t border-gray-700">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
       <div class="flex-1 text-sm text-gray-300 leading-relaxed">
-        We use cookies to improve your experience and analyse site traffic. By clicking "Accept All", you consent to our use of cookies.
+        We use cookies to improve your experience and analyse site traffic. <strong class="text-white font-semibold">Accept All</strong> allows our advertising and Google Analytics cookies. <strong class="text-white font-semibold">Necessary Only</strong> declines those, but does not switch off Microsoft Clarity, which we use for website interaction analytics and session recordings and which operates subject to Microsoft's own consent controls and applicable law.
+        <a href="/cookie-policy/" class="underline text-white hover:text-gray-200 ml-1">Cookie Policy</a>
         <a href="/privacy-policy/" class="underline text-white hover:text-gray-200 ml-1">Privacy Policy</a>
       </div>
       <div class="flex gap-3 shrink-0">
@@ -30,8 +45,9 @@
     const rejectBtn = document.getElementById('cookie-reject');
 
     // Show banner only if no choice has been made yet.
-    // The Google tag itself loads in Layout.astro with Consent Mode defaults;
-    // this banner only updates consent state.
+    // The Google tag loads in Layout.astro with Consent Mode defaults and this
+    // banner only updates that state. Clarity is deliberately not touched
+    // here: it loads unconditionally and manages consent itself.
     if (!localStorage.getItem('cookie-consent')) {
       banner?.classList.remove('hidden');
     }
@@ -49,6 +65,9 @@
 
     rejectBtn?.addEventListener('click', () => {
       localStorage.setItem('cookie-consent', 'necessary');
+      // No gtag consent update needed: Layout.astro already defaults
+      // analytics_storage and ad_personalization to denied. And no Clarity
+      // call is made, by design, because Clarity is not gated by this banner.
       banner?.classList.add('hidden');
     });
   });

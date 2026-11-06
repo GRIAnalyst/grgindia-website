@@ -36,24 +36,57 @@ import Layout from '../layouts/Layout.astro';
           Some cookies on our Website are placed by third-party service providers — specifically Google Analytics (site analytics), Google Ads (conversion tracking) and Microsoft Clarity (site analytics and session recording), and by embedded content or demo-booking tools where used. These third parties may collect information about your online activities over time and across different websites. Their use of cookies is governed by their own privacy and cookie policies, which we encourage you to review.
         </p>
 
-        <h2 class="text-2xl font-bold text-navy mt-10">3a. Session Recording</h2>
+        <h2 class="text-2xl font-bold text-navy mt-10">3a. Microsoft Clarity and Session Recording</h2>
         <p>
-          We use Microsoft Clarity to understand how visitors use this Website. Clarity records a
-          playback of your visit, covering the pages you view, where you click and scroll, and how
-          your mouse or finger moves. It also produces heatmaps showing which parts of a page
-          receive the most attention. We use this to find where pages are confusing or broken.
+          We use Microsoft Clarity on this Website. <strong>The Clarity script loads on every page
+          when you visit, and it is not controlled by the cookie banner.</strong> Choosing "Necessary
+          Only" declines our Google Analytics and Google Ads cookies, but it does not disable
+          Microsoft Clarity. Clarity applies its own consent handling instead, described below.
         </p>
         <p class="mt-3">
+          Clarity is used for session recordings, heatmaps and website interaction analytics. It may
+          collect:
+        </p>
+        <ul class="list-disc pl-6 mt-3 space-y-1">
+          <li>the pages you view and the order you view them in</li>
+          <li>clicks and taps, including where on a page they occur</li>
+          <li>scrolling and mouse or finger movement</li>
+          <li>navigation paths through the site, and the page you arrived from</li>
+          <li>your approximate location, browser, operating system and device type</li>
+          <li>a playback of the visit reconstructed from the above</li>
+        </ul>
+        <p class="mt-3">
           Clarity masks text and the contents of form fields by default, so what you type into an
-          enquiry form is not captured in the recording. Recordings are held by Microsoft and are
-          governed by the <a
+          enquiry form is not intended to be captured in a recording.
+        </p>
+        <p class="mt-3">
+          <strong>Microsoft's role.</strong> Microsoft Corporation processes this information on
+          Microsoft systems and stores the recordings and analytics it produces. Its handling of
+          that information is governed by the <a
             href="https://privacy.microsoft.com/privacystatement"
             target="_blank"
             rel="noopener"
             class="text-brand underline underline-offset-2 hover:no-underline"
             >Microsoft Privacy Statement</a
-          >. You can opt out of Clarity, along with our other analytics, using the cookie
-          preferences described in section 5.
+          >.
+        </p>
+        <p class="mt-3">
+          <strong>Regional limits.</strong> Since 31 October 2025 Microsoft enforces a consent
+          requirement for page visits originating from the European Economic Area, the United
+          Kingdom and Switzerland. For visitors from those regions Clarity's Consent Mode is on by
+          default and we cannot switch it off. Unless a valid consent signal is received, Clarity
+          sets no cookies for those visitors, deletes any Clarity cookies previously set, and
+          collects only cookieless data. Features that depend on cookies, including linking several
+          page views into one session and recognising a returning visitor, do not work in that
+          state. We therefore do not claim that every visit to this Website is recorded in full.
+        </p>
+        <p class="mt-3">
+          If you wish to object to this processing, contact us at <a
+            href="mailto:contactus@grgindia.in"
+            class="text-brand underline underline-offset-2 hover:no-underline"
+            >contactus@grgindia.in</a
+          >. You can also block cookies in your browser as described in section 5, which prevents
+          Clarity from setting cookies on your device.
         </p>
 
         <h2 class="text-2xl font-bold text-navy mt-10">4. Cookie List</h2>
@@ -89,21 +122,51 @@ import Layout from '../layouts/Layout.astro';
               <tr class="border-b border-gray-200">
                 <td class="py-2 pr-4">_clck</td>
                 <td class="py-2 pr-4">Performance &amp; Analytics</td>
-                <td class="py-2 pr-4">
-                  Keeps a Microsoft Clarity identifier so repeat visits by the same browser are
-                  recognised
-                </td>
-                <td class="py-2 pr-4">1 year</td>
-                <td class="py-2">Microsoft Clarity</td>
+                <td class="py-2 pr-4">Persists the Clarity user ID and preferences so activity on this site is attributed to the same user ID</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (first-party)</td>
               </tr>
               <tr class="border-b border-gray-200">
                 <td class="py-2 pr-4">_clsk</td>
                 <td class="py-2 pr-4">Performance &amp; Analytics</td>
-                <td class="py-2 pr-4">
-                  Joins the pages viewed in one visit into a single Microsoft Clarity session
-                </td>
-                <td class="py-2 pr-4">1 day</td>
-                <td class="py-2">Microsoft Clarity</td>
+                <td class="py-2 pr-4">Connects multiple page views by a user into a single Clarity session recording</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (first-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">CLID</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Identifies the first time Clarity saw this browser on any site using Clarity</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">MUID</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Identifies unique browsers visiting Microsoft sites. Used by Microsoft for advertising, site analytics and other operational purposes</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">ANONCHK</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Indicates whether MUID is transferred to ANID, a Microsoft advertising cookie. Clarity does not use ANID, so this is always set to 0</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">MR</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Indicates whether to refresh MUID</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4">SM</td>
+                <td class="py-2 pr-4">Performance &amp; Analytics</td>
+                <td class="py-2 pr-4">Used in synchronising MUID across Microsoft domains</td>
+                <td class="py-2 pr-4">Set by Microsoft — see Microsoft&rsquo;s Clarity cookie documentation</td>
+                <td class="py-2">Microsoft Clarity (third-party)</td>
               </tr>
               <tr class="border-b border-gray-200">
                 <td class="py-2 pr-4">Google Ads conversion cookies</td>
@@ -121,18 +184,21 @@ import Layout from '../layouts/Layout.astro';
 
         <h2 class="text-2xl font-bold text-navy mt-10">5. How to Manage Your Cookie Preferences</h2>
         <p>
-          <strong>5.1 On our Website:</strong> You can accept or limit non-essential cookies using the cookie consent banner shown when you first visit the Website. At present, the Website does not have a persistent "Cookie Preferences" control to reopen the banner after your initial choice. To change a previous choice, you can clear your browser's local storage and cookies for grgindia.in, which will cause the banner to appear again on your next visit.
+          <strong>5.1 On our Website:</strong> You can accept or decline our Google Analytics and Google Ads cookies using the cookie consent banner shown when you first visit the Website. <strong>The banner does not control Microsoft Clarity</strong>, which loads on every page and is covered in section 3a. At present, the Website does not have a persistent "Cookie Preferences" control to reopen the banner after your initial choice. To change a previous choice, you can clear your browser's local storage and cookies for grgindia.in, which will cause the banner to appear again on your next visit.
         </p>
         <p>
           <strong>5.2 Through your browser:</strong> Most browsers allow you to control cookies through their settings, including blocking or deleting cookies. Please note that disabling certain cookies may affect the functionality of the Website. Guidance is generally available in your browser's help section (Chrome, Firefox, Safari, Edge, etc.).
         </p>
         <p>
-          <strong>5.3 Opting out of analytics:</strong> Where Google Analytics or similar tools are used, you may opt out using the provider's dedicated opt-out tools (e.g., the Google Analytics Opt-out Browser Add-on).
+          <strong>5.3 Opting out of analytics:</strong> Where Google Analytics or similar tools are used, you may opt out using the provider's dedicated opt-out tools (e.g., the Google Analytics Opt-out Browser Add-on). For Microsoft Clarity, the banner is not an opt-out route. Blocking cookies for grgindia.in and for Microsoft domains in your browser settings prevents Clarity from setting cookies on your device, and you may contact us at <a href="mailto:contactus@grgindia.in" class="text-brand underline underline-offset-2 hover:no-underline">contactus@grgindia.in</a> to object to the processing described in section 3a.
         </p>
 
         <h2 class="text-2xl font-bold text-navy mt-10">6. Legal Basis & Consent</h2>
         <p>
-          Where required under the Digital Personal Data Protection Act, 2023 and other applicable law, we rely on your consent to set non-essential cookies, obtained via the consent banner on the Website. You may withdraw consent at any time by adjusting your cookie preferences or browser settings, without affecting the lawfulness of processing carried out before withdrawal.
+          Where required under the Digital Personal Data Protection Act, 2023 and other applicable law, we rely on your consent to set non-essential cookies. For our Google Analytics and Google Ads cookies that consent is obtained via the consent banner on the Website, and you may withdraw it at any time by adjusting your cookie preferences or browser settings, without affecting the lawfulness of processing carried out before withdrawal.
+        </p>
+        <p class="mt-3">
+          Microsoft Clarity is not gated by that banner. For visitors from the European Economic Area, the United Kingdom and Switzerland, Microsoft applies its own consent controls by default, and in the absence of a valid consent signal Clarity sets no cookies and collects only cookieless data, as described in section 3a. For visitors from other jurisdictions, including India, Clarity loads and may set the cookies listed in section 4. If you are in a jurisdiction whose law requires prior consent for this and you have not given it, contact us at <a href="mailto:contactus@grgindia.in" class="text-brand underline underline-offset-2 hover:no-underline">contactus@grgindia.in</a> and we will act on your request.
         </p>
 
         <h2 class="text-2xl font-bold text-navy mt-10">7. Changes to This Cookie Policy</h2>
