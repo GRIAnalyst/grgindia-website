@@ -168,7 +168,17 @@ const faqs = [
   },
   {
     q: 'Is TDS applicable on channel partner incentives in India?',
-    a: 'Section 194R of the Income-tax Act requires the person providing a benefit or perquisite arising from a resident’s business or profession to deduct tax at 10 per cent of its value. It has applied since 1 July 2022, and is triggered once the value provided to one recipient crosses ₹20,000 in a financial year. The Central Board of Direct Taxes has clarified that ordinary sales discounts, cash discounts and rebates fall outside it, while incentives given in cash or in kind, free samples and sponsored trips fall inside it. That is why a verified PAN sits against every partner record before anything is paid. Confirm how it applies to your own scheme with your tax advisor.',
+    // Cut from 116 words to 41: the statutory rate, the threshold and the
+    // reason PAN verification exists. The legal definition of a benefit or
+    // perquisite, the 2022 commencement date and the CBDT note on which
+    // discounts fall outside 194R were dropped as detail a tax advisor
+    // supplies anyway.
+    //
+    // The closing line "Confirm how it applies to your scheme with your tax
+    // advisor" was also removed on request. The page therefore states a tax
+    // position without directing the reader to verify it. The citation to the
+    // Income Tax Department below is now the only qualifier on this answer.
+    a: 'Yes, under Section 194R. Tax is deducted at 10 per cent once the value given to one partner crosses ₹20,000 in a financial year, which is why a verified PAN sits against every partner record before anything is paid.',
     source: {
       href: 'https://www.incometaxindia.gov.in/w/tds-on-benefit-or-perquisite-arising-from-business-or-profession',
       label: 'Income Tax Department, Government of India — Section 194R',
@@ -265,15 +275,25 @@ const jsonLd = {
           }
         </ul>
 
-        <!-- CTA and the G2 badge share one row. flex-wrap so the badge drops
-             below the button on narrow viewports rather than overflowing;
-             items-center keeps the two different heights aligned. -->
-        <div class="mt-10 flex flex-wrap items-center gap-4 anim-fade-up" data-anim-delay="200">
+        <!-- CTA and the G2 badge on one row at every width, including phones.
+             They previously wrapped to two lines below sm because at full
+             size they need about 470px and a 390px phone offers 358px.
+             Rather than wrap, both shrink below sm: tighter padding, smaller
+             type, smaller stars, and the badge's text label is hidden. That
+             brings the row to roughly 275px, which fits a 360px phone.
+
+             nowrap below sm so neither can drop; flex-wrap returns at sm
+             where there is room. shrink-0 on both stops flex squashing the
+             button instead of keeping its size. -->
+        <div
+          class="mt-10 flex flex-nowrap items-center gap-3 anim-fade-up sm:flex-wrap sm:gap-4"
+          data-anim-delay="200"
+        >
           <a
             href="#next-step"
-            class="inline-block bg-brand text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-dark transition-colors"
+            class="inline-block shrink-0 bg-brand text-white text-sm sm:text-base font-semibold px-5 py-3 sm:px-7 sm:py-3.5 rounded-lg hover:bg-brand-dark transition-colors"
           >
-            Book a 20-minute walkthrough
+            Book a demo
           </a>
 
           <!-- G2 reviews badge, same markup as the one on /retail/. Two
@@ -285,14 +305,18 @@ const jsonLd = {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Read our reviews on G2, rated four and a half out of five"
-            class="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2 hover:shadow-md transition-shadow"
+            class="inline-flex shrink-0 items-center gap-2 sm:gap-3 bg-white border border-gray-200 rounded-lg px-3 sm:px-4 py-2 hover:shadow-md transition-shadow"
           >
             <div class="flex items-center gap-0.5" aria-hidden="true">
-              <span class="text-[#FF492C] text-xl">&#9733;&#9733;&#9733;&#9733;</span><span
-                class="text-[#FF492C] text-xl opacity-50">&#9733;</span
+              <span class="text-[#FF492C] text-base sm:text-xl">&#9733;&#9733;&#9733;&#9733;</span><span
+                class="text-[#FF492C] text-base sm:text-xl opacity-50">&#9733;</span
               >
             </div>
-            <span class="text-sm font-medium text-gray-700">Read our reviews on</span>
+            <!-- Hidden below sm so the row fits a phone on one line. Nothing
+                 is lost to a screen reader: the link's aria-label already
+                 reads "Read our reviews on G2, rated four and a half out of
+                 five". -->
+            <span class="hidden sm:inline text-sm font-medium text-gray-700">Read our reviews on</span>
             <svg
               width="32"
               height="32"
@@ -300,6 +324,7 @@ const jsonLd = {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
+              class="h-7 w-7 sm:h-8 sm:w-8"
             >
               <rect width="40" height="40" rx="8" fill="#FF492C"></rect>
               <text x="12" y="28" fill="white" font-size="22" font-weight="bold" font-family="Arial, sans-serif">G</text>
@@ -560,49 +585,52 @@ const jsonLd = {
           ))
         }
       </div>
-    </div>
-  </section>
 
-  <!-- S06 — Clients. IMG 03 in the mock: a greyscale logo strip. Rendered as a
-       CSS-only marquee, the list drawn twice so the track slides exactly -50%
-       and the loop has no seam. No library, no JavaScript. The duplicate set
-       is aria-hidden so a screen reader hears each client once. -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-bold tracking-[0.14em] uppercase text-brand anim-fade-up">Clients</p>
-      <h2 class="mt-4 text-3xl md:text-4xl font-bold text-navy anim-fade-up" data-anim-delay="50">
-        Brands served by GRG India
-      </h2>
-      <div
-        class="logo-marquee mt-10 anim-fade-up"
-        data-anim-delay="150"
-        role="group"
-        aria-label="Brands running channel loyalty programs on My Incentives"
-      >
-        <div class="logo-track">
-          {
-            [0, 1].map((copy) => (
-              <ul
-                class="flex shrink-0 items-center gap-12 pr-12 pl-12"
-                aria-hidden={copy === 1 ? 'true' : undefined}
-              >
-                {clientLogos.map((logo) => (
-                  <li class="shrink-0">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src={logo.src}
-                      alt={copy === 0 ? logo.alt : ''}
-                      width={logo.width}
-                      height={logo.height}
-                      class="h-10 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
-                      style={logo.blend ? 'mix-blend-mode:multiply' : undefined}
-                    />
-                  </li>
-                ))}
-              </ul>
-            ))
-          }
+      <!-- Clients, formerly its own section (S06). Merged in here because
+           both blocks answer the same question, which is whether these
+           programs actually run and who for. The logo strip is subordinate to
+           the Results heading now rather than competing with it, so the H2 it
+           carried is an H3 and its eyebrow is gone.
+
+           IMG 03 in the mock: a greyscale logo strip, rendered as a CSS-only
+           marquee with the list drawn twice so the track slides exactly -50%
+           and the loop has no seam. No library, no JavaScript. The duplicate
+           set is aria-hidden so a screen reader hears each client once. -->
+      <div class="mt-12 border-t border-gray-200 pt-10">
+        <h3 class="text-sm font-bold text-navy anim-fade-up" data-anim-delay="300">
+          Brands served by GRG India
+        </h3>
+        <div
+          class="logo-marquee mt-8 anim-fade-up"
+          data-anim-delay="350"
+          role="group"
+          aria-label="Brands running channel loyalty programs on My Incentives"
+        >
+          <div class="logo-track">
+            {
+              [0, 1].map((copy) => (
+                <ul
+                  class="flex shrink-0 items-center gap-12 pr-12 pl-12"
+                  aria-hidden={copy === 1 ? 'true' : undefined}
+                >
+                  {clientLogos.map((logo) => (
+                    <li class="shrink-0">
+                      <img
+                        loading="lazy"
+                        decoding="async"
+                        src={logo.src}
+                        alt={copy === 0 ? logo.alt : ''}
+                        width={logo.width}
+                        height={logo.height}
+                        class="h-10 w-auto object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                        style={logo.blend ? 'mix-blend-mode:multiply' : undefined}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -623,10 +651,9 @@ const jsonLd = {
             Tell us the channel and the number of partners. We will show how the program would be set
             up for it.
           </p>
+          <!-- A line describing the length and format of the call sat here
+               and was removed along with the rest of that wording. -->
           <p class="mt-4 text-sm text-gray-500 anim-fade-up" data-anim-delay="150">
-            The call takes twenty minutes and includes a screen share.
-          </p>
-          <p class="mt-2 text-sm text-gray-500 anim-fade-up" data-anim-delay="200">
             Or write to <a href="mailto:contactus@grgindia.in" class="text-brand hover:underline"
               >contactus@grgindia.in</a
             >
@@ -726,12 +753,33 @@ const jsonLd = {
               </select>
             </div>
 
+            <!-- Optional message. The submit handler already posted a
+                 `message` field to /api/contact carrying a fixed string, so
+                 this replaces that string with whatever is typed and falls
+                 back to it when the box is left empty. No API change needed.
+
+                 Not required: every extra required field costs leads, and
+                 nothing here is needed to qualify an enquiry. -->
+            <div>
+              <label for="channel-message" class="block text-sm font-medium text-gray-700 mb-1">
+                Message <span class="font-normal text-gray-400">(optional)</span>
+              </label>
+              <textarea
+                id="channel-message"
+                name="message"
+                rows="3"
+                maxlength="1000"
+                placeholder="Tell us about your channel, or anything you would like covered on the call."
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors resize-y"
+              ></textarea>
+            </div>
+
             <button
               type="submit"
               id="channel-submit"
               class="w-full bg-brand text-white font-semibold py-3 rounded-lg hover:bg-brand-dark transition-colors"
             >
-              Book a 20-minute walkthrough
+              Schedule a demo
             </button>
             <p id="channel-status" class="hidden text-sm text-center mt-2"></p>
           </form>
@@ -755,7 +803,41 @@ const jsonLd = {
         What a channel loyalty program is, how it is run and how partners are paid.
       </p>
 
-      <div id="channel-faq" class="mt-12 border-t border-gray-200 anim-fade-up" data-anim-delay="150">
+      <!-- Master toggle. The whole FAQ block stays shut until the visitor
+           asks for it, so the section costs a heading and one button rather
+           than eleven open questions.
+
+           Every answer is still in the DOM on load and only hidden with CSS,
+           so the FAQPage structured data and the text a crawler reads are
+           unaffected by the toggle.
+
+           It is a real <button> with aria-expanded and aria-controls, so it
+           is reachable by keyboard and announces its state. The count comes
+           from faqs.length, so it cannot drift from the number of questions
+           actually rendered. -->
+      <button
+        type="button"
+        id="faq-section-trigger"
+        aria-controls="faq-section-panel"
+        aria-expanded="false"
+        class="faq-section-toggle mt-8 inline-flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-semibold text-navy transition-colors hover:border-gray-400 hover:bg-gray-50 anim-fade-up"
+        data-anim-delay="150"
+      >
+        <span class="faq-section-label">View all {faqs.length} questions</span>
+        <svg
+          class="faq-section-icon h-4 w-4 shrink-0 text-brand transition-transform duration-200"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div id="faq-section-panel" class="faq-section-panel" data-open="false">
+      <div id="channel-faq" class="mt-8 border-t border-gray-200">
         {
           faqs.map((f, i) => (
             <div class="border-b border-gray-200">
@@ -812,10 +894,86 @@ const jsonLd = {
           ))
         }
       </div>
+      </div>
     </div>
   </section>
 
+  <!-- Floating call to action, phones and desktop. The page runs long and has
+       one button in the hero with the form near the foot, so without this a
+       visitor convinced halfway down has to scroll to act.
+
+       Last in the document on purpose: a fixed element placed early is the
+       first thing a keyboard user tabs into, which is intrusive on a page
+       they have not read yet.
+
+       It hides itself while the form is on screen. A floating "Book a demo"
+       pointing at a form you are already looking at is noise, and worse, it
+       covers the last field. -->
+  <a
+    id="floating-cta"
+    href="#next-step"
+    class="fixed right-4 z-40 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-brand-dark sm:right-6 sm:py-2.5"
+  >
+    Book a demo
+    <span aria-hidden="true">&#8595;</span>
+  </a>
+
   <style>
+    /* env(safe-area-inset-bottom) keeps the button clear of the iPhone home
+       indicator, where a control flush to the bottom edge is hard to hit and
+       can sit under the system gesture bar. */
+    #floating-cta {
+      bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+    @media (min-width: 640px) {
+      #floating-cta {
+        bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+      }
+    }
+    /* Hidden while the form is in view. pointer-events none so it cannot be
+       clicked during the fade, and translate keeps it out of the way. */
+    #floating-cta[data-hidden='true'] {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0.75rem);
+      pointer-events: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #floating-cta {
+        transition: none;
+      }
+    }
+
+    /* The master panel wrapping the whole FAQ list. Same grid-rows technique
+       as the individual answers, so it opens to its natural height with no
+       hard-coded max-height to outgrow. */
+    .faq-section-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows 0.3s ease, visibility 0.3s;
+    }
+    .faq-section-panel[data-open='true'] {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+    /* min-height: 0 lets the inner track actually collapse; without it the
+       child's content height wins and the panel never closes. overflow
+       hidden stops a half-collapsed answer spilling out mid-transition. */
+    .faq-section-panel > #channel-faq {
+      overflow: hidden;
+      min-height: 0;
+    }
+    .faq-section-toggle[aria-expanded='true'] .faq-section-icon {
+      transform: rotate(180deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-section-panel,
+      .faq-section-icon {
+        transition: none;
+      }
+    }
+
     /* Height animation via grid-template-rows so the panel can transition from
        nothing to its natural height without hard-coding a max-height.
        visibility keeps collapsed answers out of the accessibility tree. */
@@ -892,6 +1050,50 @@ const jsonLd = {
   </style>
 
   <script>
+    // Floating CTA: hide it while the form section is on screen, show it
+    // otherwise. Degrades safely, with no JavaScript the button simply stays
+    // visible, which is the correct fallback rather than the opposite.
+    (() => {
+      const cta = document.getElementById('floating-cta');
+      const form = document.getElementById('next-step');
+      if (!cta || !form) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            cta.setAttribute('data-hidden', String(e.isIntersecting));
+          });
+        },
+        // A sliver of the form counts as in view, because by the time it is
+        // partly on screen the button is already redundant.
+        { threshold: 0.12 }
+      );
+      observer.observe(form);
+    })();
+  </script>
+
+  <script>
+    // Master toggle for the whole FAQ block. Separate from the per-question
+    // accordion below so the two cannot interfere: this one only opens and
+    // closes the outer panel, and the label swaps between "View all N
+    // questions" and "Hide questions".
+    (() => {
+      const btn = document.getElementById('faq-section-trigger');
+      const panel = document.getElementById('faq-section-panel');
+      const label = btn?.querySelector('.faq-section-label');
+      if (!btn || !panel || !label) return;
+
+      const openText = label.textContent || '';
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') !== 'true';
+        btn.setAttribute('aria-expanded', String(open));
+        panel.setAttribute('data-open', String(open));
+        label.textContent = open ? 'Hide questions' : openText;
+      });
+    })();
+  </script>
+
+  <script>
     (() => {
       const root = document.getElementById('channel-faq');
       if (!root) return;
@@ -927,7 +1129,10 @@ const jsonLd = {
     const form = document.getElementById('channel-form') as HTMLFormElement | null;
     const btn = document.getElementById('channel-submit') as HTMLButtonElement | null;
     const status = document.getElementById('channel-status');
-    const LABEL = 'Book a 20-minute walkthrough';
+    // Must match the submit button's own text. It is restored after a failed
+    // submit, so a mismatch would silently relabel the button in front of the
+    // visitor.
+    const LABEL = 'Schedule a demo';
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -959,7 +1164,9 @@ const jsonLd = {
             phone: '+91 ' + rawPhone,
             company: data.company,
             teamSize: data['partner-count'],
-            message: 'Channel loyalty program enquiry.',
+            // What the visitor typed, or the previous fixed string when the
+            // optional box is left empty, so the field is never sent blank.
+            message: (data.message || '').trim() || 'Channel loyalty program enquiry.',
             website: data.website || '',
             formSource: 'channel-landing',
           }),
